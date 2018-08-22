@@ -9,33 +9,30 @@ const Home = () => (
     <Nav />
 
     <div className="hero">
-      <h1 className="title">Welcome to Next!</h1>
+      <h1 className="title">Teacher Fund</h1>
       <p className="description">
-        To get started, edit <code>pages/index.js</code> and save to reload.
+        Supplemental funding for the public school education system via structured avenues
       </p>
 
-      <div className="row">
-        <Link href="https://github.com/zeit/next.js#getting-started">
-          <a className="card">
-            <h3>Getting Started &rarr;</h3>
-            <p>Learn more about Next on Github and in their examples</p>
-          </a>
-        </Link>
-        <Link href="https://open.segment.com/create-next-app">
-          <a className="card">
-            <h3>Examples &rarr;</h3>
-            <p>
-              Find other example boilerplates on the{' '}
-              <code>create-next-app</code> site
-            </p>
-          </a>
-        </Link>
-        <Link href="https://github.com/segmentio/create-next-app">
-          <a className="card">
-            <h3>Create Next App &rarr;</h3>
-            <p>Was this tool helpful? Let us know how we can improve it</p>
-          </a>
-        </Link>
+      <div className="whitepaper">
+        In School District 271 (future reference SD271) teachers have come to rely more and more on personal 
+        finances to fund their classroom. The current Idaho teacher salary is $42,000, an embarrassingly low 
+        amount considering the impact teachers have on students, the most optimistic promise for the future. 
+        TeacherFund hopes to supplement teacher federal funding by providing school supplies, for free, to 
+        teachers across SD271. Teachers need just select the products they need, put in a valid school address, 
+        and the products will be shipped to them. No questions asked. 
+        <br /><br />
+        TeacherFund is a 501c3 nonprofit corporation, so all donations are tax deductible. additionally, 
+        you will be directly helping sow the seeds of education for kids across SD271, and with the hope 
+        of eventually providing supplemental funding across the country. 
+        We recommend a monthly donation of ~$20, or whatever your economic status can sustain.
+        Excess funding will be pooled together to support after school programs, overseen by our team at 
+        TeacherFund directly as to ensure accurate and efficient use of funds. Blog posts of progress will be posted. 
+
+        Lastly, I plea to the public to provide these resources. Many of us, who are now successful, were 
+        fortunate enough to grow up in a supporting home that supplemented our public school education. 
+        I hope we have the foresight to pay it forward for the next generation of kids, kids we hope to 
+        provide enough resources so they can solve the next generation of social and scientific challenges. 
       </div>
     </div>
 
@@ -55,34 +52,10 @@ const Home = () => (
       .description {
         text-align: center;
       }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
+      .whitepaper {
         flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
+        text-align: center;
+        margin: 60px;
       }
     `}</style>
   </div>

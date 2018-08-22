@@ -2,7 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 
 const links = [
-  { href: 'https://github.com/segmentio/create-next-app', label: 'Github' }
+  { href: '/donate', label: 'Donate' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact Us' }
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`
   return link
