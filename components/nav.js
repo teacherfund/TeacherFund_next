@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import Drawer from '@material-ui/core/Drawer'
+import HamburgerIcon from './icons/hamburger'
 
 const links = [
   { href: '/donate', label: 'Donate' },
