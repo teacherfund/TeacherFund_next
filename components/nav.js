@@ -1,11 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
-import Drawer from '@material-ui/core/Drawer'
-import HamburgerIcon from './icons/hamburger'
 
 const links = [
   { href: '/donate', label: 'Donate' },
-  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact Us' }
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`
