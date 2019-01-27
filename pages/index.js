@@ -2,6 +2,7 @@ import React from 'react'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import Subsection from '../components/subsection'
+import EmailCapture from '../components/emailCapture'
 
 const Home = () => (
   <div>
