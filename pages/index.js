@@ -1,22 +1,19 @@
 import React from 'react'
 import Head from '../components/head'
 import Nav from '../components/nav'
+import Subsection from '../components/subsection'
 
 const Home = () => (
   <div>
     <Head title="Home" />
     <Nav />
-
-    <h1 className="title">Teacher Fund</h1>
     <div className="body">
-      <p className="description">
-        Supplemental funding for the public school education system via structured avenues. With a mission 
-        to support teachers in a way that encourages great teachers to stay, and potentially great 
-        teachers to choose teaching as a career path.
-      </p>
-      <div className="whitepaper">
-        To be continued...
-      </div>
+      <Subsection 
+        titleText="100% of your money brings school supplies to teachers and students in need."
+        descriptionText="You can help aleviate economic pressure on public school teachers across
+          the country. Every penny will help bring school supplies to schools in need."
+        buttonText="Give monthly"
+      />
     </div>
 
     <style jsx>{`
