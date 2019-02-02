@@ -20,14 +20,16 @@ const SubsectionBasic = (props) => (
 
     <style jsx>{`
       .subsection {
-        width: 100%; 
-        margin: 10%
+        width: 100%;
+        margin-top: 0;
       }
       .subsection > div {
         color: white;
       }
       .backgroundImage {
         width: 100%;
+        position: absolute;
+        z-index: -1;
       }
       .button {
         padding: 10px 10px;
@@ -38,12 +40,13 @@ const SubsectionBasic = (props) => (
         background-color: #F6B333
       }
 
-      @media only screen and (min-width: 600px) { 
+      @media only screen and (min-width: 800px) { 
         .subsectionText {
           width: 400px;
+          padding: 15% 12%;
         }
         .subsection {
-          margin: 20% 80px;
+          
         }
       }
     `}</style>

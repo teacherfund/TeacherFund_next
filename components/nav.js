@@ -21,24 +21,27 @@ const buttons = [
 
 const Nav = () => (
   <div className="nav">
-    <div className="navItems">
-      {links.map(({ key, href, label }) => (
-        <div key={key}>
-          <Link href={href}>
-            <a>{label.toUpperCase()}</a>
-          </Link>
-        </div>
-      ))}
+    <div className="navBarSection">   
+      <div className="navItems">
+        {links.map(({ key, href, label }) => (
+          <div key={key}>
+            <Link href={href}>
+              <a>{label.toUpperCase()}</a>
+            </Link>
+          </div>
+        ))}
+      </div>
+      <div className="navButtons">
+        {buttons.map(({ key, href, label }) => (
+          <div key={key}>
+            <Link href={href}>
+              <a>{label.toUpperCase()}</a>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
-    <div className="navButtons">
-      {buttons.map(({ key, href, label }) => (
-        <div key={key}>
-          <Link href={href}>
-            <a>{label.toUpperCase()}</a>
-          </Link>
-        </div>
-      ))}
-    </div>
+
 
     <style jsx>{`
       :global(body) {
@@ -47,19 +50,26 @@ const Nav = () => (
         font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
           Helvetica, sans-serif;
       }
-
-      .nav {
+      .navItems {
         display: none;
       }
 
-      @media only screen and (min-width: 600px) {
-        .nav {
-          background-color: transparent;
-          margin: 10px 40px;
+      @media only screen and (min-width: 800px) {
+        .navBarSection {
+          position: relative;
+          max-width: 1000px;
+          margin-right: auto;
+          margin-left: auto;
           display: flex;
           flex-direction: row;
+          background-color: transparent;
         }
-        .nav > div, .nav > div > div {
+        .nav {
+          padding: 10px 0;
+          position: absolute;
+          width: 100%;
+        }
+        .navBarSection > div, .navBarSection > div > div {
           padding: 5px 10px;
           margin: 0 4px;
         }

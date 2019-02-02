@@ -20,6 +20,7 @@ const Home = () => (
         descriptionText="You can help aleviate economic pressure on public school teachers across
           the country. Every penny will help bring school supplies to schools in need."
         buttonText="Give monthly"
+        image='../static/images/apple-blur-book-stack.jpg'
         destination="donate"
       />
       <EmailCapture />
@@ -36,7 +37,6 @@ const Home = () => (
     <style jsx>{`
       .body {
         color: #333;
-        margin: 10%
       }
     `}</style>
   </div>
