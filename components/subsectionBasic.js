@@ -1,6 +1,7 @@
 import React from 'react'
+import Link from 'next/link'
 
-const Subsection = (props) => (
+const SubsectionBasic = (props) => (
   <div className="subsection">
     <img src={props.image} className="backgroundImage"/>
     <div className="subsectionText">
@@ -10,14 +11,17 @@ const Subsection = (props) => (
       <div className="descriptionText">
         {props.descriptionText}
       </div>
-      <div className="button">
-        <label>{props.buttonText.toUpperCase()}</label>
+      <div className="button" onClick={props.actionHandler}>
+        <Link href={props.destination}>
+          <label>{props.buttonText.toUpperCase()}</label>
+        </Link>
       </div>
     </div>
 
     <style jsx>{`
       .subsection {
         width: 100%; 
+        margin: 10%
       }
       .subsection > div {
         color: white;
@@ -39,11 +43,11 @@ const Subsection = (props) => (
           width: 400px;
         }
         .subsection {
-          margin: 80px 80px;
+          margin: 20% 80px;
         }
       }
     `}</style>
   </div>
 )
 
-export default Subsection
+export default SubsectionBasic

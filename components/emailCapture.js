@@ -2,28 +2,46 @@ import React from 'react'
 
 const EmailCapture = (props) => (
   <div className="emailCapture">
-    <div className="firstNameCapture captureInput">
-
+    <div className="captureInput">
+      <input placeholder="First name" />
     </div>
-    <div className="lastNameCapture captureInput">
-
+    <div className="captureInput">
+      <input placeholder="Last name" />
     </div>
-    <div className="emailCapture captureInput">
-
+    <div className="captureInput">
+      <input placeholder="Email" />
     </div>
-    <div className="button">
-
+    <div className="captureButton">
+      <label>{'Sign up'.toUpperCase()}</label>
     </div>
     <style jsx>{`
       .emailCapture {
         display: flex;
         flex-direction: row;
+        margin: 20% 80px;
       }
       .captureInput {
-        width: 100px;
+        flex: 1;
+        margin-right: 11px;
+      }
+      .captureButton {
+        margin: 0 10px;
+        padding: 10px 10px;
+        border-radius: 4px;
+        color: white;
+        display: inline-flex;
+        background-color: #F6B333
+      }
+      .captureInput > input {
+        text-decoration: none;
+        width: 100%;
+        font-size: 16px;
+        border-radius: 4px;
+        padding: 10px 10px;
+        border: 1px solid #95A4A6;
       }
       .firstNameCapture {
-        
+
       }
       .lastNameCapture {
 
