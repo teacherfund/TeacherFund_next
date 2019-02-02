@@ -1,7 +1,7 @@
 import React from 'react'
 
 const EmailCapture = (props) => (
-  <div className="emailCapture">
+  <div className="emailCaptureContent">
     <div className="captureInput">
       <input placeholder="First name" />
     </div>
@@ -15,30 +15,36 @@ const EmailCapture = (props) => (
       <label>{'Sign up'.toUpperCase()}</label>
     </div>
     <style jsx>{`
-      .emailCapture {
+      .emailCaptureContent {
         display: flex;
         flex-direction: row;
-        margin: 20% 80px;
+        max-width: 900px;
+        margin-right: auto;
+        margin-left: auto;
+        border-radius: 5px;
       }
       .captureInput {
-        flex: 1;
-        margin-right: 11px;
+        display: flex;
+        flex-grow: 1;
       }
       .captureButton {
-        margin: 0 10px;
+        margin:0;
         padding: 10px 10px;
-        border-radius: 4px;
         color: white;
         display: inline-flex;
-        background-color: #F6B333
+        background-color: #F6B333;
       }
       .captureInput > input {
+        display: flex;
+        flex-grow: 1;
         text-decoration: none;
-        width: 100%;
         font-size: 16px;
-        border-radius: 4px;
-        padding: 10px 10px;
-        border: 1px solid #95A4A6;
+        padding: 10px 0 10px 10px;
+        border: 0;
+        border-right: 1px solid #95A4A6;
+      }
+      input {
+        
       }
       .firstNameCapture {
 

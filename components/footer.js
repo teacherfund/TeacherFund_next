@@ -32,8 +32,9 @@ const Footer = (props) => (
     <style jsx>{`
       .footer {
         width: 100%; 
-        margin: 10%;
+        padding: 10%;
         height: 200px; 
+        background-color: #434343;
       }
       .footer > div {
         color: white;

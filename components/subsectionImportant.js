@@ -8,22 +8,25 @@ const SubsectionImportant = (props) => (
       <h2 className="titleText">
         {props.titleText}
       </h2>
-    </div>
-    <div className="descriptionText">
-      {props.descriptionText}
+      <div className="descriptionText">
+        {props.descriptionText}
+      </div>
     </div>
 
     <style jsx>{`
       .subsectionImportant {
-        width: 80%; 
-        padding: 10%;
+        width: 100%; 
+        overflow: hidden;
       }
       .subsectionImportant > div {
         color: white;
         text-align: center;
+        padding: 10% 20% 30% 20%;
       }
       .backgroundImage {
         width: 100%;
+        position: absolute;
+        z-index: -1;
       }
       .titleText {
         width: 100%;
@@ -37,10 +40,8 @@ const SubsectionImportant = (props) => (
         background-color: #F6B333
       }
 
-      @media only screen and (min-width: 600px) { 
-        .subsection {
-          margin: 20% 80px;
-        }
+      @media only screen and (min-width: 800px) { 
+        
       }
     `}</style>
   </div>

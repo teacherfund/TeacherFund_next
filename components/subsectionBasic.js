@@ -22,6 +22,7 @@ const SubsectionBasic = (props) => (
       .subsection {
         width: 100%;
         margin-top: 0;
+        overflow: hidden;
       }
       .subsection > div {
         color: white;
