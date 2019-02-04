@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 const SubsectionBasic = (props) => (
   <div className="subsection">
-    <img src={props.image} className="backgroundImage"/>
     <div className="subsectionText">
       <h2 className="titleText">
         {props.titleText}
@@ -17,6 +16,7 @@ const SubsectionBasic = (props) => (
         </Link>
       </div>
     </div>
+    <img src={props.image} className="backgroundImage"/>
 
     <style jsx>{`
       .subsection {
@@ -26,19 +26,11 @@ const SubsectionBasic = (props) => (
       }
       .subsection > div {
         color: white;
+        background-color: #434343;
       }
       .backgroundImage {
         width: 100%;
-        position: absolute;
         z-index: -1;
-      }
-      .button {
-        padding: 10px 10px;
-        margin: 30px 0;
-        border-radius: 4px;
-        width: auto;
-        display: inline-flex;
-        background-color: #F6B333
       }
       .subsectionText {
         padding: 80px 5%;
@@ -49,6 +41,9 @@ const SubsectionBasic = (props) => (
         .subsectionText {
           width: 400px;
           padding: 15% 12%;
+        }
+        .backgroundImage {
+          position: absolute;
         }
       }
     `}</style>

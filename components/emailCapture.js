@@ -43,15 +43,7 @@ const EmailCapture = (props) => (
         border: 0;
         border-right: 1px solid #95A4A6;
       }
-      input {
-        
-      }
-      .firstNameCapture {
 
-      }
-      .lastNameCapture {
-
-      }
       @media only screen and (min-width: 600px) { 
         .emailCaptureContent {
           display: flex;

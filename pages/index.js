@@ -50,6 +50,10 @@ const Home = () => (
         background-color: #434343;
         padding: 100px 0;
       }
+
+      @media only screen and (min-width: 600px) { 
+
+      }
     `}</style>
   </div>
 )
