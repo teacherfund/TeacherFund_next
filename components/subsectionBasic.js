@@ -40,14 +40,15 @@ const SubsectionBasic = (props) => (
         display: inline-flex;
         background-color: #F6B333
       }
+      .subsectionText {
+        padding: 80px 5%;
+        text-align: center;
+      }
 
       @media only screen and (min-width: 800px) { 
         .subsectionText {
           width: 400px;
           padding: 15% 12%;
-        }
-        .subsection {
-          
         }
       }
     `}</style>

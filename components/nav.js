@@ -53,46 +53,47 @@ const Nav = () => (
       .navItems {
         display: none;
       }
+      .navButtons {
+        display: flex;
+        flex-direction: row;
+      }
+      .navButtons > div {
+        border: 1px solid white;
+        border-radius: 4px;
+      }
+      .navBarSection {
+        position: relative;
+        max-width: 1000px;
+        margin-right: auto;
+        justify-content: flex-end
+        margin-left: auto;
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: transparent;
+      }
+      .nav {
+        padding: 10px 0;
+        position: absolute;
+        width: 100%;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 13px;
+      }
+      .navBarSection > div, .navBarSection > div > div {
+        padding: 5px 10px;
+        margin: 0 4px;
+      }
 
       @media only screen and (min-width: 800px) {
-        .navBarSection {
-          position: relative;
-          max-width: 1000px;
-          margin-right: auto;
-          margin-left: auto;
-          display: flex;
-          flex-direction: row;
-          background-color: transparent;
-        }
-        .nav {
-          padding: 10px 0;
-          position: absolute;
-          width: 100%;
-        }
-        .navBarSection > div, .navBarSection > div > div {
-          padding: 5px 10px;
-          margin: 0 4px;
-        }
-        .homeNav {
-          display: flex; 
-        }
         .navItems {
           flex-grow: 1;
           flex-direction: row;
           display: flex;
         }
-        .navButtons {
-          display: flex;
+        .navBarSection {
           flex-direction: row;
-        }
-        .navButtons > div {
-          border: 1px solid white;
-          border-radius: 4px;
-        }
-        a {
-          color: white;
-          text-decoration: none;
-          font-size: 13px;
         }
       }
     `}</style>

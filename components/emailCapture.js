@@ -17,10 +17,9 @@ const EmailCapture = (props) => (
     <style jsx>{`
       .emailCaptureContent {
         display: flex;
-        flex-direction: row;
-        max-width: 900px;
-        margin-right: auto;
-        margin-left: auto;
+        flex-direction: column;
+        margin-right: 4%;
+        margin-left: 4%;
         border-radius: 5px;
       }
       .captureInput {
@@ -31,6 +30,7 @@ const EmailCapture = (props) => (
         margin:0;
         padding: 10px 10px;
         color: white;
+        justify-content: center;
         display: inline-flex;
         background-color: #F6B333;
       }
@@ -53,7 +53,17 @@ const EmailCapture = (props) => (
 
       }
       @media only screen and (min-width: 600px) { 
-
+        .emailCaptureContent {
+          display: flex;
+          flex-direction: row;
+          max-width: 900px;
+          margin-right: auto;
+          margin-left: auto;
+          border-radius: 5px;
+        }
+        .captureButton {
+          justify-content: left;
+        }
       }
     `}</style>
   </div>
