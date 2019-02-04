@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import X from './icons/x'
+import Hamburger from './icons/hamburger'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -14,6 +15,7 @@ const links = [
 
 const buttons = [
   { href: '/donate', label: 'Donate' },
+  { href: '/imateacher', label: 'I\'m a teacher' },
 ].map(butt => {
   butt.key = `nav-link-${butt.href}-${butt.label}`
   return butt
@@ -39,6 +41,9 @@ const Nav = () => (
             </Link>
           </div>
         ))}
+      </div>
+      <div className="hamburgerContainer">
+        <Hamburger className="hamburger" />
       </div>
       <img src="/static/images/Logo.png" className="imageLogo"/> 
       <div className="drawer">
@@ -68,12 +73,7 @@ const Nav = () => (
         display: none;
       }
       .navButtons {
-        display: flex;
-        flex-direction: row;
-      }
-      .navButtons > div {
-        border: 1px solid white;
-        border-radius: 4px;
+        display: none;
       }
       .navBarSection {
         position: relative;
@@ -106,6 +106,10 @@ const Nav = () => (
       a {
         color: black;
       }
+      .hamburgerContainer {
+        float: right;
+        margin-top: 10px;
+      }
 
       @media only screen and (min-width: 800px) {
         .navItems {
@@ -113,9 +117,24 @@ const Nav = () => (
           flex-direction: row;
           display: flex;
         }
+        .nav {
+          background-color: transparent;
+        }
         .navBarSection > div, .navBarSection > div > div {
-          padding: 10px 10px 0px 10px;
+          padding: 10px 10px 10px 10px;
           margin: 0 4px;
+          color: white;
+        }
+        a {
+          color: white;
+        }
+        .navButtons {
+          display: flex;
+          flex-direction: row;
+        }
+        .navButtons > div {
+          border: 1px solid white;
+          border-radius: 4px;
         }
         .navBarSection {
           flex-direction: row;
@@ -125,6 +144,9 @@ const Nav = () => (
         }
         .imageLogo {
           display: none;
+        }
+        .hamburgerContainer {
+          display: none
         }
       }
     `}</style>
