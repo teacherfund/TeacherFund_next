@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import SubsectionBasic from '../components/subsectionBasic'
@@ -58,4 +59,4 @@ const Home = () => (
   </div>
 )
 
-export default Home
+export default connect()(Home)

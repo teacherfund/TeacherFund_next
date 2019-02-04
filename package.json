@@ -10,7 +10,14 @@
     "next": "^7.0.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-motion-drawer": "^3.1.0",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-stripe-elements": "^2.0.1"
+    "react-stripe-elements": "^2.0.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.8"
   }
 }

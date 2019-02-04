@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
+import {connect} from 'react-redux'
 import X from './icons/x'
 import Hamburger from './icons/hamburger'
+import Drawer from 'react-motion-drawer';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -20,6 +22,10 @@ const buttons = [
   butt.key = `nav-link-${butt.href}-${butt.label}`
   return butt
 })
+
+const toggleDrawer = () => {
+
+}
 
 const Nav = () => (
   <div className="nav">
@@ -46,7 +52,7 @@ const Nav = () => (
         <Hamburger className="hamburger" />
       </div>
       <img src="/static/images/Logo.png" className="imageLogo"/> 
-      <div className="drawer">
+      <Drawer open={false} onChange={toggleDrawer}>
         <div className="drawer-IconsNav">
           <bag className="icon bag" width="22" height="27" />
           <div className="quantity-in-bag"></div>
@@ -64,7 +70,7 @@ const Nav = () => (
             <p className="checkout-button-drawer__text"><b>CHECKOUT</b></p>
           </div>
         </div>
-      </div>
+      </Drawer>
     </div>
 
 
@@ -153,4 +159,4 @@ const Nav = () => (
   </div>
 )
 
-export default Nav
+export default connect()(Nav)
