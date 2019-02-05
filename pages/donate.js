@@ -1,8 +1,9 @@
 import Nav from '../components/nav'
 import DonateForm from '../components/donateform'
 import Head from 'next/head'
-import {Elements, StripeProvider} from 'react-stripe-elements'
+import { Elements, StripeProvider } from 'react-stripe-elements'
 import { Component } from 'react'
+import '../static/styles/main.scss'
 
 class Donate extends Component {
   render() {
@@ -26,12 +27,6 @@ class Donate extends Component {
             </div>
           }
         </div>
-        <style jsx>{`
-          .title {
-            text-align: center;
-            margin: auto;
-          }
-        `}</style>
       </div>
     )
   }

@@ -1,4 +1,5 @@
 import Nav from '../components/nav'
+import '../static/styles/main.scss'
 
 const Ourwork = () => (
   <div>
@@ -10,12 +11,6 @@ const Ourwork = () => (
 
       </div> 
     </div>
-    <style jsx>{`
-      .title,
-      .description {
-        text-align: center;
-      }
-    `}</style>
   </div>
 )
 

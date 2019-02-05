@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 import {CardElement, injectStripe} from 'react-stripe-elements'
+import '../static/styles/main.scss'
+
 const ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://teacherfund.herokuapp.com' : 'http://localhost:9000'
 
 class DonateForm extends Component {
@@ -62,38 +64,9 @@ class DonateForm extends Component {
           <CardElement />
         </div>
         { loading && <h2>Loading...</h2>}
-        <button className="donate__button" onClick={this.donate}>Donate</button>
-        <style jsx>{`
-          /**
-           * The CSS shown here will not be introduced in the Quickstart guide, but shows
-           * how you can use CSS to style your Element's container.
-           */
-          .donate__form {
-            background-color: white;
-            height: auto;
-            font-size: 14px;
-            width: 400px;
-            margin: auto;
-            padding: 10px 12px;
-            border-radius: 4px;
-            border: 1px solid transparent;
-            box-shadow: 0 1px 3px 0 #8d9197;
-            -webkit-transition: box-shadow 150ms ease;
-            transition: box-shadow 150ms ease;
-          }
-          
-          .donate__form--focus {
-            box-shadow: 0 1px 3px 0 #cfd7df;
-          }
-          
-          .donate__form--invalid {
-            border-color: #fa755a;
-          }
-          
-          .donate__form--webkit-autofill {
-            background-color: #fefde5 !important;
-          }
-        `}</style>
+        <button className="donate__button" onClick={this.donate}>
+          Donate
+        </button>
       </div>
     )
   }

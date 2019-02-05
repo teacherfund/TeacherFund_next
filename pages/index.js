@@ -1,18 +1,13 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import SubsectionBasic from '../components/subsectionBasic'
 import SubsectionImportant from '../components/subsectionImportant'
 import EmailCapture from '../components/emailCapture'
 import Footer from '../components/footer'
-import {drawerOpen} from '../store'
+import '../static/styles/main.scss'
 
 const emailTitle = 'Help us change the world.'
-
-const closeDrawerIfOpen = (dispatch) => {
-  dispatch(drawerOpen(false))
-}
 
 const Home = () => (
   <div>
@@ -43,25 +38,7 @@ const Home = () => (
     </div>
 
     <Footer />
-
-    <style jsx>{`
-      .body {
-        color: #333;
-        overflow: hidden;
-      }
-      .emailCapture {
-        width: 100%;
-        color: white;
-        text-align: center;
-        background-color: #434343;
-        padding: 100px 0;
-      }
-
-      @media only screen and (min-width: 600px) { 
-
-      }
-    `}</style>
   </div>
 )
 
-export default connect()(Home)
+export default Home
