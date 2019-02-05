@@ -1,6 +1,7 @@
 import React from 'react'
 import NextHead from 'next/head'
 import { string } from 'prop-types'
+import '../static/styles/main.scss'
 
 const defaultDescription = ''
 const defaultOGURL = ''
@@ -34,31 +35,6 @@ const Head = props => (
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
     </NextHead>
-    <style jsx global>{`
-      :global(body) {
-        margin: 0;
-        background-color: #d9d9d9;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      .button {
-        padding: 10px 10px;
-        margin: 30px 0;
-        border-radius: 4px;
-        width: auto;
-        display: inline-flex;
-        background-color: #F6B333
-      }
-      a {
-        color: white;
-        text-decoration: none;
-        font-size: 13px;
-      }
-
-      @media only screen and (min-width: 600px) { 
-
-      }
-    `}</style>
   </div>
 )
 

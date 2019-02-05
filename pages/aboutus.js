@@ -1,4 +1,5 @@
 import Nav from '../components/nav'
+import '../static/styles/main.scss'
 
 const Contact = () => (
   <div>
@@ -11,12 +12,6 @@ const Contact = () => (
         joel.wasserman8@gmail.com
       </div> 
     </div>
-    <style jsx>{`
-      .title,
-      .description {
-        text-align: center;
-      }
-    `}</style>
   </div>
 )
 

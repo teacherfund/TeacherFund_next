@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import '../static/styles/main.scss'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -28,41 +29,6 @@ const Footer = (props) => (
     <div className="nonprofitInfo">
       {nonprofitInfoText}
     </div>
-
-    <style jsx>{`
-      .footer {
-        padding: 10%;
-        height: 200px; 
-        background-color: #434343;
-      }
-      .footer > div {
-        color: white;
-      }
-      .footerLinks {
-        margin-top: 100px;
-        margin-button: 10px;
-        display: flex;
-        justify-content: center;
-      }
-      .nonprofitInfo {
-        text-align: center;
-        margin: auto;
-      }
-      .footerLinks > div {
-        margin: 20px;
-      }
-      a {
-        color: white;
-        text-decoration: none;
-        font-size: 13px;
-      }
-
-      @media only screen and (min-width: 600px) { 
-        .footer {
-          width: 80%;
-        }
-      }
-    `}</style>
   </div>
 )
 

@@ -1,4 +1,5 @@
 import Nav from '../components/nav'
+import '../static/styles/main.scss'
 
 const Whyteachers = () => (
   <div>
@@ -10,12 +11,6 @@ const Whyteachers = () => (
         
       </div> 
     </div>
-    <style jsx>{`
-      .title,
-      .description {
-        text-align: center;
-      }
-    `}</style>
   </div>
 )
 

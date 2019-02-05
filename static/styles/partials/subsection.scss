@@ -1,0 +1,81 @@
+// important
+.subsectionImportant {
+  width: 100%; 
+  overflow: hidden;
+}
+.subsectionImportant > div {
+  color: white;
+  text-align: center;
+  padding: 80px 5%;
+  background-color: #434343;
+}
+.backgroundImage {
+  display: none;
+}
+.titleText {
+  width: 100%;
+}
+.sectionImage {
+  width: 100%;
+  z-index: -1;
+}
+
+@media only screen and (min-width: 800px) { 
+  .backgroundImage {
+    position: absolute;
+    display: block;
+    width: 100%;
+    z-index: -1;
+  }
+  .subsectionImportant > div {
+    background-color: transparent;
+    height: 400px;
+    padding: 20px 5%;
+  }
+  .sectionImage {
+    display: none;
+  }
+}
+
+// basic
+.subsection {
+  width: 100%;
+  margin-top: 0;
+  overflow: hidden;
+}
+.subsection > div {
+  color: white;
+  background-color: #434343;
+}
+.backgroundImage {
+  width: 100%;
+  z-index: -1;
+}
+.subsectionText {
+  padding: 80px 5% 20px 5%;
+  text-align: center;
+}
+.backgroundImage {
+  display: none;
+}
+.sectionImage {
+  width: 100%;
+  z-index: -1;
+}
+
+@media only screen and (min-width: 800px) { 
+  .subsectionText {
+    width: 400px;
+    padding: 15% 12%;
+  }
+  .subsection > div {
+    background-color: transparent;
+  }
+  .backgroundImage {
+    position: absolute;
+    display: block;
+  }
+  .sectionImage {
+    display: none;
+  }
+}
