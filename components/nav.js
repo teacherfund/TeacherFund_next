@@ -23,56 +23,62 @@ const buttons = [
   return butt
 })
 
-const toggleDrawer = () => {
-  
-}
+class Nav extends React.Component {
 
-const Nav = () => (
-  <div className="nav">
-    <div className="navBarSection">  
-      <div className="navItems">
-        {links.map(({ key, href, label }) => (
-          <div key={key}>
-            <Link href={href}>
-              <a>{label.toUpperCase()}</a>
-            </Link>
+  constructor(props) {
+    super(props);
+    this.state = {drawerOpen: false};
+  }
+
+  toggleDrawer = () => {
+    console.log('toggling')
+    this.setState({ drawerOpen: !this.state.drawerOpen })
+    console.log(this.state.drawerOpen)
+  }
+  
+  render() {
+    return (
+      <div className="nav">
+        <div className="navBarSection">  
+          <div className="navItems">
+            {links.map(({ key, href, label }) => (
+              <div key={key}>
+                <Link href={href}>
+                  <a>{label.toUpperCase()}</a>
+                </Link>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="navButtons">
-        {buttons.map(({ key, href, label }) => (
-          <div key={key}>
-            <Link href={href}>
-              <a>{label.toUpperCase()}</a>
-            </Link>
+          <div className="navButtons">
+            {buttons.map(({ key, href, label }) => (
+              <div key={key}>
+                <Link href={href}>
+                  <a>{label.toUpperCase()}</a>
+                </Link>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="hamburgerContainer">
-        <Hamburger className="hamburger" />
-      </div>
-      <img src="/static/images/Logo.png" className="imageLogo"/> 
-      <Drawer open={false} onChange={toggleDrawer}>
-        <div className="drawer-IconsNav">
-          <bag className="icon bag" width="22" height="27" />
-          <div className="quantity-in-bag"></div>
-          <X className="icon x" width="34" height="32"/>
+          <div className="hamburgerContainer" onClick={this.toggleDrawer}>
+            <Hamburger className="hamburger" />
+          </div>
+          <img src="/static/images/Logo.png" className="imageLogo"/> 
         </div>
-        <div className="navigation">
-          <ul>
-            <li><a onClick="go('shop')">SHOP</a></li>
-            <li><a onClick="go('about')">ABOUT</a></li>
-          </ul>
-        </div><br/>
-        <div className="drawer-footer">
-          <hr/>
-          <div className="checkout-button-drawer" onClick="checkout">
-            <p className="checkout-button-drawer__text"><b>CHECKOUT</b></p>
+        <Drawer open={this.state.drawerOpen} width={250} right={true} className="drawer">
+          <div className="drawerXClose" onClick={this.toggleDrawer}>
+            <X width="34" 
+                height="32"
+            />
           </div>
-        </div>
-      </Drawer>
-    </div>
-  </div>
-)
+          <div className="navigationDrawerLinks">
+            <Link href='/'><a>{'home'.toUpperCase()}</a></Link>
+            <Link href='/about'><a>{'about'.toUpperCase()}</a></Link>
+            <Link href='/whyteachers'><a>{'Why teachers'.toUpperCase()}</a></Link>
+            <Link href='/donate'><a>{'Donate'.toUpperCase()}</a></Link>
+          </div>
+        </Drawer>
+      </div>
+    )
+  }
+}
 
 export default Nav

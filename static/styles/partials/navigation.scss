@@ -15,10 +15,12 @@
   background-color: transparent;
 }
 .nav {
-  padding: 10px 0;
   position: absolute;
   width: 100%;
   background-color: white;
+}
+.nav > div {
+  padding: 10px 0;
 }
 .navBarSection > div, .navBarSection > div > div {
   padding: 10px 10px 0px 10px;
@@ -29,15 +31,27 @@
   height: 50px;
   margin-left: 5px;
 }
-.drawer {
-  display: none;
-}
-a {
-  color: black;
-}
 .hamburgerContainer {
   float: right;
-  margin-top: 10px;
+}
+.drawerXClose {
+  float: right;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+.navigationDrawerLinks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.navigationDrawerLinks > a {
+  color: black;
+  margin-left: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+.drawer {
+  background-color: white;
 }
 
 @media only screen and (min-width: 800px) {
