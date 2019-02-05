@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import X from './icons/x'
 import Hamburger from './icons/hamburger'
 import Drawer from 'react-motion-drawer';
+import {drawerOpen} from '../store'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -24,7 +25,7 @@ const buttons = [
 })
 
 const toggleDrawer = () => {
-
+  
 }
 
 const Nav = () => (

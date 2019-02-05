@@ -6,8 +6,13 @@ import SubsectionBasic from '../components/subsectionBasic'
 import SubsectionImportant from '../components/subsectionImportant'
 import EmailCapture from '../components/emailCapture'
 import Footer from '../components/footer'
+import {drawerOpen} from '../store'
 
 const emailTitle = 'Help us change the world.'
+
+const closeDrawerIfOpen = (dispatch) => {
+  dispatch(drawerOpen(false))
+}
 
 const Home = () => (
   <div>
