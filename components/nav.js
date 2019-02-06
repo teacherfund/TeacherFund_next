@@ -31,9 +31,7 @@ class Nav extends React.Component {
   }
 
   toggleDrawer = () => {
-    console.log('toggling')
     this.setState({ drawerOpen: !this.state.drawerOpen })
-    console.log(this.state.drawerOpen)
   }
   
   render() {
@@ -64,6 +62,7 @@ class Nav extends React.Component {
           <img src="/static/images/Logo.png" className="imageLogo"/> 
         </div>
         <Drawer open={this.state.drawerOpen} width={250} right={true} className="drawer">
+          <img src="/static/images/Logo.png" className="imageLogo"/> 
           <div className="drawerXClose" onClick={this.toggleDrawer}>
             <X width="34" 
                 height="32"
