@@ -21,7 +21,11 @@
   border-radius: 4px;
   width: auto;
   display: inline-flex;
-  background-color: #F6B333
+  background-color: #F6B333;
+  cursor: pointer;
+}
+.button > label {
+  cursor: pointer;
 }
 a {
   color: white;
