@@ -9,9 +9,6 @@
   padding: 80px 5%;
   background-color: #434343;
 }
-.backgroundImage {
-  display: none;
-}
 .titleText {
   width: 100%;
 }
@@ -21,12 +18,6 @@
 }
 
 @media only screen and (min-width: 800px) { 
-  .backgroundImage {
-    position: absolute;
-    display: block;
-    width: 100%;
-    z-index: -1;
-  }
   .subsectionImportant > div {
     background-color: transparent;
     height: 400px;

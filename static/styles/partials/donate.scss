@@ -29,6 +29,50 @@
   border-color: #fa755a;
 }
 
+.donatePage {
+}
+
+.donatePage__content {
+  padding-top: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.donatePage__subsection {
+  width: 100%;
+  margin-top: 0;
+  overflow: hidden;
+  padding: 80px 5% 20px 5%;
+  text-align: center;
+}
+.donatePage__subsection > div {
+  color: black;
+}
+.backgroundImage {
+  width: 100%;
+  z-index: -1;
+}
+
 .donate__form--webkit-autofill {
   background-color: #fefde5 !important;
+}
+
+@media only screen and (min-width: 800px) { 
+  .donatePage__subsection {
+    width: 30%;
+    float: right;
+    padding: 5% 15% 5% 0;
+  }
+  .donatePage__content {
+    flex-direction: row;
+  }
+  .subsection > div {
+    background-color: transparent;
+  }
+  .donatePage____content__form {
+    padding: 5% 12%;
+    width: 40%;
+    float: left;
+  }
 }

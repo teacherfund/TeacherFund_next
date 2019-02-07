@@ -12,7 +12,7 @@ const emailTitle = 'Help us change the world.'
 const Home = () => (
   <div>
     <Head title="Home" />
-    <Nav />
+    <Nav navColor="white"/>
     <div className="body">
       <SubsectionBasic 
         titleText="100% of your money brings school supplies to teachers and students in need."

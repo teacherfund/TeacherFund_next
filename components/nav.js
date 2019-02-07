@@ -42,7 +42,7 @@ class Nav extends React.Component {
             {links.map(({ key, href, label }) => (
               <div key={key}>
                 <Link href={href}>
-                  <a>{label.toUpperCase()}</a>
+                  <a className={this.props.navColor}>{label.toUpperCase()}</a>
                 </Link>
               </div>
             ))}
@@ -51,7 +51,7 @@ class Nav extends React.Component {
             {buttons.map(({ key, href, label }) => (
               <div key={key}>
                 <Link href={href}>
-                  <a>{label.toUpperCase()}</a>
+                  <a className={this.props.navColor}>{label.toUpperCase()}</a>
                 </Link>
               </div>
             ))}
@@ -69,10 +69,10 @@ class Nav extends React.Component {
             />
           </div>
           <div className="navigationDrawerLinks">
-            <Link href='/'><a>{'home'.toUpperCase()}</a></Link>
-            <Link href='/about'><a>{'about'.toUpperCase()}</a></Link>
-            <Link href='/whyteachers'><a>{'Why teachers'.toUpperCase()}</a></Link>
-            <Link href='/donate'><a>{'Donate'.toUpperCase()}</a></Link>
+            <Link href='/'><a className="black">{'home'.toUpperCase()}</a></Link>
+            <Link href='/about'><a className="black">{'about'.toUpperCase()}</a></Link>
+            <Link href='/whyteachers'><a className="black">{'Why teachers'.toUpperCase()}</a></Link>
+            <Link href='/donate'><a className="black">{'Donate'.toUpperCase()}</a></Link>
           </div>
         </Drawer>
       </div>
