@@ -19,16 +19,20 @@
   display: none;
 }
 .button {
-  padding: 10px 10px;
-  margin: 30px 0;
+  padding: 10px 12px;
+  margin: 4px 0 0 0;
   border-radius: 4px;
-  width: auto;
+  width: 300px;
+  font-size: 14px;
   display: inline-flex;
   background-color: #F6B333;
   cursor: pointer;
+  justify-content: center;
 }
 .button > label {
   cursor: pointer;
+  text-align: center;
+  font-size: 14px;
 }
 a {
   color: white;

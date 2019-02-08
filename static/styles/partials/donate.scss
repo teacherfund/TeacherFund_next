@@ -11,7 +11,7 @@
   background-color: white;
   height: auto;
   font-size: 14px;
-  width: 400px;
+  width: 300px;
   margin: auto;
   padding: 10px 12px;
   border-radius: 4px;
@@ -40,7 +40,7 @@
 }
 
 .donatePage__subsection {
-  width: 100%;
+  width: auto;
   margin-top: 0;
   overflow: hidden;
   padding: 80px 5% 20px 5%;
@@ -53,9 +53,22 @@
   width: 100%;
   z-index: -1;
 }
-
 .donate__form--webkit-autofill {
   background-color: #fefde5 !important;
+}
+.donate__name {
+  width: 100%;
+  margin-bottom: 2px;
+}
+.donate__name > input {
+  height: auto;
+  font-size: 14px;
+  width: 300px;
+  margin: auto;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #8d9197;
 }
 
 @media only screen and (min-width: 800px) { 
@@ -71,7 +84,7 @@
     background-color: transparent;
   }
   .donatePage____content__form {
-    padding: 5% 12%;
+    padding: 8% 12%;
     width: 40%;
     float: left;
   }

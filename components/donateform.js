@@ -60,13 +60,19 @@ class DonateForm extends Component {
     }
     return (
       <div className="donate">
+        <div className="donate__name">
+          <input className="donate__name__input" placeholder="Full name"/>
+        </div>
+        <div className="donate__name">
+          <input className="donate__name__input" placeholder="Email"/>
+        </div>
         <div className="donate__form">
           <CardElement />
         </div>
         { loading && <h2>Loading...</h2>}
-        <button className="donate__button" onClick={this.donate}>
-          Donate
-        </button>
+        <div className="donate__button button white" onClick={this.donate}>
+          <label>{'Donate'.toUpperCase()}</label>
+        </div>
       </div>
     )
   }
