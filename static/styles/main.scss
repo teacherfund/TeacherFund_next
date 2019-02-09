@@ -1,9 +1,13 @@
+@import 'reset.scss';
+@import 'variables.scss';
+
 @import 'partials/navigation.scss';
 @import 'partials/home.scss';
 @import 'partials/donate.scss';
 @import 'partials/ourwork.scss';
 @import 'partials/whyteachers.scss';
 @import 'partials/aboutus.scss';
+@import 'partials/login.scss';
 
 @import 'partials/subsection.scss';
 @import 'partials/footer.scss';
@@ -15,19 +19,26 @@
   font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
     Helvetica, sans-serif;
 }
+.container {
+  padding: 95px 20px 50px;
+  min-height: calc(100vh - 578px);
+}
+@media only screen and (min-width: 1025px) {
+  .container {
+      min-height: calc(100vh - 374px);
+  }
+}
+@media only screen and (min-width: 641px) {
+  .container {
+    min-height: calc(100vh - 489px);
+  }
+}
+.text-center {
+  text-align: center!important;
+}
+
 .backgroundImage {
   display: none;
-}
-.button {
-  padding: 10px 12px;
-  margin: 4px 0 0 0;
-  border-radius: 4px;
-  width: 300px;
-  font-size: 14px;
-  display: inline-flex;
-  background-color: #F6B333;
-  cursor: pointer;
-  justify-content: center;
 }
 .button > label {
   cursor: pointer;
@@ -36,8 +47,17 @@
 }
 a {
   color: white;
-  text-decoration: none;
+  transition: color .15s linear;
+  -webkit-tap-highlight-color: rgba(0,0,0,.1);
+  outline: none;
   font-size: 13px;
+  background-color: transparent;  
+}
+a, a:hover, {
+  text-decoration: none;
+}
+a, label {
+  cursor: pointer;
 }
 .white {
   color: white;
@@ -47,6 +67,59 @@ a {
 }
 html, body {
   height: 100%;
+}
+
+.button {
+  height: 48px;
+  line-height: 48px;
+  background-color: $pencil-yellow;
+  transition: background-color .15s linear;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  border-radius: 4px;
+  border: 0;
+  font-size: 15px;
+  padding: 0 20px;
+  font-weight: 500;
+  display: inline-block;
+  color: #fff;
+  &--expand {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  &--large {
+    height: 64px;
+    line-height: 64px;
+    font-size: 21px;
+  }
+  &--subsection {
+    padding: 10px 12px;
+    margin: 4px 0 0 0;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 14px;
+    display: inline-flex;
+    background-color: #F6B333;
+    cursor: pointer;
+    justify-content: center;
+    
+  }
+}
+
+.button, .button:active, .button:focus, button, button:active, button:focus {
+  outline: none;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
 }
 
 @media only screen and (min-width: 600px) { 

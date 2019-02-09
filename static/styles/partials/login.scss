@@ -1,0 +1,83 @@
+input[type=email], input[type=password] {
+  font-size: 16px;
+  line-height: 1.4;
+  padding: 13px 10px;
+  border-radius: 4px;
+  border: 1px solid $light-teal;
+  margin-bottom: 0;
+  height: 48px;
+  text-align: left;
+  color: $lead-gray;
+  width: 100%;
+  cursor: pointer;
+  vertical-align: bottom;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+}
+
+input[type=submit] {
+  border: 0;
+  box-shadow: none;
+}
+
+@media only screen and (min-width: 641px) {
+  .panel {
+    padding: 20px;
+    background: #f4f5f0;
+    border: 1px solid #c1c1ba;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 4px;
+  }
+}
+
+.heading {
+  margin: 40px auto 60px;
+}
+
+@media only screen and (min-width: 641px) {
+  .heading {
+    padding: 0;
+  }
+}
+
+h1 {
+  font-weight: 500;
+  line-height: 1.1em;
+  .h35 {
+    font-size: 35px;
+  }
+}
+
+.toggle {
+  user-select: none;
+  background: #fff;
+  position: absolute;
+  right: 0;
+  top: 2.4em;
+  margin: -.6em .6em 0 0;
+  padding-left: .5em;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+  .toggle {
+    right: 0;
+    top: 25px;
+    z-index: 2;
+  }
+  a {
+    color: $lead-gray;
+  }
+}
+
+.reset {
+  margin: 30px 0 10px;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 19px;
+  color: $lead-gray;
+}
