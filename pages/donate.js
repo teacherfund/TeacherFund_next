@@ -8,7 +8,7 @@ import '../static/styles/main.scss'
 
 class Donate extends Component {
   titleText = '100% of your money brings school supplies to public school teachers in need.';
-  descriptionText = 'Private donors cover our operating costs, so you can give knowing your whole gift will help supply classrooms.';
+  descriptionText = 'Private donors cover our operating costs, so you can give knowing your whole gift will help equip classrooms.';
 
   render() {
     return (

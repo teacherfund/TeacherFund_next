@@ -12,11 +12,32 @@ class DonateForm extends Component {
     this.donate = this.donate.bind(this)
     this.state = {
       loading: false,
-      redirect: false
+      redirect: false,
+      firstName: '',
+      lastName: '',
+      amount: 0,
+      email: ''
     }
   }
 
-  async donate(ev) {
+  updateFirstName = (e) => {
+    this.setState({ firstName: e.target.value })
+  }
+
+  updateLastName = (e) => {
+    this.setState({ lastName: e.target.value })
+  }
+
+  updateEmail = (e) => {
+    this.setState({ email: e.target.value })
+  }
+
+  updateAmount = (e) => {
+    this.setState({ amount: parseInt(e.target.value) })
+  }
+
+  donate = async (ev) => {
+    console.log(this.state)
     this.setState({ loading: true })
     let token
     try {
@@ -29,6 +50,7 @@ class DonateForm extends Component {
     }
 
     if (!token) {
+      this.setState({ redirectError: true, loading: false })
       return
     }
     const bodyObject = {
@@ -62,10 +84,16 @@ class DonateForm extends Component {
     return (
       <div className="donate">
         <div className="donate__name">
-          <input className="donate__name__input" placeholder="Full name"/>
+          <input className="donate__name__input" placeholder="First name" onChange={this.updateFirstName}/>
         </div>
         <div className="donate__name">
-          <input className="donate__name__input" placeholder="Email"/>
+          <input className="donate__name__input" placeholder="Last name" onChange={this.updateLastName}/>
+        </div>
+        <div className="donate__name">
+          <input className="donate__name__input" placeholder="Email" onChange={this.updateEmail}/>
+        </div>
+        <div className="donate__name">
+          <input className="donate__name__input" placeholder="Amount" onChange={this.updateAmount}/>
         </div>
         <div className="donate__form">
           <CardElement />
