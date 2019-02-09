@@ -1,6 +1,7 @@
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Head from '../components/head'
+import LoginForm from '../components/loginform';
 import '../static/styles/main.scss'
 
 const SignInSignUp = () => (
@@ -8,11 +9,8 @@ const SignInSignUp = () => (
     <Nav />
     <Head title="Sign In" />
 
-    <div className="body">
-      <h1>Sign In</h1>
-      <div className="description">
-
-      </div> 
+    <div className="container text-center ">
+      <LoginForm />
     </div>
     <Footer />
   </div>
