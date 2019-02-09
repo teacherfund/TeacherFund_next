@@ -23,12 +23,15 @@
 @media only screen and (min-width: 800px) { 
   .subsectionImportant > div {
     background-color: transparent;
-    height: 400px;
-    padding: 20px 5%;
+    height: 300px;
+    padding: 40px 10%;
   }
   .sectionImage {
     display: none;
   }
+  .subsectionImportant {
+    position: relative;
+  } 
 }
 
 // basic

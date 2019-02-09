@@ -7,8 +7,8 @@
   color: white;
 }
 .footerLinks {
-  margin-top: 100px;
-  margin-button: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
 }
@@ -27,6 +27,16 @@ a {
 
 @media only screen and (min-width: 600px) { 
   .footer {
-    width: 80%;
+    bottom: 0px;
+    padding: 40px;
+    height: auto; 
+    width: 100%;
+    background-color: #434343;
+  }
+  .footerLinks {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
   }
 }

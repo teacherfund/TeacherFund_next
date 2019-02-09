@@ -9,7 +9,7 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/whyteachers', label: 'Why Teachers?' },
   { href: '/ourwork', label: 'Our Work' },
-  { href: '/about', label: 'About us' },
+  { href: '/aboutus', label: 'About us' },
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`
   return link
@@ -17,7 +17,7 @@ const links = [
 
 const buttons = [
   { href: '/donate', label: 'Donate' },
-  { href: '/imateacher', label: 'I\'m a teacher' },
+  { href: '/signInSignUp', label: 'I\'m a teacher' },
 ].map(butt => {
   butt.key = `nav-link-${butt.href}-${butt.label}`
   return butt

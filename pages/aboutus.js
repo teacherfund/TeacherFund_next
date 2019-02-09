@@ -1,18 +1,21 @@
 import Nav from '../components/nav'
+import Footer from '../components/footer'
+import Head from '../components/head'
 import '../static/styles/main.scss'
 
-const Contact = () => (
+const About = () => (
   <div>
-    <Nav title="Contact"/>
+    <Nav />
+    <Head title="About" />
 
-    <div className="title">
-      <h1>Contact Us</h1>
+    <div className="body">
+      <h1>About Us</h1>
       <div className="description">
-        Please please please help us improve! All suggestions welcome.<br/><br/>
-        joel.wasserman8@gmail.com
+
       </div> 
     </div>
+    <Footer />
   </div>
 )
 
-export default Contact
+export default About

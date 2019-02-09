@@ -33,7 +33,7 @@
 }
 
 .donatePage__content {
-  padding-top: 100px;
+  padding: 120px 0 120px 0;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@
   width: auto;
   margin-top: 0;
   overflow: hidden;
-  padding: 80px 5% 20px 5%;
+  padding: 20px 5% 60px 5%;
   text-align: center;
 }
 .donatePage__subsection > div {
@@ -77,8 +77,12 @@
     float: right;
     padding: 5% 15% 5% 0;
   }
+  .donatePage {
+    position: relative;
+    height: 100%;
+  }
   .donatePage__content {
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
   .subsection > div {
     background-color: transparent;

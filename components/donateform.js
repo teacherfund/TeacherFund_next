@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 import {CardElement, injectStripe} from 'react-stripe-elements'
 import '../static/styles/main.scss'
+import '../static/styles/partials/donate.scss'
 
 const ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://teacherfund.herokuapp.com' : 'http://localhost:9000'
 
