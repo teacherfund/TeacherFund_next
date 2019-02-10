@@ -19,8 +19,8 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <div class="heading">
-          <h1 class="h35">Sign in</h1>
+        <div className="heading">
+          <h1 className="h35">Sign in</h1>
         </div>
         <div className="donorTeacherSwitcher">
           <TwoItemSwitcher
