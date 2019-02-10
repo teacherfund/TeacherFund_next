@@ -12,6 +12,7 @@
 @import 'partials/subsection.scss';
 @import 'partials/footer.scss';
 @import 'partials/emailcapture.scss';
+@import 'partials/twoItemSwitcher.scss';
 
 :global(body) {
   margin: 0;
@@ -70,8 +71,9 @@ html, body {
 }
 
 .button {
-  height: 48px;
-  line-height: 48px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 5px;
   background-color: $pencil-yellow;
   transition: background-color .15s linear;
   text-transform: uppercase;

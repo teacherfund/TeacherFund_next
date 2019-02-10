@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 import {CardElement, injectStripe} from 'react-stripe-elements'
+import TwoItemSwitcher from './twoItemSwitcher'
 import '../static/styles/main.scss'
 import '../static/styles/partials/donate.scss'
 
@@ -16,12 +17,17 @@ class DonateForm extends Component {
       firstName: '',
       lastName: '',
       amount: 0,
-      email: ''
+      email: '',
+      frequency: 'once'
     }
   }
 
   updateFirstName = (e) => {
     this.setState({ firstName: e.target.value })
+  }
+
+  updateFrequency = (newVal) => {
+    this.setState({ frequency: newVal })
   }
 
   updateLastName = (e) => {
@@ -83,6 +89,13 @@ class DonateForm extends Component {
     }
     return (
       <div className="donate">
+        <TwoItemSwitcher 
+          switchOneText="Give Once" 
+          selectedToggle={this.state.frequency === 'once' ? 1 : 2}
+          switchTwoText="Monthly"
+          switchOneClicked={() => this.updateFrequency('once')}
+          switchTwoClicked={() => this.updateFrequency('monthly')}
+        />
         <div className="donate__name">
           <input className="donate__name__input" placeholder="First name" onChange={this.updateFirstName}/>
         </div>
