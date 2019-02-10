@@ -38,6 +38,16 @@ class Nav extends React.Component {
     return (
       <div className="nav">
         <div className="navBarSection">  
+          {this.props.navColor === 'white' && <div className="navBarSection_logo">
+            <Link href="/">
+              <img src="/static/images/Logo_transparent.png" className="navItems_logo"/> 
+            </Link>
+          </div>}
+          {this.props.navColor === 'black' && <div className="navBarSection_logo">
+            <Link href="/">
+              <img src="/static/images/Logo_with_text.png" className="navItems_logo"/> 
+            </Link>
+          </div>}
           <div className="navItems">
             {links.map(({ key, href, label }) => (
               <div key={key}>

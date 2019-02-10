@@ -52,12 +52,27 @@
 .drawer {
   background-color: white;
 }
+.navItems_logo {
+  display: none;
+}
+.navBarSection_logo {
+  display: none;
+}
 
 @media only screen and (min-width: 800px) {
   .navItems {
     flex-grow: 1;
     flex-direction: row;
     display: flex;
+  }
+  .navItems_logo {
+    width: 90px;
+    height: 40px;
+    display: block;
+  }
+  .navBarSection_logo {
+    display: block;
+    cursor: pointer;
   }
   .nav {
     background-color: transparent;

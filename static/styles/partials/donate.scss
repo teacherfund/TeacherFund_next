@@ -73,7 +73,7 @@
 
 @media only screen and (min-width: 800px) { 
   .donatePage__subsection {
-    width: 30%;
+    width: 40%;
     float: right;
     padding: 5% 15% 5% 0;
   }
@@ -83,13 +83,13 @@
   }
   .donatePage__content {
     flex-direction: row-reverse;
+    justify-content: space-between;
   }
   .subsection > div {
     background-color: transparent;
   }
   .donatePage____content__form {
-    padding: 8% 12%;
-    width: 40%;
+    padding: 2% 15%;
     float: left;
   }
 }
