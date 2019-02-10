@@ -22,7 +22,7 @@ input[type=submit] {
   box-shadow: none;
 }
 
-@media only screen and (min-width: 641px) {
+@media only screen and (min-width: 800px) {
   .panel {
     padding: 20px;
     background: #f4f5f0;
@@ -31,13 +31,17 @@ input[type=submit] {
     margin: auto;
     border-radius: 4px;
   }
+  .donorTeacherSwitcher {
+    width: 500px;
+    margin: auto;
+  }
 }
 
 .heading {
   margin: 40px auto 60px;
 }
 
-@media only screen and (min-width: 641px) {
+@media only screen and (min-width: 800px) {
   .heading {
     padding: 0;
   }
