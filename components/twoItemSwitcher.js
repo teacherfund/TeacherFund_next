@@ -1,6 +1,5 @@
 import React from 'react'
 import '../static/styles/main.scss'
-import '../static/styles/partials/twoItemSwitcher.scss'
 
 const TwoItemSwitcher = (props) => (
   <div className="switcher">
