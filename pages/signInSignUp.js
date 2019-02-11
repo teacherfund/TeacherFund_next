@@ -5,11 +5,11 @@ import LoginForm from '../components/loginform';
 import '../static/styles/main.scss'
 
 const SignInSignUp = () => (
-  <div>
+  <div className="main-container">
     <Nav />
     <Head title="Sign In" />
 
-    <div className="container text-center ">
+    <div className="body text-center ">
       <LoginForm />
     </div>
     <Footer />
