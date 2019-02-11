@@ -20,6 +20,15 @@
   font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
     Helvetica, sans-serif;
 }
+.main-container {
+  min-height: 100vh;
+  position: relative;
+}
+.body {
+  color: #333;
+  overflow: hidden;
+  padding-bottom: 200px; // height of footer
+}
 .container {
   padding: 95px 20px 50px;
   min-height: calc(100vh - 578px);
@@ -67,6 +76,8 @@ a, label {
   color: black;
 }
 html, body {
+  margin: 0;
+  padding: 0;
   height: 100%;
 }
 
