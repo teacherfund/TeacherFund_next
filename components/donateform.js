@@ -2,10 +2,9 @@ import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 import {CardElement, injectStripe} from 'react-stripe-elements'
 import TwoItemSwitcher from './twoItemSwitcher'
+import * as Api from '../api/api'
 import '../static/styles/main.scss'
 import '../static/styles/partials/donate.scss'
-
-const ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://teacherfund.herokuapp.com' : 'http://localhost:9000'
 
 class DonateForm extends Component {
   constructor(props) {
@@ -59,15 +58,8 @@ class DonateForm extends Component {
       this.setState({ redirectError: true, loading: false })
       return
     }
-    const bodyObject = {
-      token, 
-    }
     try {
-      let response = await fetch(`${ENDPOINT}/donate`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(bodyObject)
-      })
+      let response = await Api.donate({token})
       if (response.ok) {
         console.log("Donation Complete!")
         this.setState({ redirectSuccess: true, loading: false })
