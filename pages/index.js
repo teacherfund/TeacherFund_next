@@ -4,6 +4,7 @@ import Nav from '../components/nav'
 import SubsectionBasic from '../components/subsectionBasic'
 import SubsectionImportant from '../components/subsectionImportant'
 import EmailCapture from '../components/emailCapture'
+
 import Footer from '../components/footer'
 import '../static/styles/main.scss'
 

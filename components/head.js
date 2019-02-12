@@ -35,6 +35,7 @@ const Head = props => (
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <script src="https://js.stripe.com/v3/"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css"></link>
     </NextHead>
   </div>
 )

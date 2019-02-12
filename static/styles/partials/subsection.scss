@@ -23,7 +23,6 @@
 @media only screen and (min-width: 800px) { 
   .subsectionImportant > div {
     background-color: transparent;
-    height: 300px;
     padding: 40px 10%;
   }
   .sectionImage {
@@ -31,7 +30,14 @@
   }
   .subsectionImportant {
     position: relative;
-  } 
+  }
+  .swiper_container {
+    height: 400px;
+  }
+  .slide {
+    background-color: brown;
+    height: 250px;
+  }
 }
 
 // basic
