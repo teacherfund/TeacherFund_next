@@ -12,7 +12,7 @@ class Donate extends Component {
 
   render() {
     return (
-      <div>
+      <div className="main-container">
         <Head title="Donate" />
         <Nav navColor="black"/>
 

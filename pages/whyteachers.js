@@ -2,7 +2,7 @@ import Nav from '../components/nav'
 import '../static/styles/main.scss'
 
 const Whyteachers = () => (
-  <div>
+  <div className="main-container">
     <Nav title="whyteachers"/>
 
     <div className="title">

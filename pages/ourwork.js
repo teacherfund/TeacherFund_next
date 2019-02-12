@@ -4,7 +4,7 @@ import Head from '../components/head'
 import '../static/styles/main.scss'
 
 const Ourwork = () => (
-  <div>
+  <div className="main-container">
     <Nav />
     <Head title="Our Work" />
 

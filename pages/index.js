@@ -10,7 +10,7 @@ import '../static/styles/main.scss'
 const emailTitle = 'Help us change the world.'
 
 const Home = () => (
-  <div>
+  <div className="main-container">
     <Head title="Home" />
     <Nav navColor="white"/>
     <div className="body">

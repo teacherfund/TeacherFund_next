@@ -1,5 +1,8 @@
 .footer {
-  padding: 10%;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  // padding: 10%;
   height: 200px; 
   background-color: #434343;
 }
@@ -18,20 +21,4 @@
 }
 .footerLinks > div {
   margin: 20px;
-}
-
-@media only screen and (min-width: 600px) { 
-  .footer {
-    bottom: 0px;
-    padding: 40px;
-    height: auto; 
-    width: 100%;
-    background-color: #434343;
-  }
-  .footerLinks {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-  }
 }
