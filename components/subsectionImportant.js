@@ -2,8 +2,6 @@ import React from 'react'
 import '../static/styles/main.scss'
 import Swiper from 'react-id-swiper';
 
-// import '../node_modules/react-id-swiper/src/styles/scss/swiper.scss';
-
 class SubsectionImportant extends React.Component {
 
   constructor(props) {
