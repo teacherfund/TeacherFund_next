@@ -9,7 +9,7 @@ const SignInSignUp = () => (
     <Nav />
     <Head title="Sign In" />
 
-    <div className="body text-center ">
+    <div className="body text-center login-container">
       <LoginForm />
     </div>
     <Footer />

@@ -16,37 +16,13 @@ input[type=email], input[type=password] {
   appearance: none;
   position: relative;
 }
-
 input[type=submit] {
   border: 0;
   box-shadow: none;
 }
-
-@media only screen and (min-width: 800px) {
-  .panel {
-    padding: 20px;
-    background: #f4f5f0;
-    border: 1px solid #c1c1ba;
-    max-width: 500px;
-    margin: auto;
-    border-radius: 4px;
-  }
-  .donorTeacherSwitcher {
-    width: 500px;
-    margin: auto;
-  }
-}
-
 .heading {
   margin: 40px auto 60px;
 }
-
-@media only screen and (min-width: 800px) {
-  .heading {
-    padding: 0;
-  }
-}
-
 h1 {
   font-weight: 500;
   line-height: 1.1em;
@@ -54,7 +30,6 @@ h1 {
     font-size: 35px;
   }
 }
-
 .toggle {
   user-select: none;
   background: #fff;
@@ -64,7 +39,6 @@ h1 {
   margin: -.6em .6em 0 0;
   padding-left: .5em;
 }
-
 .input-wrapper {
   position: relative;
   margin-bottom: 16px;
@@ -77,11 +51,35 @@ h1 {
     color: $lead-gray;
   }
 }
-
 .reset {
   margin: 30px 0 10px;
   display: inline-block;
   font-weight: 500;
   font-size: 19px;
   color: $lead-gray;
+}
+
+
+@media only screen and (min-width: 800px) {
+  .heading {
+    padding: 0;
+  }
+  .panel {
+    padding: 20px;
+    background: #f4f5f0;
+    border: 1px solid #c1c1ba;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 4px;
+  }
+  .donorTeacherSwitcher {
+    width: 500px;
+    margin: auto;
+  }
+  .login-container {
+    height: 100vh;
+    background-image: url("/static/images/abc_blackboard.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
 }
