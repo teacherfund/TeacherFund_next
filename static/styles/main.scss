@@ -79,7 +79,6 @@ html, body {
   padding: 0;
   height: 100%;
 }
-
 .button {
   height: 40px;
   line-height: 40px;
@@ -117,6 +116,21 @@ html, body {
     justify-content: center;
     
   }
+}
+
+p {
+  line-height: 1.3em;
+}
+.p40 {
+  font-size: 16px;
+}
+// padding top 1
+.pt-1 {
+  padding-top: 10px!important;
+}
+// padding bottom 1
+.pb-1 {
+  padding-bottom: 10px!important;
 }
 
 .button, .button:active, .button:focus, button, button:active, button:focus {

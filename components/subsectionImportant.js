@@ -13,7 +13,7 @@ class SubsectionImportant extends React.Component {
       effect: 'coverflow',
       grabCursor: true,
       centeredSlides: true,
-      slidesPerView: 3,
+      slidesPerView: 'auto',
       initialSlide: 1,
       coverflowEffect: {
         rotate: 0,
@@ -34,14 +34,50 @@ class SubsectionImportant extends React.Component {
             {this.props.descriptionText}
           </div>
         </div>
+        <img src={this.props.image} className="sectionImage"/>
         <div className="swiper_container">
           <Swiper {...params}>
-            <div className="slide">Slide 1</div>
-            <div className="slide">Slide 2</div>
-            <div className="slide">Slide 3</div>
+            <div className="slide">
+              <div className="slide-inner">
+                <div className="always-show">
+                  <h4 className="mission-title p40 pt-1">{'Real Teachers'.toUpperCase()}</h4>
+                </div>
+                <div className="show-only-when-active">
+                  <p className="mission-description  pt-1 pb-1 p40">
+                    The teachers we support have all earned the highest merits, and we believe in 
+                    rewarding hard work and dedication that profoundly impacts students.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="slide">
+              <div className="slide-inner">
+                <div className="always-show">
+                  <h4 className="mission-title p40 pt-1">{'Local Schools'.toUpperCase()}</h4>
+                </div>
+                <div className="show-only-when-active">
+                  <p className="mission-description  pt-1 pb-1 p40">
+                    We partner with local schools we have connections with to ensure we're providing exactly
+                    what's needed to the teachers who need it.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="slide">
+              <div className="slide-inner">
+                <div className="always-show">
+                  <h4 className="mission-title p40 pt-1">{'We prove every project'.toUpperCase()}</h4>
+                </div>
+                <div className="show-only-when-active">
+                  <p className="mission-description pt-1 pb-1 p40">
+                    We prove and monitor the projects you fund with GPS so you can
+                    see the direct impact your dollars have on classrooms.
+                  </p>
+                </div>
+              </div>
+            </div>
           </Swiper>
         </div>
-        <img src={this.props.image} className="sectionImage"/>
       </div>
     )
   }
