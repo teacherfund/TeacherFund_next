@@ -56,7 +56,12 @@ h1 {
   display: inline-block;
   font-weight: 500;
   font-size: 19px;
-  color: $lead-gray;
+  color: white;
+}
+.login-container {
+  height: 100vh;
+  padding-top: 100px;
+  background-color: #282842;
 }
 
 
@@ -76,8 +81,12 @@ h1 {
     width: 500px;
     margin: auto;
   }
+  .reset {
+    color: $lead-gray;
+  }
   .login-container {
     height: 100vh;
+    padding-top: 50px;
     background-image: url("/static/images/abc_blackboard.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
