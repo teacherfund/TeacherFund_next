@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="TeacherFund logo" src="https://github.com/teacherfund/TeacherFund_next/raw/master/static/images/Logo.png">
+  <img alt="TeacherFund logo" src="https://github.com/teacherfund/TeacherFund_next/raw/master/static/images/Logo.png" width="200px">
 </p>
 
 TeacherFund is a charity to support teachers in a way that encourages great teachers to stay, and potentially great teachers to choose teaching as a career path. This includes providing supplemental funds and supplies to school teachers in need.
