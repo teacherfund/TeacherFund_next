@@ -5,12 +5,14 @@ import LoginForm from '../components/loginform';
 import '../static/styles/main.scss'
 
 const SignInSignUp = () => (
-  <div className="main-container" style={{backgroundImage: `url(${"/static/images/abc_blackboard.jpg"})`, backgroundSize:'100% 80%', backgroundRepeat: 'no-repeat'}}>
+  <div className="main-container">
     <Nav />
     <Head title="Sign In" />
 
-    <div className="body text-center ">
-      <LoginForm />
+    <div className="body text-center">
+      <div className="login-container">
+        <LoginForm />
+      </div>
     </div>
     <Footer />
   </div>

@@ -20,7 +20,7 @@ class LoginForm extends Component {
     return (
       <div>
         <div className="heading">
-          <h1 className="h35">Sign in</h1>
+          <h1 className="h35 white">Sign in</h1>
         </div>
         <div className="donorTeacherSwitcher">
           <TwoItemSwitcher
@@ -63,7 +63,7 @@ class LoginForm extends Component {
               value="Sign in"
               className="button button--large button--expand radius"
             />
-            <a class="reset" href="/account/password/reset">Forgot password?</a>
+            <a className="reset" href="/account/password/reset">Forgot password?</a>
           </div>
         </form>
       </div>
