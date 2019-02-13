@@ -1,21 +1,18 @@
-## To run
+<p align="center">
+  <img alt="TeacherFund logo" src="https://github.com/teacherfund/TeacherFund_next/raw/master/static/images/Logo.png">
+</p>
 
-`npm run dev`
+TeacherFund is a charity to support teachers in a way that encourages great teachers to stay, and potentially great teachers to choose teaching as a career path. This includes providing supplemental funds and supplies to school teachers in need.
 
-## Contributors guide
+This repository contains the code for the main TeacherFund website. 
 
-### Style guide
+**This project is in very early development and as such, the structure/design is subject to change significantly and often.**
 
-* scss styles should be structured as follows:
+## Contributing
+We welcome any contributions to this project! If you're interested in fixing bugs or implementing new features, please see the document [How to Contribute](https://github.com/teacherfund/TeacherFund_next/blob/master/CONTRIBUTING.md).
 
-.email-capture {
-    &__content {
-        @media screen and (max-width: 600px) {}
-    }
-    &__input {
-        input {}
-    }
-    &__button {
-        @media screen and (max-width: 600px) {}
-    }
- }
+## Related Projects
+- [TeacherFund API](https://github.com/teacherfund/api) (TypeScript)
+
+## License
+MIT
