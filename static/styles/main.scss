@@ -1,18 +1,17 @@
 @import 'reset.scss';
 @import 'variables.scss';
 
-@import 'partials/navigation.scss';
-@import 'partials/home.scss';
-@import 'partials/donate.scss';
-@import 'partials/ourwork.scss';
-@import 'partials/whyteachers.scss';
-@import 'partials/aboutus.scss';
-@import 'partials/login.scss';
-
-@import 'partials/subsection.scss';
-@import 'partials/footer.scss';
-@import 'partials/emailcapture.scss';
-@import 'partials/twoItemSwitcher.scss';
+@import 'partials/_navigation.scss';
+@import 'partials/_home.scss';
+@import 'partials/_donate.scss';
+@import 'partials/_ourwork.scss';
+@import 'partials/_whyteachers.scss';
+@import 'partials/_aboutus.scss';
+@import 'partials/_login.scss';
+@import 'partials/_subsection.scss';
+@import 'partials/_footer.scss';
+@import 'partials/_emailcapture.scss';
+@import 'partials/_twoitemswitcher.scss';
 
 :global(body) {
   margin: 0;
