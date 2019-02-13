@@ -4,7 +4,6 @@ import {CardElement, injectStripe} from 'react-stripe-elements'
 import TwoItemSwitcher from './twoItemSwitcher'
 import * as Api from '../api/api'
 import '../static/styles/main.scss'
-import '../static/styles/partials/donate.scss'
 
 class DonateForm extends Component {
   constructor(props) {
