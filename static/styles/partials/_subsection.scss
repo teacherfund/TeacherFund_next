@@ -2,12 +2,14 @@
 .subsectionImportant {
   width: 100%; 
   overflow: hidden;
+  background-color: #434343;
 }
 .subsectionImportant > div {
   color: white;
   text-align: center;
-  padding: 80px 5%;
   background-color: #434343;
+}
+.subsectionContent {
 }
 .titleText {
   width: 100%;
@@ -19,24 +21,61 @@
 .descriptionText {
   margin-bottom: 20px;
 }
+.swiper_container {
+  height: auto;
+  width: 100%;
+  margin: 20px 0 20px 0;
+}
+.slide {
+  background-color: white;
+  border-radius: 4px;
+  width: 330px;
+}
+.slide-inner {
+  color: black;
+  border: 2px solid #f1f1f0;
+    padding: 40px 10px;
+    border-radius: 4px;
+    transition: border-color .15s linear;
+}
+.swiper-slide-active {
+  border-color: #c1c1ba;
+}
+.mission-title {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
 
 @media only screen and (min-width: 800px) { 
   .subsectionImportant > div {
     background-color: transparent;
-    padding: 40px 10%;
+  }
+  .subsectionContent {
+    padding-top: 120px;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 20px;
   }
   .sectionImage {
     display: none;
   }
+  .swiper-wrapper {
+    margin: 50px auto auto auto;
+  }
   .subsectionImportant {
     position: relative;
+    background-color: transparent;
   }
   .swiper_container {
-    height: 400px;
+    height: 500px;
+    width: 100%;
+    margin: auto;
   }
   .slide {
-    background-color: brown;
-    height: 250px;
+    background-color: white;
+    border-radius: 4px;
+    width: 20%;
   }
 }
 
