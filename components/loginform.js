@@ -3,7 +3,7 @@ import TwoItemSwitcher from './twoItemSwitcher'
 import '../static/styles/main.scss'
 
 class LoginForm extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       user: '',
@@ -16,54 +16,54 @@ class LoginForm extends Component {
     this.setState({ loginType: newVal })
   }
 
-  render() {
+  render () {
     return (
       <div>
-        <div className="heading">
-          <h1 className="h35 white">Sign in</h1>
+        <div className='heading'>
+          <h1 className='h35 white'>Sign in</h1>
         </div>
-        <div className="donorTeacherSwitcher">
+        <div className='donorTeacherSwitcher'>
           <TwoItemSwitcher
-            switchOneText="i'm a donor" 
-            className="donorTeacherSwitcher"
+            switchOneText="i'm a donor"
+            className='donorTeacherSwitcher'
             selectedToggle={this.state.loginType === 'donor' ? 1 : 2}
             switchTwoText="i'm a teacher"
             switchOneClicked={() => this.updateLoginType('donor')}
             switchTwoClicked={() => this.updateLoginType('teacher')}
           />
         </div>
-        <form action="api/user/login" method="post">
-          <div className="panel">
-            <div className="input-wrapper">
+        <form action='api/user/login' method='post'>
+          <div className='panel'>
+            <div className='input-wrapper'>
               <input
-                required="required"
-                className="email"
-                aria-required="true"
-                placeholder="Email"
-                type="email"
-                name="user[email]"
-                id="user_email"
-                autoComplete="off"
+                required='required'
+                className='email'
+                aria-required='true'
+                placeholder='Email'
+                type='email'
+                name='user[email]'
+                id='user_email'
+                autoComplete='off'
               />
             </div>
-            <div className="input-wrapper">
+            <div className='input-wrapper'>
               <input
-                className="password"
-                autoComplete="off"
-                placeholder="Password"
-                type="password"
-                name="user[password]"
-                id="user_password"
+                className='password'
+                autoComplete='off'
+                placeholder='Password'
+                type='password'
+                name='user[password]'
+                id='user_password'
               />
-              <a className="toggle" data-hidden="true">Show</a>
+              <a className='toggle' data-hidden='true'>Show</a>
             </div>
             <input
-              type="submit"
-              name="commit"
-              value="Sign in"
-              className="button button--large button--expand radius"
+              type='submit'
+              name='commit'
+              value='Sign in'
+              className='button button--large button--expand radius'
             />
-            <a className="reset" href="/account/password/reset">Forgot password?</a>
+            <a className='reset' href='/account/password/reset'>Forgot password?</a>
           </div>
         </form>
       </div>

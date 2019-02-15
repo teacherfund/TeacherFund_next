@@ -2,7 +2,7 @@ import React from 'react'
 import '../static/styles/main.scss'
 
 const TwoItemSwitcher = (props) => (
-  <div className="switcher">
+  <div className='switcher'>
     <div className={`switcher__leftItem ${props.color} ${props.selectedToggle === 1 ? 'selected' : ''}`} onClick={props.switchOneClicked}>
       <label>{props.switchOneText.toUpperCase()}</label>
     </div>

@@ -4,15 +4,13 @@ import Head from '../components/head'
 import '../static/styles/main.scss'
 
 const Ourwork = () => (
-  <div className="main-container">
+  <div className='main-container'>
     <Nav />
-    <Head title="Our Work" />
+    <Head title='Our Work' />
 
-    <div className="body">
+    <div className='body'>
       <h1>Our Work</h1>
-      <div className="description">
-
-      </div> 
+      <div className='description' />
     </div>
     <Footer />
   </div>
