@@ -17,7 +17,7 @@ const links = [
 
 const buttons = [
   { href: '/donate', label: 'Donate' },
-  { href: '/signInSignUp', label: 'I\'m a teacher' },
+  { href: '/signinsignup', label: 'I\'m a teacher' },
 ].map(butt => {
   butt.key = `nav-link-${butt.href}-${butt.label}`
   return butt
