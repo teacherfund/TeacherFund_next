@@ -81,6 +81,7 @@ class DonateForm extends Component {
     return (
       <div className="donate">
         <TwoItemSwitcher 
+          color="black"
           switchOneText="Give Once" 
           selectedToggle={this.state.frequency === 'once' ? 1 : 2}
           switchTwoText="Monthly"
