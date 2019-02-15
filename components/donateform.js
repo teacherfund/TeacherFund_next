@@ -1,12 +1,12 @@
-import React, {Component} from 'react'
-import {Redirect} from 'react-router-dom'
-import {CardElement, injectStripe} from 'react-stripe-elements'
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import { CardElement, injectStripe } from 'react-stripe-elements'
 import TwoItemSwitcher from './twoItemSwitcher'
 import * as Api from '../api/api'
 import '../static/styles/main.scss'
 
 class DonateForm extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.donate = this.donate.bind(this)
     this.state = {
@@ -45,7 +45,7 @@ class DonateForm extends Component {
     this.setState({ loading: true })
     let token
     try {
-      let res = await this.props.stripe.createToken(options)
+      let res = await this.props.stripe.createToken()
       token = res.token
     } catch (e) {
       console.log(e)
@@ -58,9 +58,9 @@ class DonateForm extends Component {
       return
     }
     try {
-      let response = await Api.donate({token})
+      let response = await Api.donate({ token })
       if (response.ok) {
-        console.log("Donation Complete!")
+        console.log('Donation Complete!')
         this.setState({ redirectSuccess: true, loading: false })
       } else {
         this.setState({ redirectError: true, loading: false })
@@ -70,41 +70,41 @@ class DonateForm extends Component {
     }
   }
 
-  render() {
-    const {redirectError, redirectSuccess, loading} = this.state
+  render () {
+    const { redirectError, redirectSuccess, loading } = this.state
 
     if (redirectError) {
-      return <Redirect to='/error'/>
+      return <Redirect to='/error' />
     } else if (redirectSuccess) {
-      return <Redirect to='/success'/>
+      return <Redirect to='/success' />
     }
     return (
-      <div className="donate">
-        <TwoItemSwitcher 
-          color="black"
-          switchOneText="Give Once" 
+      <div className='donate'>
+        <TwoItemSwitcher
+          color='black'
+          switchOneText='Give Once'
           selectedToggle={this.state.frequency === 'once' ? 1 : 2}
-          switchTwoText="Monthly"
+          switchTwoText='Monthly'
           switchOneClicked={() => this.updateFrequency('once')}
           switchTwoClicked={() => this.updateFrequency('monthly')}
         />
-        <div className="donate__name">
-          <input className="donate__name__input" placeholder="First name" onChange={this.updateFirstName}/>
+        <div className='donate__name'>
+          <input className='donate__name__input' placeholder='First name' onChange={this.updateFirstName} />
         </div>
-        <div className="donate__name">
-          <input className="donate__name__input" placeholder="Last name" onChange={this.updateLastName}/>
+        <div className='donate__name'>
+          <input className='donate__name__input' placeholder='Last name' onChange={this.updateLastName} />
         </div>
-        <div className="donate__name">
-          <input className="donate__name__input" placeholder="Email" onChange={this.updateEmail}/>
+        <div className='donate__name'>
+          <input className='donate__name__input' placeholder='Email' onChange={this.updateEmail} />
         </div>
-        <div className="donate__name">
-          <input className="donate__name__input" placeholder="Amount" onChange={this.updateAmount}/>
+        <div className='donate__name'>
+          <input className='donate__name__input' placeholder='Amount' onChange={this.updateAmount} />
         </div>
-        <div className="donate__form">
+        <div className='donate__form'>
           <CardElement />
         </div>
         { loading && <h2>Loading...</h2>}
-        <div className="donate__button button white" onClick={this.donate}>
+        <div className='donate__button button white' onClick={this.donate}>
           <label>{'Donate'.toUpperCase()}</label>
         </div>
       </div>
