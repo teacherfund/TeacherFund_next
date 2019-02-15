@@ -4,7 +4,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "standard"
+    "lint": "standard",
+    "test": "npm run lint"
   },
   "dependencies": {
     "@material-ui/core": "^3.0.0",
