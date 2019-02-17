@@ -6,6 +6,7 @@ import SubsectionImportant from '../components/subsectionImportant'
 import EmailCapture from '../components/emailCapture'
 
 import Footer from '../components/footer'
+import CustomSwiper from '../components/swiper'
 import '../static/styles/main.scss'
 
 const emailTitle = 'Help us change the world.'
@@ -33,9 +34,9 @@ const Home = () => (
       <SubsectionImportant
         titleText='Ninety-four percent of public school teachers say they spent their own money on notebooks, pens and other supplies in the 2014-15 school year without reimbursement.'
         descriptionText="We're on a mission to change that. Here's how."
-        buttonText='Learn more'
-        image='/static/images/blur-child-classroom.jpg'
-      />
+        image='/static/images/blur-child-classroom.jpg'>
+        <CustomSwiper />
+      </SubsectionImportant>
     </div>
 
     <Footer />
