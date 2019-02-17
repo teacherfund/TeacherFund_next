@@ -1,7 +1,8 @@
-import Swiper from 'react-id-swiper';
+import Swiper from 'react-id-swiper'
+import React from 'react'
 
 class CustomSwiper extends React.Component {
-  render() {
+  render () {
     const params = {
       effect: 'coverflow',
       grabCursor: true,
@@ -13,7 +14,7 @@ class CustomSwiper extends React.Component {
         stretch: 0,
         depth: 100,
         modifier: 1,
-        slideShadows : true,
+        slideShadows: true
       }
     }
     return (

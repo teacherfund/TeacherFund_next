@@ -11,8 +11,8 @@ const Ourwork = () => (
 
     <div className='body'>
       <div className='description' />
-      <SubsectionImportant 
-        titleText="How we work"
+      <SubsectionImportant
+        titleText='How we work'
         descriptionText="We believe public school teachers don't receive the recognition they deserve. We're working to change that."
       />
     </div>

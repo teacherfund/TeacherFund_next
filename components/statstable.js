@@ -9,15 +9,15 @@ const stats = [
 ]
 
 const StatsTable = (props) => (
-  <div className="statstable">
+  <div className='statstable'>
     {stats.map(({ key, title, subtext }) => (
-    <div className="stat">
-      <p className="p40 title">
+      <div className='stat'>
+        <p className='p40 title'>
 
-      </p>
-      <p className="p40 description">
-      </p>
-    </div>
+        </p>
+        <p className='p40 description'>
+        </p>
+      </div>
     ))}
   </div>
 )
