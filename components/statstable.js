@@ -12,11 +12,8 @@ const StatsTable = (props) => (
   <div className='statstable'>
     {stats.map(({ key, title, subtext }) => (
       <div className='stat'>
-        <p className='p40 title'>
-
-        </p>
-        <p className='p40 description'>
-        </p>
+        <p className='p40 title' />
+        <p className='p40 description' />
       </div>
     ))}
   </div>
