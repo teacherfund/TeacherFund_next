@@ -1,7 +1,7 @@
 import React from 'react'
 import '../static/styles/main.scss'
 
-// pull stats from API
+// TODO: pull stats from API
 const stats = [
   {
     stat: '4000',
@@ -19,7 +19,10 @@ const stats = [
     stat: '1269',
     subtext: 'Impacted children'
   }
-]
+].map((stat, idx) => {
+  stat.key = `stat-${stat.stat}-${idx}`
+  return stat
+})
 
 const StatsTable = (props) => (
   <div className='statstable'>
