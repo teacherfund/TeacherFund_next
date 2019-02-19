@@ -1,5 +1,5 @@
 import React from 'react'
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 import '../static/styles/main.scss'
 
 const MapGraphic = withScriptjs(withGoogleMap((props) => (
