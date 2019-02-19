@@ -1,0 +1,23 @@
+.statstable {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &--stat {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 200px;
+    height: 120px;
+
+    &--number {
+      margin: 20px 0 0 0;
+
+    }
+    &--subtext {
+      
+    }
+  }
+}
+
+
