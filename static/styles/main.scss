@@ -13,7 +13,8 @@
 @import 'partials/_emailcapture.scss';
 @import 'partials/_twoitemswitcher.scss';
 @import 'partials/_accountoverview.scss';
-@import 'partials/statstable.scss';
+@import 'partials/_statstable.scss';
+@import 'partials/_mapgraphic.scss';
 
 :global(body) {
   margin: 0;
@@ -64,7 +65,7 @@ a {
   font-size: 13px;
   background-color: transparent;  
 }
-a, a:hover, {
+a, a:hover {
   text-decoration: none;
 }
 a, label {

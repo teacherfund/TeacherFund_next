@@ -24,9 +24,9 @@ class LoginForm extends Component {
         </div>
         <div className='donorTeacherSwitcher'>
           <TwoItemSwitcher
-            switchOneText="i'm a donor" 
-            className="donorTeacherSwitcher"
-            color="white"
+            switchOneText="i'm a donor"
+            className='donorTeacherSwitcher'
+            color='white'
             selectedToggle={this.state.loginType === 'donor' ? 1 : 2}
             switchTwoText="i'm a teacher"
             switchOneClicked={() => this.updateLoginType('donor')}
