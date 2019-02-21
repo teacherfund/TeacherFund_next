@@ -2,3 +2,20 @@
 .description {
   text-align: center;
 }
+.mission {
+  background-image: url("/static/images/einstein.jpg");
+  height: 800px;
+  width: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  &--header {
+    font-size: 22px;
+    padding-top: 100px;
+    text-align: center;
+  }
+
+  &--body {
+
+  }
+}

@@ -5,12 +5,23 @@ import '../static/styles/main.scss'
 
 const About = () => (
   <div className='main-container'>
-    <Nav />
+    <Nav navColor='black' />
     <Head title='About' />
 
     <div className='body'>
-      <h1>About Us</h1>
-      <div className='description' />
+      <div className='mission'>
+        <div className='mission--header'>
+          Our Mission
+        </div>
+        <div className='mission--body'>
+        </div>
+      </div>
+      <div className='factcards'>
+
+      </div>
+      <div className='us'>
+
+      </div>
     </div>
     <Footer />
   </div>
