@@ -23,8 +23,63 @@
   }
 }
 
+.aboutusBody {
+  background-color: white;
+}
+
 .factcards {
   height: 400px;
-  width: 100%;
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.factcard {
+  &--container {
+    width: 32%;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    padding: 0px 20px 10px 20px;
+  }
+
+  &--fact {
+    &--image {
+      width: 100px;
+      height: 100px;
+    }
+    &--title {
+      padding-top: 50px 0 10px 0;
+      margin: auto;
+      text-align: center;
+    }
+    &--text {
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+}
+
+.us {
+
+}
+
+.employee {
+  &--container {
+
+  }
+  &--image {
+
+  }
+  &--name {
+
+  }
+  &--description {
+    
+  }
 }
