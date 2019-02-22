@@ -1,21 +1,30 @@
-.title,
-.description {
-  text-align: center;
-}
 .mission {
-  background-image: url("/static/images/einstein.jpg");
-  height: 800px;
+  background-image: url("/static/images/art-supplies.jpg");
+  height: 600px;
   width: 100%;
   background-size: 100%;
   background-repeat: no-repeat;
 
   &--header {
-    font-size: 22px;
-    padding-top: 100px;
+    font-size: 30px;
+    padding-top: 130px;
     text-align: center;
+    font-weight: bold;
   }
 
   &--body {
-
+    width: 400px;
+    height: auto;
+    padding-top: 40px;
+    margin: auto;
+    font-size: 20px;
+    border-radius: 4px;
+    text-align: center;
   }
+}
+
+.factcards {
+  height: 400px;
+  width: 100%;
+  background-color: white;
 }

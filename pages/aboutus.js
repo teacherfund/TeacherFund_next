@@ -14,6 +14,9 @@ const About = () => (
           Our Mission
         </div>
         <div className='mission--body'>
+          The Teacher Fund is a non-profit organization 
+          bringing school supplies and supplemental 
+          funding to public school teachers.
         </div>
       </div>
       <div className='factcards'>
