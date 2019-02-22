@@ -4,9 +4,21 @@ import Head from '../components/head'
 import '../static/styles/main.scss'
 
 const employees = [
-  { picture: '/', name: 'Joel Wasserman', description: '' },
-  { picture: '/', name: 'Christine Woeller', description: '' },
-  { picture: '/', name: 'Peter Squicciarini', description: '' }
+  {
+    picture: '/',
+    name: 'Joel Wasserman',
+    description: 'Joel is a software engineer at Google, but his true passion lies in education. He\'s worked at two prior education startups and believes with proper educational funding we may be able to inch closer to true opportunity equality.'
+  },
+  {
+    picture: '/',
+    name: 'Christine Woeller',
+    description: 'Christine is passionate about photography and serving her community. A social worker in Coeur d\'Alene, Idaho, she has an abundance of direct work experience with the public school teachers we aim to help.'
+  },
+  {
+    picture: '/',
+    name: 'Peter Squicciarini',
+    description: 'Peter is a software engineer at Amazon, and with his home school background is the philosophical check and balance needed to objectively help teachers and children succeed in the educational environment.'
+  }
 ]
 
 const About = () => (
@@ -63,14 +75,21 @@ const About = () => (
           </div>
         </div>
       </div>
+      <hr />
       <div className='us'>
-        <div className='title' />
-        <div className='employee--container'>
+        <div className='title'>
+          <h2>{'Who we are'.toUpperCase()}</h2>
+        </div>
+        <div className='employee--group'>
           {employees.map(({ image, name, description }) => (
-            <div key={name}>
+            <div key={name} className='employee--container'>
               <div className='employee--image' />
-              <div className='employee--name' />
-              <div className='employee--description' />
+              <div className='employee--name'>
+                {name.toUpperCase()}
+              </div>
+              <div className='employee--description p40 pt-1 pb-1'>
+                {description}
+              </div>
             </div>
           ))}
         </div>

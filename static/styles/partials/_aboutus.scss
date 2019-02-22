@@ -66,20 +66,26 @@
 }
 
 .us {
-
+  margin: 100px 50px;
 }
 
 .employee {
+  &--group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    padding: 50px 100px;
+  }
   &--container {
-
+    padding: 30px 0;
   }
   &--image {
 
   }
   &--name {
-
+    font-weight: bold;
   }
   &--description {
-    
+    width: 400px;
   }
 }
