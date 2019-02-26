@@ -50,6 +50,11 @@
   text-align: center!important;
 }
 
+.ttc { text-transform: capitalize; }
+.ttl { text-transform: lowercase; }
+.ttu { text-transform: uppercase; }
+.ttn { text-transform: none; }
+
 .backgroundImage {
   display: none;
 }

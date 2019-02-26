@@ -13,7 +13,7 @@ const EmailCapture = (props) => (
       <input placeholder='Email' />
     </div>
     <div className='captureButton'>
-      <label>{'Get our emails'.toUpperCase()}</label>
+      <label className='ttu'>Get our emails</label>
     </div>
   </div>
 )

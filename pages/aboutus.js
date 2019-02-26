@@ -87,7 +87,7 @@ const About = () => (
       <hr />
       <div className='us'>
         <div className='title'>
-          <h2>{'Who we are'.toUpperCase()}</h2>
+          <h2 className='ttu'>Who we are</h2>
         </div>
         <div className='employee--group'>
           {employees.map(({ imagePath, name, description }) => (
@@ -96,8 +96,8 @@ const About = () => (
                 <img className='employee--image--img' src={imagePath} />
               </div>
               <div className='employee--text'>
-                <div className='employee--name'>
-                  {name.toUpperCase()}
+                <div className='employee--name ttu'>
+                  {name}
                 </div>
                 <div className='employee--description p40 pt-1 pb-1'>
                   {description}
