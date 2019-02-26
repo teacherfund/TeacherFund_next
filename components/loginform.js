@@ -39,10 +39,10 @@ class LoginForm extends Component {
             switchTwoClicked={() => this.updateLoginType('teacher')}
           />
         </div>
-        {/*TODO SETUP APPROPRIATE ACTION CALL FOR SIGNIN OR SIGNUP*/}
+        {/* TODO SETUP APPROPRIATE ACTION CALL FOR SIGNIN OR SIGNUP */}
         <form action='api/user/login' method='post'>
           <div className='panel'>
-            {this.state.register && 
+            {this.state.register &&
             <div className='input-wrapper'>
               <input
                 required='required'
