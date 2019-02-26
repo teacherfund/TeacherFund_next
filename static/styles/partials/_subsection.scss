@@ -52,16 +52,16 @@
     background-color: transparent;
   }
   .subsectionContent {
-    padding-top: 120px;
+    padding-top: 140px;
     width: 60%;
     margin: auto;
-    padding-bottom: 20px;
+    padding-bottom: 80px;
   }
   .sectionImage {
     display: none;
   }
   .swiper-wrapper {
-    margin: 50px auto auto auto;
+    margin: 80px auto auto auto;
   }
   .subsectionImportant {
     position: relative;
@@ -89,10 +89,6 @@
   color: white;
   background-color: #434343;
 }
-.backgroundImage {
-  width: 100%;
-  z-index: -1;
-}
 .subsectionText {
   padding: 80px 5% 20px 5%;
   text-align: center;
@@ -108,7 +104,7 @@
 @media only screen and (min-width: 800px) { 
   .subsectionText {
     width: 500px;
-    margin: 8% 12%;
+    margin: 12% 12%;
   }
   .subsection > div {
     background-color: transparent;
@@ -116,6 +112,7 @@
   .backgroundImage {
     position: absolute;
     display: block;
+    height: auto;
   }
   .sectionImage {
     display: none;

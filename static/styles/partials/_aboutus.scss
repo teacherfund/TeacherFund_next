@@ -7,7 +7,7 @@
 
   &--header {
     font-size: 30px;
-    padding-top: 130px;
+    padding-top: 180px;
     text-align: center;
     font-weight: bold;
   }
@@ -28,7 +28,7 @@
 }
 
 .factcards {
-  height: 400px;
+  height: 520px;
   background-color: white;
   display: flex;
   align-items: center;
@@ -52,6 +52,8 @@
     &--image {
       width: 100px;
       height: 100px;
+      margin: auto;
+      margin-bottom: 10px;
     }
     &--title {
       padding-top: 50px 0 10px 0;
@@ -76,15 +78,32 @@
     margin-top: 80px;
     padding: 50px 100px;
   }
+
   &--container {
     padding: 30px 0;
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
   }
-  &--image {
 
+  &--image {
+    width: 320px;
+    height: 320px;
+
+    &--img {
+      max-width: 100%;
+    }
   }
+
+  &--text {
+    margin-left: 100px;
+  }
+
   &--name {
     font-weight: bold;
   }
+
   &--description {
     width: 400px;
   }
