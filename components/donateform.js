@@ -105,7 +105,7 @@ class DonateForm extends Component {
         </div>
         { loading && <h2>Loading...</h2>}
         <div className='donate__button button white' onClick={this.donate}>
-          <label>{'Donate'.toUpperCase()}</label>
+          <label className='ttu'>Donate</label>
         </div>
       </div>
     )

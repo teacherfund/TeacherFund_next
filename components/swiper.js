@@ -29,7 +29,7 @@ class CustomSwiper extends React.Component {
                 <div className='slide--icon'>
                   <Teacher />
                 </div>
-                <h4 className='mission-title p40 pt-1'>{'Real Teachers'.toUpperCase()}</h4>
+                <h4 className='mission-title p40 pt-1 ttu'>Real Teachers</h4>
               </div>
               <div className='show-only-when-active'>
                 <p className='mission-description  pt-1 pb-1 p40'>
@@ -45,7 +45,7 @@ class CustomSwiper extends React.Component {
                 <div className='slide--icon'>
                   <School />
                 </div>
-                <h4 className='mission-title p40 pt-1'>{'Local Schools'.toUpperCase()}</h4>
+                <h4 className='mission-title p40 pt-1 ttu'>Local Schools</h4>
               </div>
               <div className='show-only-when-active'>
                 <p className='mission-description  pt-1 pb-1 p40'>
@@ -61,7 +61,7 @@ class CustomSwiper extends React.Component {
                 <div className='slide--icon'>
                   <GPS />
                 </div>
-                <h4 className='mission-title p40 pt-1'>{'We prove every project'.toUpperCase()}</h4>
+                <h4 className='mission-title p40 pt-1 ttu'>We prove every project</h4>
               </div>
               <div className='show-only-when-active'>
                 <p className='mission-description pt-1 pb-1 p40'>

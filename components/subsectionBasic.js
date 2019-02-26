@@ -14,7 +14,7 @@ const SubsectionBasic = (props) => (
       </div>
       <div className='button--subsection' onClick={props.actionHandler}>
         <Link href={props.destination}>
-          <label>{props.buttonText.toUpperCase()}</label>
+          <label className='ttu'>{props.buttonText}</label>
         </Link>
       </div>
     </div>

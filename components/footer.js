@@ -21,7 +21,7 @@ const Footer = (props) => (
       {links.map(({ key, href, label }) => (
         <div key={key}>
           <Link href={href}>
-            <a>{label.toUpperCase()}</a>
+            <a className='ttu'>{label}</a>
           </Link>
         </div>
       ))}
