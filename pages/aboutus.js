@@ -1,23 +1,26 @@
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Head from '../components/head'
+import Book from '../components/icons/book'
+import GPS from '../components/icons/gps'
+import Percent from '../components/icons/percent'
 import '../static/styles/main.scss'
 
 const employees = [
   {
-    picture: '/',
+    imagePath: '/static/images/people/joel.jpg',
     name: 'Joel Wasserman',
-    description: 'Joel is a software engineer at Google, but his true passion lies in education. He\'s worked at two prior education startups and believes with proper educational funding we may be able to inch closer to true opportunity equality.'
+    description: 'Joel is a software engineer at Google, but his true passion lies in education. He\'s formerly worked at two education startups and believes with adequate educational funding we may be able to inch closer to true opportunity equality.'
   },
   {
-    picture: '/',
+    imagePath: '/static/images/people/christine.jpeg',
     name: 'Christine Woeller',
     description: 'Christine is passionate about photography and serving her community. A social worker in Coeur d\'Alene, Idaho, she has an abundance of direct work experience with the public school teachers we aim to help.'
   },
   {
-    picture: '/',
+    imagePath: '/static/images/people/pete.jpeg',
     name: 'Peter Squicciarini',
-    description: 'Peter is a software engineer at Amazon, and with his home school background is the philosophical check and balance needed to objectively help teachers and children succeed in the educational environment.'
+    description: 'Peter is a software engineer at Amazon, and with his home school background is the philosophical check and balance needed to objectively help teachers and children succeed in an educational environment.'
   }
 ]
 
@@ -39,7 +42,9 @@ const About = () => (
       </div>
       <div className='factcards'>
         <div className='factcard--container'>
-          <div className='factcard--fact--image' />
+          <div className='factcard--fact--image'>
+            <GPS />
+          </div>
           <div className='factcard--fact--title'>
             <h3>We prove every project</h3>
           </div>
@@ -51,7 +56,9 @@ const About = () => (
           </div>
         </div>
         <div className='factcard--container'>
-          <div className='factcard--fact--image' />
+          <div className='factcard--fact--image'>
+            <Book />
+          </div>
           <div className='factcard--fact--title'>
             <h3>We're an open book</h3>
           </div>
@@ -63,7 +70,9 @@ const About = () => (
           </div>
         </div>
         <div className='factcard--container'>
-          <div className='factcard--fact--image' />
+          <div className='factcard--fact--image'>
+            <Percent percent="100"/>
+          </div>
           <div className='factcard--fact--title'>
             <h3>100% goes into the field</h3>
           </div>
@@ -81,14 +90,18 @@ const About = () => (
           <h2>{'Who we are'.toUpperCase()}</h2>
         </div>
         <div className='employee--group'>
-          {employees.map(({ image, name, description }) => (
+          {employees.map(({ imagePath, name, description }) => (
             <div key={name} className='employee--container'>
-              <div className='employee--image' />
-              <div className='employee--name'>
-                {name.toUpperCase()}
+              <div className='employee--image'>
+                <img className='employee--image--img' src={imagePath} />
               </div>
-              <div className='employee--description p40 pt-1 pb-1'>
-                {description}
+              <div className='employee--text'>
+                <div className='employee--name'>
+                  {name.toUpperCase()}
+                </div>
+                <div className='employee--description p40 pt-1 pb-1'>
+                  {description}
+                </div>
               </div>
             </div>
           ))}
