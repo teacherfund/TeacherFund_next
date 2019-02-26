@@ -1,0 +1,19 @@
+#user_name {
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 13px 10px;
+    border-radius: 4px;
+    border: 1px solid $light-teal;
+    margin-bottom: 0;
+    height: 48px;
+    text-align: left;
+    color: $lead-gray;
+    width: 100%;
+    cursor: pointer;
+    vertical-align: bottom;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+  }
+  
