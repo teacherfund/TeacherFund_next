@@ -71,7 +71,7 @@ const About = () => (
         </div>
         <div className='factcard--container'>
           <div className='factcard--fact--image'>
-            <Percent percent="100"/>
+            <Percent percent='100' />
           </div>
           <div className='factcard--fact--title'>
             <h3>100% goes into the field</h3>
