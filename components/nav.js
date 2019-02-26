@@ -7,7 +7,7 @@ import '../static/styles/main.scss'
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/whyteachers', label: 'Why Teachers?' },
+  // { href: '/whyteachers', label: 'Why Teachers?' },
   { href: '/ourwork', label: 'Our Work' },
   { href: '/aboutus', label: 'About us' }
 ].map(link => {
@@ -79,8 +79,8 @@ class Nav extends React.Component {
           </div>
           <div className='navigationDrawerLinks'>
             <Link href='/'><a className='black'>{'home'.toUpperCase()}</a></Link>
-            <Link href='/about'><a className='black'>{'about'.toUpperCase()}</a></Link>
-            <Link href='/whyteachers'><a className='black'>{'Why teachers'.toUpperCase()}</a></Link>
+            <Link href='/aboutus'><a className='black'>{'about'.toUpperCase()}</a></Link>
+            {/* <Link href='/whyteachers'><a className='black'>{'Why teachers'.toUpperCase()}</a></Link> */}
             <Link href='/donate'><a className='black'>{'Donate'.toUpperCase()}</a></Link>
           </div>
         </Drawer>

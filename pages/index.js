@@ -25,7 +25,7 @@ const Home = () => (
         destination='donate'
       />
       <div className='emailCapture'>
-        <h2 className='titleText'>
+        <h2 className='emailCapture--title'>
           {emailTitle}
         </h2>
         <EmailCapture />
