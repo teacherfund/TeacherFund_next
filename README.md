@@ -13,7 +13,7 @@ This repository contains the code for the main TeacherFund website.
 We welcome any contributions to this project! If you're interested in fixing bugs or implementing new features, please see the document [How to Contribute](https://github.com/teacherfund/TeacherFund_next/blob/master/CONTRIBUTING.md).
 
 ## Related Projects
-- [TeacherFund API](https://github.com/teacherfund/api) (TypeScript)
+- [TeacherFund API](https://github.com/teacherfund/api) (TypeScript, Koa)
 
 ## License
 MIT
