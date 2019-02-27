@@ -13,6 +13,7 @@ const Ourwork = () => (
 
     <div className='body'>
       <SubsectionImportant
+        backgroundImageClasses='fade-wht'
         titleText='How we work'
         image='./static/images/beakers.jpg'
         descriptionText="We believe public school teachers don't receive the recognition they deserve. We're working to change that."

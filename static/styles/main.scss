@@ -141,6 +141,11 @@ p {
 .pb-1 {
   padding-bottom: 10px!important;
 }
+// fade to white
+.fade-wht {
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(255,255,255, 0)));
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
 
 .button, .button:active, .button:focus, button, button:active, button:focus {
   outline: none;
