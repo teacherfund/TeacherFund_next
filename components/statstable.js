@@ -25,13 +25,18 @@ const stats = [
 })
 
 const StatsTable = (props) => (
-  <div className='statstable'>
-    {stats.map(({ key, stat, subtext }) => (
-      <div className='statstable--stat' key={key}>
-        <p className='p40 statstable--stat--number'>{stat}</p>
-        <p className='p40 statstable-stat--subtext'>{subtext}</p>
-      </div>
-    ))}
+  <div className='statstable--container'>
+    <h2 className='statstable--title'>
+      Our Progress
+    </h2>
+    <div className='statstable'>
+      {stats.map(({ key, stat, subtext }) => (
+        <div className='statstable--stat' key={key}>
+          <p className='p40 statstable--stat--number'>{stat}</p>
+          <p className='p40 statstable-stat--subtext'>{subtext}</p>
+        </div>
+      ))}
+    </div>
   </div>
 )
 

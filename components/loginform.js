@@ -84,7 +84,7 @@ class LoginForm extends Component {
               className='button button--large button--expand radius'
             />
             <a className='reset' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a> <br />
-            <a className='reset' href='/account/password/reset'>Forgot password?</a>
+            {!this.state.register && <a className='reset' href='/account/password/reset'>Forgot password?</a>}
           </div>
         </form>
       </div>
