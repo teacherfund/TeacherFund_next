@@ -12,7 +12,7 @@ const links = [
   return link
 })
 
-const nonprofitInfoText = `© Copyright ${new Date().getFullYear()}. The Teacher Fund is a 501 (c)(3) | EIN: 22-3936753`
+const nonprofitInfoText = `© Copyright ${new Date().getFullYear()}. The Teacher Fund is 501 (c)(3) pending | EIN: 83-2285506`
 
 const Footer = (props) => (
   <div className='footer'>
