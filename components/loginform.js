@@ -6,14 +6,20 @@ class LoginForm extends Component {
   constructor () {
     super()
     this.state = {
+      name: '',
       user: '',
       pass: '',
+      register: false,
       loginType: 'donor'
     }
   }
 
   updateLoginType = (newVal) => {
     this.setState({ loginType: newVal })
+  }
+
+  updateFormType = () => {
+    this.setState({ register: !this.state.register })
   }
 
   render () {
@@ -33,8 +39,21 @@ class LoginForm extends Component {
             switchTwoClicked={() => this.updateLoginType('teacher')}
           />
         </div>
+        {/* TODO SETUP APPROPRIATE ACTION CALL FOR SIGNIN OR SIGNUP */}
         <form action='api/user/login' method='post'>
           <div className='panel'>
+            {this.state.register &&
+            <div className='input-wrapper'>
+              <input
+                required='required'
+                className='name'
+                aria-required='true'
+                placeholder='Full Name'
+                name='user[name]'
+                id='user_name'
+                autoComplete='off'
+              />
+            </div>}
             <div className='input-wrapper'>
               <input
                 required='required'
@@ -61,9 +80,10 @@ class LoginForm extends Component {
             <input
               type='submit'
               name='commit'
-              value='Sign in'
+              value={this.state.register ? 'Sign up' : 'Sign in'}
               className='button button--large button--expand radius'
             />
+            <a className='reset' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a> <br />
             <a className='reset' href='/account/password/reset'>Forgot password?</a>
           </div>
         </form>
