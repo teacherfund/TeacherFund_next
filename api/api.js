@@ -25,5 +25,6 @@ const constructPostBody = (bodyObject) => {
 
 export {
   donate,
-  login
+  login,
+  signup
 }
