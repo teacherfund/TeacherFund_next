@@ -1,6 +1,7 @@
 {
   "name": "create-next-example-app",
   "scripts": {
+    "now-build": "next build && next export -o dist",
     "dev": "next",
     "build": "next build",
     "start": "next start",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "dotenv": "^6.2.0",
     "redux-devtools-extension": "^2.13.8",
     "standard": "^12.0.1"
   },
