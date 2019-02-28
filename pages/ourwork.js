@@ -13,7 +13,7 @@ const Ourwork = () => (
 
     <div className='body'>
       <SubsectionImportant
-        backgroundImageClasses='fade-wht'
+        backgroundImageClasses='fade-wht full-height'
         titleText='How we work'
         image='./static/images/beakers.jpg'
         descriptionText="We believe public school teachers don't receive the recognition they deserve. We're working to change that."
@@ -22,9 +22,10 @@ const Ourwork = () => (
       </SubsectionImportant>
 
       <div className='mapgraphic--container'>
+        <h2 className='white center pb-3'>Where we operate</h2>
         <MapGraphic
           isMarkerShown
-          googleMapURL='https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places'
+          googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyCCpOMsFObM8FS0N9xa3XYJ53-Ahkrtk4s&callback=initMap'
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}

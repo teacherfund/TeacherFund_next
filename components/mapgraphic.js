@@ -6,9 +6,9 @@ const MapGraphic = withScriptjs(withGoogleMap((props) => (
   <div className='mapgraphic'>
     <GoogleMap
       defaultZoom={8}
-      defaultCenter={{ lat: -34.397, lng: 150.644 }}
+      defaultCenter={{ lat: 47.673, lng: -116.781 }}
     >
-      {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
+      {props.isMarkerShown && <Marker position={{ lat: 47.673, lng: -116.781 }} />}
     </GoogleMap>
   </div>
 )))

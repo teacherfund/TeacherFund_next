@@ -16,6 +16,7 @@
 @import 'partials/_statstable.scss';
 @import 'partials/_mapgraphic.scss';
 @import 'partials/_swiper.scss';
+@import 'partials/_images.scss';
 
 :global(body) {
   margin: 0;
@@ -140,6 +141,10 @@ p {
 // padding bottom 1
 .pb-1 {
   padding-bottom: 10px!important;
+}
+// padding bottom 3
+.pb-3 {
+  padding-bottom: 30px!important;
 }
 // fade to white
 .fade-wht {
