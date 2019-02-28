@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TwoItemSwitcher from './twoItemSwitcher'
+import 
 import '../static/styles/main.scss'
 
 class LoginForm extends Component {
@@ -22,6 +23,11 @@ class LoginForm extends Component {
     this.setState({ register: !this.state.register })
   }
 
+  handleSubmit = () => {
+    /* TODO SETUP APPROPRIATE ACTION CALL FOR SIGNIN OR SIGNUP */
+
+  }
+
   render () {
     return (
       <div>
@@ -39,8 +45,7 @@ class LoginForm extends Component {
             switchTwoClicked={() => this.updateLoginType('teacher')}
           />
         </div>
-        {/* TODO SETUP APPROPRIATE ACTION CALL FOR SIGNIN OR SIGNUP */}
-        <form action='api/user/login' method='post'>
+        <form onSubmit={this.handleSubmit}>
           <div className='panel'>
             {this.state.register &&
             <div className='input-wrapper'>
