@@ -22,6 +22,23 @@ class LoginForm extends Component {
     this.setState({ register: !this.state.register })
   }
 
+  handleSubmit = () => {
+    /* TODO SETUP APPROPRIATE ACTION CALL FOR SIGNIN OR SIGNUP */
+    if (this.state.register) {
+      this.login()
+    } else {
+      this.signup()
+    }
+  }
+
+  login = () => {
+
+  }
+
+  signup = () => {
+
+  }
+
   render () {
     return (
       <div>
@@ -39,8 +56,7 @@ class LoginForm extends Component {
             switchTwoClicked={() => this.updateLoginType('teacher')}
           />
         </div>
-        {/* TODO SETUP APPROPRIATE ACTION CALL FOR SIGNIN OR SIGNUP */}
-        <form action='api/user/login' method='post'>
+        <form onSubmit={this.handleSubmit}>
           <div className='panel'>
             {this.state.register &&
             <div className='input-wrapper'>
@@ -84,7 +100,7 @@ class LoginForm extends Component {
               className='button button--large button--expand radius'
             />
             <a className='reset' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a> <br />
-            <a className='reset' href='/account/password/reset'>Forgot password?</a>
+            {!this.state.register && <a className='reset' href='/account/password/reset'>Forgot password?</a>}
           </div>
         </form>
       </div>

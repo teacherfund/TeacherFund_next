@@ -5,27 +5,28 @@ import SubsectionImportant from '../components/subsectionImportant'
 import StatsTable from '../components/statstable'
 import MapGraphic from '../components/mapgraphic'
 import '../static/styles/main.scss'
+const APIKEY = process.env.GOOGLE_API_KEY
 
 const Ourwork = () => (
   <div className='main-container'>
-    <Nav />
+    <Nav navColor='white' />
     <Head title='Our Work' />
 
     <div className='body'>
       <SubsectionImportant
+        backgroundImageClasses='fade-wht full-height'
         titleText='How we work'
+        image='./static/images/beakers.jpg'
         descriptionText="We believe public school teachers don't receive the recognition they deserve. We're working to change that."
       >
-        <h2 className='titleText'>
-          Our Progress
-        </h2>
         <StatsTable />
       </SubsectionImportant>
 
       <div className='mapgraphic--container'>
+        <h2 className='white center pb-3'>Where we operate</h2>
         <MapGraphic
           isMarkerShown
-          googleMapURL='https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places'
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${APIKEY}&callback=initMap`}
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}

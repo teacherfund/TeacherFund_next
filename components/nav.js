@@ -17,7 +17,8 @@ const links = [
 
 const buttons = [
   { href: '/donate', label: 'Donate' },
-  { href: '/signinsignup', label: 'I\'m a teacher' }
+  { href: '/signinregister', label: 'Login' },
+  { href: '/signinregister', label: 'I\'m a teacher' }
 ].map(butt => {
   butt.key = `nav-link-${butt.href}-${butt.label}`
   return butt
@@ -81,6 +82,8 @@ class Nav extends React.Component {
             <Link href='/'><a className='black ttu'>home</a></Link>
             <Link href='/aboutus'><a className='black ttu'>about</a></Link>
             {/* <Link href='/whyteachers'><a className='black ttu'>Why teachers</a></Link> */}
+            <Link href='/signinregister'><a className='black ttu'>Login</a></Link>
+            <Link href='/signinregister'><a className='black ttu'>I'm a teacher</a></Link>
             <Link href='/donate'><a className='black ttu'>Donate</a></Link>
           </div>
         </Drawer>
