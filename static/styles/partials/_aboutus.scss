@@ -83,6 +83,12 @@
   margin: 100px 50px;
 }
 
+@media only screen and (max-width: 645px) {
+  .us {
+      margin: 0px;
+  }
+}
+
 .employee {
   &--group {
     display: flex;
@@ -119,4 +125,24 @@
   &--description {
     width: 400px;
   }
+}
+
+@media only screen and (max-width: 1110px) {
+  .employee--group {
+      padding: 0px;
+  }
+  .employee--container {
+      flex-direction: column;
+  }
+  .employee--text {
+      margin-left: 0px;
+      padding: 15px 0px;
+  }
+  .employee--name {
+    text-align: center;
+  }
+  .employee--description {
+    padding: 0 10px;
+  }
+
 }

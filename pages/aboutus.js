@@ -6,6 +6,7 @@ import GPS from '../components/icons/gps'
 import Percent from '../components/icons/percent'
 import '../static/styles/main.scss'
 import SubsectionBasic from '../components/subsectionBasic'
+import EmployeeInfo from '../components/employeeInfo'
 
 const employees = [
   {
@@ -91,19 +92,11 @@ const About = () => (
         </div>
         <div className='employee--group'>
           {employees.map(({ imagePath, name, description }) => (
-            <div key={name} className='employee--container'>
-              <div className='employee--image'>
-                <img className='employee--image--img' src={imagePath} />
-              </div>
-              <div className='employee--text'>
-                <div className='employee--name ttu'>
-                  {name}
-                </div>
-                <div className='employee--description p40 pt-1 pb-1'>
-                  {description}
-                </div>
-              </div>
-            </div>
+            <EmployeeInfo
+              image={imagePath}
+              name={name}
+              description={description}
+            />
           ))}
         </div>
       </div>
