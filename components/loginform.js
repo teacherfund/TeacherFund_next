@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TwoItemSwitcher from './twoItemSwitcher'
-import 
 import '../static/styles/main.scss'
 
 class LoginForm extends Component {
@@ -25,6 +24,18 @@ class LoginForm extends Component {
 
   handleSubmit = () => {
     /* TODO SETUP APPROPRIATE ACTION CALL FOR SIGNIN OR SIGNUP */
+    if (this.state.register) {
+      this.login()
+    } else {
+      this.signup()
+    }
+  }
+
+  login = () => {
+    
+  }
+
+  signup = () => {
 
   }
 
