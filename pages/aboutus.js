@@ -5,6 +5,7 @@ import Book from '../components/icons/book'
 import GPS from '../components/icons/gps'
 import Percent from '../components/icons/percent'
 import '../static/styles/main.scss'
+import SubsectionBasic from '../components/subsectionBasic'
 
 const employees = [
   {
@@ -29,17 +30,16 @@ const About = () => (
     <Nav navColor='black' />
     <Head title='About' />
 
-    <div className='body aboutusBody'>
-      <div className='mission'>
-        <div className='mission--header'>
-          Our Mission
-        </div>
-        <div className='mission--body'>
-          The Teacher Fund is a non-profit organization
+    <div className='body'>
+      <SubsectionBasic
+        titleText='Our Mission'
+        descriptionText='The Teacher Fund is a non-profit organization
           bringing school supplies and supplemental
-          funding to public school teachers.
-        </div>
-      </div>
+          funding to public school teachers.'
+        buttonText=''
+        image='/static/images/art-supplies.jpg'
+        destination=''
+      />
       <div className='factcards'>
         <div className='factcard--container'>
           <div className='factcard--fact--image'>
