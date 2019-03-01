@@ -93,6 +93,7 @@ const About = () => (
         <div className='employee--group'>
           {employees.map(({ imagePath, name, description }) => (
             <EmployeeInfo
+              key={name}
               image={imagePath}
               name={name}
               description={description}
