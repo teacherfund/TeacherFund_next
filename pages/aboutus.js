@@ -5,6 +5,8 @@ import Book from '../components/icons/book'
 import GPS from '../components/icons/gps'
 import Percent from '../components/icons/percent'
 import '../static/styles/main.scss'
+import SubsectionBasic from '../components/subsectionBasic'
+import EmployeeInfo from '../components/employeeInfo'
 
 const employees = [
   {
@@ -29,17 +31,16 @@ const About = () => (
     <Nav navColor='black' />
     <Head title='About' />
 
-    <div className='body aboutusBody'>
-      <div className='mission'>
-        <div className='mission--header'>
-          Our Mission
-        </div>
-        <div className='mission--body'>
-          The Teacher Fund is a non-profit organization
+    <div className='body'>
+      <SubsectionBasic
+        titleText='Our Mission'
+        descriptionText='The Teacher Fund is a non-profit organization
           bringing school supplies and supplemental
-          funding to public school teachers.
-        </div>
-      </div>
+          funding to public school teachers.'
+        buttonText=''
+        image='/static/images/art-supplies.jpg'
+        destination=''
+      />
       <div className='factcards'>
         <div className='factcard--container'>
           <div className='factcard--fact--image'>
@@ -91,19 +92,11 @@ const About = () => (
         </div>
         <div className='employee--group'>
           {employees.map(({ imagePath, name, description }) => (
-            <div key={name} className='employee--container'>
-              <div className='employee--image'>
-                <img className='employee--image--img' src={imagePath} />
-              </div>
-              <div className='employee--text'>
-                <div className='employee--name ttu'>
-                  {name}
-                </div>
-                <div className='employee--description p40 pt-1 pb-1'>
-                  {description}
-                </div>
-              </div>
-            </div>
+            <EmployeeInfo
+              image={imagePath}
+              name={name}
+              description={description}
+            />
           ))}
         </div>
       </div>
