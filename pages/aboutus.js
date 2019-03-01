@@ -31,7 +31,7 @@ const About = () => (
     <Nav navColor='black' />
     <Head title='About' />
 
-    <div className='body'>
+    <div className='body aboutusBody'>
       <SubsectionBasic
         titleText='Our Mission'
         descriptionText='The Teacher Fund is a non-profit organization

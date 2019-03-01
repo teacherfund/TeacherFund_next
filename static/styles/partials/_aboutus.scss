@@ -1,31 +1,15 @@
-.mission {
+.aboutusBody {
+  background-color: white;
+}
+
+.aboutusBody .subsection {
   background-image: url("/static/images/art-supplies.jpg");
   height: 600px;
   width: 100%;
   background-size: 100%;
   background-repeat: no-repeat;
-
-  &--header {
-    font-size: 30px;
-    padding-top: 180px;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  &--body {
-    width: 400px;
-    height: auto;
-    padding-top: 40px;
-    margin: auto;
-    font-size: 20px;
-    border-radius: 4px;
-    text-align: center;
-  }
 }
 
-.aboutusBody {
-  background-color: white;
-}
 
 .factcards {
   height: 520px;
