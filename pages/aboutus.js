@@ -31,7 +31,7 @@ const About = () => (
     <Nav navColor='black' />
     <Head title='About' />
 
-    <div className='body'>
+    <div className='body aboutusBody'>
       <SubsectionBasic
         titleText='Our Mission'
         descriptionText='The Teacher Fund is a non-profit organization
@@ -93,6 +93,7 @@ const About = () => (
         <div className='employee--group'>
           {employees.map(({ imagePath, name, description }) => (
             <EmployeeInfo
+              key={name}
               image={imagePath}
               name={name}
               description={description}
