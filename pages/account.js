@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Head from '../components/head'
 import Nav from '../components/nav'
 
@@ -20,9 +21,15 @@ class Account extends React.Component {
         <Head title='Account' />
         <Nav navColor='black' />
         <div className='body'>
-          <div className='account-stats'>
-            <p>You've donated {this.state.amountDonated} to TeacherFund thus far</p>
-            <p>{this.state.amountSpent} of which has been spent on the following items</p>  
+          <img src='/static/images/man-woman-reading.jpg' className='backgroundImage' />
+          <div className='account--stats'>
+            <p className='pb-1'>You've donated <b>{this.state.amountDonated}</b> to TeacherFund thus far</p>
+            <p className='pb-1'><b>{this.state.amountSpent}</b> of which has been spent on the following items</p>  
+            <div className='button--subsection'>
+              <Link href='donate'>
+                <label className='ttu'>donate</label>
+              </Link>
+            </div>
           </div>
         </div>
     
