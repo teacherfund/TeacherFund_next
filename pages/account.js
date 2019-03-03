@@ -7,7 +7,7 @@ import Footer from '../components/footer'
 import '../static/styles/main.scss'
 
 class Account extends React.Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       amountDonated: 0,
@@ -15,7 +15,7 @@ class Account extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <div className='main-container'>
         <Head title='Account' />
@@ -24,7 +24,7 @@ class Account extends React.Component {
           <img src='/static/images/man-woman-reading.jpg' className='backgroundImage' />
           <div className='account--stats'>
             <p className='pb-1'>You've donated <b>{this.state.amountDonated}</b> to TeacherFund thus far</p>
-            <p className='pb-1'><b>{this.state.amountSpent}</b> of which has been spent on the following items</p>  
+            <p className='pb-1'><b>{this.state.amountSpent}</b> of which has been spent on the following items</p>
             <div className='button--subsection'>
               <Link href='donate'>
                 <label className='ttu'>donate</label>
@@ -32,7 +32,7 @@ class Account extends React.Component {
             </div>
           </div>
         </div>
-    
+
         <Footer />
       </div>
     )
