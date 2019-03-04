@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import { CardElement, injectStripe } from 'react-stripe-elements'
 import TwoItemSwitcher from './twoItemSwitcher'
+import Router from 'next/router'
 import * as Api from '../api/api'
 import '../static/styles/main.scss'
 
@@ -58,7 +58,14 @@ class DonateForm extends Component {
       return
     }
     try {
-      let response = await Api.donate({ token })
+      let response = await Api.donate({
+        source: token,
+        firstName: this.state.firstName,
+        frequency: this.state.frequency,
+        lastName: this.state.lastName,
+        amount: this.state.amount,
+        email: this.state.email
+      })
       if (response.ok) {
         console.log('Donation Complete!')
         this.setState({ redirectSuccess: true, loading: false })
@@ -74,9 +81,9 @@ class DonateForm extends Component {
     const { redirectError, redirectSuccess, loading } = this.state
 
     if (redirectError) {
-      return <Redirect to='/error' />
+      return Router.replace('/error')
     } else if (redirectSuccess) {
-      return <Redirect to='/success' />
+      return Router.replace('/success')
     }
     return (
       <div className='donate'>

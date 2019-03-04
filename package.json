@@ -2,9 +2,9 @@
   "name": "create-next-example-app",
   "scripts": {
     "now-build": "next build && next export -o dist",
-    "dev": "next",
+    "dev": "next -p 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "fix": "standard --fix",
     "lint": "standard",
     "test": "npm run lint"
@@ -14,6 +14,7 @@
     "@zeit/next-sass": "^1.0.1",
     "isomorphic-fetch": "^2.2.1",
     "next": "^7.0.2",
+    "node-fetch": "^2.3.0",
     "node-sass": "^4.11.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
