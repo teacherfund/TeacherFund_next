@@ -1,0 +1,15 @@
+.account {
+  &--stats {
+    width: 500px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 200px;
+    text-align: center;
+  }
+
+  &--button {
+    width: 200px;
+  }
+}
