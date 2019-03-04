@@ -128,6 +128,14 @@ html, body {
   }
 }
 
+.error {
+  width: 100%;
+  padding: 10px 10px;
+  &--message {
+    color: red;
+  }
+}
+
 p {
   line-height: 1.3em;
 }

@@ -11,54 +11,60 @@ class DonateForm extends Component {
     this.donate = this.donate.bind(this)
     this.state = {
       loading: false,
-      redirect: false,
+      redirectSuccess: false,
       firstName: '',
       lastName: '',
       amount: 0,
       email: '',
-      frequency: 'once'
+      frequency: 'once',
+      error: ''
     }
   }
 
+  setLocalState = (state) => {
+    if (!state.error) state.error = ''
+    this.setState(state)
+  }
+
   updateFirstName = (e) => {
-    this.setState({ firstName: e.target.value })
+    this.setLocalState({ firstName: e.target.value })
   }
 
   updateFrequency = (newVal) => {
-    this.setState({ frequency: newVal })
+    this.setLocalState({ frequency: newVal })
   }
 
   updateLastName = (e) => {
-    this.setState({ lastName: e.target.value })
+    this.setLocalState({ lastName: e.target.value })
   }
 
   updateEmail = (e) => {
-    this.setState({ email: e.target.value })
+    this.setLocalState({ email: e.target.value })
   }
 
   updateAmount = (e) => {
-    this.setState({ amount: parseInt(e.target.value) })
+    this.setLocalState({ amount: parseInt(e.target.value) })
   }
 
   donate = async (ev) => {
     console.log(this.state)
-    this.setState({ loading: true })
+    this.setLocalState({ loading: true })
     let token
     try {
       let res = await this.props.stripe.createToken()
       token = res.token
     } catch (e) {
       console.log(e)
-      this.setState({ redirectError: true, loading: false })
+      this.setState({ error: e.message, loading: false })
       return
     }
 
     if (!token) {
-      this.setState({ redirectError: true, loading: false })
+      this.setState({ error: 'Invalid CC info!', loading: false })
       return
     }
     try {
-      let response = await Api.donate({
+      const responseStream = await Api.donate({
         source: token,
         firstName: this.state.firstName,
         frequency: this.state.frequency,
@@ -66,27 +72,32 @@ class DonateForm extends Component {
         amount: this.state.amount,
         email: this.state.email
       })
+      const response = await responseStream.json()
       if (response.ok) {
         console.log('Donation Complete!')
         this.setState({ redirectSuccess: true, loading: false })
       } else {
-        this.setState({ redirectError: true, loading: false })
+        this.setState({ error: `Donation failed: ${response.message}`, loading: false })
       }
     } catch (e) {
-      this.setState({ redirectError: true, loading: false })
+      this.setState({ error: e.message, loading: false })
     }
   }
 
   render () {
-    const { redirectError, redirectSuccess, loading } = this.state
+    const { redirectSuccess, loading } = this.state
 
-    if (redirectError) {
-      return Router.replace('/error')
-    } else if (redirectSuccess) {
-      return Router.replace('/success')
+    if (redirectSuccess) {
+      Router.push('/success')
     }
+
+    if (redirectSuccess) return (<div></div>)
+
     return (
       <div className='donate'>
+        <div className='error'>
+          <p className='error--message'>{this.state.error}</p>
+        </div>
         <TwoItemSwitcher
           color='black'
           switchOneText='Give Once'
