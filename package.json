@@ -2,9 +2,9 @@
   "name": "create-next-example-app",
   "scripts": {
     "now-build": "next build && next export -o dist",
-    "dev": "next -p 3001",
+    "dev": "next",
     "build": "next build",
-    "start": "next start -p 3001",
+    "start": "next start",
     "fix": "standard --fix",
     "lint": "standard",
     "test": "npm run lint"
