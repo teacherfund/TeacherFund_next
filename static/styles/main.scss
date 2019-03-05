@@ -20,6 +20,7 @@
 @import 'partials/_swiper.scss';
 @import 'partials/_images.scss';
 @import 'partials/_account.scss';
+@import 'partials/_success.scss';
 
 :global(body) {
   margin: 0;
@@ -127,6 +128,14 @@ html, body {
     background-color: #F6B333;
     cursor: pointer;
     justify-content: center;
+  }
+}
+
+.error {
+  width: 100%;
+  padding: 10px 10px;
+  &--message {
+    color: red;
   }
 }
 

@@ -6,7 +6,7 @@ import '../static/styles/main.scss'
 
 const SignInSignUp = () => (
   <div className='main-container'>
-    <Nav />
+    <Nav navColor='white' />
     <Head title='Sign In' />
 
     <div className='body text-center'>
