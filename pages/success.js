@@ -12,7 +12,7 @@ class Success extends React.Component {
       <div className='main-container'>
         <Head title='Success' />
         <Nav navColor='black' />
-        <div className='body'>
+        <div className='body success--body'>
           <img src='/static/images/einstein.jpg' className='backgroundImage full-height' />
           <div className='success'>
             <p className='pb-1'>Thank you! Your donation helps teachers and students across the country.</p>
