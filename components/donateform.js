@@ -91,7 +91,7 @@ class DonateForm extends Component {
       Router.push('/success')
     }
 
-    if (redirectSuccess) return (<div></div>)
+    if (redirectSuccess) return (<div />)
 
     return (
       <div className='donate'>
