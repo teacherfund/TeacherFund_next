@@ -15,7 +15,9 @@
   background-color: transparent;
 }
 .nav {
-  position: absolute;
+  position: fixed;
+  top: 0px;
+  z-index: 1000;
   width: 100%;
   background-color: white;
 }
@@ -51,6 +53,7 @@
 }
 .drawer {
   background-color: white;
+  z-index: 1000;
 }
 .navItems_logo {
   display: none;
