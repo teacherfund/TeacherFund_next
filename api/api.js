@@ -12,7 +12,7 @@ const login = async (bodyObject) => {
   return fetch(`${ENDPOINT}/user/login`, constructPostBody(bodyObject))
 }
 
-// Create an account 
+// Create an account
 const signup = async (bodyObject) => {
   return fetch(`${ENDPOINT}/user/signup`, constructPostBody(bodyObject))
 }

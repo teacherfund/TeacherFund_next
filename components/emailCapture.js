@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import '../static/styles/main.scss'
 import * as Api from '../api/api'
 
 class EmailCapture extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       firstName: '',
@@ -28,7 +28,7 @@ class EmailCapture extends Component {
     try {
       const responseStream = await Api.subscribe(reqBody)
       const response = await responseStream.json()
-      
+
       // If error, prompt to try again
       if (!response.ok) return this.setLocalState({ error: 'Whoops, please try again' })
 
@@ -61,7 +61,7 @@ class EmailCapture extends Component {
     this.setLocalState({ email: e.target.value })
   }
 
-  render() {
+  render () {
     return (
       <div className=''>
         {this.state.error && <div className='validation--error error'>
@@ -72,13 +72,13 @@ class EmailCapture extends Component {
         </div>}
         <div className='email-capture__content'>
           <div className='email-capture__input'>
-            <input placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName}/>
+            <input placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} />
           </div>
           <div className='email-capture__input'>
-            <input placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName}/>
+            <input placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} />
           </div>
           <div className='email-capture__input'>
-            <input placeholder='Email' value={this.state.email} onChange={this.updateEmail}/>
+            <input placeholder='Email' value={this.state.email} onChange={this.updateEmail} />
           </div>
           <div className='email-capture__button' onClick={this.subscribe}>
             <label className='ttu'>Get our emails</label>
