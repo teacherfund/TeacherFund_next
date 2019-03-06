@@ -2,23 +2,24 @@
   position:absolute;
   bottom:0;
   width:100%;
-  // padding: 10%;
   height: 200px; 
   background-color: #434343;
+  &__div {
+    color: white;
+  }
 }
-.footer > div {
-  color: white;
-}
+
 .footerLinks {
   margin-top: 20px;
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
+  &__div{
+    margin: 20px;
+  }
 }
+
 .nonprofitInfo {
   text-align: center;
   margin: auto;
-}
-.footerLinks > div {
-  margin: 20px;
 }
