@@ -4,7 +4,7 @@
   width:100%;
   height: 200px; 
   background-color: #434343;
-  &__div {
+  &__child {
     color: white;
   }
 }
@@ -14,7 +14,7 @@
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
-  &__div{
+  &__child{
     margin: 20px;
   }
 }

@@ -17,7 +17,7 @@ const nonprofitInfoText = `© Copyright ${new Date().getFullYear()}. The Teacher
 const Footer = (props) => (
   <div className='footer'>
     <hr />
-    <div className='footerLinks'>
+    <div className='footerLinks footer__child'>
       {links.map(({ key, href, label }) => (
         <div key={key}>
           <Link href={href}>
@@ -26,7 +26,7 @@ const Footer = (props) => (
         </div>
       ))}
     </div>
-    <div className='nonprofitInfo'>
+    <div className='nonprofitInfo footer__child'>
       {nonprofitInfoText}
     </div>
   </div>
