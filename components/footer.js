@@ -19,7 +19,7 @@ const Footer = (props) => (
     <hr />
     <div className='footerLinks footer__child'>
       {links.map(({ key, href, label }) => (
-        <div key={key}>
+        <div key={key} className='footerLinks__child'>
           <Link href={href}>
             <a className='ttu'>{label}</a>
           </Link>
