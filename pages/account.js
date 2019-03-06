@@ -14,7 +14,7 @@ class Account extends React.Component {
       amountSpent: 0
     }
   }
-  
+
   tweet = () => {
     // TODO: add in tweet functionality
   }
