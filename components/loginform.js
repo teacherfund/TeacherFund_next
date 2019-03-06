@@ -43,7 +43,7 @@ class LoginForm extends Component {
     return (
       <div>
         <div className='heading'>
-          <h1 className='h35 white'>Sign in</h1>
+          <h2 className='h35 white'>Sign in</h2>
         </div>
         <div className='donorTeacherSwitcher'>
           <TwoItemSwitcher

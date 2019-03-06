@@ -1,5 +1,4 @@
 input[type=email], input[type=password], #user_name {
-  font-size: 16px;
   line-height: 1.4;
   padding: 13px 10px;
   border-radius: 4px;
@@ -24,7 +23,6 @@ input[type=submit] {
   margin: 40px auto 60px;
 }
 h1 {
-  font-weight: 500;
   line-height: 1.1em;
   .h35 {
     font-size: 35px;
@@ -55,7 +53,6 @@ h1 {
   margin: 30px 0 10px;
   display: inline-block;
   font-weight: 500;
-  font-size: 19px;
   color: white;
 }
 .login-container {
