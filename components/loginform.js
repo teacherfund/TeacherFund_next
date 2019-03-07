@@ -50,7 +50,7 @@ class LoginForm extends Component {
             switchOneText="i'm a donor"
             className='donorTeacherSwitcher'
             color='white'
-            selectedToggle={this.state.loginType === 'donor' ? 1 : 2}
+            selectedToggle={this.state.loginType === this.props.type ? 1 : 2}
             switchTwoText="i'm a teacher"
             switchOneClicked={() => this.updateLoginType('donor')}
             switchTwoClicked={() => this.updateLoginType('teacher')}
