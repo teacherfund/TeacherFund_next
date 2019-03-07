@@ -21,7 +21,7 @@ const SignInSignUp = (props) => (
 SignInSignUp.getInitialProps = async ({query}) => {
   return {
     donor: () => {
-      if(query.type === 'donor'){
+      if(query === 'donor'){
           return 'donor';
       }
       else{
