@@ -2,7 +2,7 @@
   "name": "create-next-example-app",
   "scripts": {
     "now-build": "next build && next export -o dist",
-    "dev": "next",
+    "dev": "next -p 3001",
     "build": "next build",
     "start": "next start",
     "fix": "standard --fix",
