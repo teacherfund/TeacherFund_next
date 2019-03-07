@@ -1,8 +1,40 @@
 .slide {
+  background-color: white;
+  border-radius: 4px;
+  width: 25%;
+
   &--icon {
     width: 100px;
     height: 100px;
     margin: auto;
     margin-bottom: 20px;
+  }
+}
+.slide-inner {
+  color: black;
+  border: 2px solid #f1f1f0;
+  padding: 40px 10px;
+  border-radius: 4px;
+  transition: border-color .15s linear;
+}
+.swiper-slide-active {
+  border-color: #c1c1ba;
+}
+
+#auto-slides-per-view {
+  .swiper-slide {
+    width: 80%;
+    &:nth-child(2n) {
+      width: 60%;
+    }
+    &:nth-child(3n) {
+      width: 40%;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) { 
+  .slide {
+    width: 80% !important;
   }
 }
