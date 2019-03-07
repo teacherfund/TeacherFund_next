@@ -15,19 +15,23 @@ class Account extends React.Component {
     }
   }
 
+  tweet = () => {
+    // TODO: add in tweet functionality
+  }
+
   render () {
     return (
       <div className='main-container'>
         <Head title='Account' />
         <Nav navColor='black' />
-        <div className='body'>
+        <div className='body account--body'>
           <img src='/static/images/man-woman-reading.jpg' className='backgroundImage' />
           <div className='account--stats'>
             <p className='pb-1'>You've donated <b>{this.state.amountDonated}</b> to TeacherFund thus far</p>
             <p className='pb-1'><b>{this.state.amountSpent}</b> of which has been spent on the following items</p>
             <div className='button--subsection white'>
               <Link href='donate'>
-                <label className='ttu'>donate</label>
+                <label className='ttu'>donate again</label>
               </Link>
             </div>
           </div>

@@ -7,3 +7,16 @@
   margin-top: 200px;
   text-align: center;
 }
+
+@media only screen and (max-width: 600px) { 
+  .success {
+    width: 100%;
+    padding: 50px;
+    margin: auto;
+    margin-top: 100px;
+
+    &--body {
+      background-color: white;
+    }
+  }
+}

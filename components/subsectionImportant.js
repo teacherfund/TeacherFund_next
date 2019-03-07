@@ -4,8 +4,8 @@ import '../static/styles/main.scss'
 class SubsectionImportant extends React.Component {
   render () {
     return (
-      <div className={`subsectionImportant ${this.props.classes}`}>
-        <img src={this.props.image} className={`backgroundImage ${this.props.backgroundImageClasses}`} />
+      <div className={`subsectionImportant ${this.props.classes || ''}`}>
+        <img src={this.props.image} className={`backgroundImage ${this.props.backgroundImageClasses || ''}`} />
         <div className='subsectionContent'>
           <h2 className='titleText'>
             {this.props.titleText}
