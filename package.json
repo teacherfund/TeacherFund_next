@@ -9,6 +9,11 @@
     "lint": "standard",
     "test": "npm run lint"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
+  },
   "dependencies": {
     "@material-ui/core": "^3.0.0",
     "@zeit/next-sass": "^1.0.1",
@@ -27,6 +32,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "dotenv": "^6.2.0",
+    "husky": "^1.3.1",
     "redux-devtools-extension": "^2.13.8",
     "standard": "^12.0.1"
   },
