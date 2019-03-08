@@ -11,23 +11,16 @@ const SignInSignUp = (props) => (
 
     <div className='body text-center'>
       <div className='login-container'>
-        <LoginForm type={props.donor}/>
+        <LoginForm type={props.teacher}/>
       </div>
     </div>
     <Footer />
   </div>
 )
 
-SignInSignUp.getInitialProps = async ({query}) => {
-  return {
-    donor: () => {
-      if(query === 'donor'){
-          return 'donor';
-      }
-      else{
-        return 'teacher';
-        }
-     }
-  }
+SignInSignUp.getInitialProps = async ({ query }) => {
+  console.log(query.type) // { type: 'teacher' }
+  return { teacher: query.type === 'teacher' }
 }
+
 export default SignInSignUp

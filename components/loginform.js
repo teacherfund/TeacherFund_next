@@ -3,14 +3,14 @@ import TwoItemSwitcher from './twoItemSwitcher'
 import '../static/styles/main.scss'
 
 class LoginForm extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       name: '',
       user: '',
       pass: '',
       register: false,
-      loginType: 'donor'
+      loginType: props.type === true ? 'teacher' : 'donor'
     }
   }
 
@@ -50,7 +50,7 @@ class LoginForm extends Component {
             switchOneText="i'm a donor"
             className='donorTeacherSwitcher'
             color='white'
-            selectedToggle={this.state.loginType === this.props.type ? 1 : 2}
+            selectedToggle={this.state.loginType === 'donor' ? 1 : 2}
             switchTwoText="i'm a teacher"
             switchOneClicked={() => this.updateLoginType('donor')}
             switchTwoClicked={() => this.updateLoginType('teacher')}
@@ -105,6 +105,7 @@ class LoginForm extends Component {
         </form>
       </div>
     )
+    
   }
 }
 
