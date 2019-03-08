@@ -105,7 +105,6 @@ class LoginForm extends Component {
         </form>
       </div>
     )
-    
   }
 }
 

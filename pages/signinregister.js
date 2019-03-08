@@ -11,7 +11,7 @@ const SignInSignUp = (props) => (
 
     <div className='body text-center'>
       <div className='login-container'>
-        <LoginForm type={props.teacher}/>
+        <LoginForm type={props.teacher} />
       </div>
     </div>
     <Footer />
@@ -19,7 +19,7 @@ const SignInSignUp = (props) => (
 )
 
 SignInSignUp.getInitialProps = async ({ query }) => {
-  return { 
+  return {
     teacher: query.type
   }
 }
