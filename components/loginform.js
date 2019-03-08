@@ -3,14 +3,14 @@ import TwoItemSwitcher from './twoItemSwitcher'
 import '../static/styles/main.scss'
 
 class LoginForm extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       name: '',
       user: '',
       pass: '',
       register: false,
-      loginType: 'donor'
+      loginType: props.type
     }
   }
 
