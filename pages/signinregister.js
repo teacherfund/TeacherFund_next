@@ -19,8 +19,9 @@ const SignInSignUp = (props) => (
 )
 
 SignInSignUp.getInitialProps = async ({ query }) => {
-  console.log(query.type) // { type: 'teacher' }
-  return { teacher: query.type === 'teacher' }
+  return { 
+    teacher: query.type
+  }
 }
 
 export default SignInSignUp

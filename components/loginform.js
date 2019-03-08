@@ -10,7 +10,7 @@ class LoginForm extends Component {
       user: '',
       pass: '',
       register: false,
-      loginType: props.type === true ? 'teacher' : 'donor'
+      loginType: props.type
     }
   }
 
