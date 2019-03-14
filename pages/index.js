@@ -1,4 +1,5 @@
 import React from 'react'
+import Router from 'next/router'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import SubsectionBasic from '../components/subsectionBasic'
@@ -25,6 +26,9 @@ class Home extends React.Component {
       const responseStream = await Api.verify({ auth: query.auth, email: query.email })
       const res = responseStream.json()
       console.log(res)
+      if (res.ok) {
+        Router.push('/account')
+      }
     } catch (e) {
       console.error(e)
     }
