@@ -11,7 +11,7 @@ class LoginForm extends Component {
       lastName: '',
       email: '',
       register: false,
-      loginType: props.type
+      loginType: props.type || 'donor'
     }
   }
 
@@ -41,8 +41,7 @@ class LoginForm extends Component {
   }
 
   handleSubmit = () => {
-    /* TODO SETUP APPROPRIATE ACTION CALL FOR SIGNIN OR SIGNUP */
-    if (this.state.register) {
+    if (!this.state.register) {
       this.login()
     } else {
       this.signup()
@@ -58,9 +57,14 @@ class LoginForm extends Component {
       })
       const response = await responseStream.json()
       console.log(response)
+      if (!response.ok) this.showError()
     } catch (e) {
       console.error(e)
     }
+  }
+
+  showError = () => {
+    this.setState({ error: 'An error occurred, please try again ' })
   }
 
   signup = async () => {
@@ -73,6 +77,7 @@ class LoginForm extends Component {
       })
       const response = await responseStream.json()
       console.log(response)
+      if (!response.ok) this.showError()
     } catch (e) {
       console.error(e)
     }
@@ -95,8 +100,11 @@ class LoginForm extends Component {
             switchTwoClicked={() => this.updateLoginType('teacher')}
           />
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <div>
           <div className='panel'>
+            <div className='error'>
+              <p className='error--message'>{this.state.error}</p>
+            </div>
             {this.state.register &&
             <div>
               <div className='input-wrapper'>
@@ -140,16 +148,13 @@ class LoginForm extends Component {
                 autoComplete='off'
               />
             </div>
-            <input
-              type='submit'
-              name='commit'
-              value={this.state.register ? 'Sign up' : 'Sign in'}
-              className='button button--large button--expand radius'
-            />
+            <div className='button button--large button--expand radius' onClick={this.handleSubmit}>
+              <label className='ttu'>{this.state.register ? 'Sign up' : 'Sign in'}</label>
+            </div>
             <a className='reset' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a> <br />
             {!this.state.register && <a className='reset' href='/account/password/reset'>Forgot password?</a>}
           </div>
-        </form>
+        </div>
       </div>
     )
   }
