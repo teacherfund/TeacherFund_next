@@ -9,6 +9,7 @@ const donate = async (bodyObject) => {
 
 // Login to an existing account
 const login = async (bodyObject) => {
+  console.log('here')
   return fetch(`${ENDPOINT}/account/login`, constructPostBody(bodyObject))
 }
 

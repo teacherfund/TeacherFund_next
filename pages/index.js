@@ -14,9 +14,11 @@ import '../static/styles/main.scss'
 const emailTitle = 'Help us change the world.'
 
 class Home extends React.Component {
-  getInitialProps ({ query }) {
+  constructor (props) {
+    super(props)
+    const query = props.url.query
     // If query string has auth verify and email param then send verify request to api
-    if (query.auth && query.email) {
+    if (query && query.auth && query.email) {
       this.verifyEmail(query)
     }
   }

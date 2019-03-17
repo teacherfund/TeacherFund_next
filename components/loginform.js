@@ -51,6 +51,7 @@ class LoginForm extends Component {
 
   login = async () => {
     try {
+      console.log('bal')
       const responseStream = await Api.login({
         email: this.state.email,
         role: this.state.loginType
@@ -102,6 +103,7 @@ class LoginForm extends Component {
                 <input
                   required='required'
                   className='name'
+                  onChange={this.updateFirstname}
                   value={this.state.firstName}
                   aria-required='true'
                   placeholder='First name'
@@ -114,6 +116,7 @@ class LoginForm extends Component {
                 <input
                   required='required'
                   className='name'
+                  onChange={this.updateLastname}
                   value={this.state.lastName}
                   aria-required='true'
                   placeholder='Last name'
@@ -127,6 +130,7 @@ class LoginForm extends Component {
               <input
                 required='required'
                 className='email'
+                onChange={this.updateEmail}
                 value={this.state.email}
                 aria-required='true'
                 placeholder='Email'
