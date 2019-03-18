@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { setCookie } from 'nookies'
+import Router from 'next/router'
 import TwoItemSwitcher from './twoItemSwitcher'
 import * as Api from '../api/api'
 import '../static/styles/main.scss'
@@ -57,14 +59,12 @@ class LoginForm extends Component {
       })
       const response = await responseStream.json()
       console.log(response)
-      if (!response.ok) this.showError()
+      // if (!response.ok) return this.showError()
+      // succesful response, set auth cookie and redirect to account page
+      this.setCookieAndRedirectToAccount('testingauth')
     } catch (e) {
       console.error(e)
     }
-  }
-
-  showError = () => {
-    this.setState({ error: 'An error occurred, please try again ' })
   }
 
   signup = async () => {
@@ -77,10 +77,23 @@ class LoginForm extends Component {
       })
       const response = await responseStream.json()
       console.log(response)
-      if (!response.ok) this.showError()
+      if (!response.ok) return this.showError()
+      // succesful response, set auth cookie and redirect to account page
+      this.setCookieAndRedirectToAccount(response.auth)
     } catch (e) {
       console.error(e)
     }
+  }
+
+  showError = () => {
+    this.setState({ error: 'An error occurred, please try again ' })
+  }
+
+  setCookieAndRedirectToAccount = (token) => {
+    // Set cookie
+    setCookie(this.props, 'tfauth', token)
+    // Redirect to account
+    Router.push('/account')
   }
 
   render () {
