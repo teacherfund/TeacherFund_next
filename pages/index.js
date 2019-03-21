@@ -1,9 +1,7 @@
 import React from 'react'
-import Router from 'next/router'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import SubsectionBasic from '../components/subsectionBasic'
-import * as Api from '../api/api'
 import SubsectionImportant from '../components/subsectionImportant'
 import EmailCapture from '../components/emailCapture'
 
@@ -15,23 +13,14 @@ const emailTitle = 'Help us change the world.'
 
 class Home extends React.Component {
   static async getInitialProps ({ query }) {
-    // If query string has auth verify and email param then send verify request to api
-    if (query && query.auth && query.email) {
-      this.verifyEmail(query)
-    }
     return { query }
   }
 
-  async verifyEmail (query) {
-    try {
-      const responseStream = await Api.verify({ auth: query.auth, email: query.email })
-      const res = responseStream.json()
-      console.log(res)
-      if (res.ok) {
-        Router.push('/account')
-      }
-    } catch (e) {
-      console.error(e)
+  componentDidMount () {
+    const { email, auth } = this.props.query
+    if (email && auth) {
+      this.props.helpers.handleVerify({ email, auth })
+        .catch((e) => { console.error(e) })
     }
   }
 
