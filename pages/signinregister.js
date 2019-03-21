@@ -11,7 +11,11 @@ const SignInSignUp = (props) => (
 
     <div className='body text-center'>
       <div className='login-container'>
-        <LoginForm type={props.teacher} />
+        <LoginForm
+          type={props.teacher}
+          onSignup={props.helpers.handleSignup}
+          onLogin={props.helpers.handleLogin}
+        />
       </div>
     </div>
     <Footer />

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+// import Router from 'next/router'
+import * as Api from '../api/api'
 
 // bind functions to self and return them in an object
 function autobind (funcs, self) {
@@ -18,19 +20,41 @@ export default (Page, pageProps) => class Context extends Component {
     }
     this.helpers = autobind([
       // methods to alter state go here
-      'handleLogin'
+      'handleSignup',
+      'handleLogin',
+      'handleVerify'
     ], this)
   }
-  handleLogin () {
-    // call these global helper functions from pages
-    //   this.props.helpers.handleLogin({ ... })
-    // this handler calls API methods directly
-    //   api.login({ ... })
-    // then sets state with result
-    //   this.setState({ loggedIn: true })
-    // app state can be accessed in page with
-    //   this.props.context.loggedIn
-    this.setState({ loggedIn: true })
+  handleSignup ({ email, firstName, lastName, role }) {
+    return Api.register({ email, firstName, lastName, role })
+      .then((res) => res.json())
+      .then((res) => {
+        // request fails, fall into component's catch block
+        if (!res.ok) throw new Error('signup failed')
+        // should redirect to a post-registration page
+        // Router.push('/post-registration')
+      })
+  }
+  handleLogin ({ email, role }) {
+    return Api.login({ email, role })
+      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error('login failed')
+        // redirect to a post-login page (since email has been sent)
+        // Router.push('/post-login')
+      })
+  }
+  handleVerify ({ email, auth }) {
+    return Api.verify({ email, auth })
+      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          this.setState({ loggedIn: false })
+          throw new Error('authentication failed')
+        }
+        // mark them as logged in
+        this.setState({ loggedIn: true })
+      })
   }
   render () {
     const allProps = {

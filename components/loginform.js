@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import { setCookie } from 'nookies'
-import Router from 'next/router'
 import TwoItemSwitcher from './twoItemSwitcher'
-import * as Api from '../api/api'
 import '../static/styles/main.scss'
 
 class LoginForm extends Component {
@@ -17,29 +14,24 @@ class LoginForm extends Component {
     }
   }
 
-  setLocalState = (state) => {
-    if (!state.error) state.error = ''
-    this.setState(state)
-  }
-
   updateFirstname = (e) => {
-    this.setLocalState({ firstName: e.target.value })
+    this.setState({ firstName: e.target.value })
   }
 
   updateLastname = (e) => {
-    this.setLocalState({ lastName: e.target.value })
+    this.setState({ lastName: e.target.value })
   }
 
   updateEmail = (e) => {
-    this.setLocalState({ email: e.target.value })
+    this.setState({ email: e.target.value })
   }
 
   updateLoginType = (newVal) => {
-    this.setLocalState({ loginType: newVal })
+    this.setState({ loginType: newVal })
   }
 
   updateFormType = () => {
-    this.setLocalState({ register: !this.state.register })
+    this.setState((prevState) => ({ register: !prevState.register }))
   }
 
   handleSubmit = () => {
@@ -50,50 +42,38 @@ class LoginForm extends Component {
     }
   }
 
-  login = async () => {
-    try {
-      console.log('bal')
-      const responseStream = await Api.login({
-        email: this.state.email,
-        role: this.state.loginType
-      })
-      const response = await responseStream.json()
-      console.log(response)
-      // if (!response.ok) return this.showError()
-      // succesful response, set auth cookie and redirect to account page
-      this.setCookieAndRedirectToAccount('testingauth')
-    } catch (e) {
+  login = () => {
+    // clear any errors that may have occurred up to this point
+    this.clearError()
+    this.props.onLogin({
+      email: this.state.email,
+      role: this.state.loginType
+    }).catch((e) => {
       console.error(e)
-    }
+      this.showError()
+    })
   }
 
-  signup = async () => {
-    try {
-      const responseStream = await Api.register({
-        email: this.state.email,
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        role: this.state.loginType
-      })
-      const response = await responseStream.json()
-      console.log(response)
-      if (!response.ok) return this.showError()
-      // succesful response, set auth cookie and redirect to account page
-      this.setCookieAndRedirectToAccount(response.auth)
-    } catch (e) {
+  signup = () => {
+    // clear any errors that may have occurred up to this point
+    this.clearError()
+    this.props.onSignup({
+      email: this.state.email,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      role: this.state.loginType
+    }).catch((e) => {
       console.error(e)
-    }
+      this.showError()
+    })
+  }
+
+  clearError = () => {
+    this.setState({ error: '' })
   }
 
   showError = () => {
     this.setState({ error: 'An error occurred, please try again ' })
-  }
-
-  setCookieAndRedirectToAccount = (token) => {
-    // Set cookie
-    setCookie(this.props, 'tfauth', token)
-    // Redirect to account
-    Router.push('/account')
   }
 
   render () {
