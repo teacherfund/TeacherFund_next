@@ -1,4 +1,5 @@
 import React from 'react'
+import { parseCookies } from 'nookies'
 import Link from 'next/link'
 import Head from '../components/head'
 import Nav from '../components/nav'
@@ -15,8 +16,14 @@ class Account extends React.Component {
     }
   }
 
+  static async getInitialProps (ctx) {
+    const cookies = parseCookies(ctx)
+    console.log('cookies', cookies)
+    return {}
+  }
+
   tweet = () => {
-    // TODO: add in tweet functionality
+    // TODO: add in tweet functionality to share that you donated to teacherfund
   }
 
   render () {

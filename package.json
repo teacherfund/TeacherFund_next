@@ -21,6 +21,7 @@
     "next": "^7.0.2",
     "node-fetch": "^2.3.0",
     "node-sass": "^4.11.0",
+    "nookies": "^2.0.4",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-google-maps": "^9.4.5",
