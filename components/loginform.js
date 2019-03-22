@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { setCookie } from 'nookies'
-import Router from 'next/router'
 import TwoItemSwitcher from './twoItemSwitcher'
 import * as Api from '../api/api'
 import '../static/styles/main.scss'
@@ -19,6 +17,7 @@ class LoginForm extends Component {
 
   setLocalState = (state) => {
     if (!state.error) state.error = ''
+    if (!state.message) state.message = ''
     this.setState(state)
   }
 
@@ -59,9 +58,9 @@ class LoginForm extends Component {
       })
       const response = await responseStream.json()
       console.log(response)
-      // if (!response.ok) return this.showError()
-      // succesful response, set auth cookie and redirect to account page
-      this.setCookieAndRedirectToAccount('testingauth')
+      if (!response.ok) return this.showError()
+      // succesful response, show "check email" message
+      this.showCheckEmailMessage()
     } catch (e) {
       console.error(e)
     }
@@ -78,22 +77,20 @@ class LoginForm extends Component {
       const response = await responseStream.json()
       console.log(response)
       if (!response.ok) return this.showError()
-      // succesful response, set auth cookie and redirect to account page
-      this.setCookieAndRedirectToAccount(response.auth)
+      // succesful response, show "check email" message
+      this.showCheckEmailMessage()
     } catch (e) {
       console.error(e)
     }
   }
 
   showError = () => {
-    this.setState({ error: 'An error occurred, please try again ' })
+    this.setLocalState({ error: 'An error occurred, please try again ' })
   }
 
-  setCookieAndRedirectToAccount = (token) => {
-    // Set cookie
-    setCookie(this.props, 'tfauth', token)
+  showCheckEmailMessage = () => {
     // Redirect to account
-    Router.push('/account')
+    this.setLocalState({ message: 'An auth email was sent to your email, use it to log in' })
   }
 
   render () {
@@ -117,6 +114,9 @@ class LoginForm extends Component {
           <div className='panel'>
             <div className='error'>
               <p className='error--message'>{this.state.error}</p>
+            </div>
+            <div className='instruction'>
+              <p className='instruction--message'>{this.state.message}</p>
             </div>
             {this.state.register &&
             <div>

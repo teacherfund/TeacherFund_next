@@ -156,6 +156,20 @@ p {
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
+.instruction {
+  color: green;
+  width: 100%;
+  padding: 10px 10px;
+  
+  &--center {
+    text-align: center;
+  }
+ 
+  &--message {
+    color: green;
+  }
+}
+
 .button, .button:active, .button:focus, button, button:active, button:focus {
   outline: none;
 }

@@ -14,18 +14,19 @@ import '../static/styles/main.scss'
 const emailTitle = 'Help us change the world.'
 
 class Home extends React.Component {
-  static async getInitialProps ({ query }) {
+  constructor (props) {
+    super(props)
+    const { query } = props.url
     // If query string has auth verify and email param then send verify request to api
     if (query && query.auth && query.email) {
       this.verifyEmail(query)
     }
-    return { query }
   }
 
   async verifyEmail (query) {
     try {
       const responseStream = await Api.verify({ auth: query.auth, email: query.email })
-      const res = responseStream.json()
+      const res = await responseStream.json()
       console.log(res)
       if (res.ok) {
         Router.push('/account')
