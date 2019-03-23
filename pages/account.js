@@ -19,8 +19,13 @@ class Account extends React.Component {
   static async getInitialProps (ctx) {
     const cookies = parseCookies(ctx)
     console.log('cookies', cookies)
+
+    // TODO: Fetch account info from api
+
     return {}
   }
+
+  static async
 
   tweet = () => {
     // TODO: add in tweet functionality to share that you donated to teacherfund

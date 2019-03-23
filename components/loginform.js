@@ -98,6 +98,9 @@ class LoginForm extends Component {
             <div className='error'>
               <p className='error--message'>{this.state.error}</p>
             </div>
+            <div className='instruction'>
+              <p className='instruction--message'>{this.state.message}</p>
+            </div>
             {this.state.register &&
             <div>
               <div className='input-wrapper'>
