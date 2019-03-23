@@ -12,7 +12,7 @@ const employees = [
   {
     imagePath: '/static/images/people/joel.jpg',
     name: 'Joel Wasserman',
-    description: 'Joel is a software engineer at Google. He has formerly worked at two education startups and believes with adequate educational funding we may be able to inch closer to true opportunity equality.'
+    description: 'Joel is a software engineer at Google. He has formerly worked at two education startups and is passionate about public school education, technology, puzzles, and government.'
   },
   {
     imagePath: '/static/images/people/christine.jpeg',

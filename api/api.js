@@ -27,6 +27,20 @@ const subscribe = async (bodyObject) => {
   return fetch(`${ENDPOINT}/subscribe`, constructPostBody(bodyObject))
 }
 
+// Fetch all financial data and download it
+const fetchFinancialData = async () => {
+  fetch(`${ENDPOINT}/finances`)
+    .then((res) => res.json())
+    .then((res) => {
+    // Download res as file (csv) to user
+    })
+}
+
+// Fetch user donation information to display on account page
+const fetchUserData = async (bodyObject) => {
+
+}
+
 // Private internal
 const constructPostBody = (bodyObject) => {
   return {
@@ -38,6 +52,8 @@ const constructPostBody = (bodyObject) => {
 
 export {
   donate,
+  fetchFinancialData,
+  fetchUserData,
   login,
   verify,
   register,
