@@ -3,6 +3,7 @@ import Footer from '../components/footer'
 import Head from '../components/head'
 import SubsectionImportant from '../components/subsectionImportant'
 import StatsTable from '../components/statstable'
+import CashFlowTable from '../components/cashFlowTable'
 import MapGraphic from '../components/mapgraphic'
 import '../static/styles/main.scss'
 const APIKEY = process.env.GOOGLE_API_KEY
@@ -20,6 +21,7 @@ const Ourwork = () => (
         descriptionText="We believe public school teachers don't receive the recognition they deserve. We're working to change that."
       >
         <StatsTable />
+        <CashFlowTable />
       </SubsectionImportant>
 
       <div className='mapgraphic--container'>
