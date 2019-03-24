@@ -1,4 +1,5 @@
 import React from 'react'
+import '../static/styles/main.scss'
 
 // TODO - pull from API
 const data = [
@@ -54,21 +55,21 @@ const CashFlowTable = (props) => (
         <h2 className='cfTable--title'>
             Cash Flow 
         </h2>
-        <div class="cfTable">
-            <div>
-                <span><strong>type</strong></span>
-                <span><strong>donor/recipient</strong></span>
-                <span><strong>amount</strong></span>
-                <span><strong>date</strong></span>
+        <div className="cfTable--table">
+            <div className="cfTable--row">
+                <span className="cfTable--row--span"><strong>type</strong></span>
+                <span className="cfTable--row--span"><strong>donor/recipient</strong></span>
+                <span className="cfTable--row--span"><strong>amount</strong></span>
+                <span className="cfTable--row--span"><strong>date</strong></span>
             </div>
             
             {
                 data.map(({key, type, name, amount, date}) => (
-                    <div>
-                        <span>{type}</span>
-                        <span>{name}</span>
-                        <span>{amount}</span>
-                        <span>{date}</span>
+                    <div className="cfTable--row">
+                        <span className="cfTable--row--span">{type}</span>
+                        <span className="cfTable--row--span">{name}</span>
+                        <span className="cfTable--row--span">{amount}</span>
+                        <span className="cfTable--row--span">{date}</span>
                     </div>
                 ))
             }
