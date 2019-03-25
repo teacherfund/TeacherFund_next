@@ -6,6 +6,7 @@ import StatsTable from '../components/statstable'
 import MapGraphic from '../components/mapgraphic'
 import '../static/styles/main.scss'
 const APIKEY = process.env.GOOGLE_API_KEY
+console.log(APIKEY)
 
 const Ourwork = () => (
   <div className='main-container'>
