@@ -31,9 +31,10 @@ class Home extends React.Component {
         <Nav navColor='white' />
         <div className='body'>
           <SubsectionBasic
-            titleText='100% of your money brings school supplies to teachers and students in need.'
+            titleText='100% of your money brings school supplies and resources to teachers and students in need.'
             descriptionText='You can help aleviate economic pressure on public school teachers across
-              the country. Every penny will help bring school supplies to schools in need.'
+              the country. Every penny will help bring school supplies to schools in need and provide resources
+              for women and POC with a passion in STEM.'
             buttonText='Give monthly'
             image='/static/images/apple-blur-book-stack.jpg'
             destination='donate'
