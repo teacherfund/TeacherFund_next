@@ -17,8 +17,11 @@ class Account extends React.Component {
   }
 
   static async getInitialProps (ctx) {
-    const cookies = parseCookies(ctx)
-    console.log('cookies', cookies)
+    try {
+      const cookies = parseCookies(ctx)
+      console.log('cookies', cookies)
+    } catch (e) {
+    }
 
     // TODO: Fetch account info from api
 
