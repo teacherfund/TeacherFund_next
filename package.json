@@ -17,6 +17,7 @@
   "dependencies": {
     "@material-ui/core": "^3.0.0",
     "@zeit/next-sass": "^1.0.1",
+    "dotenv-webpack": "^1.7.0",
     "isomorphic-fetch": "^2.2.1",
     "next": "^7.0.2",
     "node-fetch": "^2.3.0",

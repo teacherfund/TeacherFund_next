@@ -4,7 +4,6 @@ import '../static/styles/main.scss'
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/whyteachers', label: 'Why Teachers?' },
   { href: '/ourwork', label: 'Our Work' },
   { href: '/about', label: 'About us' }
 ].map(link => {
