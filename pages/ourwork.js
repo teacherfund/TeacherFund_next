@@ -8,8 +8,7 @@ import '../static/styles/main.scss'
 const APIKEY = process.env.GOOGLE_API_KEY
 
 const subsectionText = `We believe public school teachers don't 
-receive the recognition they deserve. We're working to change that. With a focus
-on women and POC, Teacher Fund hopes to encourage students to pursue their
+receive the recognition they deserve. We're working to change that. Teacher Fund hopes to encourage students to pursue their
 passions while providing resources and support for STEM related fields.`
 
 const Ourwork = () => (

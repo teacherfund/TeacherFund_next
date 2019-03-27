@@ -37,7 +37,7 @@ const About = () => (
         descriptionText='The Teacher Fund is a non-profit organization
           bringing school supplies and supplemental
           funding to public school teachers while providing support and
-          resources for women and POC with a passion in STEM.'
+          resources to support .'
         buttonText=''
         image='/static/images/art-supplies.jpg'
         destination=''
