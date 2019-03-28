@@ -3,6 +3,7 @@ import Footer from '../components/footer'
 import Head from '../components/head'
 import SubsectionImportant from '../components/subsectionImportant'
 import StatsTable from '../components/statstable'
+import CashFlowTable from '../components/cashFlowTable'
 import MapGraphic from '../components/mapgraphic'
 import '../static/styles/main.scss'
 const APIKEY = process.env.GOOGLE_API_KEY
@@ -24,6 +25,7 @@ const Ourwork = () => (
         descriptionText={subsectionText}
       >
         <StatsTable />
+        <CashFlowTable />
       </SubsectionImportant>
 
       <div className='mapgraphic--container'>

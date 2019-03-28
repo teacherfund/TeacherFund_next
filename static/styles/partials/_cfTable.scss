@@ -1,0 +1,29 @@
+.cfTable {
+
+  &--container {
+    margin: 100px;
+  }
+
+  &--title {
+    margin-bottom: 30px;
+  }
+
+  &--row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid black;
+    &:last-child {
+      border-bottom: 1px solid black;
+    }
+
+    &--span {
+      padding: 8px 4px;
+      border-left: 1px solid black;
+      &:last-child {
+        border-right: 1px solid black;
+      }
+    }
+  }
+}
+
+
