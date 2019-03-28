@@ -4,18 +4,28 @@ import Head from '../components/head'
 import LoginForm from '../components/loginform'
 import '../static/styles/main.scss'
 
-const SignInSignUp = () => (
+const SignInSignUp = (props) => (
   <div className='main-container'>
-    <Nav />
+    <Nav navColor='white' />
     <Head title='Sign In' />
 
     <div className='body text-center'>
       <div className='login-container'>
-        <LoginForm />
+        <LoginForm
+          type={props.teacher}
+          onSignup={props.helpers.handleSignup}
+          onLogin={props.helpers.handleLogin}
+        />
       </div>
     </div>
     <Footer />
   </div>
 )
+
+SignInSignUp.getInitialProps = async ({ query }) => {
+  return {
+    teacher: query.type
+  }
+}
 
 export default SignInSignUp

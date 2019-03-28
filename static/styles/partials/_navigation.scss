@@ -15,7 +15,9 @@
   background-color: transparent;
 }
 .nav {
-  position: absolute;
+  position: fixed;
+  top: 0px;
+  z-index: 1000;
   width: 100%;
   background-color: white;
 }
@@ -51,6 +53,7 @@
 }
 .drawer {
   background-color: white;
+  z-index: 1000;
 }
 .navItems_logo {
   display: none;
@@ -75,6 +78,10 @@
     cursor: pointer;
   }
   .nav {
+    font-family: $oswald-medium;
+    font-size: 90 px;
+    position: absolute;
+    line-height: 32 px;
     background-color: transparent;
   }
   .navBarSection > div, .navBarSection > div > div {

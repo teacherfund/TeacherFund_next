@@ -8,6 +8,10 @@ import MapGraphic from '../components/mapgraphic'
 import '../static/styles/main.scss'
 const APIKEY = process.env.GOOGLE_API_KEY
 
+const subsectionText = `We believe public school teachers don't 
+receive the recognition they deserve. We're working to change that. Teacher Fund hopes to encourage students to pursue their
+passions while providing resources and support for STEM related fields.`
+
 const Ourwork = () => (
   <div className='main-container'>
     <Nav navColor='white' />
@@ -18,7 +22,7 @@ const Ourwork = () => (
         backgroundImageClasses='fade-wht full-height'
         titleText='How we work'
         image='/static/images/beakers.jpg'
-        descriptionText="We believe public school teachers don't receive the recognition they deserve. We're working to change that."
+        descriptionText={subsectionText}
       >
         <StatsTable />
         <CashFlowTable />

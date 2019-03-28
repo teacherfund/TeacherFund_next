@@ -1,42 +1,46 @@
-.emailCaptureContent {
-  display: flex;
-  flex-direction: column;
-  margin-right: 4%;
-  margin-left: 4%;
-  border-radius: 5px;
-}
-.captureInput {
-  display: flex;
-  flex-grow: 1;
-}
-.captureButton {
-  margin:0;
-  padding: 10px 20px;
-  color: white;
-  justify-content: center;
-  display: inline-flex;
-  background-color: #F6B333;
-}
-.captureInput > input {
-  display: flex;
-  flex-grow: 1;
-  text-decoration: none;
-  font-size: 16px;
-  padding: 10px 0 10px 10px;
-  border: 0;
-  border-right: 1px solid #95A4A6;
-}
-
-@media only screen and (min-width: 600px) { 
-  .emailCaptureContent {
+.email-capture {
+  &__content {
     display: flex;
-    flex-direction: row;
-    max-width: 900px;
-    margin-right: auto;
-    margin-left: auto;
+    flex-direction: column;
+    margin-right: 4%;
+    margin-left: 4%;
     border-radius: 5px;
+
+    @media only screen and (min-width: $small-screen) {
+      display: flex;
+      flex-direction: row;
+      max-width: 900px;
+      margin-right: auto;
+      margin-left: auto;
+      border-radius: 5px;
+    }
   }
-  .captureButton {
-    justify-content: left;
+
+  &__input {
+    display: flex;
+    flex-grow: 1;
+
+    input {
+      display: flex;
+      flex-grow: 1;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 0 10px 10px;
+      border: 0;
+      border-right: 1px solid #95A4A6;
+    }
+  }
+
+  &__button {
+    margin:0;
+    padding: 10px 20px;
+    color: white;
+    justify-content: center;
+    display: inline-flex;
+    background-color: #F6B333;
+
+    @media only screen and (min-width: $small-screen) {
+      justify-content: left;
+    }
   }
 }

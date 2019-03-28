@@ -10,6 +10,7 @@
   background-color: #434343;
 }
 .subsectionContent {
+  padding: 20px;
 }
 .titleText {
   width: 100%;
@@ -25,21 +26,6 @@
   height: auto;
   width: 100%;
   margin: 20px 0 20px 0;
-}
-.slide {
-  background-color: white;
-  border-radius: 4px;
-  width: 330px;
-}
-.slide-inner {
-  color: black;
-  border: 2px solid #f1f1f0;
-  padding: 40px 10px;
-  border-radius: 4px;
-  transition: border-color .15s linear;
-}
-.swiper-slide-active {
-  border-color: #c1c1ba;
 }
 .mission-title {
   text-transform: uppercase;
@@ -72,11 +58,6 @@
     width: 100%;
     margin: auto;
   }
-  .slide {
-    background-color: white;
-    border-radius: 4px;
-    width: 20%;
-  }
 }
 
 // basic
@@ -90,7 +71,7 @@
   background-color: #434343;
 }
 .subsectionText {
-  padding: 80px 5% 20px 5%;
+  padding: 100px 5% 40px 5%;
   text-align: center;
 }
 .backgroundImage {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:500');
+
 @import 'reset.scss';
 @import 'variables.scss';
 
@@ -19,6 +21,8 @@
 @import 'partials/_images.scss';
 @import 'partials/_account.scss';
 @import 'partials/_cfTable.scss';
+@import 'partials/_success.scss';
+@import 'partials/_error.scss';
 
 :global(body) {
   margin: 0;
@@ -151,6 +155,20 @@ p {
 .fade-wht {
   -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(255,255,255, 0)));
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.instruction {
+  color: green;
+  width: 100%;
+  padding: 10px 10px;
+  
+  &--center {
+    text-align: center;
+  }
+ 
+  &--message {
+    color: green;
+  }
 }
 
 .button, .button:active, .button:focus, button, button:active, button:focus {
