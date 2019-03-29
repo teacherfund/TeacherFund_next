@@ -50,26 +50,26 @@ const data = [
   return data
 })
 
-const CashFlowTable = (props) => (
-  <div className='cfTable--container'>
-    <h2 className='cfTable--title'>
+const TFTable = (props) => (
+  <div className='tfTable--container'>
+    <h2 className='tfTable--title'>
       Cash Flow
     </h2>
-    <div className='cfTable--table'>
-      <div className='cfTable--row'>
-        <span className='cfTable--row--span'><strong>type</strong></span>
-        <span className='cfTable--row--span'><strong>donor/recipient</strong></span>
-        <span className='cfTable--row--span'><strong>amount</strong></span>
-        <span className='cfTable--row--span'><strong>date</strong></span>
+    <div className='tfTable--table'>
+      <div className='tfTable--row'>
+        <span className='tfTable--row--span'><strong>type</strong></span>
+        <span className='tfTable--row--span'><strong>donor/recipient</strong></span>
+        <span className='tfTable--row--span'><strong>amount</strong></span>
+        <span className='tfTable--row--span'><strong>date</strong></span>
       </div>
 
       {
         data.map(({ key, type, name, amount, date }) => (
-          <div className='cfTable--row'>
-            <span className='cfTable--row--span'>{type}</span>
-            <span className='cfTable--row--span'>{name}</span>
-            <span className='cfTable--row--span'>{amount}</span>
-            <span className='cfTable--row--span'>{date}</span>
+          <div className='tfTable--row'>
+            <span className='tfTable--row--span'>{type}</span>
+            <span className='tfTable--row--span'>{name}</span>
+            <span className='tfTable--row--span'>{amount}</span>
+            <span className='tfTable--row--span'>{date}</span>
           </div>
         ))
       }
@@ -77,4 +77,4 @@ const CashFlowTable = (props) => (
   </div>
 )
 
-export default CashFlowTable
+export default TFTable
