@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TwoItemSwitcher from './twoItemSwitcher'
+// import TwoItemSwitcher from './twoItemSwitcher'
 import '../static/styles/main.scss'
 
 class LoginForm extends Component {
@@ -82,7 +82,7 @@ class LoginForm extends Component {
         <div className='heading'>
           <h2 className='h35 white'>Sign in</h2>
         </div>
-        <div className='donorTeacherSwitcher'>
+        {/* <div className='donorTeacherSwitcher'>
           <TwoItemSwitcher
             switchOneText="i'm a donor"
             className='donorTeacherSwitcher'
@@ -92,7 +92,7 @@ class LoginForm extends Component {
             switchOneClicked={() => this.updateLoginType('donor')}
             switchTwoClicked={() => this.updateLoginType('teacher')}
           />
-        </div>
+        </div> */}
         <div>
           <div className='panel'>
             <div className='error'>
