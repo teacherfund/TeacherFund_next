@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-const ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://teacherfund.herokuapp.com' : 'http://localhost:3000'
+const ENDPOINT = process.env.NODE_ENV === 'production' ? 'dev-env.zrbbqnqunv.us-west-2.elasticbeanstalk.com' : 'http://localhost:3000'
 
 // Create a donation
 const donate = async (bodyObject) => {
@@ -28,12 +28,17 @@ const subscribe = async (bodyObject) => {
 }
 
 // Fetch all financial data and download it
-const fetchFinancialData = async () => {
+const fetchFinancialDataAndDownload = async () => {
   fetch(`${ENDPOINT}/finances`)
     .then((res) => res.json())
     .then((res) => {
     // Download res as file (csv) to user
     })
+}
+
+// Get all donations
+const fetchDonations = async () => {
+  return fetch(`${ENDPOINT}/donations`).then((res) => res.json())
 }
 
 // Fetch user donation information to display on account page
@@ -52,7 +57,8 @@ const constructPostBody = (bodyObject) => {
 
 export {
   donate,
-  fetchFinancialData,
+  fetchFinancialDataAndDownload,
+  fetchDonations,
   fetchUserData,
   login,
   verify,
