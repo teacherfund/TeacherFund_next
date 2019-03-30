@@ -53,7 +53,7 @@ const data = [
 const TFTable = (props) => (
   <div className='tfTable--container'>
     <h2 className='tfTable--title'>
-      Cash Flow
+      {props.title}
     </h2>
     <div className='tfTable--table'>
       <div className='tfTable--row'>

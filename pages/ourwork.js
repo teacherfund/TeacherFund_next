@@ -4,7 +4,7 @@ import Footer from '../components/footer'
 import Head from '../components/head'
 import SubsectionImportant from '../components/subsectionImportant'
 import StatsTable from '../components/statstable'
-import TFTable from '../components/tfTable'
+// import TFTable from '../components/tfTable'
 import MapGraphic from '../components/mapgraphic'
 import * as Api from '../api/api'
 import '../static/styles/main.scss'
@@ -59,7 +59,7 @@ class Ourwork extends React.Component {
             descriptionText={subsectionText}
           >
             <StatsTable />
-            <TFTable data={this.state.data} />
+            {/* <TFTable data={this.state.data} /> */}
           </SubsectionImportant>
 
           <div className='mapgraphic--container'>
