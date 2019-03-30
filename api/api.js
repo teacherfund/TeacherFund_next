@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-const ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://teacherfund.herokuapp.com' : 'http://localhost:3000'
+const ENDPOINT = process.env.NODE_ENV === 'production' ? 'dev-env.zrbbqnqunv.us-west-2.elasticbeanstalk.com' : 'http://localhost:3000'
 
 // Create a donation
 const donate = async (bodyObject) => {
