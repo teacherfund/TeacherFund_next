@@ -56,13 +56,13 @@ const TFTable = (props) => (
       {props.title}
     </h2>
     <div className='tfTable--table'>
-      <div className='tfTable--row'>
-        <span className='tfTable--row--span'><strong>type</strong></span>
-        <span className='tfTable--row--span'><strong>donor/recipient</strong></span>
-        <span className='tfTable--row--span'><strong>amount</strong></span>
-        <span className='tfTable--row--span'><strong>date</strong></span>
-      </div>
-
+      {
+        props.data[0] && Object.keys(props.data[0]).map((key) => (
+          <div className='tfTable--row'>
+            <span className='tfTable--row--span'><strong>{key}</strong></span>
+          </div>
+        ))
+      }
       {
         data.map(({ key, type, name, amount, date }) => (
           <div className='tfTable--row'>
