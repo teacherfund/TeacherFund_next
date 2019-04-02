@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:500');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 @import 'reset.scss';
 @import 'variables.scss';
@@ -27,7 +28,7 @@
 :global(body) {
   margin: 0;
   background-color: #d9d9d9;
-  font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+  font-family: 'Lato',-apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
     Helvetica, sans-serif;
 }
 .main-container {
