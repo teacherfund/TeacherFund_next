@@ -147,8 +147,7 @@ class LoginForm extends Component {
             <div className='button button--large button--expand radius' onClick={this.handleSubmit}>
               <label className='ttu'>{this.state.register ? 'Sign up' : 'Sign in'}</label>
             </div>
-            <a className='reset' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a> <br />
-            {!this.state.register && <a className='reset' href='/account/password/reset'>Forgot password?</a>}
+            <a className='reset' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a>
           </div>
         </div>
       </div>
