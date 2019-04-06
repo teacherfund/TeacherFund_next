@@ -2,19 +2,27 @@
   "name": "create-next-example-app",
   "scripts": {
     "now-build": "next build && next export -o dist",
-    "dev": "next",
+    "dev": "next -p 3001",
     "build": "next build",
     "start": "next start",
     "fix": "standard --fix",
     "lint": "standard",
     "test": "npm run lint"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
+  },
   "dependencies": {
     "@material-ui/core": "^3.0.0",
     "@zeit/next-sass": "^1.0.1",
+    "dotenv-webpack": "^1.7.0",
     "isomorphic-fetch": "^2.2.1",
     "next": "^7.0.2",
+    "node-fetch": "^2.3.0",
     "node-sass": "^4.11.0",
+    "nookies": "^2.0.4",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-google-maps": "^9.4.5",
@@ -26,6 +34,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "dotenv": "^6.2.0",
+    "husky": "^1.3.1",
     "redux-devtools-extension": "^2.13.8",
     "standard": "^12.0.1"
   },

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:500');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 @import 'reset.scss';
 @import 'variables.scss';
 
@@ -18,11 +21,14 @@
 @import 'partials/_swiper.scss';
 @import 'partials/_images.scss';
 @import 'partials/_account.scss';
+@import 'partials/_tfTable.scss';
+@import 'partials/_success.scss';
+@import 'partials/_error.scss';
 
 :global(body) {
   margin: 0;
   background-color: #d9d9d9;
-  font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+  font-family: 'Lato',-apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
     Helvetica, sans-serif;
 }
 .main-container {
@@ -97,6 +103,7 @@ html, body {
   background-color: $pencil-yellow;
   transition: background-color .15s linear;
   text-transform: uppercase;
+  cursor: pointer;
   letter-spacing: .1em;
   border-radius: 4px;
   border: 0;
@@ -150,6 +157,20 @@ p {
 .fade-wht {
   -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(255,255,255, 0)));
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.instruction {
+  color: green;
+  width: 100%;
+  padding: 10px 10px;
+  
+  &--center {
+    text-align: center;
+  }
+ 
+  &--message {
+    color: green;
+  }
 }
 
 .button, .button:active, .button:focus, button, button:active, button:focus {

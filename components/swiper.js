@@ -10,7 +10,7 @@ class CustomSwiper extends React.Component {
       effect: 'coverflow',
       grabCursor: true,
       centeredSlides: true,
-      slidesPerView: 3,
+      slidesPerView: 'auto',
       initialSlide: 1,
       coverflowEffect: {
         rotate: 0,
