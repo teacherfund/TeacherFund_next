@@ -80,7 +80,7 @@ class LoginForm extends Component {
     return (
       <div>
         <div className='heading'>
-          <h2 className='h35 white'>{this.state.register? "Sign up" : "Sign in"}</h2>
+          <h2 className='h35 white'>{ this.state.register ? 'Sign up' : 'Sign in' }</h2>
         </div>
         {/* <div className='donorTeacherSwitcher'>
           <TwoItemSwitcher
