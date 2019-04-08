@@ -23,7 +23,7 @@ class Account extends React.Component {
         <div className='body'>
           <img src='/static/images/man-woman-reading.jpg' className='backgroundImage' />
           <div className='account--stats'>
-            <HourGlass/>
+            <HourGlass />
             <p className='pb-1'>You've donated <b>{this.state.amountDonated}</b> to TeacherFund thus far</p>
             <p className='pb-1'><b>{this.state.amountSpent}</b> of which has been spent on the following items</p>
             <div className='button--subsection white'>
