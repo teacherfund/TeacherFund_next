@@ -6,18 +6,15 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 import '../static/styles/main.scss'
 
-const PostRegistration = (props) => (
+const PostLogin = (props) => (
   <div className='main-container'>
     <Head title='Post Registration' />
     <Nav navColor='white' />
     <div className='body text-center'>
       <div className='login-container'>
-        <div className='post-registration-box'>
+        <div className='post-registration-box center'>
           <p className='pb-1'>
-            Hi {props.firstname}, you've reigstered in our website successfully.
-          </p>
-          <p className='pb-1'>
-            An email will be sent to your email address {props.email} soon.
+            Thank you. An email will be sent to <b>{props.context.email}</b> soon. You can close this tab.
           </p>
           <div className='button--subsection white'>
             <Link href='/'>
@@ -31,4 +28,4 @@ const PostRegistration = (props) => (
   </div>
 )
 
-export default PostRegistration
+export default PostLogin

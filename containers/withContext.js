@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import Router from 'next/router'
+import Router from 'next/router'
 import * as Api from '../api/api'
 
 // bind functions to self and return them in an object
@@ -16,7 +16,8 @@ export default (Page, pageProps) => class Context extends Component {
     super(props)
     this.state = {
       // app state goes here
-      loggedIn: false
+      loggedIn: false,
+      email: ''
     }
     this.helpers = autobind([
       // methods to alter state go here
@@ -32,7 +33,7 @@ export default (Page, pageProps) => class Context extends Component {
         // request fails, fall into component's catch block
         if (!res.ok) throw new Error('signup failed')
         // should redirect to a post-registration page
-        // Router.push('/post-registration')
+        Router.push('/post-login')
       })
   }
   handleLogin ({ email, role }) {
@@ -40,8 +41,9 @@ export default (Page, pageProps) => class Context extends Component {
       .then((res) => res.json())
       .then((res) => {
         if (!res.ok) throw new Error('login failed')
+        this.setState({ email })
         // redirect to a post-login page (since email has been sent)
-        // Router.push('/post-login')
+        Router.push('/post-login')
       })
   }
   handleVerify ({ email, auth }) {
@@ -53,7 +55,7 @@ export default (Page, pageProps) => class Context extends Component {
           throw new Error('authentication failed')
         }
         // mark them as logged in
-        this.setState({ loggedIn: true })
+        this.setState({ loggedIn: true, email })
       })
   }
   render () {
