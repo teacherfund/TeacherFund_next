@@ -14,7 +14,10 @@ const PostLogin = (props) => (
       <div className='login-container'>
         <div className='post-registration-box center'>
           <p className='pb-1'>
-            Thank you. An email will be sent to <b>{props.context.email}</b> soon. You can close this tab.
+            Thank you. If you've signed up, you will receive an email shortly. You can close this tab.
+          </p>
+          <p className='pb-1'>
+            If you haven't signed up yet you will not receive an email.
           </p>
           <div className='button--subsection white'>
             <Link href='/'>
