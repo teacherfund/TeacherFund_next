@@ -14,7 +14,7 @@ class DonateForm extends Component {
       redirectSuccess: false,
       firstName: '',
       lastName: '',
-      amount: 0,
+      amount: '$',
       email: '',
       frequency: 'once',
       error: ''
@@ -43,7 +43,7 @@ class DonateForm extends Component {
   }
 
   updateAmount = (e) => {
-    this.setLocalState({ amount: parseInt(e.target.value) })
+    this.setLocalState({ amount: `$ ${e.target.value}` })
   }
 
   donate = async (ev) => {
@@ -64,12 +64,13 @@ class DonateForm extends Component {
       return
     }
     try {
+      const stripDollarSignAmount = parseInt(this.state.amount.replace('$', ''))
       const responseStream = await Api.donate({
         source: token,
         firstName: this.state.firstName,
         frequency: this.state.frequency,
         lastName: this.state.lastName,
-        amount: this.state.amount,
+        amount: stripDollarSignAmount,
         email: this.state.email
       })
       const response = await responseStream.json()

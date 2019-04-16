@@ -22,11 +22,11 @@ class Success extends React.Component {
                 <label className='ttu'>Home</label>
               </Link>
             </div>
-            <div className='button--subsection white'>
+            {/* <div className='button--subsection white'>
               <div onClick={this.tweet}>
                 <label className='ttu'>Spread the word</label>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

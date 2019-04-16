@@ -42,8 +42,8 @@ const fetchDonations = async () => {
 }
 
 // Fetch user donation information to display on account page
-const fetchUserData = async (bodyObject) => {
-
+const fetchUserStats = async (bodyObject) => {
+  return fetch(`${ENDPOINT}/account/donations`, constructPostBody(bodyObject))
 }
 
 // Private internal
@@ -59,7 +59,7 @@ export {
   donate,
   fetchFinancialDataAndDownload,
   fetchDonations,
-  fetchUserData,
+  fetchUserStats,
   login,
   verify,
   register,

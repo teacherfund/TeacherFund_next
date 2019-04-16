@@ -17,7 +17,10 @@ export default (Page, pageProps) => class Context extends Component {
     this.state = {
       // app state goes here
       loggedIn: false,
-      email: ''
+      email: '',
+      auth: '',
+      amountSpent: 0,
+      amountDonated: 0
     }
     this.helpers = autobind([
       // methods to alter state go here
@@ -55,7 +58,20 @@ export default (Page, pageProps) => class Context extends Component {
           throw new Error('authentication failed')
         }
         // mark them as logged in
-        this.setState({ loggedIn: true, email })
+        this.setState({ loggedIn: true, email, auth })
+        return this.fetchUserStats()
+      })
+  }
+  fetchUserStats () {
+    return Api.fetchUserStats({ email: this.state.email, auth: this.state.auth })
+      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('fetching user stats failed')
+        }
+        // set user stats
+        console.log(res.donations)
+        this.setState({ amountDonated: res.donations })
       })
   }
   render () {

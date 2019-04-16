@@ -28,7 +28,7 @@ class Home extends React.Component {
     return (
       <div className='main-container'>
         <Head title='Home' />
-        <Nav navColor='white' />
+        <Nav navColor='white' loggedIn={this.props.context.loggedIn} />
         <div className='body'>
           <SubsectionBasic
             titleText='100% of your money brings school supplies and resources to teachers and students in need.'

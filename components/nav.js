@@ -35,6 +35,11 @@ class Nav extends React.Component {
   }
 
   render () {
+    // If user is logged in, splice out login button and add in an "account" button
+    if (this.props.loggedIn) {
+      buttons.splice(1, 1, { key: 'nav-link-/account-account', href: '/account', label: 'Account' })
+    }
+
     return (
       <div className='nav'>
         <div className='navBarSection'>
@@ -59,11 +64,9 @@ class Nav extends React.Component {
           </div>
           <div className='navButtons'>
             {buttons.map(({ key, href, label }) => (
-              <div key={key}>
-                <Link href={href}>
-                  <a className={`${this.props.navColor} ttu`}>{label}</a>
-                </Link>
-              </div>
+              <Link href={href} key={key}>
+                <a className={`${this.props.navColor} ttu navButtons__button`}>{label}</a>
+              </Link>
             ))}
           </div>
           <div className='hamburgerContainer' onClick={this.toggleDrawer}>

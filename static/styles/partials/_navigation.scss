@@ -24,8 +24,7 @@
 .nav > div {
   padding: 10px 0;
 }
-.navBarSection > div, .navBarSection > div > div {
-  padding: 10px 10px 0px 10px;
+.navBarSection > div, .navBarSection > div > div, .navBarSection > div > a {
   margin-left: auto;
 }
 .imageLogo {
@@ -35,6 +34,8 @@
 }
 .hamburgerContainer {
   float: right;
+  margin-right: 14px;
+  margin-top: 14px;
 }
 .drawerXClose {
   float: right;
@@ -79,20 +80,22 @@
   }
   .nav {
     font-family: $oswald-medium;
-    font-size: 90 px;
     position: absolute;
-    line-height: 32 px;
     background-color: transparent;
   }
-  .navBarSection > div, .navBarSection > div > div {
+  .navBarSection > div, .navBarSection > div > div, .navBarSection > div > a {
     padding: 10px 10px 10px 10px;
     margin: 0 4px;
   }
   .navButtons {
     display: flex;
     flex-direction: row;
+
+    &__button {
+      padding: 10px;
+    }
   }
-  .navButtons > div {
+  .navButtons > div, .navButtons > a {
     border: 1px solid white;
     border-radius: 4px;
   }
