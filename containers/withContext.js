@@ -46,7 +46,7 @@ export default (Page, pageProps) => class Context extends Component {
         if (!res.ok) throw new Error('login failed')
         this.setState({ email })
         // redirect to a post-login page (since email has been sent)
-        Router.push('/post-login')
+        Router.push('/post-login-welcome')
       })
   }
   handleVerify ({ email, auth }) {
