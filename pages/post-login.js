@@ -30,6 +30,4 @@ const PostLogin = (props) => (
     <Footer />
   </div>
 )
-
-
 export default PostLogin
