@@ -13,11 +13,19 @@ const emailTitle = 'Help us change the world.'
 
 class Home extends React.Component {
   static async getInitialProps ({ query }) {
+    // this only gets called when SSR is on
+    // but not when the site is static exported
     return { query }
   }
 
   componentDidMount () {
-    const { email, auth } = this.props.query
+    let qs = this.props.query
+    let { email, auth } = qs
+    if (typeof window !== 'undefined') {
+      qs = new URLSearchParams(window.location.search)
+      email = qs.get('email')
+      auth = qs.get('auth')
+    }
     console.log('props', this.props)
     console.log(email, auth)
     if (email && auth) {
