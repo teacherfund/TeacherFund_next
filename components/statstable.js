@@ -1,22 +1,13 @@
 import React from 'react'
 import '../static/styles/main.scss'
 
-// TODO: pull stats from API
 const stats = [
   {
-    stat: '4000',
-    subtext: 'Dollars towards teacher supplies'
-  },
-  {
-    stat: '4000',
-    subtext: 'Dollars towards life readiment courses'
-  },
-  {
-    stat: '4',
+    stat: '17',
     subtext: 'Local partner schools'
   },
   {
-    stat: '1269',
+    stat: '>17000',
     subtext: 'Impacted children'
   }
 ].map((stat, idx) => {
@@ -30,6 +21,14 @@ const StatsTable = (props) => (
       Our Progress
     </h2>
     <div className='statstable'>
+      <div className='statstable--stat' key='stat-0-2'>
+        <p className='p40 statstable--stat--number'>{1000 + props.context.globalAmountDonated}</p>
+        <p className='p40 statstable-stat--subtext'>Dollars donated</p>
+      </div>
+      <div className='statstable--stat' key='stat-0-3'>
+        <p className='p40 statstable--stat--number'>{props.context.globalAmountSpent}</p>
+        <p className='p40 statstable-stat--subtext'>Dollars spent</p>
+      </div>
       {stats.map(({ key, stat, subtext }) => (
         <div className='statstable--stat' key={key}>
           <p className='p40 statstable--stat--number'>{stat}</p>

@@ -29,7 +29,7 @@ const subscribe = async (bodyObject) => {
 
 // Fetch all financial data and download it
 const fetchFinancialDataAndDownload = async () => {
-  fetch(`${ENDPOINT}/finances`)
+  return fetch(`${ENDPOINT}/finances`)
     .then((res) => res.json())
     .then((res) => {
     // Download res as file (csv) to user
@@ -37,8 +37,8 @@ const fetchFinancialDataAndDownload = async () => {
 }
 
 // Get all donations
-const fetchDonations = async () => {
-  return fetch(`${ENDPOINT}/donations`).then((res) => res.json())
+const fetchAllDonations = async () => {
+  return fetch(`${ENDPOINT}/donations`)
 }
 
 // Fetch user donation information to display on account page
@@ -58,7 +58,7 @@ const constructPostBody = (bodyObject) => {
 export {
   donate,
   fetchFinancialDataAndDownload,
-  fetchDonations,
+  fetchAllDonations,
   fetchUserStats,
   login,
   verify,

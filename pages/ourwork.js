@@ -6,7 +6,6 @@ import SubsectionImportant from '../components/subsectionImportant'
 import StatsTable from '../components/statstable'
 // import TFTable from '../components/tfTable'
 import MapGraphic from '../components/mapgraphic'
-import * as Api from '../api/api'
 import '../static/styles/main.scss'
 const APIKEY = process.env.GOOGLE_API_KEY
 
@@ -15,36 +14,6 @@ receive the recognition they deserve. We're working to change that. Teacher Fund
 passions while providing resources and support for STEM related fields.`
 
 class Ourwork extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      data: {}
-    }
-  }
-
-  async componentDidMount () {
-    // Make initial request to backend to fetch financial data
-    try {
-      const donations = await Api.fetchDonations()
-      console.log(donations)
-      donations.map((donation) => {
-        delete donation.meta
-        delete donation.updatedAt
-        donation.date = new Date(donation.createdAt)
-        delete donation.createdAt
-        donation.amount = (donation.amount / 100).toFixed(2)
-        delete donation.frequency
-      })
-      this.setState({ data: {
-        donations
-      } })
-
-      // TODO: need to merge donations (inflows) and payouts (outflows)
-    } catch (e) {
-      console.error(e)
-    }
-  }
-
   render () {
     return (
       <div className='main-container'>
@@ -58,7 +27,7 @@ class Ourwork extends React.Component {
             image='/static/images/beakers.jpg'
             descriptionText={subsectionText}
           >
-            <StatsTable />
+            <StatsTable {...this.props} />
             {/* <TFTable data={this.state.data} /> */}
           </SubsectionImportant>
 

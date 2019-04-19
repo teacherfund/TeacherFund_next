@@ -88,6 +88,20 @@ const About = () => (
       <hr />
       <div className='us'>
         <div className='title'>
+          <h2 className='ttu'>Get involved</h2>
+        </div>
+        <div className='pt-1 pb-1 text-center'>
+          If you'd like to get involved, we're currently looking for a <b>web designer</b>, <b>boots on the ground volunteers
+          </b> to help school supply handouts and teacher relations, and <b>non-profit law help</b>. Please reach out to
+          <a className='black' href='mailto:joelwass@theteacherfund.com?subject=Application'> <u>joelwass@theteacherfund.com</u></a> to apply.
+        </div>
+        <div className='pt-1 pb-1 text-center'>
+          Additionally, all of our code is open source and can be found at <a className='black' href='github.com/teacherfund'><u>github.com/teacherfund</u></a>
+        </div>
+      </div>
+      <hr />
+      <div className='us'>
+        <div className='title'>
           <h2 className='ttu'>Who we are</h2>
         </div>
         <div className='employee--group'>

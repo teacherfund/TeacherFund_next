@@ -20,8 +20,8 @@ const PostLogin = (props) => (
             If you haven't signed up yet you will not receive an email.
           </p>
           <div className='button--subsection white'>
-            <Link href='/'>
-              <label className='ttu'>Home</label>
+            <Link href='/signinregister?type=donor'>
+              <label className='ttu'>Go back</label>
             </Link>
           </div>
         </div>

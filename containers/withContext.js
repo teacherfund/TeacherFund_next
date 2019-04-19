@@ -19,15 +19,21 @@ export default (Page, pageProps) => class Context extends Component {
       loggedIn: false,
       email: '',
       auth: '',
-      amountSpent: 0,
-      amountDonated: 0
+      userAmountSpent: 0,
+      userAmountDonated: 0,
+      globalAmountDonated: 0,
+      globalAmountSpent: 0
     }
     this.helpers = autobind([
       // methods to alter state go here
       'handleSignup',
       'handleLogin',
-      'handleVerify'
+      'handleVerify',
+      'fetchUserStats',
+      'fetchGlobalStats'
     ], this)
+
+    this.fetchGlobalStats()
   }
   handleSignup ({ email, firstName, lastName, role }) {
     return Api.register({ email, firstName, lastName, role })
@@ -37,6 +43,22 @@ export default (Page, pageProps) => class Context extends Component {
         if (!res.ok) throw new Error('signup failed')
         // should redirect to a post-registration page
         Router.push('/post-login')
+      })
+  }
+  fetchGlobalStats () {
+    return Api.fetchAllDonations()
+      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('fetching global stats failed')
+        }
+        if (res.donations) {
+          const amountDonated = res.donations.reduce((acc, val) => {
+            return acc + (val.amount / 100)
+          }, 0)
+          // set stats
+          this.setState({ globalAmountDonated: amountDonated || 0, globalAmountSpent: res.amountSpent || 0 })
+        }
       })
   }
   handleLogin ({ email, role }) {
@@ -59,6 +81,7 @@ export default (Page, pageProps) => class Context extends Component {
         }
         // mark them as logged in
         this.setState({ loggedIn: true, email, auth })
+        console.log('here')
         return this.fetchUserStats()
       })
   }
@@ -71,7 +94,7 @@ export default (Page, pageProps) => class Context extends Component {
         }
         // set user stats
         console.log(res.donations)
-        this.setState({ amountDonated: res.donations })
+        this.setState({ userAmountDonated: res.donations })
       })
   }
   render () {
