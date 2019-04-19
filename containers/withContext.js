@@ -43,6 +43,8 @@ export default (Page, pageProps) => class Context extends Component {
         if (!res.ok) throw new Error('signup failed')
         // should redirect to a post-registration page
         Router.push('/post-login')
+      }).catch((e) => {
+        console.log('ERROR', e)
       })
   }
   fetchGlobalStats () {
@@ -59,6 +61,8 @@ export default (Page, pageProps) => class Context extends Component {
           // set stats
           this.setState({ globalAmountDonated: amountDonated || 0, globalAmountSpent: res.amountSpent || 0 })
         }
+      }).catch((e) => {
+        console.log('ERROR', e)
       })
   }
   handleLogin ({ email, role }) {
@@ -69,6 +73,8 @@ export default (Page, pageProps) => class Context extends Component {
         this.setState({ email })
         // redirect to a post-login page (since email has been sent)
         Router.push('/post-login')
+      }).catch((e) => {
+        console.log('ERROR', e)
       })
   }
   handleVerify ({ email, auth }) {
@@ -83,6 +89,8 @@ export default (Page, pageProps) => class Context extends Component {
         this.setState({ loggedIn: true, email, auth })
         console.log('here')
         return this.fetchUserStats()
+      }).catch((e) => {
+        console.log('ERROR', e)
       })
   }
   fetchUserStats () {
@@ -95,6 +103,8 @@ export default (Page, pageProps) => class Context extends Component {
         // set user stats
         console.log(res.donations)
         this.setState({ userAmountDonated: res.donations })
+      }).catch((e) => {
+        console.log('ERROR', e)
       })
   }
   render () {

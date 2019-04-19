@@ -18,6 +18,8 @@ class Home extends React.Component {
 
   componentDidMount () {
     const { email, auth } = this.props.query
+    console.log('props', this.props)
+    console.log(email, auth)
     if (email && auth) {
       this.props.helpers.handleVerify({ email, auth })
         .catch((e) => { console.error(e) })
