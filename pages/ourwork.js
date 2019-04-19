@@ -27,7 +27,7 @@ class Ourwork extends React.Component {
             image='/static/images/beakers.jpg'
             descriptionText={subsectionText}
           >
-            <StatsTable {...this.props} />
+            <StatsTable globalAmountDonated={this.props.context.globalAmountDonated} globalAmountSpent={this.props.context.globalAmountSpent} />
             {/* <TFTable data={this.state.data} /> */}
           </SubsectionImportant>
 
