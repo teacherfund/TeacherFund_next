@@ -17,12 +17,12 @@ const employees = [
   {
     imagePath: '/static/images/people/christine.jpeg',
     name: 'Christine Woeller',
-    description: 'Christine is passionate about photography and serving her community. A social worker in Coeur d\'Alene, Idaho, she has an abundance of direct work experience with the public school teachers we aim to help.'
+    description: 'Christine is extremely passionate about the education system in her community and holds an undergraduate degree in Secondary Education. She wants to use her skill set to ensure public school students and teachers have the best resources and opportunities available.'
   },
   {
     imagePath: '/static/images/people/pete.jpeg',
     name: 'Peter Squicciarini',
-    description: 'Peter is a software engineer at Amazon, and with his home school background is the philosophical check and balance needed to objectively help teachers and children succeed in an educational environment.'
+    description: 'Peter is a passionate software developer who currently works at Amazon and is a loving husband/father of two. His homeschool background is just the mentality we need to objectively help children and teachers succeed in an educational environment.'
   }
 ]
 
@@ -36,8 +36,8 @@ const About = () => (
         titleText='Our Mission'
         descriptionText='The Teacher Fund is a non-profit organization
           bringing school supplies and supplemental
-          funding to public school teachers while providing support and
-          resources to support .'
+          funding to public school teachers to help aleviate economic pressure
+          and enhance the public school learning environment.'
         buttonText=''
         image='/static/images/art-supplies.jpg'
         destination=''
@@ -53,7 +53,7 @@ const About = () => (
           <div className='factcard--fact--text'>
             <p className='p40'>
               We track every dollar spent and received, and show
-              the projects you fund with photos and GPS.
+              the projects you fund with photos and blog posts.
             </p>
           </div>
         </div>
@@ -80,8 +80,7 @@ const About = () => (
           </div>
           <div className='factcard--fact--text'>
             <p className='p40'>
-              Private donors cover our operating costs so 100%
-              of your money goes towards public school education.
+              100% of your money goes towards public school education. No if's and's or but's.
             </p>
           </div>
         </div>

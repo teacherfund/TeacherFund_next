@@ -65,7 +65,7 @@ class CustomSwiper extends React.Component {
               </div>
               <div className='show-only-when-active'>
                 <p className='mission-description pt-1 pb-1 p40'>
-                  We prove and monitor the projects you fund with GPS so you can
+                  We prove and monitor the projects you fund with dollar in - dollar out tracking so you can
                   see the direct impact your dollars have on classrooms.
                 </p>
               </div>
