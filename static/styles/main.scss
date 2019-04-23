@@ -1,203 +1,40 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:500');
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
-@import 'reset.scss';
+@import '../../node_modules/tachyons-sass/tachyons.scss';
 @import 'variables.scss';
 
-@import 'partials/_navigation.scss';
-@import 'partials/_home.scss';
-@import 'partials/_donate.scss';
-@import 'partials/_ourwork.scss';
-@import 'partials/_whyteachers.scss';
-@import 'partials/_aboutus.scss';
-@import 'partials/_login.scss';
-@import 'partials/_subsection.scss';
-@import 'partials/_footer.scss';
-@import 'partials/_emailcapture.scss';
-@import 'partials/_twoitemswitcher.scss';
-@import 'partials/_accountoverview.scss';
-@import 'partials/_statstable.scss';
-@import 'partials/_mapgraphic.scss';
-@import 'partials/_swiper.scss';
-@import 'partials/_images.scss';
-@import 'partials/_account.scss';
-@import 'partials/_tfTable.scss';
-@import 'partials/_success.scss';
-@import 'partials/_error.scss';
-@import 'partials/_postregistration.scss';
-
-:global(body) {
-  margin: 0;
-  background-color: #d9d9d9;
-  font-family: 'Lato',-apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-    Helvetica, sans-serif;
+.tf-yellow {
+  color: $pencil-yellow;
 }
-.main-container {
-  min-height: 100vh;
-  position: relative;
-}
-.body {
-  color: #333;
-  overflow: hidden;
-  padding-bottom: 200px; // height of footer
-}
-.container {
-  padding: 95px 20px 50px;
-  min-height: calc(100vh - 578px);
-}
-@media only screen and (min-width: 1025px) {
-  .container {
-      min-height: calc(100vh - 374px);
-  }
-}
-@media only screen and (min-width: 641px) {
-  .container {
-    min-height: calc(100vh - 489px);
-  }
-}
-.text-center {
-  text-align: center!important;
-}
-
-.ttc { text-transform: capitalize; }
-.ttl { text-transform: lowercase; }
-.ttu { text-transform: uppercase; }
-.ttn { text-transform: none; }
-
-.backgroundImage {
-  display: none;
-}
-.button > label {
-  cursor: pointer;
-  text-align: center;
-  font-size: 14px;
-}
-a {
-  color: white;
-  transition: color .15s linear;
-  -webkit-tap-highlight-color: rgba(0,0,0,.1);
-  outline: none;
-  font-size: 13px;
-  background-color: transparent;  
-}
-a, a:hover {
-  text-decoration: none;
-}
-a, label {
-  cursor: pointer;
-}
-.white {
-  color: white;
-}
-.black {
-  color: black;
-}
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-.button {
-  height: 40px;
-  line-height: 40px;
-  margin-top: 5px;
+.bg-tf-yellow {
   background-color: $pencil-yellow;
-  transition: background-color .15s linear;
-  text-transform: uppercase;
-  cursor: pointer;
-  letter-spacing: .1em;
-  border-radius: 4px;
-  border: 0;
-  font-size: 15px;
-  padding: 0 20px;
-  font-weight: 500;
-  display: inline-block;
-  color: #fff;
-
-  &--expand {
-    padding: 0;
-    width: 100%;
-    text-align: center;
-  }
-  &--large {
-    height: 64px;
-    line-height: 64px;
-    font-size: 21px;
-  }
-  &--subsection {
-    padding: 10px 12px;
-    margin: 4px 0 0 0;
-    border-radius: 4px;
-    width: 100%;
-    font-size: 14px;
-    display: inline-flex;
-    background-color: #F6B333;
-    cursor: pointer;
-    justify-content: center;
-  }
 }
 
-p {
-  line-height: 1.3em;
+.tf-gray {
+  color: $light-gray;
 }
-.p40 {
-  font-size: 16px;
-}
-// padding top 1
-.pt-1 {
-  padding-top: 10px!important;
-}
-// padding bottom 1
-.pb-1 {
-  padding-bottom: 10px!important;
-}
-// padding bottom 3
-.pb-3 {
-  padding-bottom: 30px!important;
-}
-// fade to white
-.fade-wht {
-  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(255,255,255, 0)));
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+.bg-tf-gray {
+  background-color: $light-gray;
 }
 
-.instruction {
-  color: green;
-  width: 100%;
-  padding: 10px 10px;
-  
-  &--center {
-    text-align: center;
-  }
- 
-  &--message {
-    color: green;
-  }
+.tf-dark-gray {
+  color: $lead-gray;
+}
+.bg-tf-dark-gray {
+  background-color: $lead-gray;
 }
 
-.button, .button:active, .button:focus, button, button:active, button:focus {
-  outline: none;
+.tf-pink {
+  color: $eraser-pink;
+}
+.bg-tf-pink {
+  background-color: $eraser-pink;
 }
 
-button, input {
-  overflow: visible;
+.tf-teal {
+  color: $dark-teal;
 }
-
-button, input, optgroup, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-
-@media only screen and (min-width: 600px) { 
-  .backgroundImage {
-    position: absolute;
-    display: block;
-    width: 100%;
-    z-index: -1;
-  }
-  .nav {
-    z-index: 1000;
-  }
+.bg-tf-teal {
+  background-color: $dark-teal;
 }

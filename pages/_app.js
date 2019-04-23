@@ -1,6 +1,7 @@
 import React from 'react'
 import App, { Container } from 'next/app'
 import withContext from '../containers/withContext'
+import '../static/styles/main.scss'
 
 class TeacherFundApp extends App {
   static async getInitialProps ({ Component, ctx }) {
