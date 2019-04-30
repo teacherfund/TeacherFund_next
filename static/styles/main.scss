@@ -4,6 +4,9 @@
 @import '../../node_modules/tachyons-sass/tachyons.scss';
 @import 'variables.scss';
 
+// partials
+@import './partials/nav.scss';
+
 .tf-yellow {
   color: $pencil-yellow;
 }
@@ -37,4 +40,9 @@
 }
 .bg-tf-teal {
   background-color: $dark-teal;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

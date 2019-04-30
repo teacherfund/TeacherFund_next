@@ -1,0 +1,73 @@
+.nav {
+  font-family: 'Lato';
+  font-size: 21px;
+  background-color: white;
+
+  &__buttons {
+    margin: auto;
+    border-color: #F6B333;
+    
+    &__button {
+      color: #F6B333;
+    }
+  }
+
+  &__hamburger {
+
+    &__container {
+      
+    }
+  }
+
+  &__logo {
+
+    &__container {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  &__items {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .nav {
+    &__buttons {
+      
+    }
+
+    &__hamburger {
+
+      &__container {
+        display: none;
+      }
+    }
+  
+    &__logo {
+  
+      &__container {
+        width: 251px;
+        height: 119px;
+      }
+
+      &__mobile {
+        display: none;
+      }
+    }
+  
+    &__items {
+      display: block;
+      margin: auto;
+
+      &__item {
+        color: #434343;
+      }
+    }
+
+    &__drawer {
+      display: none;
+    }
+  }
+}
