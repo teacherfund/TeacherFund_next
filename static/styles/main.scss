@@ -4,14 +4,25 @@
 @import '../../node_modules/tachyons-sass/tachyons.scss';
 @import 'variables.scss';
 
-// partials
-@import './partials/nav.scss';
+.tf-sans-serif {
+  font-family: 'Lato', 
+              -apple-system, BlinkMacSystemFont,
+               'avenir next', avenir,
+               'helvetica neue', helvetica,
+               ubuntu,
+               roboto, noto,
+               'segoe ui', arial,
+               sans-serif;
+}
 
 .tf-yellow {
   color: $pencil-yellow;
 }
 .bg-tf-yellow {
   background-color: $pencil-yellow;
+}
+.b--tf-yellow {
+  border-color: $pencil-yellow;
 }
 
 .tf-gray {
@@ -42,7 +53,3 @@
   background-color: $dark-teal;
 }
 
-a {
-  text-decoration: none;
-  color: black;
-}
