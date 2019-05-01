@@ -1,0 +1,25 @@
+.index {
+  &__header {
+    background-image: url('/static/images/pencils.png');
+    height: 38rem;
+
+    &__title {
+      font-family: 'Oswald';
+      color: $lead-gray;
+      font-size: 40px;
+    }
+
+    &__subtitle {
+      font-family: 'Lato';
+      font-size: 18px;
+    }
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .index {
+    &__header {
+  
+    }
+  }
+}

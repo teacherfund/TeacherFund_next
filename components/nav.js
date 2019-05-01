@@ -41,7 +41,7 @@ class Nav extends React.Component {
     }
 
     return (
-      <div className='nav pv4 flex flex-row fl w-100 pl5 pr5 pt4'>
+      <div className='nav pv4 flex flex-row w-100 pl5 pr5 pt4'>
         <div className='nav__buttons flex flex-row w-100'>
           {this.props.navColor === 'white' && <div className='nav__logo__container'>
             <Link href='/'>

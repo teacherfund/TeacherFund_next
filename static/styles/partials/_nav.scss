@@ -1,14 +1,14 @@
 .nav {
   font-family: 'Lato';
-  font-size: 21px;
+  font-size: 17px;
   background-color: white;
 
   &__buttons {
     margin: auto;
-    border-color: #F6B333;
-    
+    border-color: $pencil-yellow;
+
     &__button {
-      color: #F6B333;
+      color: $pencil-yellow;
     }
   }
 
@@ -48,8 +48,8 @@
     &__logo {
   
       &__container {
-        width: 251px;
-        height: 119px;
+        width: 200px;
+        height: 90px;
       }
 
       &__mobile {
@@ -62,7 +62,7 @@
       margin: auto;
 
       &__item {
-        color: #434343;
+        color: $lead-gray;
       }
     }
 
