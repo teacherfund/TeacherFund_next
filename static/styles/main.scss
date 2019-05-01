@@ -5,55 +5,8 @@
 @import 'variables.scss';
 
 // partials
-@import './partials/nav.scss';
+@import './partials/_sizing.scss';
+@import './partials/_colors.scss';
+@import './partials/_fonts.scss';
+@import './partials/_spacing.scss';
 @import './partials/indexpage.scss';
-
-.tf-sans-serif {
-  font-family: 'Lato', 
-              -apple-system, BlinkMacSystemFont,
-               'avenir next', avenir,
-               'helvetica neue', helvetica,
-               ubuntu,
-               roboto, noto,
-               'segoe ui', arial,
-               sans-serif;
-}
-
-.tf-yellow {
-  color: $pencil-yellow;
-}
-.bg-tf-yellow {
-  background-color: $pencil-yellow;
-}
-.b--tf-yellow {
-  border-color: $pencil-yellow;
-}
-
-.tf-gray {
-  color: $light-gray;
-}
-.bg-tf-gray {
-  background-color: $light-gray;
-}
-
-.tf-dark-gray {
-  color: $lead-gray;
-}
-.bg-tf-dark-gray {
-  background-color: $lead-gray;
-}
-
-.tf-pink {
-  color: $eraser-pink;
-}
-.bg-tf-pink {
-  background-color: $eraser-pink;
-}
-
-.tf-teal {
-  color: $dark-teal;
-}
-.bg-tf-teal {
-  background-color: $dark-teal;
-}
-

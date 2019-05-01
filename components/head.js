@@ -12,7 +12,7 @@ const Head = props => (
     <NextHead>
       <meta charSet='UTF-8' />
       <meta name='google-site-verification' content='wikyOzO4Q40GHyBwVurDHX1-KTF4AbvmXc80_PV0V4Q' />
-      <title>{props.title || ''}</title>
+      <title>{props.title || 'TeacherFund'}</title>
       <meta
         name='description'
         content={props.description || defaultDescription}
@@ -35,7 +35,7 @@ const Head = props => (
       <meta property='og:image:width' content='1200' />
       <meta property='og:image:height' content='630' />
       <script src='https://js.stripe.com/v3/' />
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css' />
+      <link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,500,700' rel='stylesheet' />
     </NextHead>
   </div>
 )
