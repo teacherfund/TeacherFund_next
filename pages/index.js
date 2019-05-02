@@ -9,7 +9,7 @@ export default (props) => {
         <Nav />
       </section>
       <section className='index__header h-section pv7 pr7'>
-        <div className='index__header__container fr flex flex-column'>
+        <div className='fr flex flex-column'>
           <div className='tf-dark-gray ts-title tf-oswald fl'>
             Funding Teachers.<br />
             Empowering Students.
@@ -19,7 +19,7 @@ export default (props) => {
           </div>
         </div>
       </section>
-      <section className='h-section pv6'>
+      <section className='h-section pt6'>
         <div className='tf-lato-lite ts-subtext w-auto m-auto center tc'>
           <p className='ma1'>We believe that by providing funding to public school</p>
           <p className='ma1'>teachers, we can support exemplary teaching, increase</p>
@@ -46,8 +46,22 @@ export default (props) => {
           </div>
         </div>
       </section>
-      <section className=''>
-        What we provide
+      <section className='h-section'>
+        <div className='bg-tf-gray o-10 h-section w-100 absolute' />
+        <div className='w-100 flex pa4'>
+          <div className='bg-white o-80 w6 mt7 ml6 flex flex-column pa4 z-1'>
+            <div className='pa2'>
+              <div className='tf-oswald o-100 ts-title pv2'>
+                What We Provide
+              </div>
+              <div className='tf-lato-lite ts-subtext'>
+                We support teachers in need of everything from the most basic of
+                classroom supplies to extracurricular and after-school funding and equipment.
+              </div>
+            </div>
+          </div>
+          <div className='ma5 index__provide absolute' />
+        </div>
       </section>
       <section className=''>
         Our process
