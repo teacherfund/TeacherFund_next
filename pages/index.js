@@ -3,7 +3,7 @@ import Head from '../components/head'
 
 export default (props) => {
   return (
-    <div className='bg-white index'>
+    <div className='bg-white index tf-dark-gray'>
       <Head />
       <section className='index__nav'>
         <Nav />
@@ -14,7 +14,7 @@ export default (props) => {
             Funding Teachers.<br />
             Empowering Students.
           </div>
-          <div className='ts-subtext fl tf-lato'>
+          <div className='ts-subtext fl tf-lato tf-dark-gray'>
             <p>We provide funding to classrooms so teachers don't have to.</p>
           </div>
         </div>
