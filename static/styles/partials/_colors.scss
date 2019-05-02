@@ -4,7 +4,7 @@
 .bg-tf-yellow {
   background-color: $pencil-yellow;
 }
-.b--tf-yellow {
+.border-tf-yellow {
   border-color: $pencil-yellow;
 }
 .tf-gray {
@@ -13,11 +13,17 @@
 .bg-tf-gray {
   background-color: $light-gray;
 }
+.border-tf-gray {
+  border-color: $light-gray;
+}
 .tf-dark-gray {
   color: $lead-gray;
 }
 .bg-tf-dark-gray {
   background-color: $lead-gray;
+}
+.border-tf-dark-gray {
+  border-color: $lead-gray;
 }
 .tf-pink {
   color: $eraser-pink;

@@ -123,8 +123,58 @@ export default (props) => {
           </div>
         </div>
       </section>
-      <section className=''>
-        Stats
+      <section className='h-section bg-tf-teal'>
+        <div className='flex flex-column pt5'>
+          <div className='ts-title tf-oswald white center'>
+            See How We're Doing
+          </div>
+          <div className='center pt5 flex flex-column'>
+            <div className='flex flex-row'>
+              <div className='w5 h4 ma3 bg-white bl bw3 border-tf-yellow'>
+                <div className='flex flex-column tf-dark-gray pt3'>
+                  <div className='tf-lato ts-title center'>
+                    $10,000
+                  </div>
+                  <div className='pt2 tf-lato-lite ts-subtext center'>
+                    Raised
+                  </div>
+                </div>
+              </div>
+              <div className='w5 h4 ma3 bg-white bl bw3 border-tf-pink'>
+                <div className='flex flex-column tf-dark-gray pt3'>
+                  <div className='tf-lato ts-title center'>
+                    0
+                  </div>
+                  <div className='pt2 tf-lato-lite ts-subtext center'>
+                    Teachers Funded
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='flex flex-row'>
+              <div className='w5 h4 ma3 bg-white bl bw3 border-tf-dark-gray'>
+                <div className='flex flex-column tf-dark-gray pt3'>
+                  <div className='tf-lato ts-title center'>
+                    17
+                  </div>
+                  <div className='pt2 tf-lato-lite ts-subtext center'>
+                    Partner Schools
+                  </div>
+                </div>
+              </div>
+              <div className='w5 h4 ma3 bg-white bl bw3 border-tf-gray'>
+                <div className='flex flex-column tf-dark-gray pt3'>
+                  <div className='tf-lato ts-title center'>
+                    1200
+                  </div>
+                  <div className='pt2 tf-lato-lite ts-subtext center'>
+                    Students Impacted
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <section className=''>
         Get involved
