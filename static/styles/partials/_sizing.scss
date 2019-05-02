@@ -7,6 +7,12 @@
 .w6 {
   width: 32rem;
 }
+.h6 {
+  height: 32rem;
+}
+.h5-5 {
+  height: 28rem;
+}
 
 // text size
 .ts-subtext {
@@ -14,4 +20,9 @@
 }
 .ts-title {
   font-size: 40px;
+}
+
+// image
+.i-contain {
+  object-fit: contain;
 }

@@ -60,11 +60,68 @@ export default (props) => {
               </div>
             </div>
           </div>
-          <div className='ma5 index__provide absolute' />
+          <div className='ma5 index__provide i-contain absolute' />
         </div>
       </section>
-      <section className=''>
-        Our process
+      <section className='h-section'>
+        <div className='flex flex-column mt5'>
+          <div className='ts-title tf-oswald center'>
+            Our Process
+          </div>
+          <div className='flex flex-row flex-auto justify-center w-auto mt5 center'>
+            <div className='ma4 w-50-m w-25-l w-80'>
+              <div className='bg-tf-gray o-10 absolute w-50-m w-25-l w-80 h5-5' />
+              <div className='w-100 bg-transparent pa2 pt4'>
+                <div className='pa2 tc'>
+                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
+                    <img src='/static/images/Mortarboard_icon.png' class='i-contain' title='Icon of graduation cap' />
+                  </div>
+                  <div className='tf-oswald ts-subtext pv2 tc'>
+                    Quality Teachers
+                  </div>
+                  <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    We support teachers in need of everything from the most basic of
+                    classroom supplies to extracurricular and after-school funding and equipment.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='ma4 w-50-m w-25-l w-80'>
+              <div className='bg-tf-gray o-10 absolute w-50-m w-25-l w-80 h5-5' />
+              <div className='w-100 bg-transparent pa2 pt4'>
+                <div className='pa2 tc'>
+                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
+                    <img src='/static/images/School_icon.png' class='i-contain' title='Icon of school' />
+                  </div>
+                  <div className='tf-oswald ts-subtext pv2 tc'>
+                    Local Schools
+                  </div>
+                  <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    Partnering with nearby schools ensures we are providing exactly what
+                    their teachers and students need.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='ma4 w-50-m w-25-l w-80'>
+              <div className='bg-tf-gray o-10 absolute w-50-m w-25-l w-80 h5-5' />
+              <div className='w-100 bg-transparent pa2 pt4'>
+                <div className='pa2 tc'>
+                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
+                    <img src='/static/images/Hand_icon.png' class='i-contain' title='Icon of hand holding money cap' />
+                  </div>
+                  <div className='tf-oswald ts-subtext pv2 tc'>
+                    Tangible Impact
+                  </div>
+                  <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    We monitor each dollar donated so you can see the direct
+                    impact your donation has on these classrooms.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <section className=''>
         Stats
