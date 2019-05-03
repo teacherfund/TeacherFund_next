@@ -8,10 +8,10 @@ import '../static/styles/main.scss'
 class Error extends React.Component {
   render () {
     return (
-      <div className='main-container'>
+      <div className=''>
         <Head title='Error' />
-        <Nav navColor='black' />
-        <div className='body'>
+        <Nav />
+        <div className=''>
           <p>Error</p>
         </div>
 
