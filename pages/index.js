@@ -1,5 +1,6 @@
 import Nav from '../components/nav'
 import Head from '../components/head'
+import Link from 'next/link'
 
 export default (props) => {
   return (
@@ -74,7 +75,7 @@ export default (props) => {
               <div className='w-100 bg-transparent pa2 pt4'>
                 <div className='pa2 tc'>
                   <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
-                    <img src='/static/images/Mortarboard_icon.png' class='i-contain' title='Icon of graduation cap' />
+                    <img src='/static/images/Mortarboard_icon.png' className='i-contain' title='Icon of graduation cap' />
                   </div>
                   <div className='tf-oswald ts-subtext pv2 tc'>
                     Quality Teachers
@@ -91,7 +92,7 @@ export default (props) => {
               <div className='w-100 bg-transparent pa2 pt4'>
                 <div className='pa2 tc'>
                   <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
-                    <img src='/static/images/School_icon.png' class='i-contain' title='Icon of school' />
+                    <img src='/static/images/School_icon.png' className='i-contain' title='Icon of school' />
                   </div>
                   <div className='tf-oswald ts-subtext pv2 tc'>
                     Local Schools
@@ -108,7 +109,7 @@ export default (props) => {
               <div className='w-100 bg-transparent pa2 pt4'>
                 <div className='pa2 tc'>
                   <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
-                    <img src='/static/images/Hand_icon.png' class='i-contain' title='Icon of hand holding money cap' />
+                    <img src='/static/images/Hand_icon.png' className='i-contain' title='Icon of hand holding money cap' />
                   </div>
                   <div className='tf-oswald ts-subtext pv2 tc'>
                     Tangible Impact
@@ -183,36 +184,42 @@ export default (props) => {
           </div>
           <div className='flex flex-row flex-auto justify-center w-auto mt5 center'>
             <div className='ma4 w-50-m w-33-l w-80'>
-              <div className='bg-tf-gray o-10 absolute w-50-m w-33-l w-80 h5-5' />
+              <div className='bg-tf-gray o-10 absolute w-50-m w-33-l w-80 h5-25' />
               <div className='w-100 bg-transparent pa2 pt4'>
                 <div className='pa2 tc'>
-                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
-                    <img src='/static/images/Mortarboard_icon.png' class='i-contain' title='Icon of graduation cap' />
-                  </div>
-                  <div className='tf-oswald ts-subtext pv2 tc'>
-                    Joel Wasserman
+                  <div className='tf-lato ts-subtext pv2 tc'>
+                    Fund Teachers
                   </div>
                   <div className='tf-lato-lite ts-subtext pt2 tc'>
-                    We support teachers in need of everything from the most basic of
-                    classroom supplies to extracurricular and after-school funding and equipment.
+                    Because private donors cover our operating costs, you can give knowing your whole gift
+                    will go toward helping equip teachers and students with the supplies they need to be successful.
                   </div>
+                </div>
+                <div className='db center w-auto pt4 ph4 tc'>
+                  <Link href='/donate'>
+                    <a className='white no-underline black pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className='ma4 w-50-m w-33-l w-80'>
-              <div className='bg-tf-gray o-10 absolute w-50-m w-33-l w-80 h5-5' />
+              <div className='bg-tf-gray o-10 absolute w-50-m w-33-l w-80 h5-25' />
               <div className='w-100 bg-transparent pa2 pt4'>
                 <div className='pa2 tc'>
-                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
-                    <img src='/static/images/Hand_icon.png' class='i-contain' title='Icon of hand holding money cap' />
-                  </div>
-                  <div className='tf-oswald ts-subtext pv2 tc'>
-                    Peter Squicciarini
+                  <div className='tf-lato ts-subtext pv2 tc'>
+                    Volunteer
                   </div>
                   <div className='tf-lato-lite ts-subtext pt2 tc'>
-                    We monitor each dollar donated so you can see the direct
-                    impact your donation has on these classrooms.
+                    Interested in helping us? We’re looking for a web designer, non-profit
+                    lawyer, and boots-on-the-ground volunteers to help handout supplies
+                    and build teacher relationships.
                   </div>
+                </div>
+                <div className='db center w-auto pt4 ph4 tc'>
+                  <a className='white no-underline black pa3 db br-pill tf-lato b v-mid bg-tf-pink w-80 m-auto'
+                    href='mailto:joelwass@theteacherfund.com?subject=Application'>
+                     Apply Today
+                  </a>
                 </div>
               </div>
             </div>
@@ -230,8 +237,8 @@ export default (props) => {
               <div className='o-10 absolute w-50-m w-25-l w-80 h5-5' />
               <div className='w-100 bg-transparent pa2 pt3'>
                 <div className='pa2 tc'>
-                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
-                    <img src='/static/images/Mortarboard_icon.png' class='i-contain' title='Icon of graduation cap' />
+                  <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
+                    <img src='/static/images/people/joel.jpg' title='Icon of graduation cap' />
                   </div>
                   <div className='tf-oswald ts-subtext pv2 tc'>
                     Joel Wasserman
@@ -247,8 +254,8 @@ export default (props) => {
               <div className='o-10 absolute w-50-m w-25-l w-80 h5-5' />
               <div className='w-100 bg-transparent pa2 pt3'>
                 <div className='pa2 tc'>
-                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
-                    <img src='/static/images/School_icon.png' class='i-contain' title='Icon of school' />
+                  <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
+                    <img src='/static/images/people/christine.jpeg' title='Icon of school' />
                   </div>
                   <div className='tf-oswald ts-subtext pv2 tc'>
                     Christine Woeller
@@ -264,8 +271,8 @@ export default (props) => {
               <div className='o-10 absolute w-50-m w-25-l w-80 h5-5' />
               <div className='w-100 bg-transparent pa2 pt3'>
                 <div className='pa2 tc'>
-                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
-                    <img src='/static/images/Hand_icon.png' class='i-contain' title='Icon of hand holding money cap' />
+                  <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
+                    <img src='/static/images/people/pete.jpeg' title='Icon of hand holding money cap' />
                   </div>
                   <div className='tf-oswald ts-subtext pv2 tc'>
                     Peter Squicciarini
