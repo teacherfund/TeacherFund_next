@@ -38,7 +38,7 @@ class Nav extends React.Component {
 
   render () {
     return (
-      <div className='f6 tf-lato bg-white pv4 flex flex-row fl w-100 pl5 pr5 pt4'>
+      <div className='f6 tf-lato bg-white pv4 flex flex-row fl w-100 pl5 pr5 pt4 z-1'>
         <div className='center b--tf-yellow flex flex-row w-100'>
           <div>
             <Link href='/'>

@@ -2,12 +2,12 @@ import React from 'react'
 import '../static/styles/main.scss'
 
 const TwoItemSwitcher = (props) => (
-  <div className='switcher'>
-    <div className={`switcher__leftItem ${props.color} ${props.selectedToggle === 1 ? 'selected' : ''}`} onClick={props.switchOneClicked}>
-      <label className='ttu'>{props.switchOneText}</label>
+  <div className='flex flex-row tf-lato justify-between ma1'>
+    <div className={`w-100 h2 tc mt1 br--left br2 ${props.color} ${props.selectedToggle === 1 ? 'tf-dark-gray bg-white' : 'bg-tf-yellow white'}`} onClick={props.switchOneClicked}>
+      <label className='ttu v-mid'>{props.switchOneText}</label>
     </div>
-    <div className={`switcher__rightItem ${props.color} ${props.selectedToggle === 2 ? 'selected' : ''}`} onClick={props.switchTwoClicked}>
-      <label className='ttu'>{props.switchTwoText}</label>
+    <div className={`w-100 h2 tc mt1 br--right br2 ${props.color} ${props.selectedToggle === 2 ? 'tf-dark-gray bg-white' : 'bg-tf-yellow white'}`} onClick={props.switchTwoClicked}>
+      <label className='ttu v-mid'>{props.switchTwoText}</label>
     </div>
   </div>
 )
