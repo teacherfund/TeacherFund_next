@@ -107,22 +107,14 @@ class DonateForm extends Component {
           switchOneClicked={() => this.updateFrequency('once')}
           switchTwoClicked={() => this.updateFrequency('monthly')}
         />
-        <div className='m-auto'>
-          <input className='bn pa2 w5 ma1 br2' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} />
-        </div>
-        <div className=''>
-          <input className='bn pa2 w5 ma1 br2' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} />
-        </div>
-        <div className=''>
-          <input className='bn pa2 w5 ma1 br2' placeholder='Email' value={this.state.email} onChange={this.updateEmail} />
-        </div>
-        <div className=''>
-          <input className='bn pa2 w5 ma1 br2' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} />
-        </div>
+        <input className='bn pa2 w5 ma1 br2' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} />
+        <input className='bn pa2 w5 ma1 br2' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} />
+        <input className='bn pa2 w5 ma1 br2' placeholder='Email' value={this.state.email} onChange={this.updateEmail} />
+        <input className='bn pa2 w5 ma1 br2' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} />
         <div className='bg-white bn pa2 w-100 mt1 mb1 br2'>
           <CardElement />
         </div>
-        { loading && <h2>Loading...</h2>}
+        { loading && <h2 className='tc tf-lato'>Loading...</h2>}
         <div className='white bg-tf-yellow tf-lato b tc pa2 ma1 br-pill' onClick={this.donate}>
           <label className='ttu'>Donate</label>
         </div>
