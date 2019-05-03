@@ -176,13 +176,111 @@ export default (props) => {
           </div>
         </div>
       </section>
-      <section className=''>
-        Get involved
+      <section className='h-section'>
+        <div className='flex flex-column pt5'>
+          <div className='ts-title tf-oswald center'>
+            Get Involved
+          </div>
+          <div className='flex flex-row flex-auto justify-center w-auto mt5 center'>
+            <div className='ma4 w-50-m w-33-l w-80'>
+              <div className='bg-tf-gray o-10 absolute w-50-m w-33-l w-80 h5-5' />
+              <div className='w-100 bg-transparent pa2 pt4'>
+                <div className='pa2 tc'>
+                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
+                    <img src='/static/images/Mortarboard_icon.png' class='i-contain' title='Icon of graduation cap' />
+                  </div>
+                  <div className='tf-oswald ts-subtext pv2 tc'>
+                    Joel Wasserman
+                  </div>
+                  <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    We support teachers in need of everything from the most basic of
+                    classroom supplies to extracurricular and after-school funding and equipment.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='ma4 w-50-m w-33-l w-80'>
+              <div className='bg-tf-gray o-10 absolute w-50-m w-33-l w-80 h5-5' />
+              <div className='w-100 bg-transparent pa2 pt4'>
+                <div className='pa2 tc'>
+                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
+                    <img src='/static/images/Hand_icon.png' class='i-contain' title='Icon of hand holding money cap' />
+                  </div>
+                  <div className='tf-oswald ts-subtext pv2 tc'>
+                    Peter Squicciarini
+                  </div>
+                  <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    We monitor each dollar donated so you can see the direct
+                    impact your donation has on these classrooms.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-      <section className=''>
-        Meet the team
+      <section className='h-section'>
+        <div className='flex flex-column z-100'>
+          <div className='bg-tf-gray o-10 h-section w-100 absolute' />
+          <div className='ts-title tf-oswald pt5 center'>
+            Meet the Team
+          </div>
+          <div className='flex flex-row flex-auto justify-center w-auto mt3 center'>
+            <div className='bg-white z-1 ma4 w-50-m w-25-l w-80'>
+              <div className='o-10 absolute w-50-m w-25-l w-80 h5-5' />
+              <div className='w-100 bg-transparent pa2 pt3'>
+                <div className='pa2 tc'>
+                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
+                    <img src='/static/images/Mortarboard_icon.png' class='i-contain' title='Icon of graduation cap' />
+                  </div>
+                  <div className='tf-oswald ts-subtext pv2 tc'>
+                    Joel Wasserman
+                  </div>
+                  <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    A software engineer at Google, Joel formerly worked
+                    at two education startups and is passionate about public education and technology.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='bg-white z-1  ma4 w-50-m w-25-l w-80'>
+              <div className='o-10 absolute w-50-m w-25-l w-80 h5-5' />
+              <div className='w-100 bg-transparent pa2 pt3'>
+                <div className='pa2 tc'>
+                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
+                    <img src='/static/images/School_icon.png' class='i-contain' title='Icon of school' />
+                  </div>
+                  <div className='tf-oswald ts-subtext pv2 tc'>
+                    Christine Woeller
+                  </div>
+                  <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    With a degree in secondary education, Christine seeks to improve public schools
+                    and ensure teachers have the best resources available.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='bg-white z-1  ma4 w-50-m w-25-l w-80'>
+              <div className='o-10 absolute w-50-m w-25-l w-80 h5-5' />
+              <div className='w-100 bg-transparent pa2 pt3'>
+                <div className='pa2 tc'>
+                  <div className='center br-100 pa4 ba b--black-05 ma3 h4 w4 bg-white'>
+                    <img src='/static/images/Hand_icon.png' class='i-contain' title='Icon of hand holding money cap' />
+                  </div>
+                  <div className='tf-oswald ts-subtext pv2 tc'>
+                    Peter Squicciarini
+                  </div>
+                  <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    A software developer at Amazon and loving father of two, Peter strives to
+                    help all children and teachers succeed in an educational environment.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-      <section className=''>
+      <section className='h-footer bg-tf-dark-gray'>
         Footer
       </section>
     </div>
