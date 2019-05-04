@@ -61,7 +61,7 @@ When you've finished making changes and committed the changes into your branch, 
 
 ### Coding Standards
 - Code should pass linting by [Standard](https://standardjs.com/). Run `npm run lint` to confirm there are no linting errors.
-- Styling should all be done through [Taychon](https://taychons.io/docs)
+- Styling should all be done through [Taychon](https://tachyons.io/docs)
 - Bugfixes should be accompanied by tests to avoid regression
 
 ## Thank You!

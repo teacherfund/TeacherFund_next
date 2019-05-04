@@ -15,14 +15,17 @@ class LoginForm extends Component {
   }
 
   updateFirstname = (e) => {
+    this.clearError()
     this.setState({ firstName: e.target.value })
   }
 
   updateLastname = (e) => {
+    this.clearError()
     this.setState({ lastName: e.target.value })
   }
 
   updateEmail = (e) => {
+    this.clearError()
     this.setState({ email: e.target.value })
   }
 
@@ -69,6 +72,8 @@ class LoginForm extends Component {
   }
 
   clearError = () => {
+    // Early return to avoid extra set state calls
+    if (!this.state.error) return
     this.setState({ error: '' })
   }
 
@@ -95,11 +100,11 @@ class LoginForm extends Component {
         </div> */}
         <div className='tc'>
           <div className='panel'>
-            <div className='error'>
-              <p className='error--message'>{this.state.error}</p>
+            <div className='tf-lato'>
+              <p className='red'>{this.state.error}</p>
             </div>
-            <div className='instruction'>
-              <p className='instruction--message'>{this.state.message}</p>
+            <div className=''>
+              <p className='tf-lato'>{this.state.message}</p>
             </div>
             {this.state.register &&
             <div className=''>
@@ -140,11 +145,11 @@ class LoginForm extends Component {
                 autoComplete='off'
               />
             </div>
-            <div className='white bg-tf-yellow tf-lato b tc pa2 w5 m-auto br-pill' onClick={this.handleSubmit}>
-              <label className='ttu'>{this.state.register ? 'Sign up' : 'Sign in'}</label>
+            <div className='white bg-tf-yellow tf-lato b tc pa2 w5 m-auto br-pill pointer' onClick={this.handleSubmit}>
+              <label className='ttu pointer'>{this.state.register ? 'Sign up' : 'Sign in'}</label>
             </div>
             <div className='mt2'>
-              <a className='tf-lato' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a>
+              <a className='tf-lato pointer' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a>
             </div>
           </div>
         </div>

@@ -36,6 +36,7 @@ export default (Page, pageProps) => class Context extends Component {
     this.fetchGlobalStats()
   }
   handleSignup ({ email, firstName, lastName, role }) {
+    // Dont catch here, bubble up error
     return Api.register({ email, firstName, lastName, role })
       .then((res) => res.json())
       .then((res) => {
@@ -43,8 +44,6 @@ export default (Page, pageProps) => class Context extends Component {
         if (!res.ok) throw new Error('signup failed')
         // should redirect to a post-registration page
         Router.push('/post-login')
-      }).catch((e) => {
-        console.log('ERROR', e)
       })
   }
   fetchGlobalStats () {
@@ -66,6 +65,7 @@ export default (Page, pageProps) => class Context extends Component {
       })
   }
   handleLogin ({ email, role }) {
+    // Dont catch here, bubble up error
     return Api.login({ email, role })
       .then((res) => res.json())
       .then((res) => {
@@ -73,8 +73,6 @@ export default (Page, pageProps) => class Context extends Component {
         this.setState({ email })
         // redirect to a post-login page (since email has been sent)
         Router.push('/post-login')
-      }).catch((e) => {
-        console.log('ERROR', e)
       })
   }
   handleVerify ({ email, auth }) {
