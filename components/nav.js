@@ -40,7 +40,7 @@ class Nav extends React.Component {
     return (
       <div className='f6 tf-lato bg-white pv4 flex flex-row fl w-100 pl5 pr5 pt4 z-1'>
         <div className='center b--tf-yellow flex flex-row w-100'>
-          <div>
+          <div className='pointer'>
             <Link href='/'>
               <img src='/static/images/Logo_with_text.png' className='w4' />
             </Link>

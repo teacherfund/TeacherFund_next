@@ -120,7 +120,7 @@ class IndexPage extends Component {
                 </div>
               </div>
             </div>
-            <div className='ma5 index__provide i-contain absolute' />
+            <div className='ma5 index__provide i-contain absolute dn-ns' />
           </div>
         </section>
         <section className='h-section'>
@@ -128,7 +128,7 @@ class IndexPage extends Component {
             <div className='ts-title tf-oswald center'>
               Our Process
             </div>
-            <div className='flex flex-row flex-auto justify-center w-auto mt5 center'>
+            <div className='flex flex-row flex-wrap justify-center w-auto mt5 center'>
               <div className='ma4 w-50-m w-25-l w-80'>
                 <div className='bg-tf-gray o-10 absolute w-50-m w-25-l w-80 h5-5' />
                 <div className='w-100 bg-transparent pa2 pt4'>
@@ -241,7 +241,7 @@ class IndexPage extends Component {
             <div className='ts-title tf-oswald center'>
               Get Involved
             </div>
-            <div className='flex flex-row flex-auto justify-center w-auto mt5 center'>
+            <div className='flex flex-row flex-wrap justify-center w-auto mt5 center'>
               <div className='ma4 w-50-m w-33-l w-80'>
                 <div className='bg-tf-gray o-10 absolute w-50-m w-33-l w-80 h5-25' />
                 <div className='w-100 bg-transparent pa2 pt4'>
@@ -254,7 +254,7 @@ class IndexPage extends Component {
                       will go toward helping equip teachers and students with the supplies they need to be successful.
                     </div>
                   </div>
-                  <div className='db center w-auto pt4 ph4 tc'>
+                  <div className='db center w-auto pt4 ph4 tc pointer'>
                     <Link href='/donate'>
                       <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
                     </Link>
@@ -274,7 +274,7 @@ class IndexPage extends Component {
                       and build teacher relationships.
                     </div>
                   </div>
-                  <div className='db center w-auto pt4 ph4 tc'>
+                  <div className='db center w-auto pt4 ph4 tc pointer'>
                     <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-pink w-80 m-auto'
                       href='mailto:joelwass@theteacherfund.com?subject=Application'>
                        Apply Today
@@ -285,15 +285,14 @@ class IndexPage extends Component {
             </div>
           </div>
         </section>
-        <section className='h-section'>
+        <section className='h-section pb5-ns'>
           <div className='flex flex-column z-100'>
-            <div className='bg-tf-gray o-10 h-section w-100 absolute' />
+            <div className='bg-tf-gray o-10 dn db-ns dn-m h-section w-100 absolute' />
             <div className='ts-title tf-oswald pt5 center'>
               Meet the Team
             </div>
-            <div className='flex flex-row flex-auto justify-center w-auto mt3 center'>
+            <div className='flex flex-row flex-wrap justify-center w-auto mt3 center'>
               <div className='bg-white z-1 ma4 w-50-m w-25-l w-80'>
-                <div className='o-10 absolute w-50-m w-25-l w-80 h5-5' />
                 <div className='w-100 bg-transparent pa2 pt3'>
                   <div className='pa2 tc'>
                     <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
@@ -309,8 +308,7 @@ class IndexPage extends Component {
                   </div>
                 </div>
               </div>
-              <div className='bg-white z-1  ma4 w-50-m w-25-l w-80'>
-                <div className='o-10 absolute w-50-m w-25-l w-80 h5-5' />
+              <div className='bg-white z-1 ma4 w-50-m w-25-l w-80'>
                 <div className='w-100 bg-transparent pa2 pt3'>
                   <div className='pa2 tc'>
                     <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
@@ -326,8 +324,7 @@ class IndexPage extends Component {
                   </div>
                 </div>
               </div>
-              <div className='bg-white z-1  ma4 w-50-m w-25-l w-80'>
-                <div className='o-10 absolute w-50-m w-25-l w-80 h5-5' />
+              <div className='bg-white z-1 ma4 w-50-m w-25-l w-80'>
                 <div className='w-100 bg-transparent pa2 pt3'>
                   <div className='pa2 tc'>
                     <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
@@ -352,7 +349,7 @@ class IndexPage extends Component {
               Let's Keep in Touch
             </div>
             <div className='pt2'>
-              {this.state.error && <div className=''>
+              {this.state.error && <div className='red tf-lato'>
                 {this.state.error}
               </div>}
               {this.state.success && <div className=''>
