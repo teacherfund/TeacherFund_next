@@ -11,7 +11,7 @@ class Donate extends Component {
 
   render () {
     return (
-      <div className='main-container'>
+      <div>
         <Head title='Donate' />
         <Nav />
 

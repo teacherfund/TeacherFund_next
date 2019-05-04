@@ -78,9 +78,9 @@ class LoginForm extends Component {
 
   render () {
     return (
-      <div>
-        <div className='heading'>
-          <h2 className='h35 white'>{ this.state.register ? 'Sign up' : 'Sign in' }</h2>
+      <div className='bg-white w6 pb3 br3'>
+        <div className='ts-title tf-lato tc mt3'>
+          <h2 className='h35 tf-dark-gray'>{ this.state.register ? 'Sign up' : 'Sign in' }</h2>
         </div>
         {/* <div className='donorTeacherSwitcher'>
           <TwoItemSwitcher
@@ -93,7 +93,7 @@ class LoginForm extends Component {
             switchTwoClicked={() => this.updateLoginType('teacher')}
           />
         </div> */}
-        <div>
+        <div className='tc'>
           <div className='panel'>
             <div className='error'>
               <p className='error--message'>{this.state.error}</p>
@@ -102,38 +102,34 @@ class LoginForm extends Component {
               <p className='instruction--message'>{this.state.message}</p>
             </div>
             {this.state.register &&
-            <div>
-              <div className='input-wrapper'>
-                <input
-                  required='required'
-                  className='name'
-                  onChange={this.updateFirstname}
-                  value={this.state.firstName}
-                  aria-required='true'
-                  placeholder='First name'
-                  name='first name'
-                  id='first_name'
-                  autoComplete='off'
-                />
-              </div>
-              <div className='input-wrapper'>
-                <input
-                  required='required'
-                  className='name'
-                  onChange={this.updateLastname}
-                  value={this.state.lastName}
-                  aria-required='true'
-                  placeholder='Last name'
-                  name='last name'
-                  id='last_name'
-                  autoComplete='off'
-                />
-              </div>
-            </div>}
-            <div className='input-wrapper'>
+            <div className=''>
+              <input
+                className='ba b--black pa2 w5 ma1 br2'
+                required='required'
+                placeholder='First name'
+                name='first name'
+                id='first_name'
+                autoComplete='off'
+                aria-required='true'
+                value={this.state.firstName}
+                onChange={this.updateFirstName}
+              />
               <input
                 required='required'
-                className='email'
+                className='ba b--black pa2 w5 ma1 br2'
+                onChange={this.updateLastname}
+                value={this.state.lastName}
+                aria-required='true'
+                placeholder='Last name'
+                name='last name'
+                id='last_name'
+                autoComplete='off'
+              />
+            </div>}
+            <div className='mb2'>
+              <input
+                required='required'
+                className='ba b--black pa2 w5 ma1 br2'
                 onChange={this.updateEmail}
                 value={this.state.email}
                 aria-required='true'
@@ -144,10 +140,12 @@ class LoginForm extends Component {
                 autoComplete='off'
               />
             </div>
-            <div className='button button--large button--expand radius' onClick={this.handleSubmit}>
+            <div className='white bg-tf-yellow tf-lato b tc pa2 w5 m-auto br-pill' onClick={this.handleSubmit}>
               <label className='ttu'>{this.state.register ? 'Sign up' : 'Sign in'}</label>
             </div>
-            <a className='reset' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a>
+            <div className='mt2'>
+              <a className='tf-lato' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a>
+            </div>
           </div>
         </div>
       </div>

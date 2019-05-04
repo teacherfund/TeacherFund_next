@@ -28,6 +28,8 @@ These would be very helpful to include:
 ## Writing Code
 If you are interested in writing code to fix issues, read the below to understand our project structure and set up your development environment.
 
+Please note: all design should be made with [our home page style](https://github.com/teacherfund/TeacherFund_next/blob/master/HomePageDesign.pdf) in mind.
+
 **In order to avoid duplicate work and to save you from wasting time, please comment in an open issue your intention to code out the resolution to that issue. If it isn't obvious how that issue will be solved, outline what you plan to do to make sure it's in line with the maintainers' vision for the project.**
 
 The website is written in [React](https://github.com/facebook/react/) using [Next.js](https://github.com/zeit/next.js) from Zeit. 
@@ -50,7 +52,7 @@ The website is written in [React](https://github.com/facebook/react/) using [Nex
   ```bash
   npm run dev
   ```
-  When it's done building, access it at this link: http://localhost:3000/
+  When it's done building, access it at this link: http://localhost:3001/
 
 ### Opening a Pull Request
 Commit any code changes to a branch (e.g. `fix/header` or `feature/donate-form`).
@@ -58,9 +60,8 @@ Commit any code changes to a branch (e.g. `fix/header` or `feature/donate-form`)
 When you've finished making changes and committed the changes into your branch, you can open a pull request. Please reference the issue you have solved in your pull request.
 
 ### Coding Standards
-
 - Code should pass linting by [Standard](https://standardjs.com/). Run `npm run lint` to confirm there are no linting errors.
-- Styling should follow the [BEM](http://getbem.com/) methodology
+- Styling should all be done through [Taychon](https://taychons.io/docs)
 - Bugfixes should be accompanied by tests to avoid regression
 
 ## Thank You!
