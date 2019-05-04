@@ -120,7 +120,7 @@ class IndexPage extends Component {
                 </div>
               </div>
             </div>
-            <div className='ma5 index__provide i-contain absolute dn-ns' />
+            <div className='ma5 index__provide i-contain absolute di-l dn' />
           </div>
         </section>
         <section className='h-section'>
