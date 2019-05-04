@@ -14,7 +14,7 @@ class DonateForm extends Component {
       redirectSuccess: false,
       firstName: '',
       lastName: '',
-      amount: '$',
+      amount: '',
       email: '',
       frequency: 'once',
       error: ''
@@ -43,7 +43,7 @@ class DonateForm extends Component {
   }
 
   updateAmount = (e) => {
-    this.setLocalState({ amount: `$ ${e.target.value}` })
+    this.setLocalState({ amount: `${e.target.value.includes('$') ? '' : '$'}${e.target.value}` })
   }
 
   donate = async (ev) => {
@@ -95,9 +95,9 @@ class DonateForm extends Component {
     if (redirectSuccess) return (<div />)
 
     return (
-      <div className='donate'>
-        <div className='error'>
-          <p className='error--message'>{this.state.error}</p>
+      <div className='flex flex-column'>
+        <div className='error tf-lato tc'>
+          <p className='red'>{this.state.error}</p>
         </div>
         <TwoItemSwitcher
           color='black'
@@ -107,23 +107,15 @@ class DonateForm extends Component {
           switchOneClicked={() => this.updateFrequency('once')}
           switchTwoClicked={() => this.updateFrequency('monthly')}
         />
-        <div className='donate__name'>
-          <input className='donate__name__input' placeholder='First name' onChange={this.updateFirstName} />
-        </div>
-        <div className='donate__name'>
-          <input className='donate__name__input' placeholder='Last name' onChange={this.updateLastName} />
-        </div>
-        <div className='donate__name'>
-          <input className='donate__name__input' placeholder='Email' onChange={this.updateEmail} />
-        </div>
-        <div className='donate__name'>
-          <input className='donate__name__input' placeholder='Amount' onChange={this.updateAmount} />
-        </div>
-        <div className='donate__form'>
+        <input className='bn pa2 w5 ma1 br2' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} />
+        <input className='bn pa2 w5 ma1 br2' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} />
+        <input className='bn pa2 w5 ma1 br2' placeholder='Email' value={this.state.email} onChange={this.updateEmail} />
+        <input className='bn pa2 w5 ma1 br2' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} />
+        <div className='bg-white bn pa2 w-100 mt1 mb1 br2'>
           <CardElement />
         </div>
-        { loading && <h2>Loading...</h2>}
-        <div className='donate__button button white' onClick={this.donate}>
+        { loading && <h2 className='tc tf-lato'>Loading...</h2>}
+        <div className='white bg-tf-yellow tf-lato b tc pa2 ma1 br-pill' onClick={this.donate}>
           <label className='ttu'>Donate</label>
         </div>
       </div>

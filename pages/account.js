@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Head from '../components/head'
 import Nav from '../components/nav'
 
-import Footer from '../components/footer'
 import '../static/styles/main.scss'
 
 class Account extends React.Component {
@@ -24,8 +23,6 @@ class Account extends React.Component {
             </div>
           </div>
         </div>
-
-        <Footer />
       </div>
     )
   }
