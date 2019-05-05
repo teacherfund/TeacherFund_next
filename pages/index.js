@@ -5,9 +5,13 @@ import Head from '../components/head'
 import * as Api from '../api/api'
 
 class IndexPage extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
+
+    // Fetch current year for footer
     const currentYear = new Date().getFullYear()
+
+    this.fetchStats()
 
     this.state = {
       name: '',
@@ -15,6 +19,14 @@ class IndexPage extends Component {
       error: '',
       subscribed: false,
       currentYear
+    }
+  }
+
+  async fetchStats () {
+    try {
+      await this.props.helpers.fetchGlobalStats()
+    } catch (e) {
+      // Do something with dollars donated, not sure what yet
     }
   }
 
@@ -193,7 +205,7 @@ class IndexPage extends Component {
                 <div className='w5 h4 ma3 bg-white bl bw3 border-tf-yellow'>
                   <div className='flex flex-column tf-dark-gray pt3'>
                     <div className='tf-lato ts-title center'>
-                      $10,000
+                      ${this.props.context.globalAmountDonated || 0}
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Raised
