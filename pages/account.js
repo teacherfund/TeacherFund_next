@@ -8,18 +8,20 @@ import '../static/styles/main.scss'
 class Account extends React.Component {
   render () {
     return (
-      <div className='main-container'>
+      <div>
         <Head title='Account' />
-        <Nav navColor='black' />
-        <div className='body account--body'>
-          <img src='/static/images/man-woman-reading.jpg' className='backgroundImage' />
-          <div className='account--stats'>
-            <p className='pb-1'>You've donated <b>{this.props.context.userAmountDonated}</b> to TeacherFund thus far</p>
-            <p className='pb-1'><b>{this.props.context.userAmountSpent}</b> of which has been spent on the following items</p>
-            <div className='button--subsection white'>
-              <Link href='donate'>
-                <label className='ttu'>donate again</label>
-              </Link>
+        <Nav />
+
+        <div className='w-100 h-100 flex pa5'>
+          <img src='/static/images/man-woman-reading.jpg' className='absolute w-100 h-100 top-0 left-0 z-minus-1' />
+          <div className='flex flex-row-reverse m-auto'>
+            <div className='bg-white w6 pb3 br3 tc tf-lato'>
+              <p className='pb1'>You've donated <b>${this.props.context.userAmountDonated}</b> to TeacherFund thus far.</p>
+              <div className='white bg-tf-yellow tf-lato b tc pa2 w5 m-auto br-pill pointer'>
+                <Link href='donate'>
+                  <label className='ttu'>donate again</label>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
