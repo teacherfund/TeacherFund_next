@@ -254,8 +254,7 @@ class IndexPage extends Component {
               Get Involved
             </div>
             <div className='flex flex-row flex-wrap justify-center w-auto mt5 center'>
-              <div className='ma4 w-50-m w-33-l w-80'>
-                <div className='bg-tf-gray o-10 absolute w-50-m w-33-l w-80 h5-25' />
+              <div className='pa4 w-50-m w-33-l w-80 bg-card h5-5 ma3'>
                 <div className='w-100 bg-transparent pa2 pt4'>
                   <div className='pa2 tc'>
                     <div className='tf-lato ts-subtext pv2 tc'>
@@ -273,8 +272,7 @@ class IndexPage extends Component {
                   </div>
                 </div>
               </div>
-              <div className='ma4 w-50-m w-33-l w-80'>
-                <div className='bg-tf-gray o-10 absolute w-50-m w-33-l w-80 h5-25' />
+              <div className='pa4 w-50-m w-33-l w-80 bg-card ma3 h5-5'>
                 <div className='w-100 bg-transparent pa2 pt4'>
                   <div className='pa2 tc'>
                     <div className='tf-lato ts-subtext pv2 tc'>
