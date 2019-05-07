@@ -1,5 +1,7 @@
 .h-section {
-  height: $section-height;
+  @media screen and (min-width: 600px) {
+    height: $section-height;
+  }
 }
 .h-footer {
   height: $footer-height;

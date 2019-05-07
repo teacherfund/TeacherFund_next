@@ -80,7 +80,7 @@ class IndexPage extends Component {
         <section className='index__nav'>
           <Nav />
         </section>
-        <section className='index__header h-section pv7 pr7'>
+        <section className='index__header h-section pv6 pv7-l ph2 pr7-m'>
           <div className='fr flex flex-column'>
             <div className='tf-dark-gray ts-title tf-oswald fl'>
               Funding Teachers.<br />
@@ -91,13 +91,13 @@ class IndexPage extends Component {
             </div>
           </div>
         </section>
-        <section className='h-section pt6'>
-          <div className='tf-lato-lite ts-subtext w-auto m-auto center tc'>
+        <section className='h-section ph2 pt3 pt6-l'>
+          <div className='tf-lato-lite ts-subtext w-auto m-auto center-l tc'>
             <p className='ma1'>We believe that by providing funding to public school</p>
             <p className='ma1'>teachers, we can support exemplary teaching, increase</p>
             <p className='ma1'>retention, and impact student success.</p>
           </div>
-          <div className='w-70 ba bw1 mh-auto mt5 border-tf-teal white'>
+          <div className='w-70-l ba bw1 mh-auto mt5 border-tf-teal white'>
             <div className='flex flex-row w-94 bg-tf-teal tf-lato-lite pv4 ph4'>
               <div className='mv-auto fl ph1 ts-title w4'>
                 94%
@@ -107,7 +107,7 @@ class IndexPage extends Component {
               </div>
             </div>
           </div>
-          <div className='w-70 ba bw1 mh-auto mt3 border-tf-pink white bg-tf-pink'>
+          <div className='w-70-l ba bw1 mh-auto mt3 border-tf-pink white bg-tf-pink'>
             <div className='flex flex-row w-94 tf-lato-lite pv4 ph4'>
               <div className='mv-auto fl ph1 ts-title w4'>
                100%
@@ -120,8 +120,8 @@ class IndexPage extends Component {
         </section>
         <section className='h-section'>
           <div className='bg-tf-gray o-10 h-section w-100 absolute' />
-          <div className='w-100 flex pa4'>
-            <div className='bg-white o-80 w6 mt7 ml6 flex flex-column pa4 z-1'>
+          <div className='w-100 flex pa4-l'>
+            <div className='bg-white o-80 w6 mt7-l ml6-l flex flex-column pa4 z-1'>
               <div className='pa2'>
                 <div className='tf-oswald o-100 ts-title pv2'>
                   What We Provide
@@ -136,12 +136,12 @@ class IndexPage extends Component {
           </div>
         </section>
         <section className='h-section'>
-          <div className='flex flex-column mt5'>
+          <div className='flex flex-column mt3 mt5-l'>
             <div className='ts-title tf-oswald center'>
               Our Process
             </div>
-            <div className='flex flex-row flex-wrap justify-center w-auto mt5 center'>
-              <div className='ma4 w-50-m w-25-l w-80'>
+            <div className='flex flex-row flex-wrap justify-center w-auto mt2 mt5-l center'>
+              <div className='ma4 w-50-m w-25-l'>
                 <div className='bg-tf-gray o-10 absolute w-50-m w-25-l w-80 h5-5' />
                 <div className='w-100 bg-transparent pa2 pt4'>
                   <div className='pa2 tc'>
@@ -201,7 +201,7 @@ class IndexPage extends Component {
               See How We're Doing
             </div>
             <div className='center pt5 flex flex-column'>
-              <div className='flex flex-row'>
+              <div className='flex flex-column flex-row-l'>
                 <div className='w5 h4 ma3 bg-white bl bw3 border-tf-yellow'>
                   <div className='flex flex-column tf-dark-gray pt3'>
                     <div className='tf-lato ts-title center'>
@@ -222,8 +222,6 @@ class IndexPage extends Component {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className='flex flex-row'>
                 <div className='w5 h4 ma3 bg-white bl bw3 border-tf-dark-gray'>
                   <div className='flex flex-column tf-dark-gray pt3'>
                     <div className='tf-lato ts-title center'>
