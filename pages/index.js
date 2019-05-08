@@ -81,7 +81,7 @@ class IndexPage extends Component {
           <Nav />
         </section>
         <section className='index__header h-section pv6 pv7-m ph2 pr7-m'>
-          <div className='fr flex flex-column'>
+          <div className='fr flex flex-column mt6 mt0-ns tc'>
             <div className='tf-dark-gray ts-title tf-oswald fl'>
               Funding Teachers.<br />
               Empowering Students.
@@ -93,11 +93,11 @@ class IndexPage extends Component {
         </section>
         <section className='h-section ph2 pt3 pt6-l'>
           <div className='tf-lato-lite ts-subtext w-auto m-auto center-l tc ph3 ph0-l'>
-            <p className='lh-copy'>We believe that by providing funding to public school teachers,
+            <p className='lh-copy ma0'>We believe that by providing funding to public school teachers,
                 we can support exemplary teaching, increase retention,
                 and impact student success.</p>
           </div>
-          <div className='w-90 w-70-ns ba bw1 mh-auto mt5 border-tf-teal white'>
+          <div className='w-90 w-70-ns ba bw1 mh-auto mt3 mt5-l border-tf-teal white'>
             <div className='flex flex-column flex-row-ns w-94 bg-tf-teal tf-lato-lite pa2 pa4-ns'>
               <div className='mv-auto fl ph1 ts-title w4'>
                 94%
@@ -120,8 +120,8 @@ class IndexPage extends Component {
         </section>
         <section className='h-section'>
           <div className='bg-tf-gray o-10 h-section w-100 absolute' />
-          <div className='w-100 flex pa4-l'>
-            <div className='bg-transparent w6 mt7-l ml6-l flex flex-column pa4 z-1'>
+          <div className='w-100 flex pa4-l index__provide'>
+            <div className='bg-transparent w6 mt7-l ml6-l flex flex-column pa4-l z-1 index__provide--content'>
               <div className='pa2'>
                 <div className='tf-oswald o-100 ts-title pv2 tc tl-ns'>
                   What We Provide
@@ -132,7 +132,7 @@ class IndexPage extends Component {
                 </div>
               </div>
             </div>
-            <div className='ma5 index__provide i-contain absolute di-l dn' />
+            <div className='ma5 i-contain absolute di-l dn index__provide--image' />
           </div>
         </section>
         <section className='h-section'>
@@ -193,43 +193,43 @@ class IndexPage extends Component {
           </div>
         </section>
         <section className='h-section bg-tf-teal'>
-          <div className='flex flex-column pt5'>
+          <div className='flex flex-column pv3 pv0-l pt5-l'>
             <div className='ts-title tf-oswald white tc'>
               See How We're Doing
             </div>
-            <div className='center ph7 flex flex-column'>
+            <div className='center pa2 pv0-ns ph7-l flex flex-column'>
               <div className='flex flex-column flex-row-l flex-wrap'>
                 <div className='index__metric border-tf-yellow'>
-                    <div className='tf-lato ts-title center'>
-                      ${this.props.context.globalAmountDonated || 0}
-                    </div>
-                    <div className='pt2 tf-lato-lite ts-subtext center'>
-                      Raised
-                    </div>
+                  <div className='tf-lato ts-title center'>
+                    ${this.props.context.globalAmountDonated || 0}
+                  </div>
+                  <div className='pt2 tf-lato-lite ts-subtext center'>
+                    Raised
+                  </div>
                 </div>
                 <div className='index__metric border-tf-pink'>
-                    <div className='tf-lato ts-title center'>
-                      0
-                    </div>
-                    <div className='pt2 tf-lato-lite ts-subtext center'>
-                      Teachers Funded
-                    </div>
+                  <div className='tf-lato ts-title center'>
+                    0
+                  </div>
+                  <div className='pt2 tf-lato-lite ts-subtext center'>
+                    Teachers Funded
+                  </div>
                 </div>
                 <div className='index__metric border-tf-dark-gray'>
-                    <div className='tf-lato ts-title center'>
-                      17
-                    </div>
-                    <div className='pt2 tf-lato-lite ts-subtext center'>
-                      Partner Schools
-                    </div>
+                  <div className='tf-lato ts-title center'>
+                    17
+                  </div>
+                  <div className='pt2 tf-lato-lite ts-subtext center'>
+                    Partner Schools
+                  </div>
                 </div>
                 <div className='index__metric border-tf-gray'>
-                    <div className='tf-lato ts-title center'>
-                      1200
-                    </div>
-                    <div className='pt2 tf-lato-lite ts-subtext center'>
-                      Students Impacted
-                    </div>
+                  <div className='tf-lato ts-title center'>
+                    1200
+                  </div>
+                  <div className='pt2 tf-lato-lite ts-subtext center'>
+                    Students Impacted
+                  </div>
                 </div>
               </div>
             </div>
@@ -285,7 +285,7 @@ class IndexPage extends Component {
         <section className='h-section mb5 mb0-ns pb5-ns'>
           <div className='flex flex-column z-100'>
             <div className='bg-tf-gray o-10 dn db-ns dn-m h-section w-100 absolute' />
-            <div className='ts-title tf-oswald pt5 center'>
+            <div className='ts-title tf-oswald pt5-l center'>
               Meet the Team
             </div>
             <div className='flex flex-row flex-wrap justify-center w-auto mt3 center'>

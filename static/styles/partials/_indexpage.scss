@@ -3,7 +3,7 @@
     background-image: url('/static/images/pencils.png');
 
     @media screen and (max-width: 600px) {
-      height: 25rem;
+      height: 40rem;
     }
     @media screen and (max-width: 769px) {
       background-size: auto 100%;
@@ -12,13 +12,41 @@
   }
 
   &__provide {
-    background-image: url('/static/images/children-class-classroom.png');
-    height: 30rem;
-    left: 28rem;
-    width: 44rem;
+
+    &--image {
+      background-image: url('/static/images/children-class-classroom.png');
+      height: 30rem;
+      left: 28rem;
+      width: 44rem;
+  
+      @media screen and (max-width: 1230px) {
+        left: 20rem;
+      }
+      @media screen and (max-width: 1110px) {
+        left: 15rem;
+      }
+      @media screen and (max-width: 1030px) {
+        left: 10rem;
+      }
+    }
+
+    &--content {
+      @media screen and (max-width: 1030px) {
+        left: 10rem;
+      }
+    }
   }
 
   &__metric {
-    @extend .w5, .h4-ns, .bg-white, .bl, .bw3, .ma2-ns, .flex, .flex-column, .items-center, .justify-center;
+    @extend .w5,
+            .h4-ns,
+            .bg-white,
+            .bl,
+            .bw3,
+            .ma2,
+            .flex,
+            .flex-column,
+            .items-center,
+            .justify-center;
   }
 }

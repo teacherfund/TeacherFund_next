@@ -2,6 +2,9 @@
   @media screen and (min-width: 960px) {
     height: $section-height;
   }
+  @media screen and (max-width: 959px) {
+    margin-bottom: 2rem;
+  }
 }
 .h-footer {
   height: $footer-height;
