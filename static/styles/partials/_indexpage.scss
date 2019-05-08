@@ -37,13 +37,45 @@
     }
   }
 
+  &__metrics {
+    @media screen and (min-width: 832px) {
+      padding: 0 2rem;
+    }
+    @media screen and (min-width: 896px) {
+      padding: 0 10.2rem;
+    }
+    @media screen and (min-width: 960px) {
+      padding: 0 9.5rem;
+    }
+    @media screen and (min-width: 1280px) {
+      padding: 0 11rem;
+    }
+    @media screen and (min-width: 1303px) {
+      padding: 0 20rem;
+    }
+    @media screen and (min-width: 1328px) {
+      padding: 0 21rem;
+    }
+    @media screen and (min-width: 1648px) {
+      padding: 0 31rem;
+    }
+    @extend .flex,
+            .flex-column,
+            .flex-row-ns,
+            .flex-wrap,
+            .justify-center;
+  }
+
   &__metric {
     @extend .w5,
+            .pa3,
+            .pa0-ns,
             .h4-ns,
             .bg-white,
             .bl,
             .bw3,
             .ma2,
+            .ma4-l,
             .flex,
             .flex-column,
             .items-center,

@@ -38,14 +38,14 @@ class Nav extends React.Component {
 
   render () {
     return (
-      <div className='h5 f6 tf-lato bg-white pv4 flex fl w-100 pl5 pr5 pt4 z-1'>
+      <div className='h5-m f6 tf-lato bg-white pv4 flex fl w-100 pl5 pr5 pt4 z-1'>
         <div className='center b--tf-yellow flex flex-column flex-row-l w-100'>
-          <div className='pointer tc tl-ns'>
+          <div className='pointer tc'>
             <Link href='/'>
               <img src='/static/images/Logo_with_text.png' className='w4' />
             </Link>
           </div>
-          <div className='fr flex-column flex-row-ns m-auto'>
+          <div className='fr flex-column flex-auto-ns m-auto'>
             {this.links.map(({ key, href, label }) => (
               <div key={key} className='db center w-auto fr ph2'>
                 <Link href={href}>
