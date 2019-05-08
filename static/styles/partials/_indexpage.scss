@@ -17,4 +17,8 @@
     left: 28rem;
     width: 44rem;
   }
+
+  &__metric {
+    @extend .w5, .h4-ns, .bg-white, .bl, .bw3, .ma2-ns, .flex, .flex-column, .items-center, .justify-center;
+  }
 }

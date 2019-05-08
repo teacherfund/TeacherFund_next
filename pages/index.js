@@ -80,7 +80,7 @@ class IndexPage extends Component {
         <section className='index__nav'>
           <Nav />
         </section>
-        <section className='index__header h-section pv6 pv7-l ph2 pr7-m'>
+        <section className='index__header h-section pv6 pv7-m ph2 pr7-m'>
           <div className='fr flex flex-column'>
             <div className='tf-dark-gray ts-title tf-oswald fl'>
               Funding Teachers.<br />
@@ -197,55 +197,47 @@ class IndexPage extends Component {
             <div className='ts-title tf-oswald white tc'>
               See How We're Doing
             </div>
-            <div className='center pv4 pt5-ns pb0-ns flex flex-column'>
-              <div className='flex w7 flex-column flex-row-l flex-wrap'>
-                <div className='w5 h4-ns mv2 bg-white bl bw3 border-tf-yellow'>
-                  <div className='flex flex-column tf-dark-gray pv2 pt3-l'>
+            <div className='center ph7 flex flex-column'>
+              <div className='flex flex-column flex-row-l flex-wrap'>
+                <div className='index__metric border-tf-yellow'>
                     <div className='tf-lato ts-title center'>
                       ${this.props.context.globalAmountDonated || 0}
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Raised
                     </div>
-                  </div>
                 </div>
-                <div className='w5 h4-ns mv2 bg-white bl bw3 border-tf-pink'>
-                  <div className='flex flex-column tf-dark-gray pv2 pt3-l'>
+                <div className='index__metric border-tf-pink'>
                     <div className='tf-lato ts-title center'>
                       0
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Teachers Funded
                     </div>
-                  </div>
                 </div>
-                <div className='w5 h4-ns mv2 bg-white bl bw3 border-tf-dark-gray'>
-                  <div className='flex flex-column tf-dark-gray pv2 pt3-l'>
+                <div className='index__metric border-tf-dark-gray'>
                     <div className='tf-lato ts-title center'>
                       17
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Partner Schools
                     </div>
-                  </div>
                 </div>
-                <div className='w5 h4-ns mv2 bg-white bl bw3 border-tf-gray'>
-                  <div className='flex flex-column tf-dark-gray pv2 pt3-l'>
+                <div className='index__metric border-tf-gray'>
                     <div className='tf-lato ts-title center'>
                       1200
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Students Impacted
                     </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <section className='h-section'>
-          <div className='flex flex-column pt5'>
-            <div className='ts-title tf-oswald center'>
+          <div className='flex flex-column pt6-l'>
+            <div className='ts-title tf-oswald center mb4-l'>
               Get Involved
             </div>
             <div className='flex flex-row flex-wrap justify-center w-auto mt5-m center'>
@@ -315,7 +307,7 @@ class IndexPage extends Component {
               </div>
               <div className='bg-white z-1 ma4-l w-50-m w-25-l w-80'>
                 <div className='w-100 bg-transparent pa2-l pt3-l'>
-                  <div className='mv4 pa2-l tc'>
+                  <div className='pa2-l tc'>
                     <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
                       <img src='/static/images/people/christine.jpeg' title='Icon of school' />
                     </div>
