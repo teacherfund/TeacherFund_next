@@ -50,5 +50,8 @@
   background-color: white;
 }
 .bg-card {
-  background-color: rgba(149, 164, 166, 0.1);
+  background-color: rgba($light-gray, 0.1);
+}
+.bg-transparent {
+  background-color: rgba(white, 0.6);
 }

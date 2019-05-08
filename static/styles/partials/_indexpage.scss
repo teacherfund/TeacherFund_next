@@ -1,6 +1,14 @@
 .index {
   &__header {
     background-image: url('/static/images/pencils.png');
+
+    @media screen and (max-width: 600px) {
+      height: 25rem;
+    }
+    @media screen and (max-width: 769px) {
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+    }
   }
 
   &__provide {
@@ -9,7 +17,4 @@
     left: 28rem;
     width: 44rem;
   }
-}
-
-@media only screen and (min-width: 800px) {
 }
