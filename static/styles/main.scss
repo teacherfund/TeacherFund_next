@@ -2,12 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 @import '../../node_modules/tachyons-sass/tachyons.scss';
-@import 'variables.scss';
+@import '_variables.scss';
 
 // partials
 @import './partials/_sizing.scss';
 @import './partials/_colors.scss';
 @import './partials/_fonts.scss';
 @import './partials/_spacing.scss';
-@import './partials//_display.scss';
-@import './partials/indexpage.scss';
+@import './partials/_indexpage.scss';

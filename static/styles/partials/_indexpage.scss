@@ -1,15 +1,84 @@
 .index {
   &__header {
     background-image: url('/static/images/pencils.png');
+
+    @media screen and (max-width: 600px) {
+      height: 40rem;
+    }
+    @media screen and (max-width: 769px) {
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+    }
   }
 
   &__provide {
-    background-image: url('/static/images/children-class-classroom.png');
-    height: 30rem;
-    left: 28rem;
-    width: 44rem;
-  }
-}
 
-@media only screen and (min-width: 800px) {
+    &--image {
+      background-image: url('/static/images/children-class-classroom.png');
+      height: 30rem;
+      left: 28rem;
+      width: 44rem;
+  
+      @media screen and (max-width: 1230px) {
+        left: 20rem;
+      }
+      @media screen and (max-width: 1110px) {
+        left: 15rem;
+      }
+      @media screen and (max-width: 1030px) {
+        left: 10rem;
+      }
+    }
+
+    &--content {
+      @media screen and (max-width: 1030px) {
+        left: 10rem;
+      }
+    }
+  }
+
+  &__metrics {
+    @media screen and (min-width: 832px) {
+      padding: 0 2rem;
+    }
+    @media screen and (min-width: 896px) {
+      padding: 0 10.2rem;
+    }
+    @media screen and (min-width: 960px) {
+      padding: 0 9.5rem;
+    }
+    @media screen and (min-width: 1280px) {
+      padding: 0 11rem;
+    }
+    @media screen and (min-width: 1303px) {
+      padding: 0 20rem;
+    }
+    @media screen and (min-width: 1328px) {
+      padding: 0 21rem;
+    }
+    @media screen and (min-width: 1648px) {
+      padding: 0 31rem;
+    }
+    @extend .flex,
+            .flex-column,
+            .flex-row-ns,
+            .flex-wrap,
+            .justify-center;
+  }
+
+  &__metric {
+    @extend .w5,
+            .pa3,
+            .pa0-ns,
+            .h4-ns,
+            .bg-white,
+            .bl,
+            .bw3,
+            .ma2,
+            .ma4-l,
+            .flex,
+            .flex-column,
+            .items-center,
+            .justify-center;
+  }
 }
