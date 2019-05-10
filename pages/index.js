@@ -31,16 +31,15 @@ class IndexPage extends Component {
   }
 
   subscribe = async () => {
-    if (!this.state.name) return this.setLocalState({ error: 'Name required' })
     if (!this.state.email) return this.setLocalState({ error: 'Email is required' })
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) return this.setLocalState({ error: 'Please enter a valid Email' })
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) return this.setLocalState({ error: 'Please enter a valid email address' })
 
     const [firstName, lastName] = this.state.name.split(' ')
 
     // Make api call to subscribe
     const reqBody = {
-      firstName: firstName,
-      lastName: lastName,
+      firstName: firstName || '',
+      lastName: lastName || '',
       email: this.state.email
     }
     try {
