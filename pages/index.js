@@ -33,6 +33,7 @@ class IndexPage extends Component {
   subscribe = async () => {
     if (!this.state.name) return this.setLocalState({ error: 'Name required' })
     if (!this.state.email) return this.setLocalState({ error: 'Email is required' })
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) return this.setLocalState({ error: 'Please enter a valid Email' })
 
     const [firstName, lastName] = this.state.name.split(' ')
 
@@ -356,7 +357,7 @@ class IndexPage extends Component {
                 <input placeholder='Name' className='pa2 tf-lato bn ma2' value={this.state.name} onChange={this.updateName} />
               </div>
               <div className='m-auto pb3'>
-                <input placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} />
+                <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} />
               </div>
               <div className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto' onClick={this.subscribe}>
                 <label className=''>Submit</label>
