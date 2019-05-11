@@ -7,7 +7,7 @@ class Nav extends React.Component {
 
     this.links = [
       // { href: '/', label: 'Home' },
-      { href: '/signinregister?type=donor', label: 'Login', key: 'nav-link-login' }
+      // { href: '/signinregister?type=donor', label: 'Login', key: 'nav-link-login' }
       // { href: '/whyteachers', label: 'Why Teachers?' },
       // { href: '/ourwork', label: 'Our Work' },
       // { href: '/aboutus', label: 'About us' }
@@ -38,14 +38,14 @@ class Nav extends React.Component {
 
   render () {
     return (
-      <div className='h5-m f6 tf-lato bg-white pv4 flex fl w-100 pl5 pr5 pt4 z-1'>
-        <div className='center b--tf-yellow flex flex-column flex-row-l w-100'>
+      <div className='f6 tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl2 pr2 pt4 z-1'>
+        <div className='b--tf-yellow flex justify-between flex-row w-100'>
           <div className='pointer tc'>
             <Link href='/'>
               <img src='/static/images/Logo_with_text.png' className='w4' />
             </Link>
           </div>
-          <div className='fr flex-column flex-auto-ns m-auto'>
+          <div className='fr flex-column flex-auto-ns mv-auto'>
             {this.links.map(({ key, href, label }) => (
               <div key={key} className='db center w-auto fr ph2'>
                 <Link href={href}>
@@ -54,7 +54,7 @@ class Nav extends React.Component {
               </div>
             ))}
           </div>
-          <div className='center fr tf-yellow m-auto'>
+          <div className='fr tf-yellow mv-auto'>
             {this.buttons.map(({ key, href, label }) => (
               <div key={key} className='db center w-auto fr ph2'>
                 <Link href={href} key={key}>
