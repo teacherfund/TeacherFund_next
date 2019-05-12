@@ -14,7 +14,8 @@ class IndexPage extends Component {
     this.fetchStats()
 
     this.state = {
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
       error: '',
       subscribed: false,
@@ -34,7 +35,8 @@ class IndexPage extends Component {
     if (!this.state.email) return this.setLocalState({ error: 'Email is required' })
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) return this.setLocalState({ error: 'Please enter a valid email address' })
 
-    const [firstName, lastName] = this.state.name.split(' ')
+    const firstName = this.state.firstName
+    const lastName = this.state.lastName
 
     // Make api call to subscribe
     const reqBody = {
@@ -51,7 +53,8 @@ class IndexPage extends Component {
 
       // Reset form and notify user of success
       this.setLocalState({
-        name: '',
+        firstName: '',
+        lastName: '',
         email: '',
         subscribed: true
       })
@@ -65,8 +68,12 @@ class IndexPage extends Component {
     this.setState(state)
   }
 
-  updateName = (e) => {
-    this.setLocalState({ name: e.target.value })
+  updateFirstName = (e) => {
+    this.setLocalState({ firstName: e.target.value })
+  }
+
+  updateLastName = (e) => {
+    this.setLocalState({ lastName: e.target.value })
   }
 
   updateEmail = (e) => {
@@ -353,7 +360,10 @@ class IndexPage extends Component {
                 <p className='center pb1 pt1'>You're in the loop!</p>
               </div>}
               <div className='mt2 m-auto'>
-                <input placeholder='Name' className='pa2 tf-lato bn ma2' value={this.state.name} onChange={this.updateName} />
+                <input placeholder='First Name' className='pa2 tf-lato bn ma2' value={this.state.firstName} onChange={this.updateFirstName} />
+              </div>
+              <div className='mt2 m-auto'>
+                <input placeholder='Last Name' className='pa2 tf-lato bn ma2' value={this.state.lastName} onChange={this.updateLastName} />
               </div>
               <div className='m-auto pb3'>
                 <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} />
