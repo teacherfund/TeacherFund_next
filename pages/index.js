@@ -80,29 +80,31 @@ class IndexPage extends Component {
         <section className='index__nav'>
           <Nav />
         </section>
-        <section className='index__header h-section pv6 pv7-ns ph2 pr7-ns'>
-          <div className='fr flex flex-column mt6 mt0-ns tc'>
+        <section className='index__header h-section pv6 pv7-ns ph2 pr7-ns cover-l'>
+          <div className='fr flex flex-column mt6 mt0-ns'>
             <div className='tf-dark-gray ts-title tf-oswald fl'>
               Funding Teachers.<br />
               Empowering Students.
             </div>
-            <div className='ts-subtext fl tf-lato tf-dark-gray'>
+            <div className='ts-subtext fl tf-lato-lite tf-dark-gray'>
               <p>We provide funding to classrooms so teachers don't have to.</p>
             </div>
           </div>
         </section>
         <section className='h-section ph2 pt3 pt6-l'>
-          <div className='tf-lato-lite ts-subtext w-auto m-auto center-l tc ph3 ph0-l'>
-            <p className='lh-copy ma0'>We believe that by providing funding to public school teachers,
-                we can support exemplary teaching, increase retention,
-                and impact student success.</p>
+          <div className='tf-lato-lite ts-subtext w-auto m-auto center-l tc ph3 ph0-l w-50-l'>
+            <p className='lh-copy ma0'>
+              We believe that by providing funding to public school teachers,
+              we can support exemplary teaching, increase retention,
+              and impact student success.
+            </p>
           </div>
           <div className='w-90 w-70-ns ba bw1 mh-auto mt3 mt5-l border-tf-teal white'>
             <div className='flex flex-column flex-row-ns w-94 bg-tf-teal tf-lato-lite pa2 pa4-ns'>
               <div className='mv-auto fl ph1 ts-title w4'>
                 94%
               </div>
-              <div className='m-auto tf-lato ts-subtext'>
+              <div className='m-auto tf-lato-lite ts-subtext'>
                 of public school teachers spend their own money on school supplies
               </div>
             </div>
@@ -112,7 +114,7 @@ class IndexPage extends Component {
               <div className='mv-auto fl ph1 ts-title w4'>
                100%
               </div>
-              <div className='m-auto tf-lato ts-subtext'>
+              <div className='m-auto tf-lato-lite ts-subtext'>
                 of your donation goes to providing resources for classrooms in need.
               </div>
             </div>
@@ -123,16 +125,16 @@ class IndexPage extends Component {
           <div className='w-100 flex pa4-l index__provide'>
             <div className='bg-transparent w6 mt7-l ml6-l flex flex-column pa4-l z-1 index__provide--content'>
               <div className='pa2'>
-                <div className='tf-oswald o-100 ts-title pv2 tc tl-ns'>
+                <div className='tf-oswald o-100 ts-title pv3 tc tl-ns'>
                   What We Provide
                 </div>
-                <div className='tf-lato-lite ts-subtext tc'>
+                <div className='tf-lato-lite ts-subtext tl-ns tc'>
                   We support teachers in need of everything from the most basic of
                   classroom supplies to extracurricular and after-school funding and equipment.
                 </div>
               </div>
             </div>
-            <div className='ma5 i-contain absolute di-l dn index__provide--image' />
+            <div className='ma5 cover absolute di-l dn index__provide--image' />
           </div>
         </section>
         <section className='h-section'>
@@ -145,14 +147,14 @@ class IndexPage extends Component {
                 <div className='w-100 pa3 pt4-m bg-card h5-25'>
                   <div className='pa2 tc'>
                     <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 w4 bg-white'>
-                      <img src='/static/images/Mortarboard_icon.png' className='i-contain' title='Icon of graduation cap' />
+                      <img src='/static/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />
                     </div>
                     <div className='tf-oswald ts-subtext pv2 tc'>
                       Quality Teachers
                     </div>
                     <div className='tf-lato-lite ts-subtext pt2 tc'>
-                      We support teachers in need of everything from the most basic of
-                      classroom supplies to extracurricular and after-school funding and equipment.
+                      We fund dedicated teachers working diligently to improve their
+                      classrooms and their students’ education.
                     </div>
                   </div>
                 </div>
@@ -161,7 +163,7 @@ class IndexPage extends Component {
                 <div className='w-100 pa3 pt4-m bg-card h5-25'>
                   <div className='pa2 tc'>
                     <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 w4 bg-white'>
-                      <img src='/static/images/School_icon.png' className='i-contain' title='Icon of school' />
+                      <img src='/static/images/School_icon.png' className='contain' title='Icon of school' />
                     </div>
                     <div className='tf-oswald ts-subtext pv2 tc'>
                       Local Schools
@@ -177,7 +179,7 @@ class IndexPage extends Component {
                 <div className='w-100 pa3 pt4-m bg-card h5-25'>
                   <div className='pa2 tc'>
                     <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 w4 bg-white'>
-                      <img src='/static/images/Hand_icon.png' className='i-contain' title='Icon of hand holding money cap' />
+                      <img src='/static/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' />
                     </div>
                     <div className='tf-oswald ts-subtext pv2 tc'>
                       Tangible Impact
