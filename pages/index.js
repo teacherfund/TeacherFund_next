@@ -354,15 +354,17 @@ class IndexPage extends Component {
               {this.state.success && <div className=''>
                 <p className='center pb1 pt1'>You're in the loop!</p>
               </div>}
-              <div className='mt2 m-auto'>
-                <input placeholder='Name' className='pa2 tf-lato bn ma2' value={this.state.name} onChange={this.updateName} />
-              </div>
-              <div className='m-auto pb3'>
-                <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} />
-              </div>
-              <div className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto' onClick={this.subscribe}>
-                <label className=''>Submit</label>
-              </div>
+              {!this.state.success && <div>
+                <div className='mt2 m-auto'>
+                  <input placeholder='Name' className='pa2 tf-lato bn ma2' value={this.state.name} onChange={this.updateName} />
+                </div>
+                <div className='m-auto pb3'>
+                  <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} />
+                </div>
+                <div className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto' onClick={this.subscribe}>
+                  <label className=''>Submit</label>
+                </div>
+              </div>}
             </div>
             <div className='pt4 center white m-auto tf-lato-lite'>
               <p>The Teacher Fund is 501(c)(3) pending</p>
