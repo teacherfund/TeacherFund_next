@@ -17,8 +17,8 @@ class Donate extends Component {
 
         <div className='w-100 h-100 flex pa5-ns pa3'>
           <img className='absolute di-ns w-100 h-100 top-0 left-0 z-minus-1 dn' src='/static/images/pencils.jpg' />
-          { process.browser && <div className='flex flex-row-reverse-ns flex-column m-auto'>
-            <div className='flex flex-column pa4-ns pa2 pb4 w-50-ns tf-lato tc m-auto'>
+          { process.browser && <div className='flex flex-row-reverse-ns flex-column m-auto justify-between'>
+            <div className='flex flex-column pa4-ns pa2 pb4 w-50-ns tf-lato tc mv-auto'>
               <h2 className=''>
                 {this.titleText}
               </h2>
