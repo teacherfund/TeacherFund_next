@@ -6,6 +6,9 @@ import Nav from '../components/nav'
 import '../static/styles/main.scss'
 
 class Success extends React.Component {
+  static defaultProps = {
+    tweet: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=I%20just%20donated%20at%20the%20teacher%20fund,%20check%20it%20out%20at'
+  };
   render () {
     return (
       <div className='main-container'>
@@ -21,11 +24,9 @@ class Success extends React.Component {
                 <label className='ttu'>Home</label>
               </Link>
             </div>
-            {/* <div className='button--subsection white'>
-              <div onClick={this.tweet}>
-                <label className='ttu'>Spread the word</label>
-              </div>
-            </div> */}
+            <div>
+              <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-20 m-auto tc' href={this.props.tweet} data-size='large' target='_blank'>Spread the Word</a>
+            </div>
           </div>
         </div>
       </div>
