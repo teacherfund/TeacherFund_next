@@ -7,7 +7,7 @@ import '../static/styles/main.scss'
 
 class Success extends React.Component {
   static defaultProps = {
-    tweet: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=I%20just%20donated%20at%20the%20teacher%20fund,%20check%20it%20out%20at'
+    tweet: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=I%20just%20donated%20to%20TeacherFund,%20check%20it%20out%20at'
   };
   render () {
     return (
