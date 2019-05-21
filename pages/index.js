@@ -89,11 +89,11 @@ class IndexPage extends Component {
         </section>
         <section className='index__header h-section pv6 pv7-ns ph2 pr7-ns cover-l'>
           <div className='fr flex flex-column mt6 mt0-ns'>
-            <div className='tf-dark-gray ts-title tf-oswald fl'>
+            <div className='white ts-title tf-oswald fl'>
               Funding Teachers.<br />
               Empowering Students.
             </div>
-            <div className='ts-subtext fl tf-lato-lite tf-dark-gray'>
+            <div className='ts-subtext fl tf-lato-lite white'>
               <p>We provide funding to classrooms so teachers don't have to.</p>
             </div>
           </div>
