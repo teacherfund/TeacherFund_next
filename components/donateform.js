@@ -95,7 +95,7 @@ class DonateForm extends Component {
     if (redirectSuccess) return (<div />)
 
     return (
-      <div className='flex flex-column'>
+      <div className='flex flex-column m-auto'>
         <div className='error tf-lato tc'>
           <p className='red'>{this.state.error}</p>
         </div>
@@ -107,15 +107,15 @@ class DonateForm extends Component {
           switchOneClicked={() => this.updateFrequency('once')}
           switchTwoClicked={() => this.updateFrequency('monthly')}
         />
-        <input className='bn-ns ba pa2 w5-ns ma1 br2' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} />
-        <input className='bn-ns ba pa2 w5-ns ma1 br2' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} />
-        <input className='bn-ns ba pa2 w5-ns ma1 br2' placeholder='Email' value={this.state.email} onChange={this.updateEmail} />
-        <input className='bn-ns ba pa2 w5-ns ma1 br2' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} />
-        <div className='bg-white bn-ns ba pa2 ma1 br2'>
+        <input className='bn ba pa2 w5-ns ma1' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} />
+        <input className='bn ba pa2 w5-ns ma1' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} />
+        <input className='bn ba pa2 w5-ns ma1' placeholder='Email' value={this.state.email} onChange={this.updateEmail} />
+        <input className='bn ba pa2 w5-ns ma1' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} />
+        <div className='bg-white bn ba pa2 ma1'>
           <CardElement />
         </div>
         { loading && <h2 className='tc tf-lato'>Loading...</h2>}
-        <div className='white bg-tf-yellow tf-lato b tc pa2 ma1 br-pill' onClick={this.donate}>
+        <div className='white bg-tf-teal tf-lato b tc pa2 ma3 br-pill' onClick={this.donate}>
           <label className='ttu'>Donate</label>
         </div>
       </div>
