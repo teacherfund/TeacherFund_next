@@ -25,7 +25,7 @@ class Donate extends Component {
               </div>
             </div>
             <StripeProvider apiKey='pk_live_FYwjfNktzq3upZRFbxA9hyc8'>
-              <div className='flex flex-column w-50-ns w-100 m-auto'>
+              <div className='flex flex-column w5-ns w-100 m-auto'>
                 <Elements>
                   <DonateForm />
                 </Elements>
