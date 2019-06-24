@@ -20,7 +20,6 @@ class Nav extends React.Component {
   }
 
   toggleDrawerOpen = () => {
-    console.log(this.state.drawerOpen)
     this.setState({ drawerOpen: !this.state.drawerOpen })
   }
 
