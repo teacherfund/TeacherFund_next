@@ -9,7 +9,7 @@ class Mission extends Component {
       <div>
         <Head title='Mission' />
         <Nav />
-        <div className='w-100 h-100 flex-column flex bg-card'>
+        <div className='w-100 h-100 min-vh-100 flex-column flex bg-card'>
           <div className='tf-dark-gray tc w-100 ts-title tf-oswald fl pa4'>
             Our Mission
           </div>
