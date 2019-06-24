@@ -10,11 +10,10 @@ class Mission extends Component {
         <Head title='Mission' />
         <Nav />
         <div className='w-100 h-100 flex-column flex'>
-          <div className='w-100 h-100 bg-tf-gray o-10 absolute z-minus-1' />
           <div className='tf-dark-gray tc w-100 ts-title tf-oswald fl pa4'>
             Our Mission
           </div>
-          <div className='flex-row tf-lato-lite pb6-ns pl6-ns pr6-ns pa3'>
+          <div className='flex-row tf-lato-lite pb6-ns pl6-ns pr6-ns pa3 bg-card'>
             <p>Did you know that in 2015, 94% of public school teachers spent their own money on school supplies? We live in a country where teachers aren't given the resources to properly educate our children. How is this possible?</p>
 
             <p>About six months ago, a few friends and I started TeacherFund: a WA non-profit, with the hope of positively impacting public school education, primarily through financially aiding teachers.</p>
