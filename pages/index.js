@@ -218,7 +218,7 @@ class IndexPage extends Component {
                 </div>
                 <div className='index__metric border-tf-pink'>
                   <div className='tf-lato ts-title center'>
-                    0
+                    N/A
                   </div>
                   <div className='pt2 tf-lato-lite ts-subtext center'>
                     Teachers Funded
