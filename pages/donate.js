@@ -1,30 +1,13 @@
 import Nav from '../components/nav'
 import DonateForm from '../components/donateform'
-import PaypalButton from '../components/PayPalExpressCheckOut'
 import Head from '../components/head'
 import { Elements, StripeProvider } from 'react-stripe-elements'
 import { Component } from 'react'
 import '../static/styles/main.scss'
 
-// Add your CLIENT ID KEYS   here
-const CLIENT = {
-  sandbox: '',
-  production: ''
-}
-const ENV = 'sandbox' // OR production
-const total = 1 // total amaount
 
 class Donate extends Component {
   render () {
-    const onSuccess = (payment) => {
-      console.log('Your payment was succeeded!', payment)
-    }
-    const onCancel = (data) => {
-      console.log('You have cancelled the payment!', data)
-    }
-    const onError = (err) => {
-      console.log('Error!', err)
-    }
     return (
       <div>
         <Head title='Donate' />
@@ -50,18 +33,15 @@ class Donate extends Component {
               </div>
             </StripeProvider>
             <div className='flex flex-column w-120 m-auto'>
-              <Elements>
-                <PaypalButton
-                  client={CLIENT}
-                  env={ENV}
-                  commit
-                  currency={'USD'}
-                  total={total}
-                  onSuccess={onSuccess}
-                  onError={onError}
-                  onCancel={onCancel}
-                />
-              </Elements>
+              <div className='ttu v-mid m-auto'>
+                  -OR-
+              </div>
+              <form>
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input type="hidden" name="hosted_button_id" value="5BZAW3NKL9L9W" />
+                <input className="paypal-button" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+              </form>
             </div>
           </div>
           }
