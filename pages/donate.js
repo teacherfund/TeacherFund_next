@@ -1,12 +1,30 @@
 import Nav from '../components/nav'
 import DonateForm from '../components/donateform'
+import PaypalButton from '../components/PayPalExpressCheckOut'
 import Head from '../components/head'
 import { Elements, StripeProvider } from 'react-stripe-elements'
 import { Component } from 'react'
 import '../static/styles/main.scss'
 
+// Add your CLIENT ID KEYS   here
+const CLIENT = {
+  sandbox: '',
+  production: ''
+}
+const ENV = 'sandbox' // OR production
+const total = 1 // total amaount
+
 class Donate extends Component {
   render () {
+    const onSuccess = (payment) => {
+      console.log('Your payment was succeeded!', payment)
+    }
+    const onCancel = (data) => {
+      console.log('You have cancelled the payment!', data)
+    }
+    const onError = (err) => {
+      console.log('Error!', err)
+    }
     return (
       <div>
         <Head title='Donate' />
@@ -31,6 +49,20 @@ class Donate extends Component {
                 </Elements>
               </div>
             </StripeProvider>
+            <div className='flex flex-column w-120 m-auto'>
+              <Elements>
+                <PaypalButton
+                  client={CLIENT}
+                  env={ENV}
+                  commit
+                  currency={'USD'}
+                  total={total}
+                  onSuccess={onSuccess}
+                  onError={onError}
+                  onCancel={onCancel}
+                />
+              </Elements>
+            </div>
           </div>
           }
         </div>
