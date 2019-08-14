@@ -38,7 +38,7 @@ class Donate extends Component {
               </div>
             </StripeProvider>
             {this.state.showPaypalButton && <div className='flex flex-column w-120 m-auto'>
-              <div className='ttu v-mid m-auto'>
+              <div className='tf-lato ttu v-mid m-auto'>
                   -OR-
               </div>
               <form>
