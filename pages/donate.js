@@ -6,12 +6,13 @@ import { Component } from 'react'
 import '../static/styles/main.scss'
 
 class Donate extends Component {
-  constructor() {
+  constructor (props) {
+    super(props)
     this.state = {
       showPaypalButton: false
     }
   }
-  
+
   render () {
     return (
       <div>
@@ -20,7 +21,7 @@ class Donate extends Component {
 
         <div className='w-100 h-100 flex'>
           <div className='w-100 h-100 absolute bg-tf-gray o-10 z-minus-1' />
-            {process.browser && <div className='flex flex-column m-auto justify-between pa3 pa4-ns'>
+          {process.browser && <div className='flex flex-column m-auto justify-between pa3 pa4-ns'>
             <div className='flex flex-column pa4-ns pa2 pb4 tf-lato tc mv-auto'>
               <div className='tf-dark-gray ts-title tf-oswald fl pb3'>
                 Fund Teachers. Help Students.
