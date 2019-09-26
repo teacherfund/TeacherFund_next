@@ -3,14 +3,14 @@ import NextHead from 'next/head'
 import { string } from 'prop-types'
 import '../static/styles/main.scss'
 
-const defaultDescription = ''
+const defaultDescription = "Funding Teachers. Empowering Students. We provide funding to classrooms so teachers don't have to."
 const defaultOGURL = ''
 const defaultOGImage = ''
 
 const Head = props => (
   <div>
     <NextHead>
-      <meta charSet='UTF-8' />
+      <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
       <meta name='google-site-verification' content='wikyOzO4Q40GHyBwVurDHX1-KTF4AbvmXc80_PV0V4Q' />
       <title>{props.title || 'TeacherFund'}</title>
       <meta
