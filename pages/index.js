@@ -218,7 +218,7 @@ class IndexPage extends Component {
                 </div>
                 <div className='index__metric border-tf-pink'>
                   <div className='tf-lato ts-title center'>
-                    N/A
+                    3
                   </div>
                   <div className='pt2 tf-lato-lite ts-subtext center'>
                     Teachers Funded
@@ -226,7 +226,7 @@ class IndexPage extends Component {
                 </div>
                 <div className='index__metric border-tf-dark-gray'>
                   <div className='tf-lato ts-title center'>
-                    17
+                    2
                   </div>
                   <div className='pt2 tf-lato-lite ts-subtext center'>
                     Partner Schools
@@ -234,7 +234,7 @@ class IndexPage extends Component {
                 </div>
                 <div className='index__metric border-tf-gray'>
                   <div className='tf-lato ts-title center'>
-                    1200
+                    450
                   </div>
                   <div className='pt2 tf-lato-lite ts-subtext center'>
                     Students Impacted
