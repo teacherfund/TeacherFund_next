@@ -51,7 +51,7 @@ class DonateForm extends Component {
     this.setLocalState({ loading: true })
     let token
     try {
-      let res = await this.props.stripe.createToken()
+      const res = await this.props.stripe.createToken()
       token = res.token
     } catch (e) {
       console.log(e)
