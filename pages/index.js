@@ -363,13 +363,13 @@ class IndexPage extends Component {
               </div>}
               {!this.state.success && <div>
                 <div className='mt2 m-auto'>
-                  <input placeholder='First Name' className='pa2 tf-lato bn ma2' value={this.state.firstName} onChange={this.updateFirstName} />
+                  <input placeholder='First Name' className='pa2 tf-lato bn ma2' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
                 </div>
                 <div className='mt2 m-auto'>
-                  <input placeholder='Last Name' className='pa2 tf-lato bn ma2' value={this.state.lastName} onChange={this.updateLastName} />
+                  <input placeholder='Last Name' className='pa2 tf-lato bn ma2' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
                 </div>
                 <div className='m-auto pb3'>
-                  <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} />
+                  <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
                 </div>
                 <div className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto' onClick={this.subscribe}>
                   <label className=''>Submit</label>

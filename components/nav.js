@@ -30,7 +30,7 @@ class Nav extends React.Component {
           <div className='b--tf-yellow flex justify-between flex-row w-100'>
             <div className='pointer tc'>
               <Link href='/'>
-                <img src='/static/images/Logo_with_text.png' className='w4' />
+                <img src='/static/images/Logo_with_text.png' className='w4' alt='The Teacher Fund' />
               </Link>
             </div>
             <div className='fr dn db-l flex-column flex-auto-ns mv-auto'>
