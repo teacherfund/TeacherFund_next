@@ -7,8 +7,8 @@ import '../static/styles/main.scss'
 
 class Account extends React.Component {
   dummyTransactions = [
-    { date: new Date(1509947879632), amount: 25, status: 'completed' },
     { date: new Date(1469947879632), amount: 135, status: 'completed' },
+    { date: new Date(1509947879632), amount: 25, status: 'completed' },
     { date: new Date(1569947879632), amount: 10500, status: 'pending' }
   ];
 
@@ -36,6 +36,7 @@ class Account extends React.Component {
           />
           <div className='flex flex-row-reverse m-auto'>
             <div className='bg-white w6 pb3 br3 tc tf-lato'>
+              <div class='tf-oswald ts-subtext pv2 tc'>Donations</div>
               <ul className='pa1'>
                 {this.renderTransactionList(this.dummyTransactions)}
               </ul>
