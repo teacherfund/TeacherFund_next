@@ -20,11 +20,11 @@ class Account extends React.Component {
           <p>${tran.amount.toLocaleString()}</p>
           <p>Status: {tran.status}</p>
         </li>
-      );
+      )
     })
   }
 
-  render() {
+  render () {
     return (
       <div>
         <Head title='Account' />
@@ -39,7 +39,6 @@ class Account extends React.Component {
               <ul className='pa1'>
                 {this.renderTransactionList(this.dummyTransactions)}
               </ul>
-              {/* <p className='pb1'>You've donated <b>${this.props.context.userAmountDonated}</b> to TeacherFund thus far.</p> */}
               <div className='white bg-tf-yellow tf-lato b tc pa2 w5 m-auto br-pill pointer'>
                 <Link href='donate'>
                   <label className='ttu'>donate again</label>
