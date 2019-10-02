@@ -47,7 +47,6 @@ class DonateForm extends Component {
   }
 
   donate = async (ev) => {
-    console.log(this.state)
     this.setLocalState({ loading: true })
     let token
     try {

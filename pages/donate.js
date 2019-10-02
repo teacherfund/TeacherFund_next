@@ -9,7 +9,7 @@ class Donate extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      showPaypalButton: false
+      showPaypalButton: true
     }
   }
 
@@ -39,15 +39,17 @@ class Donate extends Component {
               </div>
             </StripeProvider>
             {this.state.showPaypalButton && <div className='flex flex-column w-120 m-auto'>
-              <div className='tf-lato ttu v-mid m-auto'>
-                  -OR-
+              <div className='tf-lato ttu v-mid m-auto pb4 pt3'>
+                  -Or Donate With PayPal-
               </div>
-              <form>
-                <input type='hidden' name='cmd' value='_s-xclick' />
-                <input type='hidden' name='hosted_button_id' value='5BZAW3NKL9L9W' />
-                <input className='paypal-button' type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
-                <img alt='' border='0' src='https://www.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1' />
-              </form>
+              <div className='m-auto'>
+                <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
+                  <input type='hidden' name='cmd' value='_s-xclick' />
+                  <input type='hidden' name='hosted_button_id' value='W235G2KHKQLP8' />
+                  <input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif' border='0' name='submit' title='PayPal - The safer, easier way to pay online!' alt='Donate with PayPal button' />
+                  <img alt='' border='0' src='https://www.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1' />
+                </form>
+              </div>
             </div>}
           </div>
           }
