@@ -107,10 +107,10 @@ class DonateForm extends Component {
           switchOneClicked={() => this.updateFrequency('once')}
           switchTwoClicked={() => this.updateFrequency('monthly')}
         />
-        <input className='bn ba pa2 ma1' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} />
-        <input className='bn ba pa2 ma1' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} />
-        <input className='bn ba pa2 ma1' placeholder='Email' value={this.state.email} onChange={this.updateEmail} />
-        <input className='bn ba pa2 ma1' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} />
+        <input className='bn ba pa2 ma1' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
+        <input className='bn ba pa2 ma1' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
+        <input className='bn ba pa2 ma1' placeholder='Email' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
+        <input className='bn ba pa2 ma1' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} aria-label='Amount' />
         <div className='bg-white bn ba pa2 ma1'>
           <CardElement />
         </div>
