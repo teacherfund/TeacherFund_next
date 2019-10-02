@@ -16,7 +16,7 @@ class DonateForm extends Component {
       lastName: '',
       amount: '',
       email: '',
-      frequency: 'monthly',
+      frequency: 'once',
       error: ''
     }
   }
