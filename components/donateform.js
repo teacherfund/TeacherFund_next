@@ -16,7 +16,7 @@ class DonateForm extends Component {
       lastName: '',
       amount: '',
       email: '',
-      frequency: 'once',
+      frequency: 'monthly',
       error: ''
     }
   }
@@ -47,7 +47,6 @@ class DonateForm extends Component {
   }
 
   donate = async (ev) => {
-    console.log(this.state)
     this.setLocalState({ loading: true })
     let token
     try {
