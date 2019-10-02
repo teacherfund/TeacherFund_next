@@ -10,9 +10,11 @@ class Error extends React.Component {
       <div className=''>
         <Head title='Error' />
         <Nav />
-        <div className=''>
-          <p>Error</p>
-        </div>
+        <main>
+          <div className=''>
+            <p>Error</p>
+          </div>
+        </main>
       </div>
     )
   }

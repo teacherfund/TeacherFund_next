@@ -9,21 +9,23 @@ const PostLogin = (props) => (
   <div className=''>
     <Head title='Post Registration' />
     <Nav />
-    <div className='m-auto flex flex-column'>
-      <div className='tc'>
-        <p className='pb1'>
+    <main>
+      <div className='m-auto flex flex-column'>
+        <div className='tc'>
+          <p className='pb1'>
           Thank you. If you've signed up, you will receive an email shortly. You can close this tab.
-        </p>
-        <p className='pb1'>
+          </p>
+          <p className='pb1'>
           If you haven't signed up yet you will not receive an email.
-        </p>
-        <div className='white'>
-          <Link href='/signinregister?type=donor'>
-            <label className='ttu'>Go back</label>
-          </Link>
+          </p>
+          <div className='white'>
+            <Link href='/signinregister?type=donor'>
+              <label className='ttu'>Go back</label>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   </div>
 )
 
