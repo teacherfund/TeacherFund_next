@@ -87,9 +87,9 @@ class IndexPage extends Component {
         <section className='index__nav'>
           <Nav />
         </section>
-        <section className='index__header h-section pv6 pv7-ns ph2 pr7-ns cover-l'>
-          <div className='fr flex flex-column mt6 mt0-ns'>
-            <div className='white ts-title tf-oswald fl'>
+        <section className='index__header h-section pv6 pv7-ns ph2 pr7-l cover-l'>
+          <div className='fr flex flex-column mt6 mt0-l w-90-m'>
+            <div className='white f1-l tf-oswald fl ml-4-m f-5-m pt6-m'>
               Funding Teachers.<br />
               Empowering Students.
             </div>
@@ -99,7 +99,7 @@ class IndexPage extends Component {
           </div>
         </section>
         <section className='h-section ph2 pt3 pt6-l'>
-          <div className='tf-lato-lite ts-subtext w-auto m-auto center-l tc ph3 ph0-l w-50-l'>
+          <div className='tf-lato-lite ts-subtext w-auto m-auto center-l tc ph3 ph0-l w-50-l '>
             <p className='lh-copy ma0'>
               We believe that by providing funding to public school teachers,
               we can support exemplary teaching, increase retention,
