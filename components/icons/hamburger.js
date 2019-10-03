@@ -16,6 +16,13 @@ const Hamburger = () => (
         width: 26px;
         height: 26px;
       }
+
+      @media screen and (min-width: 30em) and (max-width: 60em){
+        .hamburgerIcon {
+          width: 36px;
+          height: 36px;
+        }
+      }
     `}</style>
   </div>
 )
