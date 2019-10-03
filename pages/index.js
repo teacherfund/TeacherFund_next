@@ -99,29 +99,29 @@ class IndexPage extends Component {
           </div>
         </section>
         <section className='h-section ph2 pt3 pt6-l'>
-          <div className='tf-lato-lite ts-subtext w-auto m-auto center-l tc ph3 ph0-l w-50-l '>
+          <div className='tf-lato-lite ts-subtext w-auto m-auto center-l tc ph3 ph5-m pb4-m ph0-l w-50-l '>
             <p className='lh-copy ma0'>
               We believe that by providing funding to public school teachers,
               we can support exemplary teaching, increase retention,
               and impact student success.
             </p>
           </div>
-          <div className='w-90 w-70-ns ba bw1 mh-auto mt3 mt5-l border-tf-teal white'>
-            <div className='flex flex-column flex-row-ns w-94 bg-tf-teal tf-lato-lite pa2 pa4-ns'>
-              <div className='mv-auto fl ph1 ts-title w4'>
+          <div className='w-90 w-70-l w-80-m ba bw1 mh-auto mt3 mt5-l border-tf-teal white'>
+            <div className='flex flex-column flex-row-ns w-94 bg-tf-teal tf-lato-lite pa2 pa4-l pa3-m'>
+              <div className='mv-auto fl ph1 ph3-m ts-title w4'>
                 94%
               </div>
-              <div className='m-auto tf-lato-lite ts-subtext'>
+              <div className='m-auto tf-lato-lite f3 pl6-m f5-m'>
                 of public school teachers spend their own money on school supplies
               </div>
             </div>
           </div>
-          <div className='w-90 w-70-ns ba bw1 mh-auto mt3 border-tf-pink white bg-tf-pink'>
-            <div className='flex flex-column flex-row-ns w-94 tf-lato-lite pa2 pa4-ns'>
-              <div className='mv-auto fl ph1 ts-title w4'>
+          <div className='w-90 w-70-l w-80-m ba bw1 mh-auto mt3 border-tf-pink white bg-tf-pink'>
+            <div className='flex flex-column flex-row-ns w-94 tf-lato-lite pa2 pa4-l pa3-m'>
+              <div className='mv-auto fl ph1 ph3-m ts-title w4'>
                100%
               </div>
-              <div className='m-auto tf-lato-lite ts-subtext'>
+              <div className='m-auto tf-lato-lite f3 pl6-m f5-m'>
                 of your donation goes to providing resources for classrooms in need.
               </div>
             </div>
