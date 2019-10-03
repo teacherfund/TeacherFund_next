@@ -36,7 +36,7 @@ test('withContext => handleSignup', async (t) => {
 
   // assertions
   t.true(api.register.calledWith(data))
-  t.true(Router.push.calledWith('/post-login'))
+  t.true(Router.push.calledWith('/pending-login'))
 
   // cleanup
   api.register.restore()
@@ -144,7 +144,7 @@ test('withContext => fetchUserStats', async (t) => {
   t.true(api.fetchUserStats.calledWith({
     email: 'a', auth: 'b'
   }))
-  t.true(wc.setState.calledWith({ userAmountDonated: [100] }))
+  t.true(wc.setState.calledWith({ userDonations: [100] }))
 
   // cleanup
   api.fetchUserStats.restore()
