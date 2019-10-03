@@ -8,7 +8,7 @@ class Nav extends React.Component {
     super(props)
 
     this.links = [
-      { href: '/mission', label: 'Our Mission' }
+      { href: '/mission', label: 'Our Mission', key: 'our-mission' }
     ]
 
     this.buttons = [
