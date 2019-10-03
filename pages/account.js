@@ -69,7 +69,7 @@ class Account extends React.Component {
             />
             <div className='flex flex-row-reverse m-auto'>
               <div className='bg-white w6 pb3 br3 tc tf-lato'>
-                <div class='tf-oswald ts-subtext pv2 tc'>Donations</div>
+                <div className='tf-oswald ts-subtext pv2 tc'>Donations</div>
                 <ul className='pa1'>
                   {this.renderTransactionList(this.dummyTransactions)}
                 </ul>
