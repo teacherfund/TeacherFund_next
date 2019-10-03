@@ -3,7 +3,7 @@ import Head from '../components/head'
 import LoginForm from '../components/loginform'
 import '../static/styles/main.scss'
 
-const SignInSignUp = (props) => (
+const SignIn = (props) => (
   <div>
     <Nav />
     <Head title='Sign In' />
@@ -22,10 +22,10 @@ const SignInSignUp = (props) => (
   </div>
 )
 
-SignInSignUp.getInitialProps = async ({ query }) => {
+SignIn.getInitialProps = async ({ query }) => {
   return {
     teacher: query.type
   }
 }
 
-export default SignInSignUp
+export default SignIn
