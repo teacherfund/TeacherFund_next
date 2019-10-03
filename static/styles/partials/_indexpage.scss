@@ -2,6 +2,16 @@
   &__header {
     background-image: url('/static/images/pencils.png');
 
+    @media screen and (min-width: 1081px) {
+      background-image: url('/static/images/large/pencils-1920x720.jpg');
+    }
+    @media screen and (max-width: 1080px) and (min-width: 720px) {
+      background-image: url('/static/images/medium/pencils-1080x720.jpg');
+    }
+    @media screen and (max-width: 720px) {
+      background-image: url('/static/images/small/pencils-720x480.jpg');
+    }
+
     @media screen and (max-width: 600px) {
       height: 40rem;
     }
@@ -14,7 +24,7 @@
   &__provide {
 
     &--image {
-      background-image: url('/static/images/children-class-classroom.png');
+      background-image: url('/static/images/medium/children-class-classroom-medium.jpg');
       height: 30rem;
       left: 28rem;
       width: 44rem;

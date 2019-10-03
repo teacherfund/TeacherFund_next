@@ -24,15 +24,47 @@ class Account extends React.Component {
     })
   }
 
+  // Gist to get window size taken from https://gist.github.com/nma/33f8057e4899bdb55440a693a02c431b
+  constructor(props) {
+    super(props);
+    this.state = { height: 512 };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount() {
+      this.updateWindowDimensions();
+      window.addEventListener("resize", this.updateWindowDimensions.bind(this));
+  }
+
+  componentWillUnmount() {
+      window.removeEventListener("resize", this.updateWindowDimensions.bind(this));
+  }
+
+  updateWindowDimensions() {
+      this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
+  getImageSize() {
+    if ( this.state.width >= 1080 ) {
+      return '/static/images/man-woman-reading-1920x1280.jpg'
+    } else if ( this.state.width >= 720 ) {
+      return '/static/images/man-woman-reading-1080x720.jpg'
+    } else if ( this.state.width >= 480 ) {
+      return '/static/images/man-woman-reading-720x720.jpg'
+    }
+    return '/static/images/man-woman-reading-480x720.jpg'
+  }
+
   render () {
     return (
       <div>
         <Head title='Account' />
         <Nav />
         <main>
+          
           <div className='w-100 h-100 flex pa5'>
             <img
-              src='/static/images/man-woman-reading.jpg'
+              src={this.getImageSize()} 
               className='absolute w-100 h-100 top-0 left-0 z-minus-1'
             />
             <div className='flex flex-row-reverse m-auto'>
