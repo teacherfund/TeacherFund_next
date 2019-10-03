@@ -1,36 +1,36 @@
+import React from 'react'
 import Nav from '../components/nav'
 import Head from '../components/head'
 import LoginForm from '../components/loginform'
 import '../static/styles/main.scss'
 
 class SignInSignUp extends React.Component {
-
   // Gist to get window size taken from https://gist.github.com/nma/33f8057e4899bdb55440a693a02c431b
-  constructor(props) {
-    super(props);
-    this.state = { height: 512 };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  constructor (props) {
+    super(props)
+    this.state = { height: 512 }
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
 
-  componentDidMount() {
-      this.updateWindowDimensions();
-      window.addEventListener("resize", this.updateWindowDimensions.bind(this));
+  componentDidMount () {
+    this.updateWindowDimensions()
+    window.addEventListener('resize', this.updateWindowDimensions.bind(this))
   }
 
-  componentWillUnmount() {
-      window.removeEventListener("resize", this.updateWindowDimensions.bind(this));
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.updateWindowDimensions.bind(this))
   }
 
-  updateWindowDimensions() {
-      this.setState({ width: window.innerWidth, height: window.innerHeight });
+  updateWindowDimensions () {
+    this.setState({ width: window.innerWidth, height: window.innerHeight })
   }
 
-  getImageSize() {
-    if ( this.state.width >= 1080 ) {
+  getImageSize () {
+    if (this.state.width >= 1080) {
       return '/static/images/large/einstein-1920x1280.jpg'
-    } else if ( this.state.width >= 720 ) {
+    } else if (this.state.width >= 720) {
       return '/static/images/medium/einstein-1080x720.jpg'
-    } else if ( this.state.width >= 480 ) {
+    } else if (this.state.width >= 480) {
       return '/static/images/medium/einstein-720x720.jpg'
     }
     return '/static/images/small/einstein-480x720.jpg'
