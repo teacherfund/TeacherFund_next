@@ -155,7 +155,7 @@ class IndexPage extends Component {
                   <div className='w-100 pa3 pt4-m bg-card h5-25'>
                     <div className='pa2 tc'>
                       <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 w4 bg-white'>
-                        <img src='/static/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />
+                        <img src='/static/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' alt="Icon of a graduation cap"/>
                       </div>
                       <div className='tf-oswald ts-subtext pv2 tc'>
                       Quality Teachers
@@ -171,7 +171,7 @@ class IndexPage extends Component {
                   <div className='w-100 pa3 pt4-m bg-card h5-25'>
                     <div className='pa2 tc'>
                       <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 w4 bg-white'>
-                        <img src='/static/images/School_icon.png' className='contain' title='Icon of school' />
+                        <img src='/static/images/School_icon.png' className='contain' title='Icon of school' alt="Icon of school" />
                       </div>
                       <div className='tf-oswald ts-subtext pv2 tc'>
                       Local Schools
@@ -187,7 +187,7 @@ class IndexPage extends Component {
                   <div className='w-100 pa3 pt4-m bg-card h5-25'>
                     <div className='pa2 tc'>
                       <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 w4 bg-white'>
-                        <img src='/static/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' />
+                        <img src='/static/images/Hand_icon.png' className='contain' title='Icon of hand holding coin' alt="Icon of hand holding coin" />
                       </div>
                       <div className='tf-oswald ts-subtext pv2 tc'>
                       Tangible Impact
@@ -209,7 +209,7 @@ class IndexPage extends Component {
               </div>
               <div className='center pa2 pv0-ns flex flex-column'>
                 <div className='index__metrics'>
-                  <div className='index__metric border-tf-yellow'>
+                  <div className='index__metric border-tf-yellow' aria-label="Amount of money raised for teachers">
                     <div className='tf-lato ts-title center'>
                     ${this.props.context.globalAmountDonated || 0}
                     </div>
@@ -217,7 +217,7 @@ class IndexPage extends Component {
                     Raised
                     </div>
                   </div>
-                  <div className='index__metric border-tf-pink'>
+                  <div className='index__metric border-tf-pink' aria-label="Number of teachers funded by TeacherFund">
                     <div className='tf-lato ts-title center'>
                     3
                     </div>
@@ -225,7 +225,7 @@ class IndexPage extends Component {
                     Teachers Funded
                     </div>
                   </div>
-                  <div className='index__metric border-tf-dark-gray'>
+                  <div className='index__metric border-tf-dark-gray' aria-label="Number of schools partenered with TeacherFund">
                     <div className='tf-lato ts-title center'>
                     2
                     </div>
@@ -233,7 +233,7 @@ class IndexPage extends Component {
                     Partner Schools
                     </div>
                   </div>
-                  <div className='index__metric border-tf-gray'>
+                  <div className='index__metric border-tf-gray' aria-label="Number of students impacted by TeacherFund">
                     <div className='tf-lato ts-title center'>
                     450
                     </div>
@@ -303,7 +303,7 @@ class IndexPage extends Component {
                   <div className='w-100 bg-transparent pa4-l'>
                     <div className='pa2-l tc'>
                       <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
-                        <img src='/static/images/people/joel.jpg' title='Icon of graduation cap' />
+                        <img src='/static/images/people/joel.jpg' title='Photo of Joel Wasserman' alt="Photo of Joel Wasserman" />
                       </div>
                       <div className='tf-oswald ts-subtext pv2 tc'>
                       Joel Wasserman
@@ -319,7 +319,7 @@ class IndexPage extends Component {
                   <div className='w-100 bg-transparent pa4-l'>
                     <div className='pa2-l tc'>
                       <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
-                        <img src='/static/images/people/christine.jpeg' title='Icon of school' />
+                        <img src='/static/images/people/christine.jpeg' title='Christine Woeller Headshot' alt="Christine Woeller Headshot" />
                       </div>
                       <div className='tf-oswald ts-subtext pv2 tc'>
                       Christine Woeller
@@ -335,7 +335,7 @@ class IndexPage extends Component {
                   <div className='w-100 bg-transparent pa4-l'>
                     <div className='pa2-l tc'>
                       <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
-                        <img src='/static/images/people/pete.jpeg' title='Icon of hand holding money cap' />
+                        <img src='/static/images/people/pete.jpeg' title='Photo of Peter Squicciarini' alt="Photo of Peter Squicciarini"/>
                       </div>
                       <div className='tf-oswald ts-subtext pv2 tc'>
                       Peter Squicciarini
