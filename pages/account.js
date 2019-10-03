@@ -46,13 +46,13 @@ class Account extends React.Component {
 
   getImageSize () {
     if (this.state.width >= 1080) {
-      return '/static/images/man-woman-reading-1920x1280.jpg'
+      return '/static/images/large/man-woman-reading-1920x1280.jpg'
     } else if (this.state.width >= 720) {
-      return '/static/images/man-woman-reading-1080x720.jpg'
+      return '/static/images/medium/man-woman-reading-1080x720.jpg'
     } else if (this.state.width >= 480) {
-      return '/static/images/man-woman-reading-720x720.jpg'
+      return '/static/images/medium/man-woman-reading-720x720.jpg'
     }
-    return '/static/images/man-woman-reading-480x720.jpg'
+    return '/static/images/small/man-woman-reading-480x720.jpg'
   }
 
   render () {
