@@ -116,6 +116,7 @@ class LoginForm extends Component {
                 id='first_name'
                 autoComplete='off'
                 aria-required='true'
+                aria-label='First Name'
                 value={this.state.firstName}
                 onChange={this.updateFirstName}
               />
@@ -125,6 +126,7 @@ class LoginForm extends Component {
                 onChange={this.updateLastname}
                 value={this.state.lastName}
                 aria-required='true'
+                aria-label='lastName'
                 placeholder='Last name'
                 name='last name'
                 id='last_name'
@@ -138,6 +140,7 @@ class LoginForm extends Component {
                 onChange={this.updateEmail}
                 value={this.state.email}
                 aria-required='true'
+                aria-label='Email Address'
                 placeholder='Email'
                 type='email'
                 name='email'

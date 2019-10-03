@@ -34,6 +34,7 @@ class Account extends React.Component {
             <img
               src='/static/images/man-woman-reading.jpg'
               className='absolute w-100 h-100 top-0 left-0 z-minus-1'
+              alt='People reading'
             />
             <div className='flex flex-row-reverse m-auto'>
               <div className='bg-white w6 pb3 br3 tc tf-lato'>
