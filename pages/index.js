@@ -150,39 +150,39 @@ class IndexPage extends Component {
               Our Process
             </div>
             <div className='flex flex-row flex-wrap justify-center w-auto mt2 mt5-l center'>
-              <div className='ma3 ma4-m w-50-m w-25-l'>
+              <div className='ma3 ma4-m w-25-m w-25-l'>
                 <div className='w-100 pa3 pt4-m bg-card h5-25'>
                   <div className='pa2 tc'>
-                    <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 w4 bg-white'>
+                    <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 h2-m w4 w2-m bg-white'>
                       <img src='/static/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />
                     </div>
                     <div className='tf-oswald ts-subtext pv2 tc'>
                       Quality Teachers
                     </div>
-                    <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    <div className='tf-lato-lite f5-l pt2 tc f6-m'>
                       We fund dedicated teachers working diligently to improve their
                       classrooms and their students’ education.
                     </div>
                   </div>
                 </div>
               </div>
-              <div className='ma3 ma4-m w-50-m w-25-l'>
+              <div className='ma3 ma4-m w-25-m w-25-l'>
                 <div className='w-100 pa3 pt4-m bg-card h5-25'>
                   <div className='pa2 tc'>
-                    <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 w4 bg-white'>
+                    <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 h3-m w4 w3-m bg-white'>
                       <img src='/static/images/School_icon.png' className='contain' title='Icon of school' />
                     </div>
                     <div className='tf-oswald ts-subtext pv2 tc'>
                       Local Schools
                     </div>
-                    <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    <div className='tf-lato-lite f5-l pt2 tc f6-m'>
                       Partnering with nearby schools ensures we are providing exactly what
                       their teachers and students need.
                     </div>
                   </div>
                 </div>
               </div>
-              <div className='ma3 ma4-m w-50-m w-25-l'>
+              <div className='ma3 ma4-m w-25-m w-25-l'>
                 <div className='w-100 pa3 pt4-m bg-card h5-25'>
                   <div className='pa2 tc'>
                     <div className='center br-100 pa4 ba b--black-05 mb2 ma3-m h4 w4 bg-white'>
@@ -191,7 +191,7 @@ class IndexPage extends Component {
                     <div className='tf-oswald ts-subtext pv2 tc'>
                       Tangible Impact
                     </div>
-                    <div className='tf-lato-lite ts-subtext pt2 tc'>
+                    <div className='tf-lato-lite f5-l pt2 tc f6-m'>
                       We monitor each dollar donated so you can see the direct
                       impact your donation has on these classrooms.
                     </div>
