@@ -20,7 +20,7 @@ export default (Page, pageProps) => class Context extends Component {
       email: '',
       auth: '',
       userAmountSpent: 0,
-      userAmountDonated: 0,
+      userDonations: [],
       globalAmountDonated: 0,
       globalAmountSpent: 0
     }
@@ -44,7 +44,7 @@ export default (Page, pageProps) => class Context extends Component {
     // request fails, fall into component's catch block
     if (!res.ok) throw new Error('signup failed')
     // should redirect to a post-registration page
-    Router.push('/post-login')
+    Router.push('/pending-login')
   }
 
   async fetchGlobalStats () {
@@ -68,8 +68,8 @@ export default (Page, pageProps) => class Context extends Component {
 
     if (!res.ok) throw new Error('login failed')
     this.setState({ email })
-    // redirect to a post-login page (since email has been sent)
-    Router.push('/post-login')
+    // redirect to a pending-login page (since email has been sent)
+    Router.push('/pending-login')
   }
 
   async handleVerify ({ email, auth }) {
@@ -90,8 +90,9 @@ export default (Page, pageProps) => class Context extends Component {
     if (!res.ok) {
       throw new Error('fetching user stats failed')
     }
+    console.log(res)
     // set user stats
-    this.setState({ userAmountDonated: res.donations })
+    this.setState({ userDonations: res.donations })
   }
 
   render () {

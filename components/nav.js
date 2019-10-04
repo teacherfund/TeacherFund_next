@@ -8,7 +8,7 @@ class Nav extends React.Component {
     super(props)
 
     this.links = [
-      { href: '/mission', label: 'Our Mission' }
+      { href: '/mission', label: 'Our Mission', key: 'our-mission' }
     ]
 
     this.buttons = [
@@ -25,7 +25,7 @@ class Nav extends React.Component {
 
   render () {
     return (
-      <div>
+      <nav>
         <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl2 pr2 pt4 z-1'>
           <div className='b--tf-yellow flex justify-between flex-row w-100'>
             <div className='pointer tc'>
@@ -57,18 +57,18 @@ class Nav extends React.Component {
               </div>
             </div>
           </div>
+          {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc'>
+            <div className='fr pa4' onClick={this.toggleDrawerOpen}>
+              <X />
+            </div>
+            <div className='flex-column flex justify-around h4 mt6'>
+              <p><a href='/' className='white no-underline'>Home</a></p>
+              <p><a href='/donate' className='white no-underline'>Donate</a></p>
+              <p><a href='/mission' className='white no-underline'>Our Mission</a></p>
+            </div>
+          </div>}
         </div>
-        {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc'>
-          <div className='fr pa4' onClick={this.toggleDrawerOpen}>
-            <X />
-          </div>
-          <div className='flex-column flex justify-around h4 mt6'>
-            <p><a href='/' className='white no-underline'>Home</a></p>
-            <p><a href='/donate' className='white no-underline'>Donate</a></p>
-            <p><a href='/mission' className='white no-underline'>Our Mission</a></p>
-          </div>
-        </div>}
-      </div>
+      </nav>
     )
   }
 }
