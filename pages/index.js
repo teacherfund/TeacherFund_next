@@ -360,7 +360,7 @@ class IndexPage extends Component {
               </div>
               <div className='pt2'>
                 <div className=''>
-                  <p className='center pb1 pt1 mv0' aria-live='assertive'>{this.state.subscribed && "You're in the loop!"}</p>
+                  <p className='center pb1 pt1 mv0 white tf-lato' aria-live='assertive'>{this.state.subscribed && "You're in the loop!"}</p>
                 </div>
                 {!this.state.subscribed && <form onSubmit={this.subscribe}>
                   <div className='mt2 m-auto'>
