@@ -370,7 +370,7 @@ class IndexPage extends Component {
                     <input placeholder='Last Name' className='pa2 tf-lato bn ma2' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
                   </div>
                   <div className='m-auto pb3'>
-                    <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' aria-required="true" />
+                    <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' aria-required='true' />
                   </div>
                   <div className='mb3 red tf-lato' aria-live='assertive'>
                     {this.state.error}
