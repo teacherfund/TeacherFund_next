@@ -53,7 +53,6 @@ class IndexPage extends Component {
       // If error, prompt to try again
       if (!response.ok) return this.setLocalState({ error: 'Whoops, please try again' })
 
-      console.log('subbd')
       // Reset form and notify user of success
       this.setLocalState({
         firstName: '',
