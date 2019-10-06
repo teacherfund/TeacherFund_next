@@ -47,6 +47,7 @@ class DonateForm extends Component {
   }
 
   donate = async (ev) => {
+    ev.preventDefault()
     this.setLocalState({ loading: true })
     let token
     try {
@@ -94,7 +95,7 @@ class DonateForm extends Component {
     if (redirectSuccess) return (<div />)
 
     return (
-      <div className='flex flex-column'>
+      <form className='flex flex-column' onSubmit={this.donate}>
         <div className='error tf-lato tc'>
           <p className='red'>{this.state.error}</p>
         </div>
@@ -114,10 +115,8 @@ class DonateForm extends Component {
           <CardElement />
         </div>
         { loading && <h2 className='tc tf-lato'>Loading...</h2>}
-        <div className='white bg-tf-teal tf-lato b tc pa2 ma3 br-pill' onClick={this.donate}>
-          <label className='ttu'>Donate</label>
-        </div>
-      </div>
+        <button type='submit' className='white bg-tf-teal tf-lato b tc pa2 ma3 br-pill ttu'>Donate</button>
+      </form>
     )
   }
 }
