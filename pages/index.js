@@ -31,7 +31,9 @@ class IndexPage extends Component {
     }
   }
 
-  subscribe = async () => {
+  subscribe = async (ev) => {
+    ev.preventDefault()
+
     if (!this.state.email) return this.setLocalState({ error: 'Email is required' })
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) return this.setLocalState({ error: 'Please enter a valid email address' })
 
@@ -51,6 +53,7 @@ class IndexPage extends Component {
       // If error, prompt to try again
       if (!response.ok) return this.setLocalState({ error: 'Whoops, please try again' })
 
+      console.log('subbd')
       // Reset form and notify user of success
       this.setLocalState({
         firstName: '',
@@ -356,13 +359,10 @@ class IndexPage extends Component {
               Let's Keep in Touch
               </div>
               <div className='pt2'>
-                {this.state.error && <div className='red tf-lato'>
-                  {this.state.error}
-                </div>}
-                {this.state.success && <div className=''>
-                  <p className='center pb1 pt1'>You're in the loop!</p>
-                </div>}
-                {!this.state.success && <div>
+                <div className=''>
+                  <p className='center pb1 pt1 mv0' aria-live='assertive'>{this.state.subscribed && "You're in the loop!"}</p>
+                </div>
+                {!this.state.subscribed && <form onSubmit={this.subscribe}>
                   <div className='mt2 m-auto'>
                     <input placeholder='First Name' className='pa2 tf-lato bn ma2' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
                   </div>
@@ -370,17 +370,20 @@ class IndexPage extends Component {
                     <input placeholder='Last Name' className='pa2 tf-lato bn ma2' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
                   </div>
                   <div className='m-auto pb3'>
-                    <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
+                    <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' aria-required="true" />
                   </div>
-                  <div className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto' onClick={this.subscribe}>
-                    <label className=''>Submit</label>
+                  <div className='mb3 red tf-lato' aria-live='assertive'>
+                    {this.state.error}
                   </div>
-                </div>}
+                  <button className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto'>
+                    Subscribe
+                  </button>
+                </form>}
               </div>
               <div className='pt4 center white m-auto tf-lato-lite'>
                 <p>The Teacher Fund is 501(c)(3) pending</p>
                 <p>EIN: 83-2285506</p>
-                <p>© Copyright {this.state.currentYear}</p>
+                <p>&copy; Copyright {this.state.currentYear}</p>
               </div>
             </div>
           </section>
