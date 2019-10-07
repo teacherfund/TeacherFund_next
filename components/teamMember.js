@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TeamMember = (props) => 
+const TeamMember = (props) =>
   (
     <li className='bg-white z-1 ma4-l w-50-m w-25-l w-80'>
       <div className='w-100 bg-transparent pa4-l'>

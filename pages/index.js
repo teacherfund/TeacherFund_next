@@ -87,7 +87,7 @@ class IndexPage extends Component {
       <div className='bg-white index tf-dark-gray'>
         <Head />
         <section className='index__nav'>
-        <Nav />
+          <Nav />
         </section>
         <main>
           <section className='index__header h-section pv6 pv7-ns ph2 pr7-ns cover-l'>

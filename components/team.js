@@ -1,5 +1,5 @@
 import React from 'react'
-import TeamMember from './teamMember';
+import TeamMember from './teamMember'
 
 const teamMembers = [
   {
@@ -13,7 +13,7 @@ const teamMembers = [
     src: 'christine.jpeg',
     bio: `With a degree in secondary education, Christine seeks to improve public schools
           and ensure teachers have the best resources available.`
-  }, 
+  },
   {
     name: 'Peter Squicciarini',
     src: 'pete.jpeg',
@@ -31,7 +31,7 @@ const Team = (props) =>
           Meet the Team
         </h2>
         <ul className='list flex flex-row flex-wrap justify-center w-auto mt3 mb0 pv0 ph0 center'>
-          {teamMembers.map(member => 
+          {teamMembers.map(member =>
             <TeamMember name={member.name} src={member.src} bio={member.bio} />)
           }
         </ul>
