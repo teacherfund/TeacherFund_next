@@ -13,8 +13,15 @@ const Hamburger = () => (
 
     <style jsx>{`
       .hamburgerIcon {
-        width: 26px;
-        height: 26px;
+        width: 1.625rem;
+        height: 1.625rem;
+      }
+
+      @media screen and (min-width: 30rem) and (max-width: 60rem){
+        .hamburgerIcon {
+          width: 2.25rem;
+          height: 2.25rem;
+        }
       }
     `}</style>
   </div>

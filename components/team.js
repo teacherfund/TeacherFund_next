@@ -24,11 +24,11 @@ const teamMembers = [
 
 const Team = (props) =>
   (
-    <section className='h-section mb5 mb0-ns pb5-ns'>
+    <section className='h-section mb5 mb0-ns pb5-ns bg-card'>
       <div className='flex flex-column z-100'>
         <div className='bg-tf-gray o-10 dn db-ns dn-m h-section w-100 absolute' />
-        <h2 className='ts-title tf-oswald pt5-l mv0 center'>
-          Meet the Team
+        <h2 className='f1-l f2-m mv3-m tf-oswald center'>
+        Meet the Team
         </h2>
         <ul className='list flex flex-row flex-wrap justify-center w-auto mt3 mb0 pv0 ph0 center'>
           {teamMembers.map(member =>

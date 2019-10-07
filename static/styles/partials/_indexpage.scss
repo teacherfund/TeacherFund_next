@@ -6,6 +6,7 @@
       height: 40rem;
     }
     @media screen and (max-width: 769px) {
+      height: 60rem;
       background-size: auto 100%;
       background-repeat: no-repeat;
     }
@@ -26,7 +27,9 @@
         left: 15rem;
       }
       @media screen and (max-width: 1030px) {
-        left: 10rem;
+        left: 14rem;
+        width: 28rem;
+        height: 20rem;
       }
     }
 
