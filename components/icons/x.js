@@ -4,8 +4,8 @@ const X = () => (
 
     <style jsx>{`
       .xIcon {
-        width: 50px;
-        height: 50px;
+        width: 3.125rem;
+        height: 3.125rem;
       }
     `}</style>
   </div>
