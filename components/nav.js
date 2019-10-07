@@ -57,17 +57,18 @@ class Nav extends React.Component {
               </div>
             </div>
           </div>
-          {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc'>
-            <div className='fr pa4' onClick={this.toggleDrawerOpen}>
+        </div>
+        {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc'>
+            <div className='fr pt5 pr5' onClick={this.toggleDrawerOpen}>
               <X />
             </div>
-            <div className='flex-column flex justify-around h4 mt6'>
-              <p><a href='/' className='white no-underline'>Home</a></p>
-              <p><a href='/donate' className='white no-underline'>Donate</a></p>
-              <p><a href='/mission' className='white no-underline'>Our Mission</a></p>
+            <div className='flex-column flex justify-around h5 mt6 pt4 f3'>
+              <p><a href='/' className='white no-underline mv2'>Home</a></p>
+              <p><a href='/donate' className='white no-underline mv2'>Donate</a></p>
+              <p><a href='/mission' className='white no-underline mv2'>Our Mission</a></p>
             </div>
           </div>}
-        </div>
+        
       </nav>
     )
   }
