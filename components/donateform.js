@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { CardElement, injectStripe } from 'react-stripe-elements'
-import TwoItemSwitcher from './twoItemSwitcher'
+import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
 import * as Api from '../api/api'
 import '../static/styles/main.scss'
@@ -30,8 +30,8 @@ class DonateForm extends Component {
     this.setLocalState({ firstName: e.target.value })
   }
 
-  updateFrequency = (newVal) => {
-    this.setLocalState({ frequency: newVal })
+  updateFrequency = (ev) => {
+    this.setLocalState({ frequency: ev.target.value })
   }
 
   updateLastName = (e) => {
@@ -54,7 +54,6 @@ class DonateForm extends Component {
       const res = await this.props.stripe.createToken()
       token = res.token
     } catch (e) {
-      console.log(e)
       this.setState({ error: e.message, loading: false })
       return
     }
@@ -75,7 +74,6 @@ class DonateForm extends Component {
       })
       const response = await responseStream.json()
       if (response.ok) {
-        console.log('Donation Complete!')
         this.setState({ redirectSuccess: true, loading: false })
       } else {
         this.setState({ error: `Donation failed: ${response.message}`, loading: false })
@@ -99,18 +97,11 @@ class DonateForm extends Component {
         <div className='error tf-lato tc'>
           <p className='red'>{this.state.error}</p>
         </div>
-        <TwoItemSwitcher
-          color='black'
-          switchOneText='Give Once'
-          selectedToggle={this.state.frequency === 'once' ? 1 : 2}
-          switchTwoText='Monthly'
-          switchOneClicked={() => this.updateFrequency('once')}
-          switchTwoClicked={() => this.updateFrequency('monthly')}
-        />
-        <input className='bn ba pa2 ma1' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
-        <input className='bn ba pa2 ma1' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
-        <input className='bn ba pa2 ma1' placeholder='Email' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
-        <input className='bn ba pa2 ma1' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} aria-label='Amount' />
+        <DonationFrequency updateFrequency={this.updateFrequency} frequency={this.state.frequency} />
+        <input className='bn ba pa2 ma1' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' aria-required='true' />
+        <input className='bn ba pa2 ma1' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' aria-required='true' />
+        <input className='bn ba pa2 ma1' placeholder='Email' value={this.state.email} onChange={this.updateEmail} aria-label='Email' aria-required='true' />
+        <input className='bn ba pa2 ma1' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} aria-label='Amount' aria-required='true' />
         <div className='bg-white bn ba pa2 ma1'>
           <CardElement />
         </div>

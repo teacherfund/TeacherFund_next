@@ -1,0 +1,10 @@
+// visually hides elements while keeping them accessible to screenreaders
+.visually-hidden {
+  height: 1px !important;
+  width: 1px !important;
+  position: absolute !important;
+  clip-path: inset(100%) !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
