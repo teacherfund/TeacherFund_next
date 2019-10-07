@@ -2,6 +2,8 @@ import { Component } from 'react'
 import Link from 'next/link'
 import Nav from '../components/nav'
 import Head from '../components/head'
+import Team from '../components/team'
+
 import * as Api from '../api/api'
 
 class IndexPage extends Component {
@@ -31,7 +33,9 @@ class IndexPage extends Component {
     }
   }
 
-  subscribe = async () => {
+  subscribe = async (ev) => {
+    ev.preventDefault()
+
     if (!this.state.email) return this.setLocalState({ error: 'Email is required' })
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) return this.setLocalState({ error: 'Please enter a valid email address' })
 
@@ -289,98 +293,41 @@ class IndexPage extends Component {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        <section className='h-section mb5 mb0-ns pb5-ns bg-card'>
-          <div className='flex flex-column z-100'>
-            <div className='bg-tf-gray o-10 dn db-ns dn-m h-section w-100 absolute' />
-            <div className='f1-l f2-m mv3-m tf-oswald center pt5-l' >
-              Meet the Team
             </div>
-            <div className='flex flex-row flex-wrap justify-center w-auto mt3 center'>
-              <div className='bg-white z-1 ma4-l ma3-m w-25-ns w-80'>
-                <div className='w-100 bg-transparent pa4-l'>
-                  <div className='pa2-l tc'>
-                    <div className='center br-100 ba b--black-05 ma3 h4 h3-m w4 w3-m bg-white overflow-hidden'>
-                      <img src='/static/images/people/joel.jpg' title='Photo of Joel Wasserman' alt='Photo of Joel Wasserman' />
-                    </div>
-                    <div className='tf-oswald f3-l f4-m pv2 tc' >
-                      Joel Wasserman
-                    </div>
-                    <div className='tf-lato-lite f3-l pt2 tc f5-m ma3-m'>
-                      A software engineer at Google, Joel formerly worked
-                      at two education startups and is passionate about public education and technology.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='bg-white z-1 ma4-l ma3-m w-25-ns w-80'>
-                <div className='w-100 bg-transparent pa4-l'>
-                  <div className='pa2-l tc'>
-                    <div className='center br-100 ba b--black-05 ma3 h4 h3-m w4 w3-m bg-white overflow-hidden'>
-                      <img src='/static/images/people/christine.jpeg' title='Christine Woeller Headshot' alt='Christine Woeller Headshot' />
-                    </div>
-                    <div className='tf-oswald f3-l f4-m pv2 tc'>
-                      Christine Woeller
-                    </div>
-                    <div className='tf-lato-lite f3-l pt2 tc f5-m ma3-m'>
-                      With a degree in secondary education, Christine seeks to improve public schools
-                      and ensure teachers have the best resources available.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='bg-white z-1 ma4-l ma3-m w-25-ns w-80'>
-                <div className='w-100 bg-transparent pa4-l'>
-                  <div className='pa2-l tc'>
-                    <div className='center br-100 ba b--black-05 ma3 h4 h3-m w4 w3-m bg-white overflow-hidden'>
-                      <img src='/static/images/people/pete.jpeg' title='Photo of Peter Squicciarini' alt='Photo of Peter Squicciarini' />
-                    </div>
-                    <div className='tf-oswald f3-l f4-m pv2 tc'>
-                      Peter Squicciarini
-                    </div>
-                    <div className='tf-lato-lite f3-l pt2 tc f5-m ma3-m'>
-                      A software developer at Amazon and loving father of two, Peter strives to
-                      help all children and teachers succeed in an educational environment.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className='h-footer bg-tf-dark-gray'>
+        </section> 
+          <Team />
+          <section className='h-footer bg-tf-dark-gray'>
           <div className='flex flex-column m-auto w-33-l w-50-m w-100 tc'>
             <div className='white pt5 mb4 tf-oswald ts-subtext'>
               Let's Keep in Touch
-            </div>
-            <div className='pt2'>
-              {this.state.error && <div className='red tf-lato'>
-                {this.state.error}
-              </div>}
-              {this.state.success && <div className=''>
-                <p className='center pb1 pt1'>You're in the loop!</p>
-              </div>}
-              {!this.state.success && <div>
-                <div className='mt2 m-auto'>
-                  <input placeholder='First Name' className='pa2 tf-lato bn ma2' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
+              </div>
+              <div className='pt2'>
+                <div className=''>
+                  <p className='center pb1 pt1 mv0 white tf-lato' aria-live='assertive'>{this.state.subscribed && "You're in the loop!"}</p>
                 </div>
-                <div className='mt2 m-auto'>
-                  <input placeholder='Last Name' className='pa2 tf-lato bn ma2' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
-                </div>
-                <div className='m-auto pb3'>
-                  <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
-                </div>
-                <div className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto' onClick={this.subscribe}>
-                  <label className=''>Submit</label>
-                </div>
-              </div>}
-            </div>
-            <div className='pt4 center white m-auto tf-lato-lite'>
-              <p>The Teacher Fund is 501(c)(3) pending</p>
-              <p>EIN: 83-2285506</p>
-              <p>© Copyright {this.state.currentYear}</p>
-            </div>
+                {!this.state.subscribed && <form onSubmit={this.subscribe}>
+                  <div className='mt2 m-auto'>
+                    <input placeholder='First Name' className='pa2 tf-lato bn ma2' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
+                  </div>
+                  <div className='mt2 m-auto'>
+                    <input placeholder='Last Name' className='pa2 tf-lato bn ma2' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
+                  </div>
+                  <div className='m-auto pb3'>
+                    <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' aria-required='true' />
+                  </div>
+                  <div className='mb3 red tf-lato' aria-live='assertive'>
+                    {this.state.error}
+                  </div>
+                  <button className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto'>
+                    Subscribe
+                  </button>
+                </form>}
+              </div>
+              <div className='pt4 center white m-auto tf-lato-lite'>
+                <p>The Teacher Fund is 501(c)(3) pending</p>
+                <p>EIN: 83-2285506</p>
+                <p>&copy; Copyright {this.state.currentYear}</p>
+              </div>
           </div>
         </section>
       </main>
