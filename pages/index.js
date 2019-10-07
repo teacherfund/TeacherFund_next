@@ -293,41 +293,41 @@ class IndexPage extends Component {
                 </div>
               </div>
             </div>
-            </div>
-        </section> 
-          <Team />
-          <section className='h-footer bg-tf-dark-gray'>
+          </div>
+        </section>
+        <Team />
+        <section className='h-footer bg-tf-dark-gray'>
           <div className='flex flex-column m-auto w-33-l w-50-m w-100 tc'>
             <div className='white pt5 mb4 tf-oswald ts-subtext'>
               Let's Keep in Touch
+            </div>
+            <div className='pt2'>
+              <div className=''>
+                <p className='center pb1 pt1 mv0 white tf-lato' aria-live='assertive'>{this.state.subscribed && "You're in the loop!"}</p>
               </div>
-              <div className='pt2'>
-                <div className=''>
-                  <p className='center pb1 pt1 mv0 white tf-lato' aria-live='assertive'>{this.state.subscribed && "You're in the loop!"}</p>
+              {!this.state.subscribed && <form onSubmit={this.subscribe}>
+                <div className='mt2 m-auto'>
+                  <input placeholder='First Name' className='pa2 tf-lato bn ma2' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
                 </div>
-                {!this.state.subscribed && <form onSubmit={this.subscribe}>
-                  <div className='mt2 m-auto'>
-                    <input placeholder='First Name' className='pa2 tf-lato bn ma2' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
-                  </div>
-                  <div className='mt2 m-auto'>
-                    <input placeholder='Last Name' className='pa2 tf-lato bn ma2' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
-                  </div>
-                  <div className='m-auto pb3'>
-                    <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' aria-required='true' />
-                  </div>
-                  <div className='mb3 red tf-lato' aria-live='assertive'>
-                    {this.state.error}
-                  </div>
-                  <button className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto'>
+                <div className='mt2 m-auto'>
+                  <input placeholder='Last Name' className='pa2 tf-lato bn ma2' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
+                </div>
+                <div className='m-auto pb3'>
+                  <input type='email' placeholder='Email Address' className='pa2 tf-lato bn ma2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' aria-required='true' />
+                </div>
+                <div className='mb3 red tf-lato' aria-live='assertive'>
+                  {this.state.error}
+                </div>
+                <button className='white no-underline pa2 db br-pill tf-lato b v-mid bg-tf-yellow w-40 m-auto'>
                     Subscribe
-                  </button>
-                </form>}
-              </div>
-              <div className='pt4 center white m-auto tf-lato-lite'>
-                <p>The Teacher Fund is 501(c)(3) pending</p>
-                <p>EIN: 83-2285506</p>
-                <p>&copy; Copyright {this.state.currentYear}</p>
-              </div>
+                </button>
+              </form>}
+            </div>
+            <div className='pt4 center white m-auto tf-lato-lite'>
+              <p>The Teacher Fund is 501(c)(3) pending</p>
+              <p>EIN: 83-2285506</p>
+              <p>&copy; Copyright {this.state.currentYear}</p>
+            </div>
           </div>
         </section>
       </main>

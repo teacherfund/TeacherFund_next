@@ -98,15 +98,15 @@ class DonateForm extends Component {
           <p className='red'>{this.state.error}</p>
         </div>
 
-        {/* <TwoItemSwitcher 
+        {/* <TwoItemSwitcher
           color='black'
           switchOneText='Give Once'
           selectedToggle={this.state.frequency === 'once' ? 1 : 2}
           switchTwoText='Monthly'
           switchOneClicked={() => this.updateFrequency('once')}
           switchTwoClicked={() => this.updateFrequency('monthly')}
-        />*/}
-       
+        /> */}
+
         <DonationFrequency updateFrequency={this.updateFrequency} frequency={this.state.frequency} />
         <input className='bn ba pa2 pa3-m ma1 ma2-m' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
         <input className='bn ba pa2 pa3-m ma1 ma2-m' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
