@@ -2,6 +2,8 @@ import { Component } from 'react'
 import Link from 'next/link'
 import Nav from '../components/nav'
 import Head from '../components/head'
+import Team from '../components/team'
+
 import * as Api from '../api/api'
 
 class IndexPage extends Component {
@@ -292,64 +294,7 @@ class IndexPage extends Component {
               </div>
             </div>
           </section>
-          <section className='h-section mb5 mb0-ns pb5-ns'>
-            <div className='flex flex-column z-100'>
-              <div className='bg-tf-gray o-10 dn db-ns dn-m h-section w-100 absolute' />
-              <div className='ts-title tf-oswald pt5-l center'>
-              Meet the Team
-              </div>
-              <div className='flex flex-row flex-wrap justify-center w-auto mt3 center'>
-                <div className='bg-white z-1 ma4-l w-50-m w-25-l w-80'>
-                  <div className='w-100 bg-transparent pa4-l'>
-                    <div className='pa2-l tc'>
-                      <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
-                        <img src='/static/images/people/joel.jpg' title='Photo of Joel Wasserman' alt='Photo of Joel Wasserman' />
-                      </div>
-                      <div className='tf-oswald ts-subtext pv2 tc'>
-                      Joel Wasserman
-                      </div>
-                      <div className='tf-lato-lite ts-subtext pt2 tc'>
-                      A software engineer at Google, Joel formerly worked
-                      at two education startups and is passionate about public education and technology.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className='bg-white z-1 ma4-l w-50-m w-25-l w-80'>
-                  <div className='w-100 bg-transparent pa4-l'>
-                    <div className='pa2-l tc'>
-                      <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
-                        <img src='/static/images/people/christine.jpeg' title='Christine Woeller Headshot' alt='Christine Woeller Headshot' />
-                      </div>
-                      <div className='tf-oswald ts-subtext pv2 tc'>
-                      Christine Woeller
-                      </div>
-                      <div className='tf-lato-lite ts-subtext pt2 tc'>
-                      With a degree in secondary education, Christine seeks to improve public schools
-                      and ensure teachers have the best resources available.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className='bg-white z-1 ma4-l w-50-m w-25-l w-80'>
-                  <div className='w-100 bg-transparent pa4-l'>
-                    <div className='pa2-l tc'>
-                      <div className='center br-100 ba b--black-05 ma3 h4 w4 bg-white overflow-hidden'>
-                        <img src='/static/images/people/pete.jpeg' title='Photo of Peter Squicciarini' alt='Photo of Peter Squicciarini' />
-                      </div>
-                      <div className='tf-oswald ts-subtext pv2 tc'>
-                      Peter Squicciarini
-                      </div>
-                      <div className='tf-lato-lite ts-subtext pt2 tc'>
-                      A software developer at Amazon and loving father of two, Peter strives to
-                      help all children and teachers succeed in an educational environment.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <Team />
           <section className='h-footer bg-tf-dark-gray'>
             <div className='flex flex-column m-auto w-33-l w-50-m w-100 tc'>
               <div className='white pt5 mb4 tf-oswald ts-subtext'>
