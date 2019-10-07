@@ -130,18 +130,18 @@ class IndexPage extends Component {
         <section className='h-section'>
           <div className='bg-tf-gray o-10 h-section w-100 absolute' />
           <div className='w-100 flex pa4-l index__provide'>
-            <div className='bg-transparent w6 mt7-l ml6-l flex flex-column pa4-l z-1 index__provide--content'>
-              <div className='pa2'>
-                <div className='tf-oswald o-100 ts-title pv3 tc tl-ns'>
+            <div className='bg-transparent w-34-ns mt7-l mt6-m ml6-ns flex flex-column pa4-ns z-1 index__provide--content'>
+              <div className='pa2-l'>
+                <div className='tf-oswald o-100 f1 f3-m pv3 tc tl-ns'>
                   What We Provide
                 </div>
-                <div className='tf-lato-lite ts-subtext tl-ns tc'>
+                <div className='tf-lato-lite f3 f5-m tl-ns tc'>
                   We support teachers in need of everything from the most basic of
                   classroom supplies to extracurricular and after-school funding and equipment.
                 </div>
               </div>
             </div>
-            <div className='ma5 cover absolute di-l dn index__provide--image' />
+            <div className='ma5-ns cover absolute di-ns dn index__provide--image' />
           </div>
         </section>
         <section className='h-section'>
@@ -294,7 +294,7 @@ class IndexPage extends Component {
         <section className='h-section mb5 mb0-ns pb5-ns bg-card'>
           <div className='flex flex-column z-100'>
             <div className='bg-tf-gray o-10 dn db-ns dn-m h-section w-100 absolute' />
-            <div className='f1-l f2-m mb3-m tf-oswald center pt5-l' >
+            <div className='f1-l f2-m mv3-m tf-oswald center pt5-l' >
               Meet the Team
             </div>
             <div className='flex flex-row flex-wrap justify-center w-auto mt3 center'>
