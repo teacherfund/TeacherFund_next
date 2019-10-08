@@ -2,10 +2,10 @@
   &__header {
     background-image: url('/static/images/pencils.png');
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $small-screen) {
       height: 40rem;
     }
-    @media screen and (max-width: 769px) {
+    @media screen and (min-width: $small-screen) and (max-width: $tablet-width + 1) {
       height: 60rem;
       background-size: auto 100%;
       background-repeat: no-repeat;
@@ -20,13 +20,13 @@
       left: 28rem;
       width: 44rem;
   
-      @media screen and (max-width: 1230px) {
+      @media screen and (max-width: $x-large-screen) {
         left: 20rem;
       }
       @media screen and (max-width: 1110px) {
         left: 15rem;
       }
-      @media screen and (max-width: 1030px) {
+      @media screen and (max-width: $large-screen) {
         left: 14rem;
         width: 28rem;
         height: 20rem;
@@ -34,7 +34,7 @@
     }
 
     &--content {
-      @media screen and (max-width: 1030px) {
+      @media screen and (max-width: $large-screen) {
         left: 10rem;
       }
     }
