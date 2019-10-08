@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Nav from '../components/nav'
 import Head from '../components/head'
 import Team from '../components/team'
+import { formatCurrency } from '../utils/formatting'
 
 import * as Api from '../api/api'
 
@@ -214,7 +215,7 @@ class IndexPage extends Component {
               <div className='index__metrics mb4-m'>
                 <div className='index__metric border-tf-yellow' aria-label='Amount of money raised for teachers'>
                   <div className='tf-lato ts-title center'>
-                    ${this.props.context.globalAmountDonated || 0}
+                    ${formatCurrency(this.props.context.globalAmountDonated) || 0}
                   </div>
                   <div className='pt2 tf-lato-lite ts-subtext center'>
                     Raised
