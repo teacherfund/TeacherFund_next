@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Nav from '../components/nav'
 import Head from '../components/head'
 import Team from '../components/team'
+import ProcessCard from '../components/ProcessCard'
 import { formatCurrency } from '../utils/formatting'
 
 import * as Api from '../api/api'
@@ -155,54 +156,27 @@ class IndexPage extends Component {
               Our Process
             </div>
             <div className='flex flex-row flex-wrap justify-center w-auto mt2 mt5-l center'>
-              <div className='ma3 ma3-m w-25-m w-25-l'>
-                <div className='w-100 pa3 pt3-m bg-card h5-25'>
-                  <div className='pa2 tc'>
-                    <div className='center br-100 pa4 pa2-m ba b--black-05 mb2 ma3-m h4 h3-m w4 w3-m bg-white'>
-                      <img src='/static/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />
-                    </div>
-                    <div className='tf-oswald f3-l f4-m pv2 tc'>
-                      Quality Teachers
-                    </div>
-                    <div className='tf-lato-lite f3-l pt2 tc f5-m'>
-                      We fund dedicated teachers working diligently to improve their
-                      classrooms and their students’ education.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='ma3 ma3-m w-25-m w-25-l'>
-                <div className='w-100 pa3 pt3-m bg-card h5-25'>
-                  <div className='pa2 tc'>
-                    <div className='center br-100 pa4 pa2-m ba b--black-05 mb2 ma3-m h4 h3-m w4 w3-m bg-white'>
-                      <img src='/static/images/School_icon.png' className='contain' title='Icon of school' />
-                    </div>
-                    <div className='tf-oswald f3-l f4-m pv2 tc'>
-                      Local Schools
-                    </div>
-                    <div className='tf-lato-lite f3-l pt2 tc f5-m'>
-                      Partnering with nearby schools ensures we are providing exactly what
-                      their teachers and students need.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='ma3 ma3-m w-25-m w-25-l'>
-                <div className='w-100 pa3 pt3-m bg-card h5-25'>
-                  <div className='pa2 tc'>
-                    <div className='center br-100 pa4 pa2-m ba b--black-05 mb2 ma3-m h4 h3-m w4 w3-m bg-white'>
-                      <img src='/static/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' />
-                    </div>
-                    <div className='tf-oswald f3-l f4-m pv2 tc'>
-                      Tangible Impact
-                    </div>
-                    <div className='tf-lato-lite f3-l f5-m pt2 tc'>
-                      We monitor each dollar donated so you can see the direct
-                      impact your donation has on these classrooms.
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ProcessCard
+                title='Quality Teachers'
+                icon={<img src='/static/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />}
+              >
+                We fund dedicated teachers working diligently to improve their
+                classrooms and their students’ education.
+              </ProcessCard>
+              <ProcessCard
+                title='Local Schools'
+                icon={<img src='/static/images/School_icon.png' className='contain' title='Icon of school' />}
+              >
+                Partnering with nearby schools ensures we are providing exactly what
+                their teachers and students need.
+              </ProcessCard>
+              <ProcessCard
+                title='Tangible Impact'
+                icon={<img src='/static/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' />}
+              >
+                We monitor each dollar donated so you can see the direct
+                impact your donation has on these classrooms.
+              </ProcessCard>
             </div>
           </div>
         </section>
