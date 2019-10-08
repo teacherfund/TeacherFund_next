@@ -58,7 +58,10 @@ export default (Page, pageProps) => class Context extends Component {
         return acc + (val.amount / 100)
       }, 0)
       // set stats
-      this.setState({ globalAmountDonated: amountDonated || 0, globalAmountSpent: res.amountSpent || 0 })
+      this.setState({
+        globalAmountDonated: amountDonated || 0,
+        globalAmountSpent: res.amountSpent || 0
+      })
     }
   }
 
@@ -90,7 +93,6 @@ export default (Page, pageProps) => class Context extends Component {
     if (!res.ok) {
       throw new Error('fetching user stats failed')
     }
-    console.log(res)
     // set user stats
     this.setState({ userDonations: res.donations })
   }
