@@ -92,9 +92,9 @@ class IndexPage extends Component {
         <section className='index__nav'>
           <Nav />
         </section>
-        <section className='index__header h-section pv6 pv7-ns ph2 pr7-l cover-l'>
-          <div className='fr flex flex-column mt6 mt0-l w-90-m'>
-            <div className='white f1-l tf-oswald fl ml-4-m f-5-m pt7-m'>
+        <section className='index__header h-section pv7 ph2 pr7-l cover-l'>
+          <div className='fr flex flex-column mt5 mt0-l w-90-m'>
+            <div className='white f2 tf-oswald fl ml-4-l f-5-l'>
               Funding Teachers.<br />
               Empowering Students.
             </div>
