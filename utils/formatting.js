@@ -1,5 +1,5 @@
 const currencyOpts = {
-  maximumFractionDigits: 0,
+  maximumFractionDigits: 0
 }
 
 const formatCurrency = value => {
