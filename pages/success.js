@@ -12,7 +12,7 @@ class Success extends React.Component {
   render () {
     return (
       <div className='main-container'>
-        <Head title='Success' />
+        <Head title='Donation Successful – The Teacher Fund' />
         <Nav navColor='black' />
         <main>
           <div className='w-100 h-100 flex'>
