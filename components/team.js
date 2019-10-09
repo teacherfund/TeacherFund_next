@@ -32,7 +32,7 @@ const Team = (props) =>
         </h2>
         <ul className='list flex flex-row flex-wrap justify-center w-auto mt3 mb0 pv0 ph0 center'>
           {teamMembers.map(member =>
-            <TeamMember name={member.name} src={member.src} bio={member.bio} />)
+            <TeamMember name={member.name} src={member.src} bio={member.bio} key={member.bio} />)
           }
         </ul>
       </div>
