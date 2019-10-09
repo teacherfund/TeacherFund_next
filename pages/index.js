@@ -88,7 +88,7 @@ class IndexPage extends Component {
   render () {
     return (
       <main className='bg-white index tf-dark-gray'>
-        <Head />
+        <Head title='The Teacher Fund' />
         <section className='index__nav'>
           <Nav />
         </section>
