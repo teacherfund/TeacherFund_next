@@ -27,7 +27,7 @@ class Nav extends React.Component {
     return (
       <nav>
         <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl2 pr2 pt4 z-1'>
-          <div className='b--tf-yellow flex justify-between flex-row w-100'>
+          <div className='flex justify-between flex-row w-100'>
             <div className='pointer tc'>
               <Link href='/'>
                 <img src='/static/images/Logo_with_text.png' className='w4' alt='The Teacher Fund – Home' />
@@ -46,7 +46,7 @@ class Nav extends React.Component {
               {this.buttons.map(({ key, href, label }) => (
                 <div key={key} className='db center w-auto fr ph2'>
                   <Link href={href} key={key}>
-                    <a className='b--tf-yellow tf-yellow no-underline black pv3 ph4 ba bw2 br3'>{label}</a>
+                    <a className='btn-primary no-underline black pv3 ph4 ba bw2 br3'>{label}</a>
                   </Link>
                 </div>
               ))}

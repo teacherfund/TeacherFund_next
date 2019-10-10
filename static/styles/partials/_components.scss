@@ -1,0 +1,8 @@
+.btn-primary {
+  border-color: $pencil-yellow;
+  color: $pencil-yellow;
+  &:hover {
+    background-color: $pencil-yellow;
+    color: white;
+  }
+}
