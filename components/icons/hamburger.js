@@ -10,20 +10,6 @@ const Hamburger = () => (
         <path d='M4.5,12 L19.5,12' stroke='#000000' strokeLinecap='square' />
       </g>
     </svg>
-
-    <style jsx>{`
-      .hamburgerIcon {
-        width: 1.625rem;
-        height: 1.625rem;
-      }
-
-      @media screen and (min-width: 30rem) and (max-width: 60rem){
-        .hamburgerIcon {
-          width: 2.25rem;
-          height: 2.25rem;
-        }
-      }
-    `}</style>
   </div>
 )
 
