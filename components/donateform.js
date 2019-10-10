@@ -107,7 +107,7 @@ class DonateForm extends Component {
           <CardElement />
         </div>
         { loading && <h2 className='tc tf-lato'>Loading...</h2>}
-        <button type='submit' className='white bg-tf-teal tf-lato b tc pa2 ma3 mt4-m br-pill ttu w-75-m m-auto'>Donate</button>
+        <button type='submit' className='white bg-tf-teal tf-lato b tc pa2 mt3 mt3-m mh-auto br-pill ttu pointer w-75'>Donate</button>
       </form>
     )
   }
