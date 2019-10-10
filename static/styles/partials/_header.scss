@@ -1,0 +1,9 @@
+.hamburgerIcon {
+  width: 2rem;
+  height: 2rem;
+  
+  @media screen and (min-width: $small-screen) and (max-width: $large-screen){
+      width: 2.5rem;
+      height: 2.5rem;
+  }
+}
