@@ -117,7 +117,7 @@ class IndexPage extends Component {
                 <p className='pa0 ma0 f2 f1-ns ml3 ml0-ns'>94%</p>
               </div>
               <div className='m-auto tf-lato-lite f4 f3-l pl6-m f5-m'>
-                <p className='pa0 ma0 dn db-ns'>of public school teachers spend their own money on school supplies</p>
+                <p className='pa0 ma0 dn db-ns'>Amount of public school teachers spend their own money on school supplies</p>
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@ class IndexPage extends Component {
                 <p className='pa0 ma0 f2 f1-ns ml3 ml0-ns'>100%</p>
               </div>
               <div className='m-auto tf-lato-lite f4 f3-l pl6-m f5-m'>
-                <p className='pa0 ma0 dn db-ns'>of your donation goes to providing resources for classrooms in need.</p>
+                <p className='pa0 ma0 dn db-ns'>How much of your donation goes to providing resources for classrooms in need.</p>
               </div>
             </div>
           </div>
