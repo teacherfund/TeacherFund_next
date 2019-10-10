@@ -2,10 +2,10 @@ import React from 'react'
 
 const BlogComponent = ({ content }) =>
   (<div className='blog-component pa4' >
-    <img src={content.imgUrl} />
+    <img src={content.imgUrl} className='mt4 mr4 mb2 ml0' />
     <div className='main-content'>
       <div className='title tl pa3 fw6 ttc'>{content.title}</div>
-      <div className='content pa2 fw4 lh-copy'>{content.content}</div>
+      <div className='content pa1 fw4 lh-copy'>{content.content}</div>
     </div>
   </div>)
 
