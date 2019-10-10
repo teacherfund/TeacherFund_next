@@ -10,6 +10,9 @@
 .h-footer {
   height: $footer-height;
 }
+.mw-10 {
+  min-width: 10rem;
+}
 .w-94 {
   width: 94%;
 }
@@ -32,6 +35,9 @@
 // text size
 .ts-subtext {
   font-size: 24px;
+}
+.ts-text {
+  font-size: 30px;
 }
 .ts-title {
   font-size: 48px;
