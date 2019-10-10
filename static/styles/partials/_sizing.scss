@@ -1,14 +1,16 @@
 .h-section {
-  @media screen and (min-width: 960px) {
-    height: $section-height;
+  @media screen and (min-width: $tablet-width) {
+    min-height: $section-height;
   }
-  @media screen and (max-width: 959px) {
-    margin-bottom: 2rem;
+  @media screen and (min-width: $small-screen) and (max-width: $tablet-width) {
     min-height: 30rem;
+  }
+  @media screen and (max-width: $tablet-width) {
+    padding-bottom: 2rem;
   }
 }
 .h-footer {
-  height: $footer-height;
+  min-height: $footer-height;
 }
 .mw-10 {
   min-width: 10rem;
