@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:500,300,400');
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400');
 
-@import '../../node_modules/tachyons-sass/tachyons.scss';
-@import '_variables.scss';
+@import '../../node_modules/tachyons-sass/tachyons';
+@import '_variables';
 
 // partials
-@import './partials/_sizing.scss';
-@import './partials/_colors.scss';
-@import './partials/_fonts.scss';
-@import './partials/_spacing.scss';
-@import './partials/_display.scss';
-@import './partials/_utility.scss';
-@import './partials/_indexpage.scss';
-@import './partials/_header.scss';
+@import './partials/_sizing';
+@import './partials/_colors';
+@import './partials/_fonts';
+@import './partials/_spacing';
+@import './partials/_display';
+@import './partials/_utility';
+@import './partials/_indexpage';
+@import './partials/_components';
+@import './partials/_header';
