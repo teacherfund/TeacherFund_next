@@ -54,9 +54,9 @@ export const fetchBlog = _ => {
   const avatarUrl = ['https://cw-cms.imgix.net/content/site/assets/files/2196/charity-water-parents-chief.jpg?fm=pjpg&q=80&w=300',
     'https://cw-cms.imgix.net/content/site/assets/files/2166/moms.jpg?fm=pjpg&q=70&w=300',
     'https://cw-cms.imgix.net/content/site/assets/files/2167/js_20140430_1348.jpg?fm=pjpg&q=70&w=300']
-  const country = ['India', 'France', 'India']
-  const blogId = [1, 2, 3, 4]
-  return { title, content: miniContent, avatarUrl, country, blogId }
+  const school = ['Peter\'s higher sec,', 'St. Jhon\'s School', 'Dublin International']
+  const blogId = [1, 2, 3]
+  return { title, content: miniContent, avatarUrl, school, blogId }
 }
 
 // Private internal

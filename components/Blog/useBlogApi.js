@@ -4,13 +4,13 @@ import { fetchBlog } from '../../api/api'
 export default function useBlogContent () {
   const [blogContent, updateBlogContent] = React.useState([])
   React.useEffect(() => {
-    const { title, avatarUrl, content, country, blogId } = fetchBlog()
+    const { title, avatarUrl, content, school, blogId } = fetchBlog()
     const restructureBlogPost = (initArray, _, index) => {
       return [...initArray, {
         title: title[index],
         imgUrl: avatarUrl[index],
         content: content[index],
-        country: country[index],
+        school: school[index],
         blogId: blogId[index]
       }]
     }

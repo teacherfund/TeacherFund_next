@@ -1,13 +1,13 @@
 import React from 'react'
 import './blog.scss'
 
-function SideNav ({ blogCountries, selectedCountry, onCountrySelected }) {
+function SideNav ({ blogSchools, selectedSchool, onSchoolSelected }) {
   return (
     <div className='side-nav-blog'>
       {
-        blogCountries.map((country) =>
-          <a key={country} data-country={country} onClick={(event) => onCountrySelected(event.target.getAttribute('data-country'))}>
-            {country}
+        blogSchools.map((school) =>
+          <a key={school} data-school={school} onClick={(event) => onSchoolSelected(event.target.getAttribute('data-school'))}>
+            {school}
           </a>
         )
       }

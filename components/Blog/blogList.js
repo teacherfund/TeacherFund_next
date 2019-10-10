@@ -10,12 +10,12 @@ const BlogComponent = ({ content }) =>
     </div>
   </div>)
 
-function BlogList ({ blogs, selectedCountry }) {
+function BlogList ({ blogs, selectedSchool }) {
   return (
     <div className='blog'>
       {
         blogs
-          .filter((blog) => (selectedCountry === 'All' || blog.country === selectedCountry)) // filter blogs based on selected country
+          .filter((blog) => (selectedSchool === 'All' || blog.school === selectedSchool)) // filter blogs based on selected school
           .map((content) => <BlogComponent content={content} key={content.blogId} />) // render the selected blog
       }
     </div>
