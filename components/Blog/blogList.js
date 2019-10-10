@@ -1,21 +1,20 @@
 import React from 'react'
 
-const BlogComponent = ({ content }) =>
+const Blog = ({ content }) =>
   (<div className='blog-component pa4' >
-    <img src={content.imgUrl} className='mt4 mr4 mb2 ml0' />
-    <div className='main-content'>
-      <div className='title tl pa3 fw6 ttc'>{content.title}</div>
-      <div className='content pa1 fw4 lh-copy'>{content.content}</div>
-    </div>
+    <img src={content.imgUrl} className='mt5 mr4 mb4 ml0 w4 h4 br-100' alt={content.school} />
+    <h2 className='title tl pa3 ttc f3 measure tf-lato'>{content.title}</h2>
+    <div className='pa1 lh-copy tf-lato-lite'>{content.content}</div>
+    <a className='fw9 pt1 lh-copy f6 measure-wide helvetica'>READ MORE</a>
   </div>)
 
 function BlogList ({ blogs, selectedSchool }) {
   return (
-    <div className='blog pa2'>
+    <div className='pa2'>
       {
         blogs
           .filter((blog) => (selectedSchool === 'All' || blog.school === selectedSchool)) // filter blogs based on selected school
-          .map((content) => <BlogComponent content={content} key={content.blogId} />) // render the selected blog
+          .map((content) => <Blog content={content} key={content.blogId} />) // render the selected blog
       }
     </div>
   )

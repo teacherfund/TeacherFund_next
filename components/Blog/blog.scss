@@ -1,34 +1,22 @@
 $side-nav-bg-color: #f9f9f9;
-$side-nav-color: #c2c2c2;
+$side-nav-color: #656565;
 $blog-title: rgb(46, 157, 247);
 $blog-component-read-more-color: rgb(6, 91, 159);
-
-.blog-page {
-  display: flex;
-}
+$side-nav-selected-school-color: #212321;
 
 .side-nav-blog {
-  align-self: center;
-  width: 15rem;
-
   a {
-    display: block;
     color: $side-nav-color;
-    font-size: 1rem;
-    position: relative;
-    background: $side-nav-bg-color;
-    margin-bottom: 0.2rem;
-    margin-right: 1.5rem;
+    background-color: $side-nav-bg-color;
+  }
+
+  .selected-school {
+    color: $side-nav-bg-color;
+    background-color: $side-nav-color;
   }
 }
 
 .blog-component {
-  display: inline-block;
-
-  .title {
-    font-size: 1.5em;
-    font-family: sans-serif;
-  }
 
   .title:hover {
     color: $blog-title;
@@ -36,26 +24,11 @@ $blog-component-read-more-color: rgb(6, 91, 159);
   }
 
   img {
-    width: 7em;
-    height: 7em;
-    border-radius: 50%;
     float: left;
   }
 
-  .content {
-    font-family: Georgia, serif;
+  a {
+    color: $blog-component-read-more-color;
+    cursor: pointer;
   }
-}
-
-.blog-component::after {
-  content: "READ MORE";
-  padding-top: 5px;
-  position: absolute;
-  font-weight: 600;
-  color: $blog-component-read-more-color;
-  cursor: pointer;
-  font-family: "Proxima Nova", sans-serif;
-  font-size: 13px;
-  line-height: 24px;
-
 }
