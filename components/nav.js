@@ -26,8 +26,8 @@ class Nav extends React.Component {
   render () {
     return (
       <nav>
-        <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl2 pr2 pt4 z-1'>
-          <div className='flex justify-between flex-row w-100'>
+        <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl3 pr3 z-1'>
+          <div className='b--tf-yellow flex justify-between flex-row w-100'>
             <div className='pointer tc'>
               <Link href='/'>
                 <img src='/static/images/Logo_with_text.png' className='w4' alt='The Teacher Fund – Home' />
