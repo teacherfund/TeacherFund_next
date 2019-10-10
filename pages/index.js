@@ -88,13 +88,13 @@ class IndexPage extends Component {
   render () {
     return (
       <main className='bg-white index tf-dark-gray'>
-        <Head />
+        <Head title='The Teacher Fund' />
         <section className='index__nav'>
           <Nav />
         </section>
-        <section className='index__header h-section v7-ns pr7-l cover-l'>
-          <div className='fr flex flex-column mt4 mt7-m mt0-l w-90-m ph3'>
-            <div className='white f2 f1-m f1-l tf-oswald fl ml-4-m f-5-m pt7-m pt6-l'>
+        <section className='index__header h-section pv7 ph2 pr7-l cover-l'>
+          <div className='fr flex flex-column mt5 mt0-l w-90-m'>
+            <div className='white f2 tf-oswald fl ml-4-l f-5-l'>
               Funding Teachers.<br />
               Empowering Students.
             </div>

@@ -1,5 +1,6 @@
 // visually hides elements while keeping them accessible to screenreaders
-.visually-hidden {
+// should only be used for text elements that need to be hidden, not interaction elements
+.sr-only--text {
   height: 1px !important;
   width: 1px !important;
   position: absolute !important;
@@ -7,4 +8,13 @@
   clip: rect(1px, 1px, 1px, 1px) !important;
   overflow: hidden !important;
   white-space: nowrap !important;
+}
+
+// used to visually hide elements like checkboxes and radiobuttons to create custom visual representations while keeping them fully accessible
+// Credit to Scott O'Hara https://scottaohara.github.io/a11y_styled_form_controls/src/checkbox/
+.sr-only--input {
+  position: relative;
+  z-index: 2;
+  margin-top: -.75em;
+  opacity: .00001;
 }

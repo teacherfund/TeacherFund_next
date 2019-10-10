@@ -36,9 +36,9 @@ const Team = (props) =>
           {teamMembers.map(member =>
             <TeamMember
               name={member.name}
-              title={member.title}
               src={member.src}
               bio={member.bio}
+              key={member.bio}
             />)
           }
         </ul>

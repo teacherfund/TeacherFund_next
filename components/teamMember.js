@@ -14,7 +14,7 @@ const TeamMember = (props) =>
           <h4 className='tf-lato-lite ma0 f4-l'>
             {props.title}
           </h4>
-          <p className='tf-lato-lite f3-l tc f5 ma3-m pa2 lh-title'>
+          <p className='tf-lato-lite f3-l tc f5 ma3-m pb2 pa2-ns lh-title'>
             {props.bio}
           </p>
         </div>

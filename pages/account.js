@@ -53,7 +53,7 @@ class Account extends React.Component {
   render () {
     return (
       <div>
-        <Head title='Account' />
+        <Head title='Account – The Teacher Fund' />
         <Nav />
         <main>
           <div className='w-100 h-100 flex pa5'>

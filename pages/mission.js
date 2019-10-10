@@ -7,7 +7,7 @@ class Mission extends Component {
   render () {
     return (
       <div>
-        <Head title='Mission' />
+        <Head title='Our Mission – The Teacher Fund' />
         <Nav />
         <main>
           <div className='w-100 h-100 min-vh-100 flex-column flex bg-card'>
