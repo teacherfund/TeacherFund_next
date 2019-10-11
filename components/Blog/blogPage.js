@@ -2,6 +2,7 @@ import BlogList from './blogList'
 import SideNav from './SideNav'
 import useBlogContent from './useBlogApi'
 import React from 'react'
+import Head from '../head'
 
 function useToRenderBlog () {
   const ALL_SCHOOL = 'All'
@@ -18,10 +19,13 @@ function useToRenderBlog () {
 function BlogPage () {
   const [blogs, schools, selectedSchool, updateSelectedSchool] = useToRenderBlog()
   return (
-    <div className='flex'>
-      <SideNav schools={schools} selectedSchool={selectedSchool} onSchoolSelected={updateSelectedSchool} />
-      <BlogList blogs={blogs} selectedSchool={selectedSchool} />
-    </div>
+    <React.Fragment>
+      <Head title='Blog Post' />
+      <div className='flex'>
+        <SideNav schools={schools} selectedSchool={selectedSchool} onSchoolSelected={updateSelectedSchool} />
+        <BlogList blogs={blogs} selectedSchool={selectedSchool} />
+      </div>
+    </React.Fragment>
   )
 }
 export default BlogPage
