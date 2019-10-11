@@ -46,19 +46,6 @@ export const fetchUserStats = async (bodyObject) => {
   return fetch(`${ENDPOINT}/account/donations`, constructPostBody(bodyObject))
 }
 
-export const fetchBlog = _ => {
-  const title = ['Two Years After the Earthquake in Nepal', 'Refills for Everyone', 'The Lucky School']
-  const miniContent = ['More than 7,100 charity: water supporters responded to provide relief after the devastating earthquake in Nepal on April 25th, 2015. We want to say thank you.',
-    'Students at Shramik Shanti School used to get just one cup of drinking water each day. Today, they can have as much as they way.',
-    'The kids at Balkumari Primary School used to spend recess walking 20 minutes to collect dirty water from a cave. Now, they spend that time playing with friends.']
-  const avatarUrl = ['https://cw-cms.imgix.net/content/site/assets/files/2196/charity-water-parents-chief.jpg?fm=pjpg&q=80&w=300',
-    'https://cw-cms.imgix.net/content/site/assets/files/2166/moms.jpg?fm=pjpg&q=70&w=300',
-    'https://cw-cms.imgix.net/content/site/assets/files/2167/js_20140430_1348.jpg?fm=pjpg&q=70&w=300']
-  const school = ['Peter\'s higher sec,', 'St. Jhon\'s School', 'Dublin International']
-  const blogId = [1, 2, 3]
-  return { title, content: miniContent, avatarUrl, school, blogId }
-}
-
 // Private internal
 const constructPostBody = (bodyObject) => {
   return {
