@@ -1,33 +1,13 @@
-$side-nav-bg-color: #f9f9f9;
-$side-nav-color: #656565;
-$blog-title: rgb(46, 157, 247);
-$blog-component-read-more-color: rgb(6, 91, 159);
-$side-nav-selected-school-color: #212321;
-
-.side-nav-blog {
-  a {
-    color: $side-nav-color;
-    background-color: $side-nav-bg-color;
-  }
-
-  .selected-school {
-    color: $side-nav-bg-color;
-    background-color: $side-nav-color;
-  }
-}
+@import '../../static/styles/variables';
 
 .blog-component {
 
   .title:hover {
-    color: $blog-title;
+    color: $blog-component-title;
     cursor: pointer;
   }
 
-  img {
-    float: left;
-  }
-
-  a {
+  .read-more {
     color: $blog-component-read-more-color;
     cursor: pointer;
   }

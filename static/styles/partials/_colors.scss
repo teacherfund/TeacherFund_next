@@ -58,3 +58,13 @@
 .paypal-button {
   outline: none;
 }
+
+.blog-side-nav-school-non-selected {
+  color: $side-nav-color;
+  background-color: $side-nav-bg-color;
+}
+
+.blog-side-nav-school-selected {
+  color: $side-nav-bg-color;
+  background-color: $side-nav-color;
+}
