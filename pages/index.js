@@ -138,26 +138,21 @@ class IndexPage extends Component {
             <p>How much of your donation goes directly to providing resources for classrooms in need.</p>
           </div>
         </section>
-        <section className='h-section'>
-          <div className='bg-tf-gray o-10 h-section w-100 absolute' />
-          <div className='w-100 flex pa4-l index__provide'>
-            <div className='bg-transparent w-34-ns mt7-l mt6-m ml6-ns flex flex-column pa4-ns z-1 index__provide--content'>
-              <div className='pa3 pa2-ns'>
-                <div className='tf-oswald o-100 f2 f3-m pv3 tc tl-ns'>
-                  What We Provide
-                </div>
-                <div className='tf-lato-lite f4 f5-m tl-ns tc pa1 pa0-ns'>
-                  We support teachers in need of everything from the most basic of
-                  classroom supplies to extracurricular and after-school funding and equipment.
-                </div>
-              </div>
-            </div>
-            <div className='ma5-ns cover absolute di-ns dn index__provide--image' />
+        <section className='index__provide h-section bg-trans-gray flex justify-center items-center relative'>
+          <div className='bg-transparent pa3-m pa5-l z-1 w-30-m w-30-l index__provide-content absolute lh-title'>
+            <h2 className='ma0 tf-oswald f2-l f3 pv3 tc tl-ns'>
+              What We Provide
+            </h2>
+            <p className='tf-lato-lite ma0 f4-l f5 tl-ns tc pa1 pa0-ns'>
+              We support teachers in need of everything from the most basic of
+              classroom supplies to extracurricular and after-school funding and equipment.
+            </p>
           </div>
+          <img className='index__provide-image' src='/static/images/children-class-classroom.png' alt='art classroom'/>
         </section>
         <section className='h-section'>
           <div className='flex flex-column mt3 pt5-l pb4 pb0-ns'>
-            <div className='f2 f1-l mb3-m tf-oswald center'>
+            <div className='f3 f2-l mb3-m tf-oswald center'>
               Our Process
             </div>
             <div className='flex flex-row flex-wrap justify-center w-auto mt2 mt5-l center ph3 ph0-ns'>
@@ -214,7 +209,7 @@ class IndexPage extends Component {
         </section>
         <section className='h-section bg-tf-teal pt5-l'>
           <div className='flex flex-column pv3 pv0-l'>
-            <div className='f1-l f2 tf-oswald white tc mb5-l mv4'>
+            <div className='f2-l f3 tf-oswald white tc mb5-l mv4'>
               See How We're Doing
             </div>
             <div className='center pa2 pv0-ns flex flex-column'>
@@ -257,7 +252,7 @@ class IndexPage extends Component {
         </section>
         <section className='h-section pt4 pt0-ns'>
           <div className='flex flex-column pt4-ns pt6-l'>
-            <div className='f1-l f2 tf-oswald center mb3 mb4-l'>
+            <div className='f2-l f3 tf-oswald center mb3 mb4-l'>
               Get Involved
             </div>
             <div className='flex flex-row flex-wrap justify-center w-auto mt3-m center'>
@@ -304,7 +299,7 @@ class IndexPage extends Component {
         </section>
         <Team />
         <section className='h-footer bg-tf-dark-gray'>
-          <div className='flex flex-column m-auto w-33-l w-50-m w-75 tc'>
+          <div className='flex flex-column m-auto w-20-l w-40-m w-75 tc'>
             <div className='white pt4 mb2 tf-oswald ts-subtext'>
               <h3 className='ma0 pa0 '>Let's Keep in Touch</h3>
             </div>
