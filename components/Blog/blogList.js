@@ -1,4 +1,5 @@
 import React from 'react'
+import { ALL_SCHOOL } from './utils'
 
 const Blog = ({ content }) =>
   (<div className='blog-component pa4 flex' >
@@ -16,7 +17,7 @@ function BlogList ({ blogs, selectedSchool }) {
     <div className='pa2'>
       {
         blogs
-          .filter((blog) => (selectedSchool === 'All' || blog.school === selectedSchool)) // filter blogs based on selected school
+          .filter((blog) => (selectedSchool === ALL_SCHOOL || blog.school === selectedSchool)) // filter blogs based on selected school
           .map((content) => <Blog content={content} key={content.blogId} />) // render the selected blog
       }
     </div>
