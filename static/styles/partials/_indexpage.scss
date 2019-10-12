@@ -13,29 +13,71 @@
   }
 
   &__provide {
-
-    &--image {
-      background-image: url('/static/images/children-class-classroom.png');
-      height: 30rem;
-      left: 28rem;
-      width: 44rem;
-  
-      @media screen and (max-width: $x-large-screen) {
-        left: 20rem;
-      }
-      @media screen and (max-width: 1110px) {
-        left: 15rem;
-      }
-      @media screen and (max-width: $large-screen) {
-        left: 14rem;
-        width: 28rem;
-        height: 20rem;
-      }
+    padding-left: 16rem;
+    @media screen and (max-width: $tablet-width) {
+      height: 20rem;
+      padding-left: 12rem;
+    }
+    @media screen and (max-width: $small-screen) {
+      align-items: flex-start;
+      height: 40rem;
+      padding: 4rem 0 0 2rem;
     }
 
-    &--content {
+    &-image {
+      background-image: url('/static/images/children-class-classroom.png');
+      height: 35rem;
+
+      @media screen and (max-width: $x-large-screen) {
+        height: 30rem;
+      }
       @media screen and (max-width: $large-screen) {
-        left: 10rem;
+        height: 27rem;
+      }
+      @media screen and (max-width: $medium-screen) {
+        height: 24rem;
+      }
+      @media screen and (max-width: $tablet-width) {
+        height: 20rem;
+      }
+      @media screen and (max-width: $small-screen) {
+        height: 18rem;
+      }
+      @media screen and (max-width: $x-small-screen) {
+        height: 15rem;
+      }
+
+    }
+    &-content {
+      height: 30rem;
+      left: 15%;
+
+      @media screen and (max-width: $x-large-screen) {
+        height: 28rem;
+      }
+      @media screen and (max-width: $large-screen) {
+        height: 26rem;
+        padding: 2.5rem;
+      }
+      @media screen and (max-width: $medium-screen) {
+        height: 20rem;
+        width: 20rem;
+        left: 7%;
+      }
+      @media screen and (max-width: $tablet-width) {
+        height: 18rem;
+        width: 20rem;
+      }
+      @media screen and (max-width: $small-screen) {
+        height: 15rem;
+        top: 40%;
+        left: 15%;
+        height: 20rem;
+      }
+      @media screen and (max-width: $x-small-screen) {
+        top: 40%;
+        left: 5%;
+        width: 18rem;
       }
     }
   }
