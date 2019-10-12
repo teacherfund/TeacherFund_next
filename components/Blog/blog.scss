@@ -2,13 +2,11 @@
 
 .blog-component {
 
-  .title:hover {
-    color: $blog-component-title;
+  .blog-title:hover {
     cursor: pointer;
   }
 
   .read-more {
-    color: $blog-component-read-more-color;
     cursor: pointer;
   }
 }

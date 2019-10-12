@@ -8,7 +8,7 @@ function SideNav ({ schools, selectedSchool, onSchoolSelected }) {
           const isCurrentSchoolSelected = school === selectedSchool
           const className = `${isCurrentSchoolSelected
             ? 'blog-side-nav-school-selected'
-            : 'blog-side-nav-school-non-selected'} pa2 tc ttc mb1 bg-card`
+            : 'blog-side-nav-school-non-selected'} pa2 tc ttc mb1`
           return (
             <a className={className} key={school} onClick={() => onSchoolSelected(school)}>
               {school}
