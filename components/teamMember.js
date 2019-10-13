@@ -2,7 +2,7 @@ import React from 'react'
 
 const TeamMember = (props) =>
   (
-    <li className='bg-white z-1 ma3 ma0-m ma4-l ma3-m w-25-ns w-80 pa3 ph0-ns'>
+    <li className='bg-white mv3 ma2-m ma4-l w-80 w-30-m w-25-l pa3 ph0-ns'>
       <div className='w-100 bg-transparent pa4-l'>
         <div className='pa2-l tc'>
           <div className='center br-100 ba b--black-05 ma3 h4 h3-m w4 w3-m bg-white overflow-hidden'>
