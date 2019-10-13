@@ -148,7 +148,7 @@ class IndexPage extends Component {
               classroom supplies to extracurricular and after-school funding and equipment.
             </p>
           </div>
-          <img className='index__provide-image' src='/static/images/children-class-classroom.png' alt='art classroom'/>
+          <img className='index__provide-image' src='/static/images/children-class-classroom.png' alt='art classroom' />
         </section>
         <section className='h-section'>
           <div className='flex flex-column mt3 pt5-l pb4 pb0-ns'>

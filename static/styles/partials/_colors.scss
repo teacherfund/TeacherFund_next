@@ -61,11 +61,11 @@
 
 .blog-side-nav-school-non-selected {
   color: $lead-gray;
-  background-color: lighten($lead-gray, 25%);
+  background-color: lighten($light-gray, 25%);
 }
 
 .blog-side-nav-school-selected {
-  color: lighten($lead-gray, 25%);
+  color: lighten($light-gray, 25%);
   background-color: $lead-gray;
 }
 

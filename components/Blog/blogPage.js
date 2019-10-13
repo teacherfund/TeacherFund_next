@@ -8,7 +8,7 @@ function BlogPage () {
   const [blogs, schoolNames, userSelectedSchool, changeUserSelectedSchool] = useToRenderBlog()
   return (
     <React.Fragment>
-      <Head title='Blog Post' />
+      <Head title='Blog – The Teacher Fund' />
       <div className='flex'>
         <SideNav schools={schoolNames} selectedSchool={userSelectedSchool} onSchoolSelected={changeUserSelectedSchool} />
         <BlogList blogs={blogs} selectedSchool={userSelectedSchool} />
