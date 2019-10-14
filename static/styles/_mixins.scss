@@ -4,6 +4,7 @@
   border: 0.2rem solid $background;
 
   &:hover {
+    cursor: pointer;
     background-color: transparent;
     color: $background;
     box-shadow: $box-shadow-primary;
@@ -16,6 +17,7 @@
   border: 0.2rem solid $color;
   
   &:hover {
+    cursor: pointer;
     background-color: $color;
     color: $background;
     box-shadow: $box-shadow-primary;
