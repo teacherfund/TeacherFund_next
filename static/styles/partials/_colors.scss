@@ -58,6 +58,20 @@
 .paypal-button {
   outline: none;
 }
+
+.blog-side-nav-school-non-selected {
+  color: $lead-gray;
+  background-color: lighten($light-gray, 25%);
+}
+
+.blog-side-nav-school-selected {
+  color: lighten($light-gray, 25%);
+  background-color: $lead-gray;
+}
+
+.blog-title:hover {
+  color: $dark-teal;
+}
 .bg-trans-gray {
   background-color: rgba($light-gray, 0.1);
 }
