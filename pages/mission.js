@@ -32,7 +32,7 @@ class Mission extends Component {
                 <p>Please consider a donation to help impact the lives of so many teachers and students.</p>
                 <div className=' db center  w-40-l w-80 pv3 pb0-ns ph4 tc pointer'>
                     <Link href='/donate'>
-                      <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
+                      <a className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
                     </Link>
                 </div>
             </div>

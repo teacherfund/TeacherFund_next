@@ -1,0 +1,23 @@
+@mixin btn-default($background, $color) {
+  background-color: $background;
+  color: $color;
+  border: 0.2rem solid $background;
+
+  &:hover {
+    background-color: transparent;
+    color: $background;
+    box-shadow: $box-shadow-primary;
+  }
+}
+
+@mixin btn-alt($background, $color) {
+  background-color: $background;
+  color: $color;
+  border: 0.2rem solid $color;
+  
+  &:hover {
+    background-color: $color;
+    color: $background;
+    box-shadow: $box-shadow-primary;
+  }
+}
