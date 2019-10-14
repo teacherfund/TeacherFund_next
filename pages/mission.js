@@ -2,6 +2,7 @@ import Nav from '../components/nav'
 import { Component } from 'react'
 import Head from '../components/head'
 import '../static/styles/main.scss'
+import Link from 'next/link'
 
 class Mission extends Component {
   render () {
@@ -15,22 +16,27 @@ class Mission extends Component {
             Our Mission
             </div>
             <div className='flex-row tf-lato-lite pb6-ns pl6-ns pr6-ns pa3'>
-              <p>Did you know that in 2015, 94% of public school teachers spent their own money on school supplies? We live in a country where teachers aren't given the resources to properly educate our children. How is this possible?</p>
+            
+                <p>94 percent of public school teachers spent their own money on school supplies in 2015.</p>
 
-              <p>About six months ago, a few friends and I started TeacherFund: a WA non-profit, with the hope of positively impacting public school education, primarily through financially aiding teachers.</p>
+                <p>To this day, teachers aren't given the resources to properly educate our children. Making an average of $35,000 a year, public school teachers spend their own money to provide a better learning environment for our children. We thought, “How is this possible?” and sought to change this through The Teacher Fund.</p>
 
-              <p>As I mentioned earlier, 94% of public school teachers spent <a href='https://www.nytimes.com/2018/05/16/us/teachers-school-supplies.html'>their own money on school supplies in 2015</a>. Their own money! These are public school teachers making on average 35k a year, and they're spending their own money on school supplies trying to make their classroom a better learning environment. THIS IS INSANE.</p>
+                <p>A Washington-based non-profit, The Teacher Fund provides funding and resources to public school teachers in the hope of positively impacting the lives of both teachers and students.</p>
 
-              <p>Our impact begins in Idaho. We will start by supplying classroom supplies to all new teachers in school district 271. This is a baby step, albeit an important one, but a baby step nonetheless, and we acknowledge that.</p>
+                <p>Our impact begins in Idaho. Through funds raised from donors like you, we will help supply new teachers in School District 271 in Coeur d'Alene, ID with the supplies they need for success in the classroom, taking the first step toward ensuring that teachers’ classrooms are funded.</p>
 
-              <p>This baby step will help us gain insights into the public school education system that we wouldn't otherwise have. Insights that will lead to slightly bigger steps, and on and on.</p>
+                <p>Doubling as a test case, this step will help us gain crucial insights into the public school system to learn how and what our donors can supply to be most effective for teachers and their students.</p>
 
-              <p>If any of this resonates with you, let’s take action and make a difference. If you remember the teacher that believed in you, the one that wrote you a letter of recommendation, or the one that helped you to dream big, consider donating.</p>
+                <p>We want to make a difference. And thanks to the wonderful teachers and advisors we had throughout our educations, we feel empowered to do so. Teachers open our eyes and show us what is possible; now it is our turn to pay it forward.</p>
 
-              <p>I talk a lot about being a dreamer. What I don't talk a lot about is what enabled me to have big dreams in the first place. It started with school; I was the kid in 4th grade dreaming of walking on Mars. And although I failed the history test later that week because I was daydreaming, it all surmounted to one thing; I was empowered to dream. The reason I had that power was because I had teachers that showed me what was possible in this world. They encouraged me to never shy away from pushing the envelope. Now we're dreaming again, and we have this crazy notion that we can bootstrap a non-profit that could positively impact the lives of hundreds of thousands of kids.</p>
-
-              <p>Every dream sounds crazy when you first say it out loud. We just did that. Now we're going to make it a reality.</p>
+                <p>Please consider a donation to help impact the lives of so many teachers and students.</p>
+                <div className=' db center  w-40-l w-80 pv3 pb0-ns ph4 tc pointer'>
+                    <Link href='/donate'>
+                      <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
+                    </Link>
+                </div>
             </div>
+           
           </div>
         </main>
       </div>
