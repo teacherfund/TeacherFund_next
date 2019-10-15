@@ -4,6 +4,8 @@
 @import '../../node_modules/tachyons-sass/tachyons';
 @import '_variables';
 
+@import './_mixins';
+
 // partials
 @import './partials/_sizing';
 @import './partials/_colors';

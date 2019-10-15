@@ -1,10 +1,11 @@
 .btn-primary {
-  border-color: $pencil-yellow;
-  color: $pencil-yellow;
-  &:hover {
-    background-color: $pencil-yellow;
-    color: white;
-  }
+  @include btn-default($pencil-yellow, white);
+}
+.btn-red {
+  @include btn-default($eraser-pink, white);
+}
+.btn-alt {
+  @include btn-alt(white, $pencil-yellow);
 }
 
 .skip-link {

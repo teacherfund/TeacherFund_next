@@ -6,9 +6,9 @@ const Mission = () => {
   return (
     <PageWrapper title='Our Mission – The Teacher Fund'>
       <div className='w-100 h-100 min-vh-100 flex-column flex bg-card'>
-        <div className='tf-dark-gray tc w-100 ts-title tf-oswald fl pa4'>
-        Our Mission
-        </div>
+        <h1 className='tf-dark-gray tc w-100 ts-title tf-oswald fl pa4 mv0'>
+          Our Mission
+        </h1>
         <div className='flex-row tf-lato-lite pb6-ns pl6-ns pr6-ns pa3'>
 
           <p>94 percent of public school teachers spent their own money on school supplies in 2015.</p>
@@ -26,7 +26,7 @@ const Mission = () => {
           <p>Please consider a donation to help impact the lives of so many teachers and students.</p>
           <div className=' db center  w-40-l w-80 pv3 pb0-ns ph4 tc pointer'>
             <Link href='/donate'>
-              <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
+              <a className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
             </Link>
           </div>
         </div>

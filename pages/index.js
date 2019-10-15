@@ -265,7 +265,7 @@ class IndexPage extends Component {
                     </div>
                     <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
                       <Link href='/donate'>
-                        <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
+                        <a className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid w-80 m-auto'>Donate</a>
                       </Link>
                     </div>
                   </div>
@@ -282,12 +282,12 @@ class IndexPage extends Component {
                         and build teacher relationships.
                       </div>
                     </div>
-                    <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
-                      <a className='white no-underline pa3 db br-pill tf-lato b v-mid bg-tf-pink w-80 m-auto'
-                        href='mailto:joelwass@theteacherfund.com?subject=Application'>
-                         Apply Today
-                      </a>
-                    </div>
+                  </div>
+                  <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
+                    <a className='btn-red no-underline pa3 db br-pill tf-lato b v-mid w-80 m-auto'
+                      href='mailto:joelwass@theteacherfund.com?subject=Application'>
+                       Apply Today
+                    </a>
                   </div>
                 </div>
               </div>
@@ -317,9 +317,9 @@ class IndexPage extends Component {
                     <div className='mb3 red tf-lato' aria-live='assertive'>
                       {this.state.error}
                     </div>
-                    <button className='white no-underline pa3 db br-pill tf-lato bn v-mid bg-tf-yellow w-40 m-auto'>
-                        Submit
-                    </button>
+                    <button className='btn-primary no-underline pa3 db br-pill tf-lato bn v-mid bg-tf-yellow w-40 m-auto'>
+                      Submit
+                  </button>
                   </form>
                 }
               </div>
