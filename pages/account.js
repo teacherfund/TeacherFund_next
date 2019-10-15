@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import PageWrapper from '../components/pageWrapper'
 import Link from 'next/link'
 

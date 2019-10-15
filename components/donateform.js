@@ -3,7 +3,6 @@ import { CardElement, injectStripe } from 'react-stripe-elements'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
 import * as Api from '../api/api'
-import '../static/styles/main.scss'
 
 class DonateForm extends Component {
   constructor (props) {

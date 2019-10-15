@@ -1,7 +1,7 @@
+import React, { Component } from 'react'
 import PageWrapper from '../components/pageWrapper'
 import DonateForm from '../components/donateform'
 import { Elements, StripeProvider } from 'react-stripe-elements'
-import { Component } from 'react'
 
 class Donate extends Component {
   constructor (props) {

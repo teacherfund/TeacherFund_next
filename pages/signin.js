@@ -1,3 +1,4 @@
+import React from 'react'
 import PageWrapper from '../components/pageWrapper'
 import LoginForm from '../components/loginform'
 

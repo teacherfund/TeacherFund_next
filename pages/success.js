@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PageWrapper from '../components/pageWrapper'
 
-class Success extends React.Component {
+class Success extends Component {
   static defaultProps = {
     tweet: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=I%20just%20donated%20to%20TeacherFund,%20check%20it%20out%20at'
   };
