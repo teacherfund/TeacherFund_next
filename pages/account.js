@@ -2,7 +2,6 @@ import { Component } from 'react'
 import PageWrapper from '../components/pageWrapper'
 import Link from 'next/link'
 
-
 class Account extends Component {
   dummyTransactions = [
     { date: new Date(1469947879632), amount: 135, status: 'completed' },

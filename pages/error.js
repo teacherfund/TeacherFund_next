@@ -1,6 +1,5 @@
 import PageWrapper from '../components/pageWrapper'
 
-
 const Error = () => {
   return (
     <PageWrapper title='Error'>

@@ -1,5 +1,5 @@
 import React from 'react'
-import PageWrapper from '../components/pageWrapper';
+import PageWrapper from '../components/pageWrapper'
 
 class Success extends React.Component {
   static defaultProps = {
