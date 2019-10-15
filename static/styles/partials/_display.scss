@@ -1,3 +1,8 @@
 .z-minus-1 {
   z-index: -1; 
 }
+
+// prevents #main-content from getting focus styles when skip link is used
+#main-content:focus {
+  outline: none;
+}

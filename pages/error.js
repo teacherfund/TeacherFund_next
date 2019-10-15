@@ -1,23 +1,14 @@
-import React from 'react'
-import Head from '../components/head'
-import Nav from '../components/nav'
+import PageWrapper from '../components/pageWrapper'
 
-import '../static/styles/main.scss'
 
-class Error extends React.Component {
-  render () {
-    return (
-      <div className=''>
-        <Head title='Error' />
-        <Nav />
-        <main>
-          <div className=''>
-            <p>Error</p>
-          </div>
-        </main>
+const Error = () => {
+  return (
+    <PageWrapper title='Error'>
+      <div>
+        <p>Error</p>
       </div>
-    )
-  }
+    </PageWrapper>
+  )
 }
 
 export default Error

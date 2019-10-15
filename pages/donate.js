@@ -1,9 +1,7 @@
-import Nav from '../components/nav'
+import PageWrapper from '../components/pageWrapper'
 import DonateForm from '../components/donateform'
-import Head from '../components/head'
 import { Elements, StripeProvider } from 'react-stripe-elements'
 import { Component } from 'react'
-import '../static/styles/main.scss'
 
 class Donate extends Component {
   constructor (props) {
@@ -15,10 +13,7 @@ class Donate extends Component {
 
   render () {
     return (
-      <div>
-        <Head title='Donate – The Teacher Fund' />
-        <Nav />
-        <main>
+       <PageWrapper title="Donate – The Teacher Fund">
           <div className='w-100 h-100 flex'>
             <div className='w-100 h-100 absolute bg-tf-gray o-10 z-minus-1' />
             {process.browser && <div className='flex flex-column m-auto justify-between pa3 pa4-ns'>
@@ -54,8 +49,7 @@ class Donate extends Component {
             </div>
             }
           </div>
-        </main>
-      </div>
+      </PageWrapper>
     )
   }
 }
