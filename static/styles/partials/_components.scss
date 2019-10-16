@@ -7,6 +7,9 @@
 .btn-alt {
   @include btn-alt(white, $pencil-yellow);
 }
+.btn-donate {
+  @include btn-darken($dark-teal, white);
+}
 
 .skip-link {
   position: absolute;

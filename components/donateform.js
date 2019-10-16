@@ -92,21 +92,21 @@ class DonateForm extends Component {
     if (redirectSuccess) return (<div />)
 
     return (
-      <form className='flex flex-column f4-m' onSubmit={this.donate}>
+      <form className='flex flex-column f4-m ph2' onSubmit={this.donate}>
         <div className='error tf-lato tc'>
           <p className='red'>{this.state.error}</p>
         </div>
 
         <DonationFrequency updateFrequency={this.updateFrequency} frequency={this.state.frequency} />
-        <input className='bn ba pa2 pa3-m ma1 ma2-m' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
-        <input className='bn ba pa2 pa3-m ma1 ma2-m' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
-        <input className='bn ba pa2 pa3-m ma1 ma2-m' placeholder='Email' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
-        <input className='bn ba pa2 pa3-m ma1 ma2-m' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} aria-label='Amount' />
-        <div className='bg-white bn ba pa2 ma1 mb3-m'>
+        <input className='bn ba pa3 mv2' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
+        <input className='bn ba pa3 mv2' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
+        <input className='bn ba pa3 mv2' placeholder='Email' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
+        <input className='bn ba pa3 mv2' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} aria-label='Amount' />
+        <div className='bg-white bn ba pa3 mv2'>
           <CardElement />
         </div>
         { loading && <h2 className='tc tf-lato'>Loading...</h2>}
-        <button type='submit' className='white bg-tf-teal tf-lato b tc pa2 mt3 mt3-m mh-auto br-pill ttu pointer w-75'>Donate</button>
+        <button type='submit' className='white btn-donate tf-lato b tc pa3 mt3 mt3-m mh-auto br-pill pointer w-50'>Donate</button>
       </form>
     )
   }

@@ -20,7 +20,14 @@ class Nav extends React.Component {
   }
 
   toggleDrawerOpen = () => {
-    this.setState({ drawerOpen: !this.state.drawerOpen })
+    const { drawerOpen } = this.state
+    if (!drawerOpen) {
+      document.body.classList.add('no-scroll')
+    } else {
+      document.body.classList.remove('no-scroll')
+    }
+
+    this.setState({ drawerOpen: !drawerOpen })
   }
 
   render () {
@@ -58,8 +65,8 @@ class Nav extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc'>
-          <div className='fr pt5 pr5' onClick={this.toggleDrawerOpen}>
+        {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc dn-l'>
+          <div className='fr ma3 ma4-m' onClick={this.toggleDrawerOpen}>
             <X />
           </div>
           <div className='flex-column flex justify-around h5 mt6 pt4 f3'>
