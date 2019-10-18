@@ -65,7 +65,7 @@ class Nav extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc dn-l'>
+        {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc'>
           <div className='fr ma3 ma4-m' onClick={this.toggleDrawerOpen}>
             <X />
           </div>
