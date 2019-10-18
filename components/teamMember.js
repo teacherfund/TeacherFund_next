@@ -8,10 +8,10 @@ const TeamMember = (props) =>
           <div className='center br-100 ba b--black-05 ma3 h4 h3-m w4 w3-m bg-white overflow-hidden'>
             <img src={'/static/images/people/' + props.src} alt='' />
           </div>
-          <h3 className='tf-lato f3-l f4 pv2 tc ma0'>
+          <h3 className='tf-lato ts-subtext f4 pv2 tc ma0'>
             {props.name}
           </h3>
-          <h4 className='tf-lato-lite ma0 f4-l'>
+          <h4 className='tf-lato-lite ma0 f3-l'>
             {props.title}
           </h4>
           <p className='tf-lato-lite f4-l tc f5 ma3-m pb2 pa2-ns lh-title'>
