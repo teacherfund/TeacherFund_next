@@ -36,13 +36,17 @@
 
 // text size
 .ts-subtext {
-  font-size: 24px;
-}
-.ts-text {
-  font-size: 30px;
+  @media screen and (min-width: $large-screen) {
+    font-size: 1.875rem // 30px;
+  }
 }
 .ts-title {
   font-size: 48px;
+}
+.ts-metric {
+  @media screen and (min-width: $large-screen) {
+    font-size: 4.375rem // 70px;
+  }
 }
 .paypal-button {
   width: 11rem;
