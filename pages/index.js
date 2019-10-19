@@ -270,24 +270,24 @@ class IndexPage extends Component {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className='pa2 pa4-ns w-40-m w-33-l w-80 bg-card h5-5-ns ma3'>
-                <div className='w-100 pa2'>
-                  <div className='pa2 tc'>
-                    <h3 className='tf-lato f3 f2-l ma0 mb3 pv2 tc'>
-                      Volunteer
-                    </h3>
-                    <div className='tf-lato-lite ts-subtext f5 pt2 tc h4-m lh-title'>
-                      Interested in helping us? We’re looking for a web designer, non-profit
-                      lawyer, and boots-on-the-ground volunteers to help handout supplies
-                      and build teacher relationships.
+                <div className='pa2 pa4-ns w-40-m w-33-l w-80 bg-card h5-5-ns ma3'>
+                  <div className='w-100 pa2'>
+                    <div className='pa2 tc'>
+                      <h3 className='tf-lato f3 f2-l ma0 mb3 pv2 tc'>
+                        Volunteer
+                      </h3>
+                      <div className='tf-lato-lite ts-subtext f5 pt2 tc h4-m lh-title'>
+                        Interested in helping us? We’re looking for a web designer, non-profit
+                        lawyer, and boots-on-the-ground volunteers to help handout supplies
+                        and build teacher relationships.
+                      </div>
                     </div>
-                  </div>
-                  <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
-                    <a className='btn-red no-underline pa3 db br-pill tf-lato b v-mid w-80 m-auto'
-                      href='mailto:joelwass@theteacherfund.com?subject=Application'>
-                       Apply Today
-                    </a>
+                    <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
+                      <a className='btn-red no-underline pa3 db br-pill tf-lato b v-mid w-80 m-auto'
+                        href='mailto:joelwass@theteacherfund.com?subject=Application'>
+                         Apply Today
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
