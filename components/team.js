@@ -11,7 +11,7 @@ const teamMembers = [
   {
     name: 'Christine Woeller',
     src: 'christine.jpeg',
-    bio: `With a degree in secondary education, Christine seeks to improve public schools
+    bio: `With her MBA in Finance degree from Gonzaga University, Christine seeks to improve public schools
           and ensure teachers have the best resources available.`
   },
   {

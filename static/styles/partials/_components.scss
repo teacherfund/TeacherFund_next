@@ -1,8 +1,28 @@
 .btn-primary {
-  border-color: $pencil-yellow;
-  color: $pencil-yellow;
+  @include btn-default($pencil-yellow, white);
+}
+.btn-red {
+  @include btn-default($eraser-pink, white);
+}
+.btn-alt {
+  @include btn-alt(white, $pencil-yellow);
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.25em;
+  color: $lead-gray;
+  background-color: $pencil-yellow;
+  transform: translateY(-100%);
+
+  &:focus {
+    transform: translateY(0);
+    outline: none;
+  }
+
   &:hover {
-    background-color: $pencil-yellow;
-    color: white;
+    box-shadow: inset 0 0 0 .15em;
   }
 }
