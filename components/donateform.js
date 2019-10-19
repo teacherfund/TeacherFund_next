@@ -94,14 +94,14 @@ class DonateForm extends Component {
     return (
       <form className='flex flex-column f4-m ph2' onSubmit={this.donate}>
         <div className='error tf-lato tc'>
-          <p className='red'>{this.state.error}</p>
+          <p className='red' aria-live='assertive'>{this.state.error}</p>
         </div>
 
         <DonationFrequency updateFrequency={this.updateFrequency} frequency={this.state.frequency} />
-        <input className='bn ba pa3 mv2' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
-        <input className='bn ba pa3 mv2' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
-        <input className='bn ba pa3 mv2' placeholder='Email' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
-        <input className='bn ba pa3 mv2' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} aria-label='Amount' />
+        <input type='text' required className='bn ba pa3 mv2' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
+        <input type='text' required className='bn ba pa3 mv2' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
+        <input type='email' required className='bn ba pa3 mv2' placeholder='Email' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
+        <input type='text' required className='bn ba pa3 mv2' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} aria-label='Amount' />
         <div className='bg-white bn ba pa3 mv2'>
           <CardElement />
         </div>
