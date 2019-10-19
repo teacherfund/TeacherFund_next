@@ -11,10 +11,10 @@ const TeamMember = (props) =>
           <h3 className='tf-lato ts-subtext f4 pv2 tc ma0'>
             {props.name}
           </h3>
-          <h4 className='tf-lato-lite ma0 f3-l'>
+          <h4 className='tf-lato-lite ma0 f6 f3-l'>
             {props.title}
           </h4>
-          <p className='tf-lato-lite f4-l tc f5 ma3-m pb2 pa2-ns lh-title'>
+          <p className='tf-lato-lite f5 f4-l tc ma3-m pb2 pa2-ns lh-title'>
             {props.bio}
           </p>
         </div>
