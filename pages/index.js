@@ -98,7 +98,7 @@ class IndexPage extends Component {
               Funding Teachers.<br />
               Empowering Students.
             </h1>
-            <p className='f3-l f4-m fl tf-lato-lite white mt4-m mb0'>
+            <p className='f4 f3-l fl tf-lato-lite white mt4-m mb0'>
               We provide funding to classrooms so teachers don't have to.
             </p>
           </div>
@@ -122,7 +122,7 @@ class IndexPage extends Component {
             </div>
           </div>
           <div className='w-90 mh-auto dn-ns tc tf-lato-lite'>
-            <p className=''>Amount of public school teachers who spend their own money on school supplies</p>
+            <p className='f6'>Amount of public school teachers who spend their own money on school supplies</p>
           </div>
           <div className='w-90 w-70-l w-80-m ba bw1 mh-auto mt3 border-tf-pink white bg-tf-pink'>
             <div className='flex flex-column flex-row-ns w-94 tf-lato-lite pa2 pa4-l pa3-m'>
@@ -135,15 +135,15 @@ class IndexPage extends Component {
             </div>
           </div>
           <div className='w-90 mh-auto dn-ns tc tf-lato-lite'>
-            <p>How much of your donation goes directly to providing resources for classrooms in need.</p>
+            <p className='f6'>How much of your donation goes directly to providing resources for classrooms in need.</p>
           </div>
         </section>
         <section className='index__provide h-section bg-trans-gray flex justify-center items-center relative'>
           <div className='bg-transparent pa3-m pa5-l z-1 w-30-m w-30-l index__provide-content absolute lh-title'>
-            <h2 className='ma0 tf-oswald f1-l f3 pv3 tc tl-ns'>
+            <h2 className='ma0 tf-oswald f3 f1-l pv3 tc tl-ns'>
               What We Provide
             </h2>
-            <p className='tf-lato-lite ma0 f3-l f5 tl-ns tc pa1 pa0-ns'>
+            <p className='tf-lato-lite ma0 f5 f3-l tl-ns tc pa1 pa0-ns'>
               We support teachers in need of everything from the most basic of
               classroom supplies to extracurricular and after-school funding and equipment.
             </p>
@@ -162,7 +162,7 @@ class IndexPage extends Component {
                     <div className='center br-100 pa2-m pa4 ba b--black-05 mb2 ma3-m h4 h3-m w4 w3-m bg-white'>
                       <img src='/static/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />
                     </div>
-                    <div className='tf-lato ts-subtext f4 pv2 tc'>
+                    <div className='tf-lato ts-subtext f3 f4-m pv2 tc'>
                       Quality Teachers
                     </div>
                     <div className='tf-lato-lite f5 f3-l pt2 tc lh-title'>
@@ -178,7 +178,7 @@ class IndexPage extends Component {
                     <div className='center br-100 pa4 pa2-m ba b--black-05 mb2 ma3-m h4 h3-m w4 w3-m bg-white'>
                       <img src='/static/images/School_icon.png' className='contain' title='Icon of school' />
                     </div>
-                    <div className='tf-lato ts-subtext f4 pv2 tc'>
+                    <div className='tf-lato ts-subtext f3 f4-m pv2 tc'>
                       Local Schools
                     </div>
                     <div className='tf-lato-lite f5 f3-l pt2 tc lh-title'>
@@ -194,7 +194,7 @@ class IndexPage extends Component {
                     <div className='center br-100 pa4 pa2-m ba b--black-05 mb2 ma3-m h4 h3-m w4 w3-m bg-white'>
                       <img src='/static/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' />
                     </div>
-                    <div className='tf-lato ts-subtext f4 pv2 tc'>
+                    <div className='tf-lato ts-subtext f3 f4-m pv2 tc'>
                       Tangible Impact
                     </div>
                     <div className='tf-lato-lite f5 f3-l pt2 tc lh-title'>
@@ -215,34 +215,34 @@ class IndexPage extends Component {
             <div className='center pa2 pv0-ns flex flex-column'>
               <div className='index__metrics mb4-m'>
                 <div className='index__metric border-tf-yellow' aria-label='Amount of money raised for teachers'>
-                  <div className='tf-lato ts-metric f2-m center'>
+                  <div className='tf-lato ts-metric center'>
                     ${formatCurrency(this.props.context.globalAmountDonated) || 0}
                   </div>
-                  <div className='pt2 tf-lato-lite ts-subtext f5 center'>
+                  <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
                     Raised
                   </div>
                 </div>
                 <div className='index__metric border-tf-pink' aria-label='Number of teachers funded by TeacherFund'>
-                  <div className='tf-lato ts-metric f2-m center'>
+                  <div className='tf-lato ts-metric center'>
                     3
                   </div>
-                  <div className='pt2 tf-lato-lite ts-subtext f5 center'>
+                  <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
                     Teachers Funded
                   </div>
                 </div>
                 <div className='index__metric border-tf-dark-gray' aria-label='Number of schools partenered with TeacherFund'>
-                  <div className='tf-lato ts-metric f2-m center'>
+                  <div className='tf-lato ts-metric center'>
                     2
                   </div>
-                  <div className='pt2 tf-lato-lite ts-subtext f5 center'>
+                  <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
                     Partner Schools
                   </div>
                 </div>
                 <div className='index__metric border-tf-gray' aria-label='Number of students impacted by TeacherFund'>
-                  <div className='tf-lato ts-metric f2-m center'>
+                  <div className='tf-lato ts-metric center'>
                     450
                   </div>
-                  <div className='pt2 tf-lato-lite ts-subtext f5 center'>
+                  <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
                     Students Impacted
                   </div>
                 </div>
@@ -329,7 +329,7 @@ class IndexPage extends Component {
             </div>
           </div>
           <div className='flex flex-column m-auto w-30-l w-50-m w-75 tc'>
-            <div className='f4-m pt4 center white m-auto tf-lato-lite'>
+            <div className='f6 f4-m pt4 center white m-auto tf-lato-lite'>
               <p className='mt0 mb2'>The Teacher Fund is 501(c)(3) pending</p>
               <p className='mt0 mb2'>EIN: 83-2285506</p>
               <p className='mt0 mb2'>&copy; Copyright {this.state.currentYear}</p>
