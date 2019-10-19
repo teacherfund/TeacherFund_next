@@ -10,7 +10,6 @@
                 $shadow-light;
   }
 }
-
 @mixin btn-alt($background, $color) {
   color: $color;
   background-color: $background;
@@ -20,6 +19,16 @@
     cursor: pointer;
     background-color: $color;
     color: $background;
+    box-shadow: $shadow-light;
+  }
+}
+@mixin btn-darken($background, $color) {
+  background-color: $background;
+  color: $color;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($background, 10%);
     box-shadow: $shadow-light;
   }
 }
