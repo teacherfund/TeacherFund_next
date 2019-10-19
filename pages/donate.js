@@ -23,10 +23,10 @@ class Donate extends Component {
             <div className='w-100 h-100 absolute bg-tf-gray o-10 z-minus-1' />
             {process.browser && <div className='flex flex-column m-auto justify-between pa3 pa4-ns'>
               <div className='flex flex-column pa4-ns pa2 pb4 tf-lato tc mv-auto'>
-                <h1 className='tf-dark-gray f1 tf-oswald fl pb3 mv0'>
+                <h1 className='tf-dark-gray f3 f1-m f1-l tf-oswald fl pb3 mv0'>
                 Fund Teachers. Help Students.
                 </h1>
-                <p className='tf-gray tf-lato-lite f3-m pa1 w-75-ns m-auto mv0 lh-5 lh-copy'>
+                <p className='tf-gray tf-lato-lite f5 f3-m f3-l pa1 w-75-ns m-auto mv0 lh-5 lh-copy'>
                 With 100 percent of your donation funding public school teachers in need, you can
                 give knowing that your entire gift will help equip classrooms and help students.
                 </p>
