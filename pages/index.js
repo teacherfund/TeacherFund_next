@@ -319,7 +319,7 @@ class IndexPage extends Component {
                     </div>
                     <button className='btn-primary no-underline pa3 db br-pill tf-lato bn v-mid bg-tf-yellow w-40 m-auto'>
                       Submit
-                  </button>
+                    </button>
                   </form>
                 }
               </div>

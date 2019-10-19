@@ -6,10 +6,10 @@ const Mission = () => {
   return (
     <PageWrapper title='Our Mission – The Teacher Fund'>
       <div className='w-100 h-100 min-vh-100 flex-column flex bg-card'>
-        <h1 className='tf-dark-gray tc w-100 ts-title tf-oswald fl pa4 mv0'>
+        <h1 className='tf-dark-gray tc w-100 ts-title tf-oswald fl pt4 mv0'>
           Our Mission
         </h1>
-        <div className='flex-row tf-lato-lite pb6-ns pl6-ns pr6-ns pa3'>
+        <div className='flex-row tf-lato-lite pa3 w-80-m w-70-l mh-auto'>
 
           <p>94 percent of public school teachers spent their own money on school supplies in 2015.</p>
 
