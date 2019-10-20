@@ -312,15 +312,15 @@ class IndexPage extends Component {
                       <input placeholder='Last Name' className='w-100 bn pa3 mv2' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
                     </div>
                     <div className='m-auto pb3'>
-                      <input type='email' placeholder='Email Address' className='w-100 bn pa3 mv2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' aria-required='true' />
+                      <input type='email' required placeholder='Email Address' className='w-100 bn pa3 mv2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
                     </div>
                     <div className='mb3 red tf-lato' aria-live='assertive'>
                       {this.state.error}
                     </div>
                     <button className='btn-primary no-underline pa3 db br-pill tf-lato bn v-mid bg-tf-yellow w-40 m-auto'>
                       Submit
-                  </button>
-                </form>
+                    </button>
+                  </form>
                 }
             </div>
             </div>
