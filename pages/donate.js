@@ -21,7 +21,7 @@ class Donate extends Component {
               <h1 className='tf-dark-gray f2 f1-l tf-oswald fl'>
                     Fund Teachers. Help Students.
               </h1>
-              <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
+              <p className='tf-lato-lite f5 f3-m f4-l pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                     With 100 percent of your donation funding public school teachers in need, you can
                     give knowing that your entire gift will help equip classrooms and help students.
               </p>
