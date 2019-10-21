@@ -202,63 +202,63 @@ class IndexPage extends Component {
                 </div>
               </div>
             </div>
-        </section>
-        <section className='h-section bg-tf-teal pt5-l'>
-          <div className='flex flex-column pv3 pv0-l'>
-            <div className='f3 f1-l tf-oswald white tc mb5-l mv4'>
+          </section>
+          <section className='h-section bg-tf-teal pt5-l'>
+            <div className='flex flex-column pv3 pv0-l'>
+              <div className='f3 f1-l tf-oswald white tc mb5-l mv4'>
               See How We're Doing
-            </div>
-            <div className='center pa2 pv0-ns flex flex-column'>
-              <div className='index__metrics mb4-m'>
-                <div className='index__metric border-tf-yellow' aria-label='Amount of money raised for teachers'>
-                  <div className='tf-lato f1-l f2 center'>
+              </div>
+              <div className='center pa2 pv0-ns flex flex-column'>
+                <div className='index__metrics mb4-m'>
+                  <div className='index__metric border-tf-yellow' aria-label='Amount of money raised for teachers'>
+                    <div className='tf-lato f1-l f2 center'>
                     ${formatCurrency(this.props.context.globalAmountDonated) || 0}
-                  </div>
-                  <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
+                    </div>
+                    <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
                     Raised
+                    </div>
                   </div>
-                </div>
-                <div className='index__metric border-tf-pink' aria-label='Number of teachers funded by TeacherFund'>
-                  <div className='tf-lato f1-l f2 center'>
+                  <div className='index__metric border-tf-pink' aria-label='Number of teachers funded by TeacherFund'>
+                    <div className='tf-lato f1-l f2 center'>
                     3
-                  </div>
-                  <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
+                    </div>
+                    <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
                     Teachers Funded
+                    </div>
                   </div>
-                </div>
-                <div className='index__metric border-tf-dark-gray' aria-label='Number of schools partenered with TeacherFund'>
-                  <div className='tf-lato f1-l f2 center'>
+                  <div className='index__metric border-tf-dark-gray' aria-label='Number of schools partenered with TeacherFund'>
+                    <div className='tf-lato f1-l f2 center'>
                     2
-                  </div>
-                  <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
+                    </div>
+                    <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
                     Partner Schools
+                    </div>
                   </div>
-                </div>
-                <div className='index__metric border-tf-gray' aria-label='Number of students impacted by TeacherFund'>
-                  <div className='tf-lato f1-l f2 center'>
+                  <div className='index__metric border-tf-gray' aria-label='Number of students impacted by TeacherFund'>
+                    <div className='tf-lato f1-l f2 center'>
                     450
-                  </div>
-                  <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
+                    </div>
+                    <div className='pt2 tf-lato-lite ts-subtext f4 f5-m center'>
                     Students Impacted
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        <section className='h-section pt4 pt0-ns'>
-          <div className='flex flex-column pt4-ns pt6-l'>
-            <div className='f1-l f3 tf-oswald center mb3 mb4-l'>
+          </section>
+          <section className='h-section pt4 pt0-ns'>
+            <div className='flex flex-column pt4-ns pt6-l'>
+              <div className='f1-l f3 tf-oswald center mb3 mb4-l'>
               Get Involved
-            </div>
-            <div className='flex flex-row flex-wrap justify-center w-auto mt3-m center'>
-              <div className='pa2 pa4-ns w-40-m w-33-l w-80 bg-card h5-5-ns ma3'>
-                <div className='w-100 pa2'>
-                  <div className='pa2 tc'>
-                    <h3 className='tf-lato f3 f2-l ma0 mb3 pv2 tc'>
+              </div>
+              <div className='flex flex-row flex-wrap justify-center w-auto mt3-m center'>
+                <div className='pa2 pa4-ns w-40-m w-33-l w-80 bg-card h5-5-ns ma3'>
+                  <div className='w-100 pa2'>
+                    <div className='pa2 tc'>
+                      <h3 className='tf-lato f3 f2-l ma0 mb3 pv2 tc'>
                       Fund Teachers
-                    </h3>
-                    <div className='tf-lato-lite ts-subtext f5 pt2 tc h4-m lh-title'>
+                      </h3>
+                      <div className='tf-lato-lite ts-subtext f5 pt2 tc h4-m lh-title'>
                       Because private donors cover our operating costs, you can give knowing your whole gift
                       will go toward helping equip teachers and students with the supplies they need to be successful.
                       </div>
@@ -322,7 +322,7 @@ class IndexPage extends Component {
                     </button>
                   </form>
                 }
-            </div>
+              </div>
             </div>
             <div className='flex flex-column m-auto w-30-l w-50-m w-75 tc'>
               <div className='f6 f4-m pt4 center white m-auto tf-lato-lite'>
