@@ -83,26 +83,12 @@
   }
 
   &__metrics {
-    @media screen and (min-width: 832px) {
-      padding: 0 2rem;
+    max-width: 260px;
+    @media screen and (min-width: $small-screen) {
+      max-width: 600px;
     }
-    @media screen and (min-width: 896px) {
-      padding: 0 10.2rem;
-    }
-    @media screen and (min-width: 960px) {
-      padding: 0 9.5rem;
-    }
-    @media screen and (min-width: 1280px) {
-      padding: 0 11rem;
-    }
-    @media screen and (min-width: 1303px) {
-      padding: 0 20rem;
-    }
-    @media screen and (min-width: 1328px) {
-      padding: 0 21rem;
-    }
-    @media screen and (min-width: 1648px) {
-      padding: 0 31rem;
+    @media screen and (min-width: $large-screen) {
+      max-width: 960px;
     }
     @extend .flex,
             .flex-column,
@@ -112,18 +98,26 @@
   }
 
   &__metric {
-    @extend .w5,
-            .pa3,
-            .pa0-ns,
-            .h4-ns,
+    @extend .ph4,
+            .pv4,
+            .pv5-l,
+            .w-40-m,
+            .w-40-l,
             .bg-white,
             .bl,
             .bw3,
-            .ma2,
-            .ma4-l,
+            .mb4,
             .flex,
             .flex-column,
             .items-center,
             .justify-center;
+    &:nth-of-type(odd) {
+      @extend .mr3-m;
+      @extend .mr3-l;
+    }
+    &:nth-of-type(even) {
+      @extend .ml3-m;
+      @extend .ml3-l;
+    }
   }
 }
