@@ -1,0 +1,34 @@
+@mixin btn-default($background, $color) {
+  background-color: $background;
+  color: $color;
+  
+  &:hover {
+    cursor: pointer;
+    color: $background;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 0.3rem $background,
+                $shadow-light;
+  }
+}
+@mixin btn-alt($background, $color) {
+  color: $color;
+  background-color: $background;
+  box-shadow: inset 0 0 0 0.2rem $color;
+  
+  &:hover {
+    cursor: pointer;
+    background-color: $color;
+    color: $background;
+    box-shadow: $shadow-light;
+  }
+}
+@mixin btn-darken($background, $color) {
+  background-color: $background;
+  color: $color;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($background, 10%);
+    box-shadow: $shadow-light;
+  }
+}

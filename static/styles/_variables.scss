@@ -10,3 +10,15 @@ $section-height: 44rem;
 $footer-height: 32rem;
 
 
+// screen widths
+$x-small-screen: 480px;
+$small-screen: 600px;
+$tablet-width: 768px;
+$medium-screen: 900px;
+$large-screen: 1024px;
+$x-large-screen: 1200px;
+
+
+$shadow-light: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.05),
+                     0 0.5rem 0.5rem rgba(0, 0, 0, 0.05),
+                     0 0.5rem 1rem rgba(0, 0, 0, 0.05);

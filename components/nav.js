@@ -20,17 +20,24 @@ class Nav extends React.Component {
   }
 
   toggleDrawerOpen = () => {
-    this.setState({ drawerOpen: !this.state.drawerOpen })
+    const { drawerOpen } = this.state
+    if (!drawerOpen) {
+      document.body.classList.add('no-scroll')
+    } else {
+      document.body.classList.remove('no-scroll')
+    }
+
+    this.setState({ drawerOpen: !drawerOpen })
   }
 
   render () {
     return (
       <nav>
-        <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl2 pr2 pt4 z-1'>
-          <div className='b--tf-yellow flex justify-between flex-row w-100'>
+        <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl3 pr3 z-1'>
+          <div className='w-70-l mh-auto b--tf-yellow flex justify-between flex-row w-100'>
             <div className='pointer tc'>
               <Link href='/'>
-                <img src='/static/images/Logo_with_text.png' className='w4' />
+                <img src='/static/images/Logo_with_text.png' className='w4' alt='The Teacher Fund – Home' />
               </Link>
             </div>
             <div className='fr dn db-l flex-column flex-auto-ns mv-auto'>
@@ -46,7 +53,7 @@ class Nav extends React.Component {
               {this.buttons.map(({ key, href, label }) => (
                 <div key={key} className='db center w-auto fr ph2'>
                   <Link href={href} key={key}>
-                    <a className='b--tf-yellow tf-yellow no-underline black pv3 ph4 ba bw2 br3'>{label}</a>
+                    <a className='btn-alt no-underline black pv3 ph4 br3'>{label}</a>
                   </Link>
                 </div>
               ))}
@@ -59,7 +66,7 @@ class Nav extends React.Component {
           </div>
         </div>
         {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc'>
-          <div className='fr pt5 pr5' onClick={this.toggleDrawerOpen}>
+          <div className='fr ma3 ma4-m' onClick={this.toggleDrawerOpen}>
             <X />
           </div>
           <div className='flex-column flex justify-around h5 mt6 pt4 f3'>
