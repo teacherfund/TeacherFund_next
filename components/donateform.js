@@ -25,24 +25,14 @@ class DonateForm extends Component {
     this.setState(state)
   }
 
-  updateFirstName = (e) => {
-    this.setLocalState({ firstName: e.target.value })
+  updateStateKey = (e) => {
+    this.setLocalState({
+      [e.target.name]: e.target.value
+    });
   }
 
   updateFrequency = (ev) => {
     this.setLocalState({ frequency: ev.target.value })
-  }
-
-  updateLastName = (e) => {
-    this.setLocalState({ lastName: e.target.value })
-  }
-
-  updateEmail = (e) => {
-    this.setLocalState({ email: e.target.value })
-  }
-
-  updateAmount = (e) => {
-    this.setLocalState({ amount: `${e.target.value.includes('$') ? '' : '$'}${e.target.value}` })
   }
 
   donate = async (ev) => {
@@ -98,10 +88,10 @@ class DonateForm extends Component {
         </div>
 
         <DonationFrequency updateFrequency={this.updateFrequency} frequency={this.state.frequency} />
-        <input type='text' required className='bn ba pa3 mv2' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
-        <input type='text' required className='bn ba pa3 mv2' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
-        <input type='email' required className='bn ba pa3 mv2' placeholder='Email' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
-        <input type='text' required className='bn ba pa3 mv2' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} aria-label='Amount' />
+        <input type='text' required className='bn ba pa3 mv2' placeholder='First name' value={this.state.firstName} name="firstName" onChange={this.updateStateKey} aria-label='First Name' />
+        <input type='text' required className='bn ba pa3 mv2' placeholder='Last name' value={this.state.lastName} name="lastName" onChange={this.updateStateKey} aria-label='Last Name' />
+        <input type='email' required className='bn ba pa3 mv2' placeholder='Email' value={this.state.email} name="email" onChange={this.updateStateKey} aria-label='Email' />
+        <input type='text' required className='bn ba pa3 mv2' placeholder='$ Amount' value={this.state.amount} name="amount" onChange={this.updateStateKey} aria-label='Amount' />
         <div className='bg-white bn ba pa3 mv2'>
           <CardElement />
         </div>

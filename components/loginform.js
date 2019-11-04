@@ -14,19 +14,11 @@ class LoginForm extends Component {
     }
   }
 
-  updateFirstname = (e) => {
-    this.clearError()
-    this.setState({ firstName: e.target.value })
-  }
-
-  updateLastname = (e) => {
-    this.clearError()
-    this.setState({ lastName: e.target.value })
-  }
-
-  updateEmail = (e) => {
-    this.clearError()
-    this.setState({ email: e.target.value })
+  updateStateKey = (e) => {
+    this.clearError();
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
   updateLoginType = (newVal) => {
@@ -112,23 +104,23 @@ class LoginForm extends Component {
                 className='ba b--black pa2 w5 ma1 br2'
                 required='required'
                 placeholder='First name'
-                name='first name'
+                name='firstName'
                 id='first_name'
                 autoComplete='off'
                 aria-required='true'
                 aria-label='First Name'
                 value={this.state.firstName}
-                onChange={this.updateFirstName}
+                onChange={this.updateStateKey}
               />
               <input
                 required='required'
                 className='ba b--black pa2 w5 ma1 br2'
-                onChange={this.updateLastname}
+                onChange={this.updateStateKey}
                 value={this.state.lastName}
                 aria-required='true'
                 aria-label='lastName'
                 placeholder='Last name'
-                name='last name'
+                name='lastName'
                 id='last_name'
                 autoComplete='off'
               />
@@ -137,7 +129,7 @@ class LoginForm extends Component {
               <input
                 required='required'
                 className='ba b--black pa2 w5 ma1 br2'
-                onChange={this.updateEmail}
+                onChange={this.updateStateKey}
                 value={this.state.email}
                 aria-required='true'
                 aria-label='Email Address'
