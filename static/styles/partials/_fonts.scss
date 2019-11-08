@@ -31,5 +31,8 @@
                roboto, noto,
                'segoe ui', arial,
                sans-serif;
+  @media screen and (max-width: 1400px){
+    font-weight:300;
+  }
 }
 
