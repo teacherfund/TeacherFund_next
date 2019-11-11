@@ -44,7 +44,7 @@ class Nav extends React.Component {
               {this.links.map(({ key, href, label }) => (
                 <div key={key} className='db center w-auto fr ph2'>
                   <Link href={href}>
-                    <a className='tf-dark-gray no-underline black pa3'>{label}</a>
+                    <a className='nav-item tf-dark-gray no-underline black pa3'>{label}</a>
                   </Link>
                 </div>
               ))}
