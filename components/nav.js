@@ -70,7 +70,6 @@ class Nav extends React.Component {
             <X />
           </div>
           <div className='flex-column flex justify-around h5 mt6 pt4 f3'>
-            <p><a href='/' className='white no-underline mv2'>Home</a></p>
             <p><a href='/donate' className='white no-underline mv2'>Donate</a></p>
             <p><a href='/mission' className='white no-underline mv2'>Our Mission</a></p>
           </div>
