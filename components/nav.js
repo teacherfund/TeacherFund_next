@@ -23,8 +23,10 @@ class Nav extends React.Component {
     const { drawerOpen } = this.state
     if (!drawerOpen) {
       document.body.classList.add('no-scroll')
+      document.getElementById('hamburger-icon').classList.add('dn')
     } else {
       document.body.classList.remove('no-scroll')
+      document.getElementById('hamburger-icon').classList.remove('dn')
     }
 
     this.setState({ drawerOpen: !drawerOpen })
@@ -65,8 +67,8 @@ class Nav extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc'>
-          <div className='fr ma3 ma4-m' onClick={this.toggleDrawerOpen}>
+        {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc pv4 pl5-ns pr5-ns'>
+          <div className='fr pt2 pr2 mr1 mt1' onClick={this.toggleDrawerOpen}>
             <X />
           </div>
           <div className='flex-column flex justify-around h5 mt6 pt4 f3'>
