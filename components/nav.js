@@ -35,7 +35,7 @@ class Nav extends React.Component {
   render () {
     return (
       <nav>
-        <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl3 pr3 z-1'>
+        <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl4 pr3 z-1'>
           <div className='w-70-l mh-auto b--tf-yellow flex justify-between flex-row w-100'>
             <div className='pointer tc'>
               <Link href='/'>
@@ -68,12 +68,12 @@ class Nav extends React.Component {
           </div>
         </div>
         {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc pv4 pl5-ns pr5-ns'>
-          <div className='fr pt2 pr2 mr1 mt1' onClick={this.toggleDrawerOpen}>
+          <div className='fr pa2 pr3 mr1 pt2-m pr2-m mr1-m mt1-m' onClick={this.toggleDrawerOpen}>
             <X />
           </div>
           <div className='flex-column flex justify-around h5 mt6 pt4 f3'>
-            <p><a href='/donate' className='white no-underline mv2'>Donate</a></p>
-            <p><a href='/mission' className='white no-underline mv2'>Our Mission</a></p>
+            <a href='/mission' className='white no-underline mv4 w5 center'>Our Mission</a>
+            <a href='/donate' className='btn-menu no-underline pv3 br3 mv4 w4 w5-m center'>Donate</a>
           </div>
         </div>}
 
