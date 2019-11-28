@@ -1,11 +1,12 @@
 .index {
   &__header {
     background-image: url('/static/images/pencils.png');
-
+    display: flex;
     @media screen and (max-width: 769px) {
       height: 40rem;
       background-size: auto 100%;
       background-repeat: no-repeat;
+      display: flex;
     }
     @media screen and (max-width: 600px) {
       height: 40rem;
