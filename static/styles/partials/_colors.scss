@@ -75,3 +75,7 @@
 .bg-trans-gray {
   background-color: rgba($light-gray, 0.1);
 }
+
+.nav-item:hover{
+  color: lighten($lead-gray, 25%);
+}

@@ -1,7 +1,7 @@
 @mixin btn-default($background, $color) {
   background-color: $background;
   color: $color;
-  
+
   &:hover {
     cursor: pointer;
     color: $background;
@@ -14,13 +14,19 @@
   color: $color;
   background-color: $background;
   box-shadow: inset 0 0 0 0.2rem $color;
-  
+  transition: all 0.4s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
   &:hover {
     cursor: pointer;
     background-color: $color;
     color: $background;
     box-shadow: $shadow-light;
   }
+}
+@mixin btn-menu($background, $color) {
+  color: $color;
+  background-color: $background;
+  box-shadow: inset 0 0 0 0.2rem $color;
 }
 @mixin btn-darken($background, $color) {
   background-color: $background;

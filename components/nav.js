@@ -23,8 +23,10 @@ class Nav extends React.Component {
     const { drawerOpen } = this.state
     if (!drawerOpen) {
       document.body.classList.add('no-scroll')
+      document.getElementById('hamburger-icon').classList.add('dn')
     } else {
       document.body.classList.remove('no-scroll')
+      document.getElementById('hamburger-icon').classList.remove('dn')
     }
 
     this.setState({ drawerOpen: !drawerOpen })
@@ -33,7 +35,7 @@ class Nav extends React.Component {
   render () {
     return (
       <nav>
-        <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl3 pr3 z-1'>
+        <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl4 pr3 z-1'>
           <div className='w-70-l mh-auto b--tf-yellow flex justify-between flex-row w-100'>
             <div className='pointer tc'>
               <Link href='/'>
@@ -44,12 +46,12 @@ class Nav extends React.Component {
               {this.links.map(({ key, href, label }) => (
                 <div key={key} className='db center w-auto fr ph2'>
                   <Link href={href}>
-                    <a className='tf-dark-gray no-underline black pa3'>{label}</a>
+                    <a className='nav-item tf-dark-gray no-underline black pa3'>{label}</a>
                   </Link>
                 </div>
               ))}
             </div>
-            <div className='fr dn db-l tf-yellow mv-auto'>
+            <div className='fr dn db-l tf-yellow mv-auto ml4'>
               {this.buttons.map(({ key, href, label }) => (
                 <div key={key} className='db center w-auto fr ph2'>
                   <Link href={href} key={key}>
@@ -65,14 +67,13 @@ class Nav extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc'>
-          <div className='fr ma3 ma4-m' onClick={this.toggleDrawerOpen}>
+        {this.state.drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc pv4 pl5-ns pr5-ns'>
+          <div className='fr pa2 pr3 mr1 pt2-m pr2-m mr1-m mt1-m' onClick={this.toggleDrawerOpen}>
             <X />
           </div>
           <div className='flex-column flex justify-around h5 mt6 pt4 f3'>
-            <p><a href='/' className='white no-underline mv2'>Home</a></p>
-            <p><a href='/donate' className='white no-underline mv2'>Donate</a></p>
-            <p><a href='/mission' className='white no-underline mv2'>Our Mission</a></p>
+            <a href='/mission' className='white no-underline mv4 w5 center'>Our Mission</a>
+            <a href='/donate' className='btn-menu no-underline pv3 br3 mv4 w4 w5-m center'>Donate</a>
           </div>
         </div>}
 
