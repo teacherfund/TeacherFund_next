@@ -8,8 +8,6 @@
 
 This repository contains the code for the main TeacherFund website. 
 
-**This project is in very early development and as such, the structure/design is subject to change significantly and often.**
-
 ## Contributing
 We welcome any contributions to this project!
 
