@@ -44,5 +44,8 @@
     "require": [
       "./test/_register.js"
     ]
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
