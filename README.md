@@ -6,7 +6,7 @@
 
 **TeacherFund** is a charity to support teachers in a way that encourages great teachers to stay, and potentially great teachers to choose teaching as a career path. This includes providing supplemental funds and supplies to school teachers in need.
 
-This repository contains the code for the main TeacherFund website. 
+This repository contains the code for the main TeacherFund website
 
 ## Contributing
 We welcome any contributions to this project!!
