@@ -87,8 +87,8 @@ class IndexPage extends Component {
 
   render () {
     return (
-      <div className='bg-white index tf-dark-gray'>
-        <PageWrapper title='The Teacher Fund' />
+      <PageWrapper title='The Teacher Fund'>
+        <div className='bg-white index tf-dark-gray'>
         <HeroImage />
         <section className='h-section ph2 pt4 pt6-l'>
           <div className='tf-lato-lite ts-subtext w-auto m-auto center-l tc ph3 ph5-m pb4-m ph0-l w-50-l'>
@@ -295,7 +295,7 @@ class IndexPage extends Component {
           </div>
         </section>
       </div>
-
+      </ PageWrapper>
     )
   }
 }
