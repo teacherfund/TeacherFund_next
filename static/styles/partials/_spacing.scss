@@ -20,3 +20,15 @@
 ul {
   margin: 0;
 }
+.w2 {
+  @media screen and (max-width: $x-large-screen) {}
+  @media screen and (max-width: $large-screen) {}
+  @media screen and (max-width: $tablet-width) {}
+  @media screen and (max-width: $x-small-screen) {}
+}
+.fl {
+  @media screen and (max-width: $x-large-screen) {}
+  @media screen and (max-width: $large-screen) {}
+  @media screen and (max-width: $tablet-width) {}
+  @media screen and (max-width: $x-small-screen) {}
+}
