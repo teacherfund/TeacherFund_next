@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { CardElement, injectStripe } from 'react-stripe-elements'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
-import * as Api from '../api/api'
+import * as Api from '../client/api'
 
 class DonateForm extends Component {
   constructor (props) {

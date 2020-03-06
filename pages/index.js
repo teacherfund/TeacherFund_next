@@ -5,7 +5,7 @@ import ProcessCard from '../components/ProcessCard'
 import Link from 'next/link'
 import { formatCurrency } from '../utils/formatting'
 import HeroImage from '../components/heroImage'
-import * as Api from '../api/api'
+import * as Api from '../client/api'
 
 class IndexPage extends Component {
   constructor (props) {

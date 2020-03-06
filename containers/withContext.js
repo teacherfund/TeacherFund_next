@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
-import * as Api from '../api/api'
+import * as Api from '../client/api'
 
 // bind functions to self and return them in an object
 function autobind (funcs, self) {

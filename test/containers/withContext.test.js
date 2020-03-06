@@ -1,7 +1,7 @@
 import test from 'ava'
 import sinon from 'sinon'
 import Router from 'next/router'
-import * as api from '../../api/api'
+import * as api from '../../client/api'
 import withContext from '../../containers/withContext'
 
 const response = { json: () => Promise.resolve({ ok: true }) }
