@@ -288,7 +288,7 @@ class IndexPage extends Component {
               }
             </div>
             <div className='pt4 center white m-auto tf-lato-lite'>
-              <p>The Teacher Fund is 501(c)(3) pending</p>
+              <p>The Teacher Fund is US 501(c)(3) public charity</p>
               <p>EIN: 83-2285506</p>
               <p>&copy; Copyright {this.state.currentYear}</p>
             </div>
