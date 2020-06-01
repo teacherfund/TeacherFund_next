@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { CardElement, injectStripe } from 'react-stripe-elements'
+import { CardElement } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
 import * as Api from '../client/api'
@@ -112,4 +112,4 @@ class DonateForm extends Component {
   }
 }
 
-export default injectStripe(DonateForm)
+export default DonateForm

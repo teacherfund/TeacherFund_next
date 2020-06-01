@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
 import PageWrapper from '../components/pageWrapper'
 import DonateForm from '../components/donateform'
-import { Elements, StripeProvider } from 'react-stripe-elements'
+import { Elements, ElementsConsumer } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+
+const stripePromise = loadStripe('pk_live_FYwjfNktzq3upZRFbxA9hyc8')
+
+const InjectedDonateForm = () => (
+  <ElementsConsumer>
+    {({ elements, stripe }) => (
+      <DonateForm elements={elements} stripe={stripe} />
+    )}
+  </ElementsConsumer>
+)
 
 class Donate extends Component {
   constructor (props) {
@@ -14,7 +25,6 @@ class Donate extends Component {
   render () {
     return (
       <PageWrapper title='Donate – The Teacher Fund'>
-        {process.browser &&
         <React.Fragment>
           <div className='flex flex-column bg-trans-gray justify-between ph3 pv4 pv5-ns pa4-ns'>
             <div className='flex flex-column tf-lato tc mv-auto'>
@@ -26,13 +36,11 @@ class Donate extends Component {
                     give knowing that your entire gift will help equip classrooms and help students.
               </p>
             </div>
-            <StripeProvider apiKey='pk_live_FYwjfNktzq3upZRFbxA9hyc8'>
-              <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
-                <Elements>
-                  <DonateForm />
-                </Elements>
-              </div>
-            </StripeProvider>
+            <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
+              <Elements stripe={stripePromise}>
+                <InjectedDonateForm />
+              </Elements>
+            </div>
           </div>
           {this.state.showPaypalButton &&
           <div className='flex flex-column pv4 pb5-ns'>
@@ -61,7 +69,6 @@ class Donate extends Component {
           </div>
           }
         </React.Fragment>
-        }
       </PageWrapper>
     )
   }
