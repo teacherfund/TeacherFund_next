@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { CardElement, injectStripe } from 'react-stripe-elements'
+import { CardElement } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
 import * as Api from '../client/api'
@@ -50,7 +50,8 @@ class DonateForm extends Component {
     this.setLocalState({ loading: true })
     let token
     try {
-      const res = await this.props.stripe.createToken()
+      const cardElement = this.props.elements.getElement(CardElement)
+      const res = await this.props.stripe.createToken(cardElement)
       token = res.token
     } catch (e) {
       this.setState({ error: e.message, loading: false })
@@ -112,4 +113,4 @@ class DonateForm extends Component {
   }
 }
 
-export default injectStripe(DonateForm)
+export default DonateForm
