@@ -4,7 +4,7 @@ import { string } from 'prop-types'
 import '../static/styles/main.scss'
 
 const defaultDescription = "Funding Teachers. Empowering Students. We provide funding to classrooms so teachers don't have to."
-const defaultOGURL = ''
+const defaultOGURL = 'https://theteacherfund.com'
 const defaultOGImage = 'https://theteacherfund.com/static/images/Logo.png'
 
 const Head = props => (
