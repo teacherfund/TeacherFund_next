@@ -4,8 +4,8 @@ import { string } from 'prop-types'
 import '../static/styles/main.scss'
 
 const defaultDescription = "Funding Teachers. Empowering Students. We provide funding to classrooms so teachers don't have to."
-const defaultOGURL = ''
-const defaultOGImage = ''
+const defaultOGURL = 'https://theteacherfund.com'
+const defaultOGImage = 'https://theteacherfund.com/static/images/Logo.png'
 
 const Head = props => (
   <div>
@@ -22,6 +22,7 @@ const Head = props => (
       <link rel='apple-touch-icon' href='/static/touch-icon.png' />
       <link rel='mask-icon' href='/static/favicon-mask.svg' color='#49B882' />
       <link rel='icon' href='/static/favicon.ico' />
+      <meta property='og:type' content='website' />
       <meta property='og:url' content={props.url || defaultOGURL} />
       <meta property='og:title' content={props.title || ''} />
       <meta
