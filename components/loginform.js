@@ -85,8 +85,9 @@ class LoginForm extends Component {
     return (
       <div className='bg-white w6 pb3 br3'>
         <div className='ts-title tf-lato tc mt3'>
-          <h2 className='h35 tf-dark-gray'>{ this.state.register ? 'Sign up' : 'Sign in' }</h2>
+          <h2 className='tf-dark-gray tf-oswald'>{ this.state.register ? 'Sign up' : 'Sign in' }</h2>
         </div>
+        <p className='ts-subtext tf-lato-lite ma0 tc mb4'>Manage your donations and view your impact</p>
         {/* <div className='donorTeacherSwitcher'>
           <TwoItemSwitcher
             switchOneText="i'm a donor"
@@ -151,7 +152,7 @@ class LoginForm extends Component {
             <div className='white bg-tf-yellow tf-lato b tc pa2 w5 m-auto br-pill pointer' onClick={this.handleSubmit}>
               <label className='ttu pointer'>{this.state.register ? 'Sign up' : 'Sign in'}</label>
             </div>
-            <div className='mt2'>
+            <div className='mt2 mb4'>
               <a className='tf-lato pointer' onClick={this.updateFormType}>{this.state.register ? 'or sign in' : 'or sign up'}</a>
             </div>
           </div>

@@ -1,7 +1,9 @@
 import React from 'react'
-import App, { Container } from 'next/app'
+import App from 'next/app'
 import withContext from '../containers/withContext'
+import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/core'
 import '../static/styles/main.scss'
+import { ProvideAuth } from '../utils/useAuth'
 
 class TeacherFundApp extends App {
   static async getInitialProps ({ Component, ctx }) {
@@ -19,9 +21,14 @@ class TeacherFundApp extends App {
     const WrappedPage = withContext(Component, pageProps)
 
     return (
-      <Container>
-        <WrappedPage />
-      </Container>
+      <ThemeProvider>
+        <CSSReset />
+        <ColorModeProvider>
+          <ProvideAuth>
+            <WrappedPage />
+          </ProvideAuth>
+        </ColorModeProvider>
+      </ThemeProvider>
     )
   }
 }
