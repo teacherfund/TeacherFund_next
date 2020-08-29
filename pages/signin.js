@@ -17,10 +17,4 @@ const SignIn = (props) => (
   </PageWrapper>
 )
 
-SignIn.getInitialProps = async ({ query }) => {
-  return {
-    teacher: query.type
-  }
-}
-
 export default SignIn
