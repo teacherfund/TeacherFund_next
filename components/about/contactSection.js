@@ -1,6 +1,7 @@
 import { Box, Text, PseudoBox } from '@chakra-ui/core'
 import { useState } from 'react'
 
+import Card from '../card'
 import ContactForm from './contactForm'
 
 const ContactSection = ({ contactPage, hideHeading, ...props }) => {
@@ -18,11 +19,11 @@ const ContactSection = ({ contactPage, hideHeading, ...props }) => {
       flexDirection='column'
       alignItems='center'
       padding={{ base: '3rem 1.5rem', lg: '6rem 7.5rem' }}
-      backgroundColor='white'
+      backgroundColor='leadGray'
       {...props}
     >
       <PseudoBox align='center'><h1>Contact Us</h1></PseudoBox>
-      <Box width='100%' maxWidth='45rem'>
+      <Card width='100%' maxWidth='45rem'>
         {!formSubmit && (
           <Text
             textTransform='uppercase'
@@ -39,7 +40,7 @@ const ContactSection = ({ contactPage, hideHeading, ...props }) => {
           </Text>
         )}
         <ContactForm contactFormSubmitted={contactFormSubmitted} />
-      </Box>
+      </Card>
     </Box>
   )
 }

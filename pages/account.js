@@ -1,73 +1,34 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PageWrapper from '../components/pageWrapper'
+import useAuth from '../hooks/useAuth'
 import Link from 'next/link'
 
-class Account extends Component {
-  dummyTransactions = [
-    { date: new Date(1469947879632), amount: 135, status: 'completed' },
-    { date: new Date(1509947879632), amount: 25, status: 'completed' },
-    { date: new Date(1569947879632), amount: 10500, status: 'pending' }
-  ];
+const Account = () => {
+  const { user, loading } = useAuth()
 
-  constructor (props) {
-    super(props)
-    this.tweet = 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20by%20donating%20to%20The%20Teacher%20Fund%20at'
-    this.verifyUser()
+  const renderTransactionList = () => {
+
   }
 
-  static getInitialProps ({ query }) {
-    return { query }
-  }
-
-  verifyUser = async () => {
-    try {
-      await this.props.helpers.handleVerify({
-        email: this.props.query.email,
-        auth: this.props.query.auth
-      })
-    } catch (e) {
-      console.log('error', e)
-      // TODO Do something with stats
-    }
-  }
-
-  renderTransactionList = () => {
-    return this.props.context.userDonations.map((tran, idx) => {
-      return (
-        <li className='flex justify-around' key={idx}>
-          <p>{tran.date.getMonth()}/{tran.createdAt.getDate()}/{tran.createdAt.getFullYear()}</p>
-          <p>${tran.amount.toLocaleString()}</p>
-          <p>Status: Success</p>
-        </li>
-      )
-    })
-  }
-
-  cancelReccuringDonation = () => {
+  const cancelReccuringDonation = () => {
     // TODO implement cancelling donation
   }
 
-  getImpact = () => {
-    return this.props.context.userDonations.reduce((acc, don) => {
-      return acc + don.amount
-    }, 0)
-  }
-
-  render () {
-    return (
-      <PageWrapper title='Account – The Teacher Fund'>
-        <div className='w-100 h-100 flex pa5'>
-          <img
-            src='/static/images/man-woman-reading.jpg'
-            className='absolute w-100 h-100 top-0 left-0 z-minus-1'
-            alt='People reading'
-          />
+  return (
+    <PageWrapper title='Account – The Teacher Fund'>
+      <div className='w-100 h-100 flex pa5'>
+        <img
+          src='/static/images/man-woman-reading.jpg'
+          className='absolute w-100 h-100 top-0 left-0 z-minus-1'
+          alt='People reading'
+        />
+        {loading ? 'Loading...' : (
           <div className='flex flex-row-reverse m-auto'>
-            <div className='bg-white w6 pb4 br2 pt4 tc tf-lato'>
-              <p className='center tf-lato'>Teachers need your support now more than ever. Thank you.</p>
-              <div className='tf-oswald ts-subtext pv2 tc'>Your Impact</div>
+            <div className='bg-white w6 pb3 br3 tc tf-lato'>
+              <h1>{user.email}</h1>
+              <div className='tf-oswald ts-subtext pv2 tc'>Donations</div>
               <ul className='pa1'>
-                $ {this.getImpact()}
+                {renderTransactionList([])}
               </ul>
               <div className='mb2 mt2'>
                 <div className='white bg-tf-yellow tf-lato b tc pa3 w5 m-auto br-pill pointer'>
@@ -86,16 +47,16 @@ class Account extends Component {
               </div>
               <div className='mb2 mt3'>
                 <div className='white bg-tf-teal tf-lato b tc pa2 w-50 m-auto br-pill pointer'
-                  onClick={this.cancelReccuringDonation}>
-                  <label className='ttu pointer'>Cancel recurring donation</label>
+                  onClick={cancelReccuringDonation}>
+                  <label className='ttu'>Cancel recurring donation</label>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </PageWrapper>
-    )
-  }
+        )}
+      </div>
+    </PageWrapper>
+  )
 }
 
 export default Account

@@ -4,6 +4,7 @@ import withContext from '../containers/withContext'
 import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/core'
 import '../static/styles/main.scss'
 import { ProvideAuth } from '../utils/useAuth'
+import CustomTheme from '../public/theme'
 
 class TeacherFundApp extends App {
   static async getInitialProps ({ Component, ctx }) {
@@ -21,7 +22,7 @@ class TeacherFundApp extends App {
     const WrappedPage = withContext(Component, pageProps)
 
     return (
-      <ThemeProvider>
+      <ThemeProvider theme={CustomTheme}>
         <CSSReset />
         <ColorModeProvider>
           <ProvideAuth>

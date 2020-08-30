@@ -186,7 +186,7 @@ const ContactForm = ({ contactFormSubmitted }) => {
               id='topic'
               placeholder='What is this about?'
               variant='filled'
-              backgroundColor='lightRock'
+              backgroundColor='transparentGray'
               color='boulder'
               name='topic'
               aria-describedby='topic-error'
@@ -213,7 +213,7 @@ const ContactForm = ({ contactFormSubmitted }) => {
             <Textarea
               id='message'
               name='body'
-              backgroundColor='lightRock'
+              backgroundColor='transparentGray'
               borderRadius='10px'
               resize='none'
               height='8rem'
