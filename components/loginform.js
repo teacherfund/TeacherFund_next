@@ -2,7 +2,13 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Magic } from 'magic-sdk'
+import { 
+  Button, 
+  Box 
+} from '@chakra-ui/core'
 import '../static/styles/main.scss'
+
+import Card from './card'
 
 const LoginForm = (props) => {
   const router = useRouter()
@@ -30,6 +36,7 @@ const LoginForm = (props) => {
       headers: { Authorization: `Bearer ${magicId}` }
     })
 
+    console.log('here', authRequest)
     if (authRequest.ok) {
       router.push('/account')
     } else {
@@ -38,18 +45,15 @@ const LoginForm = (props) => {
   }
 
   return (
-    <div className='bg-white w6 pb3 br3'>
-      <div className='ts-title tf-lato tc mt3'>
-        <h2 className='h35 tf-dark-gray'>Sign in</h2>
-      </div>
+    <Card width='100%' maxWidth='45rem'>
       <div className='tc'>
         <div className='panel'>
           <div className='tf-lato'>
             <p className='red'>{error}</p>
           </div>
-          <div>
+          <Box marginButtom='1rem'>
             <p className='tf-lato'>{message}</p>
-          </div>
+          </Box>
           <form onSubmit={handleSubmit}>
             <div className='mb2'>
               <input
@@ -66,16 +70,22 @@ const LoginForm = (props) => {
                 autoComplete='off'
               />
             </div>
-            <input
+            <Button
               type='submit'
-              className='white bg-tf-yellow ttu tf-lato b tc pa2 w5 m-auto br-pill pointer'
+              backgroundColor='pencilYellow'
+              color='white'
+              _hover={{ bg: "eraserPink" }}
+              textTransform='uppercase'
+              margin='auto'
+              className='tf-lato w5 br-pill'
               id='submit_btn'
-              value='Sign in'
-            />
+            >
+              Sign in
+            </Button>
           </form>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }
 

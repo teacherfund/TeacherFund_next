@@ -1,19 +1,32 @@
 import React from 'react'
+import {
+  Box,
+  PseudoBox,
+} from '@chakra-ui/core'
 import PageWrapper from '../components/pageWrapper'
 import LoginForm from '../components/loginform'
 
 const SignIn = (props) => (
   <PageWrapper title='Sign In – The Teacher Fund'>
-    <div className='w-100 h-100 flex pa5'>
-      <img className='absolute w-100 h-100 top-0 left-0 z-minus-1' src='/static/images/einstein.jpg' />
-      <div className='flex flex-row-reverse m-auto'>
-        <LoginForm
+    <Box
+      as='section'
+      display='flex'
+      justifyItems='center'
+      flexDirection='column'
+      alignItems='center'
+      padding={{ base: '3rem 1.5rem', lg: '6rem 7.5rem' }}
+      backgroundColor='gray.50'
+      height='100vh'
+      {...props}>
+      <PseudoBox align='center' fontSize='28px' paddingBottom='2rem'>
+        <h1>Sign in</h1>
+      </PseudoBox>
+      <LoginForm
           type={props.teacher}
           onSignup={props.helpers.handleSignup}
           onLogin={props.helpers.handleLogin}
         />
-      </div>
-    </div>
+    </Box>
   </PageWrapper>
 )
 

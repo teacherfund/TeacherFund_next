@@ -14,6 +14,8 @@ const Account = () => {
     // TODO implement cancelling donation
   }
 
+  const tweet = 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
+
   return (
     <PageWrapper title='Account – The Teacher Fund'>
       <div className='w-100 h-100 flex pa5'>
@@ -25,7 +27,7 @@ const Account = () => {
         {loading ? 'Loading...' : (
           <div className='flex flex-row-reverse m-auto'>
             <div className='bg-white w6 pb3 br3 tc tf-lato'>
-              <h1>{user.email}</h1>
+              <h1>{user && user.email}</h1>
               <div className='tf-oswald ts-subtext pv2 tc'>Donations</div>
               <ul className='pa1'>
                 {renderTransactionList([])}
@@ -39,7 +41,7 @@ const Account = () => {
               </div>
               <div className='mt3'>
                 <a className='white no-underline pa3 db ttu br-pill tf-lato b v-mid bg-tf-teal w-50 m-auto tc'
-                  href={this.tweet}
+                  href={tweet}
                   data-size='large'
                   target='_blank'>
                      Spread the Word

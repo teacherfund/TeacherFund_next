@@ -50,15 +50,6 @@ export const sendSupportFeedback = async (bodyObject) => {
   return fetch(`${ENDPOINT}/feedback`, constructPostBody(bodyObject))
 }
 
-// Fetch all financial data and download it
-export const fetchFinancialDataAndDownload = async () => {
-  return fetch(`${ENDPOINT}/finances`)
-    .then((res) => res.json())
-    .then((res) => {
-    // Download res as file (csv) to user
-    })
-}
-
 // Get all donations
 export const fetchAllDonations = async () => {
   return fetch(`${ENDPOINT}/donations`)

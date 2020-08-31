@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { Box } from '@chakra-ui/core'
 import PageWrapper from '../components/pageWrapper'
 import Team from '../components/team'
 import ProcessCard from '../components/ProcessCard'
@@ -174,38 +175,38 @@ class IndexPage extends Component {
               </h2>
               <div className='center pa2 pv0-ns flex flex-column'>
                 <div className='index__metrics mb4-m'>
-                  <div className='index__metric border-tf-yellow' aria-label='Amount of money raised for teachers'>
+                  <Box className='index__metric border-tf-yellow' aria-label='Amount of money raised for teachers'>
                     <div className='tf-lato ts-title center'>
                       ${formatCurrency(this.props.context.globalAmountDonated) || 0}
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Raised
                     </div>
-                  </div>
-                  <div className='index__metric border-tf-pink' aria-label='Number of teachers funded by TeacherFund'>
+                  </Box>
+                  <Box className='index__metric border-tf-pink' aria-label='Number of teachers funded by TeacherFund'>
                     <div className='tf-lato ts-title center'>
                       21
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Teachers Funded
                     </div>
-                  </div>
-                  <div className='index__metric border-tf-dark-gray' aria-label='Number of schools partenered with TeacherFund'>
+                  </Box>
+                  <Box className='index__metric border-tf-dark-gray' aria-label='Number of schools partenered with TeacherFund'>
                     <div className='tf-lato ts-title center'>
                       4
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Partner Schools
                     </div>
-                  </div>
-                  <div className='index__metric border-tf-gray' aria-label='Number of students impacted by TeacherFund'>
+                  </Box>
+                  <Box className='index__metric border-tf-gray' aria-label='Number of students impacted by TeacherFund'>
                     <div className='tf-lato ts-title center'>
                       973
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Students Impacted
                     </div>
-                  </div>
+                  </Box>
                 </div>
               </div>
             </div>

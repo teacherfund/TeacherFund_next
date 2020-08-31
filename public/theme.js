@@ -26,9 +26,9 @@ export default {
     leadGray: '#434343',
     eraserPink: '#e06767',
     darkTeal: '#336e7b',
-    lightGray: '#95a4a6',
+    lightGray: '#95a4a6'
   },
   icons: {
-    ...theme.icons,
+    ...theme.icons
   }
 }
