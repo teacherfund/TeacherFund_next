@@ -1,17 +1,26 @@
+/* global fetch */
 import React from 'react'
+import { Button, Text, Box } from '@chakra-ui/core'
+import { useRouter } from 'next/router'
 import PageWrapper from '../components/pageWrapper'
 import useAuth from '../hooks/useAuth'
 import Link from 'next/link'
 
 const Account = () => {
-  const { user, loading } = useAuth()
+  const { user, loading, error } = useAuth()
+  const router = useRouter()
 
-  const renderTransactionList = () => {
-
+  if (error) {
+    router.push('/signin')
   }
 
-  const cancelReccuringDonation = () => {
-    // TODO implement cancelling donation
+  const cancelReccuringDonation = async () => {
+    try {
+      await fetch('/api/deleteDonation')
+      router.reload()
+    } catch (e) {
+      // TODO show error deleting donation
+    }
   }
 
   const tweet = 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
@@ -20,20 +29,27 @@ const Account = () => {
     <PageWrapper title='Account – The Teacher Fund'>
       <div className='w-100 h-100 flex pa5'>
         <img
-          src='/static/images/man-woman-reading.jpg'
+          src='/images/man-woman-reading.jpg'
           className='absolute w-100 h-100 top-0 left-0 z-minus-1'
           alt='People reading'
         />
         {loading ? 'Loading...' : (
           <div className='flex flex-row-reverse m-auto'>
-            <div className='bg-white w6 pb3 br3 tc tf-lato'>
-              <h1>{user && user.email}</h1>
-              <div className='tf-oswald ts-subtext pv2 tc'>Donations</div>
-              <ul className='pa1'>
-                {renderTransactionList([])}
-              </ul>
+            <Box className='tf-lato'
+              textAlign='center'
+              borderRadius='1rem'
+              padding='3rem'
+              backgroundColor='white'
+              width='35rem'>
+              <div className='tf-oswald ts-subtext pv2 tc'>Current Monthly Donation</div>
+              <Text className='pa1' fontSize='2rem' padding='3rem'>
+                $ {user && user.donationAmount / 100}
+              </Text>
+              <Text fontSize='1.3rem' marginBottom='2rem'>
+                Public school teachers appreciate your contribution more than you know. Words do not do justice.
+              </Text>
               <div className='mb2 mt2'>
-                <div className='white bg-tf-yellow tf-lato b tc pa3 w5 m-auto br-pill pointer'>
+                <div className='white bg-tf-yellow tf-lato b tc pa3 w-50 m-auto br-pill pointer'>
                   <Link href='donate'>
                     <label className='ttu pointer'>donate again</label>
                   </Link>
@@ -48,12 +64,20 @@ const Account = () => {
                 </a>
               </div>
               <div className='mb2 mt3'>
-                <div className='white bg-tf-teal tf-lato b tc pa2 w-50 m-auto br-pill pointer'
+                <Button color='white'
+                  backgroundColor='red.500'
+                  borderRadius='9999px'
+                  paddingTop='1rem'
+                  _hover={{ bg: 'red.200' }}
+                  paddingBottom='1rem'
+                  height='auto'
+                  width='50%'
+                  className='tf-lato ttu b tc pa2 w-50 m-auto'
                   onClick={cancelReccuringDonation}>
-                  <label className='ttu'>Cancel recurring donation</label>
-                </div>
+                  Cancel donation
+                </Button>
               </div>
-            </div>
+            </Box>
           </div>
         )}
       </div>

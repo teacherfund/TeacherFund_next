@@ -4,7 +4,10 @@ import DonateForm from '../components/donateform'
 import { Elements, ElementsConsumer } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 
-const stripePromise = loadStripe('pk_live_FYwjfNktzq3upZRFbxA9hyc8')
+const stripeKey = process.env.production
+  ? 'pk_live_FYwjfNktzq3upZRFbxA9hyc8'
+  : 'pk_test_MppaPpdtCIVpYJNuLgU0chUa'
+const stripePromise = loadStripe(stripeKey)
 
 const InjectedDonateForm = () => (
   <ElementsConsumer>

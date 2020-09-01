@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   Box,
-  PseudoBox,
+  PseudoBox
 } from '@chakra-ui/core'
 import PageWrapper from '../components/pageWrapper'
 import LoginForm from '../components/loginform'
@@ -21,11 +21,7 @@ const SignIn = (props) => (
       <PseudoBox align='center' fontSize='28px' paddingBottom='2rem'>
         <h1>Sign in</h1>
       </PseudoBox>
-      <LoginForm
-          type={props.teacher}
-          onSignup={props.helpers.handleSignup}
-          onLogin={props.helpers.handleLogin}
-        />
+      <LoginForm />
     </Box>
   </PageWrapper>
 )

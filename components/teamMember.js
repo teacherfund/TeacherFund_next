@@ -6,7 +6,7 @@ const TeamMember = (props) =>
       <div className='w-100 bg-transparent pa4-l'>
         <div className='pa2-l tc'>
           <div className='center br-100 ba b--black-05 ma3 h4 h3-m w4 w3-m bg-white overflow-hidden'>
-            <img src={'/static/images/people/' + props.src} alt='' />
+            <img src={'/images/people/' + props.src} alt='' />
           </div>
           <h3 className='tf-lato f3-l f4 pv2 tc ma0'>
             {props.name}

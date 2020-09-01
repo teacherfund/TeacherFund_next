@@ -1,7 +1,7 @@
 import {
   Box,
   Text,
-  Link,
+  Link
 } from '@chakra-ui/core'
 
 const ContactForm = () => {
@@ -14,7 +14,7 @@ const ContactForm = () => {
           color='blue'
         >
           joelwass @ theteacherfund.com
-          </Link>
+        </Link>
       </Text>
     </Box>
   )

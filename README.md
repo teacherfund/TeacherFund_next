@@ -1,5 +1,5 @@
 <div>
-  <img alt="TeacherFund logo" src="https://github.com/teacherfund/TeacherFund_next/raw/production/static/images/Logo.png" width="200px">
+  <img alt="TeacherFund logo" src="https://github.com/teacherfund/TeacherFund_next/raw/production/public/images/Logo.png" width="200px">
 </div>
 
 <hr />

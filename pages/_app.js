@@ -2,8 +2,7 @@ import React from 'react'
 import App from 'next/app'
 import withContext from '../containers/withContext'
 import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/core'
-import '../static/styles/main.scss'
-import { ProvideAuth } from '../utils/useAuth'
+import '../public/styles/main.scss'
 import CustomTheme from '../public/theme'
 
 class TeacherFundApp extends App {
@@ -25,9 +24,7 @@ class TeacherFundApp extends App {
       <ThemeProvider theme={CustomTheme}>
         <CSSReset />
         <ColorModeProvider>
-          <ProvideAuth>
-            <WrappedPage />
-          </ProvideAuth>
+          <WrappedPage />
         </ColorModeProvider>
       </ThemeProvider>
     )

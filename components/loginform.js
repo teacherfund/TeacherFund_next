@@ -2,11 +2,11 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Magic } from 'magic-sdk'
-import { 
-  Button, 
-  Box 
+import {
+  Button,
+  Box
 } from '@chakra-ui/core'
-import '../static/styles/main.scss'
+import '../public/styles/main.scss'
 
 import Card from './card'
 
@@ -14,10 +14,12 @@ const LoginForm = (props) => {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [error, setError] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
   const [message] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsLoading(true)
     const { elements } = e.target
 
     // the .loginWithMagicLink causes an email to be sent to the user
@@ -36,12 +38,12 @@ const LoginForm = (props) => {
       headers: { Authorization: `Bearer ${magicId}` }
     })
 
-    console.log('here', authRequest)
     if (authRequest.ok) {
       router.push('/account')
     } else {
       setError('Unable to login! Please email support@theteacherfund.com for help!')
     }
+    setIsLoading(false)
   }
 
   return (
@@ -72,9 +74,10 @@ const LoginForm = (props) => {
             </div>
             <Button
               type='submit'
+              isLoading={isLoading}
               backgroundColor='pencilYellow'
               color='white'
-              _hover={{ bg: "eraserPink" }}
+              _hover={{ bg: 'eraserPink' }}
               textTransform='uppercase'
               margin='auto'
               className='tf-lato w5 br-pill'

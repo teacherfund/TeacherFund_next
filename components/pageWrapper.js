@@ -2,7 +2,7 @@ import React from 'react'
 import Nav from '../components/nav'
 import Head from '../components/head'
 
-import '../static/styles/main.scss'
+import '../public/styles/main.scss'
 
 const PageWrapper = (props) => {
   return (

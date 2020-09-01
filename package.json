@@ -9,7 +9,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run test"
+      "pre-commit": "npm run lint"
     }
   },
   "dependencies": {
@@ -32,6 +32,7 @@
     "react-google-maps": "^9.4.5",
     "react-hook-form": "^6.6.0",
     "react-motion-drawer": "^3.1.0",
+    "stripe": "^8.91.0",
     "swr": "^0.3.1"
   },
   "devDependencies": {
@@ -49,11 +50,6 @@
   },
   "standard": {
     "parser": "babel-eslint"
-  },
-  "ava": {
-    "require": [
-      "./test/_register.js"
-    ]
   },
   "engines": {
     "node": "12.x"
