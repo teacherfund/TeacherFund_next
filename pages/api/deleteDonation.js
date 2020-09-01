@@ -1,3 +1,6 @@
+import Iron from '@hapi/iron'
+import CookieService from '../../lib/cookie'
+
 const stripeKey = process.env.production
   ? process.env.STRIPE_SECRET_KEY
   : process.env.STRIPE_SECRET_KEY_TEST
@@ -17,14 +20,12 @@ const deleteDonation = async ({ email }) => {
 }
 
 export default async (req, res) => {
-  // TODO Ensure user is authed
-  if (!req.isAuthenticated()) return res.status(401)
-
-  const {
-    email
-  } = JSON.parse(req.body)
-
-  await deleteDonation({ email })
+  try {
+    const user = await Iron.unseal(CookieService.getAuthToken(req.cookies), process.env.ENCRYPTION_SECRET, Iron.defaults)
+    await deleteDonation({ email: user.email })
+  } catch (e) {
+    return res.status(401)
+  }
 
   res.json({ success: true })
 }

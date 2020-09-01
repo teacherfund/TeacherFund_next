@@ -12,7 +12,7 @@ export default async (req, res) => {
   try {
     user = await Iron.unseal(CookieService.getAuthToken(req.cookies), process.env.ENCRYPTION_SECRET, Iron.defaults)
   } catch (error) {
-    res.status(401).end()
+    return res.status(401).end()
   }
 
   // With the users email, fetch the customer ID from stripe so that we can fetch donation information
