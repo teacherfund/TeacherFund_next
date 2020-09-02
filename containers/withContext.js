@@ -21,14 +21,6 @@ export default (Page, pageProps) => class Context extends Component {
     ], this)
   }
 
-  componentDidMount () {
-    try {
-      this.fetchGlobalStats()
-    } catch (e) {
-      console.log('here', e)
-    }
-  }
-
   async fetchGlobalStats () {
     const resStream = await fetch('/api/donations')
     const res = await resStream.json()
