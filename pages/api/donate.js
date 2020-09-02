@@ -62,7 +62,6 @@ export default async (req, res) => {
       customer: customer.id,
       currency: 'usd',
       description: 'Donation',
-      source: source.id,
       receipt_email: email
     })
   } else {
@@ -74,18 +73,23 @@ export default async (req, res) => {
      * - If there is a current subscription, update the subscription to point to the new plan
      */
 
-    const customer = findOrCreateCustomer({ email, meta, source })
+    const customer = await findOrCreateCustomer({ email, meta, source })
+
+    console.log('here c', customer)
 
     // Find a matching plan if it exists
     const plan = await findOrCreatePlan({ amount })
     const currentSubscription = customer.subscriptions.data[0]
+
+    console.log('here cs', currentSubscription)
+    console.log('here, p', plan)
 
     if (!currentSubscription) {
       createDonation({ customerId: customer.id, planId: plan.id })
       return res.json({ success: true })
     }
 
-    const existingPlanId = (customer.subscriptions.data[0].plan || {}).id
+    const existingPlanId = (currentSubscription.plan || {}).id
     if (plan.id === existingPlanId) {
       // donation amount is the same as what the user is already donating; nothing to do
       return res.json({ success: true })

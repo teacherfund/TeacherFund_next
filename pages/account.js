@@ -1,13 +1,15 @@
 /* global fetch */
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Text, Box } from '@chakra-ui/core'
 import { useRouter } from 'next/router'
 import PageWrapper from '../components/pageWrapper'
 import useAuth from '../hooks/useAuth'
 import Link from 'next/link'
+import Card from '../components/card'
 
 const Account = () => {
   const { user, loading, error } = useAuth()
+  const [cancelLoading, setCancelLoading] = useState(false)
   const router = useRouter()
 
   if (error) {
@@ -15,11 +17,14 @@ const Account = () => {
   }
 
   const cancelReccuringDonation = async () => {
+    setCancelLoading(true)
     try {
       await fetch('/api/deleteDonation')
       router.reload()
     } catch (e) {
       // TODO show error deleting donation
+    } finally {
+      setCancelLoading(false)
     }
   }
 
@@ -33,7 +38,11 @@ const Account = () => {
           className='absolute w-100 h-100 top-0 left-0 z-minus-1'
           alt='People reading'
         />
-        {loading ? 'Loading...' : (
+        {loading ? (
+          <Card margin='auto' marginTop='10rem' borderRadius='1rem'>
+            <Text fontSize='4rem'>Loading...</Text>
+          </Card>
+        ) : (
           <div className='flex flex-row-reverse m-auto'>
             <Box className='tf-lato'
               textAlign='center'
@@ -43,7 +52,7 @@ const Account = () => {
               width='35rem'>
               <div className='tf-oswald ts-subtext pv2 tc'>Current Monthly Donation</div>
               <Text className='pa1' fontSize='2rem' padding='3rem'>
-                $ {user && user.donationAmount / 100}
+                $ {user && user.donationAmount && ((user.donationAmount / 100) || 0)}
               </Text>
               <Text fontSize='1.3rem' marginBottom='2rem'>
                 Public school teachers appreciate your contribution more than you know. Words do not do justice.
@@ -65,6 +74,7 @@ const Account = () => {
               </div>
               <div className='mb2 mt3'>
                 <Button color='white'
+                  isLoading={cancelLoading}
                   backgroundColor='red.500'
                   borderRadius='9999px'
                   paddingTop='1rem'

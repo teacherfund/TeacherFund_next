@@ -1,12 +1,13 @@
 /* global fetch */
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
+import { Text, Flex } from '@chakra-ui/core'
 import { useRouter } from 'next/router'
+import Card from '../components/card'
 
 const Logout = () => {
   const router = useRouter()
 
   const logout = async () => {
-    console.log('help me here')
     await fetch('/api/logout')
     router.push('/')
   }
@@ -16,7 +17,11 @@ const Logout = () => {
   }, [])
 
   return (
-    <></>
+    <Flex backgroundColor='gray.100' height='100vh'>
+      <Card margin='auto' marginTop='10rem' borderRadius='1rem'>
+        <Text fontSize='4rem'>Signing out...</Text>
+      </Card>
+    </Flex>
   )
 }
 
