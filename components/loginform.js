@@ -10,7 +10,7 @@ import '../public/styles/main.scss'
 
 import Card from './card'
 
-const LoginForm = (props) => {
+const LoginForm = () => {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [error, setError] = useState(null)
