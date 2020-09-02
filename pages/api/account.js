@@ -18,7 +18,7 @@ export default async (req, res) => {
     })
     user.donationAmount = response.data[0].subscriptions.data[0].plan.amount
   } catch (e) {
-    user.donationAmount = 'N/A'
+    console.error(e)
   }
 
   res.json(user)
