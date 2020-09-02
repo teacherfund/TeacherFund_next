@@ -1,8 +1,4 @@
-const stripeKey = process.env.production
-  ? process.env.STRIPE_SECRET_KEY
-  : process.env.STRIPE_SECRET_KEY_TEST
-
-const stripe = require('stripe')(stripeKey)
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 // Amount is in cents
 const findOrCreatePlan = async ({ amount }) => {

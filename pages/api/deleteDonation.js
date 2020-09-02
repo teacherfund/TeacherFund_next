@@ -1,11 +1,7 @@
 import Iron from '@hapi/iron'
 import CookieService from '../../lib/cookie'
 
-const stripeKey = process.env.production
-  ? process.env.STRIPE_SECRET_KEY
-  : process.env.STRIPE_SECRET_KEY_TEST
-
-const stripe = require('stripe')(stripeKey)
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 const deleteDonation = async ({ email }) => {
   const customerRes = await stripe.customers.list({ email })
