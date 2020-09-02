@@ -75,14 +75,9 @@ export default async (req, res) => {
 
     const customer = await findOrCreateCustomer({ email, meta, source })
 
-    console.log('here c', customer)
-
     // Find a matching plan if it exists
     const plan = await findOrCreatePlan({ amount })
     const currentSubscription = customer.subscriptions.data[0]
-
-    console.log('here cs', currentSubscription)
-    console.log('here, p', plan)
 
     if (!currentSubscription) {
       createDonation({ customerId: customer.id, planId: plan.id })

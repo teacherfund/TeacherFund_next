@@ -17,7 +17,6 @@ const Nav = () => {
   ]
 
   if (user) {
-    console.log('hereee', user)
     links.push({ href: '/account', label: 'Account', key: 'account' })
     buttons = [
       { href: '/logout', label: 'Logout', key: 'logout' }
