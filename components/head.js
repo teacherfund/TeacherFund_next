@@ -1,11 +1,11 @@
 import React from 'react'
 import NextHead from 'next/head'
 import { string } from 'prop-types'
-import '../static/styles/main.scss'
+import '../public/styles/main.scss'
 
 const defaultDescription = "Funding Teachers. Empowering Students. We provide funding to classrooms so teachers don't have to."
 const defaultOGURL = 'https://theteacherfund.com'
-const defaultOGImage = 'https://theteacherfund.com/static/images/Logo.png'
+const defaultOGImage = 'https://theteacherfund.com/public/images/Logo.png'
 
 const Head = props => (
   <div>
@@ -18,10 +18,10 @@ const Head = props => (
         content={props.description || defaultDescription}
       />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
-      <link rel='icon' sizes='192x192' href='/static/touch-icon.png' />
-      <link rel='apple-touch-icon' href='/static/touch-icon.png' />
-      <link rel='mask-icon' href='/static/favicon-mask.svg' color='#49B882' />
-      <link rel='icon' href='/static/favicon.ico' />
+      <link rel='icon' sizes='192x192' href='/touch-icon.png' />
+      <link rel='apple-touch-icon' href='/touch-icon.png' />
+      <link rel='mask-icon' href='/favicon-mask.svg' color='#49B882' />
+      <link rel='icon' href='/favicon.ico' />
       <meta property='og:type' content='website' />
       <meta property='og:url' content={props.url || defaultOGURL} />
       <meta property='og:title' content={props.title || ''} />

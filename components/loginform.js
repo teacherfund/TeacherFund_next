@@ -2,16 +2,24 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Magic } from 'magic-sdk'
-import '../static/styles/main.scss'
+import {
+  Button,
+  Box
+} from '@chakra-ui/core'
+import '../public/styles/main.scss'
 
-const LoginForm = (props) => {
+import Card from './card'
+
+const LoginForm = () => {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [error, setError] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
   const [message] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsLoading(true)
     const { elements } = e.target
 
     // the .loginWithMagicLink causes an email to be sent to the user
@@ -35,21 +43,19 @@ const LoginForm = (props) => {
     } else {
       setError('Unable to login! Please email support@theteacherfund.com for help!')
     }
+    setIsLoading(false)
   }
 
   return (
-    <div className='bg-white w6 pb3 br3'>
-      <div className='ts-title tf-lato tc mt3'>
-        <h2 className='h35 tf-dark-gray'>Sign in</h2>
-      </div>
+    <Card width='100%' maxWidth='45rem'>
       <div className='tc'>
         <div className='panel'>
           <div className='tf-lato'>
             <p className='red'>{error}</p>
           </div>
-          <div>
+          <Box marginButtom='1rem'>
             <p className='tf-lato'>{message}</p>
-          </div>
+          </Box>
           <form onSubmit={handleSubmit}>
             <div className='mb2'>
               <input
@@ -66,16 +72,23 @@ const LoginForm = (props) => {
                 autoComplete='off'
               />
             </div>
-            <input
+            <Button
               type='submit'
-              className='white bg-tf-yellow ttu tf-lato b tc pa2 w5 m-auto br-pill pointer'
+              isLoading={isLoading}
+              backgroundColor='pencilYellow'
+              color='white'
+              _hover={{ bg: 'eraserPink' }}
+              textTransform='uppercase'
+              margin='auto'
+              className='tf-lato w5 br-pill'
               id='submit_btn'
-              value='Sign in'
-            />
+            >
+              Sign in
+            </Button>
           </form>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }
 

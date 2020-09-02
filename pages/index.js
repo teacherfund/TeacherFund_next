@@ -1,11 +1,11 @@
 import { Component } from 'react'
+import { Box } from '@chakra-ui/core'
 import PageWrapper from '../components/pageWrapper'
 import Team from '../components/team'
 import ProcessCard from '../components/ProcessCard'
 import Link from 'next/link'
 import { formatCurrency } from '../utils/formatting'
 import HeroImage from '../components/heroImage'
-import * as Api from '../client/api'
 
 class IndexPage extends Component {
   constructor (props) {
@@ -17,72 +17,15 @@ class IndexPage extends Component {
     this.fetchStats()
 
     this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      error: '',
-      subscribed: false,
       currentYear
     }
   }
 
   async fetchStats () {
+    // Populate global stats
     try {
       await this.props.helpers.fetchGlobalStats()
-    } catch (e) {
-      // Do something with dollars donated, not sure what yet
-    }
-  }
-
-  subscribe = async (ev) => {
-    ev.preventDefault()
-
-    if (!this.state.email) return this.setLocalState({ error: 'Email is required' })
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) return this.setLocalState({ error: 'Please enter a valid email address' })
-
-    const firstName = this.state.firstName
-    const lastName = this.state.lastName
-
-    // Make api call to subscribe
-    const reqBody = {
-      firstName: firstName || '',
-      lastName: lastName || '',
-      email: this.state.email
-    }
-    try {
-      const responseStream = await Api.subscribe(reqBody)
-      const response = await responseStream.json()
-
-      // If error, prompt to try again
-      if (!response.ok) return this.setLocalState({ error: 'Whoops, please try again' })
-
-      // Reset form and notify user of success
-      this.setLocalState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        subscribed: true
-      })
-    } catch (e) {
-      console.error(e)
-    }
-  }
-
-  setLocalState = (state) => {
-    if (!state.error) state.error = ''
-    this.setState(state)
-  }
-
-  updateFirstName = (e) => {
-    this.setLocalState({ firstName: e.target.value })
-  }
-
-  updateLastName = (e) => {
-    this.setLocalState({ lastName: e.target.value })
-  }
-
-  updateEmail = (e) => {
-    this.setLocalState({ email: e.target.value })
+    } catch (e) {}
   }
 
   render () {
@@ -135,7 +78,7 @@ class IndexPage extends Component {
                 classroom supplies to extracurricular and after-school funding and equipment.
               </p>
             </div>
-            <img className='index__provide-image' src='/static/images/children-class-classroom.png' alt='art classroom' />
+            <img className='index__provide-image' src='/images/children-class-classroom.png' alt='art classroom' />
           </section>
           <section className='h-section'>
             <div className='flex flex-column mt3 pt5-l pb4 pb0-ns'>
@@ -145,21 +88,21 @@ class IndexPage extends Component {
               <div className='flex flex-row flex-wrap justify-center w-auto mt2 mt5-l center ph3 ph0-ns'>
                 <ProcessCard
                   title='Quality Teachers'
-                  icon={<img src='/static/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />}
+                  icon={<img src='/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />}
                 >
                   We fund dedicated teachers working diligently to improve their
                   classrooms and their students’ education.
                 </ProcessCard>
                 <ProcessCard
                   title='Local Schools'
-                  icon={<img src='/static/images/School_icon.png' className='contain' title='Icon of school' />}
+                  icon={<img src='/images/School_icon.png' className='contain' title='Icon of school' />}
                 >
                   Partnering with nearby schools ensures we are providing exactly what
                   their teachers and students need.
                 </ProcessCard>
                 <ProcessCard
                   title='Tangible Impact'
-                  icon={<img src='/static/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' />}
+                  icon={<img src='/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' />}
                 >
                   We monitor each dollar donated so you can see the direct
                   impact your donation has on these classrooms.
@@ -174,45 +117,45 @@ class IndexPage extends Component {
               </h2>
               <div className='center pa2 pv0-ns flex flex-column'>
                 <div className='index__metrics mb4-m'>
-                  <div className='index__metric border-tf-yellow' aria-label='Amount of money raised for teachers'>
+                  <Box className='index__metric border-tf-yellow' aria-label='Amount of money raised for teachers'>
                     <div className='tf-lato ts-title center'>
                       ${formatCurrency(this.props.context.globalAmountDonated) || 0}
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Raised
                     </div>
-                  </div>
-                  <div className='index__metric border-tf-pink' aria-label='Number of teachers funded by TeacherFund'>
+                  </Box>
+                  <Box className='index__metric border-tf-pink' aria-label='Number of teachers funded by TeacherFund'>
                     <div className='tf-lato ts-title center'>
-                      3
+                      21
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Teachers Funded
                     </div>
-                  </div>
-                  <div className='index__metric border-tf-dark-gray' aria-label='Number of schools partenered with TeacherFund'>
+                  </Box>
+                  <Box className='index__metric border-tf-dark-gray' aria-label='Number of schools partenered with TeacherFund'>
                     <div className='tf-lato ts-title center'>
-                      2
+                      4
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Partner Schools
                     </div>
-                  </div>
-                  <div className='index__metric border-tf-gray' aria-label='Number of students impacted by TeacherFund'>
+                  </Box>
+                  <Box className='index__metric border-tf-gray' aria-label='Number of students impacted by TeacherFund'>
                     <div className='tf-lato ts-title center'>
-                      450
+                      973
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Students Impacted
                     </div>
-                  </div>
+                  </Box>
                 </div>
               </div>
             </div>
           </section>
-          <section className='h-section pt4 pt0-ns'>
-            <div className='flex flex-column pt4-ns pt6-l'>
-              <h2 className='f2-l f3 tf-oswald center mb3 mb4-l'>
+          <section className='h-section pt0-ns pt4-l'>
+            <div className='flex flex-column pt4-ns'>
+              <h2 className='f2-l f3 tf-oswald tc mb5-l mv4'>
                 Get Involved
               </h2>
               <div className='flex flex-row flex-wrap justify-center w-auto mt3-m center'>
@@ -260,33 +203,6 @@ class IndexPage extends Component {
           <Team />
           <section className='h-footer bg-tf-dark-gray'>
             <div className='flex flex-column m-auto w-20-l w-40-m w-75 tc'>
-              <div className='white pt4 mb2 tf-oswald ts-subtext'>
-                <h2 className='ma0 pa0 '>Let's Keep in Touch</h2>
-              </div>
-              <div className='pt2'>
-                <div className=''>
-                  <p className='center pb1 pt1 mv0 white tf-lato' aria-live='assertive'>{this.state.subscribed && "You're in the loop!"}</p>
-                </div>
-                {!this.state.subscribed &&
-                <form onSubmit={this.subscribe}>
-                  <div className='mt2 m-auto'>
-                    <input placeholder='First Name' className='w-100 bn pa3 mv2' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
-                  </div>
-                  <div className='mt2 m-auto'>
-                    <input placeholder='Last Name' className='w-100 bn pa3 mv2' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
-                  </div>
-                  <div className='m-auto pb3'>
-                    <input type='email' required placeholder='Email Address' className='w-100 bn pa3 mv2' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
-                  </div>
-                  <div className='mb3 red tf-lato' aria-live='assertive'>
-                    {this.state.error}
-                  </div>
-                  <button className='btn-primary no-underline pa3 db br-pill tf-lato bn v-mid bg-tf-yellow w-40 m-auto'>
-                      Submit
-                  </button>
-                </form>
-                }
-              </div>
               <div className='pt4 center white m-auto tf-lato-lite'>
                 <p>The Teacher Fund is US 501(c)(3) public charity</p>
                 <p>EIN: 83-2285506</p>

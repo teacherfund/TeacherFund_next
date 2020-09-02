@@ -5,7 +5,7 @@ import Link from 'next/link'
 const PendingLogin = (props) => (
   <PageWrapper title='Pending Log In – The Teacher Fund'>
     <div className='w-100 h-100 flex pa5'>
-      <img className='absolute w-100 h-100 top-0 left-0 z-minus-1' src='/static/images/einstein.jpg' />
+      <img className='absolute w-100 h-100 top-0 left-0 z-minus-1' src='/images/einstein.jpg' />
       <div className='flex flex-row-reverse m-auto'>
         <div className='bg-white w6 pb3 br3 tf-lato tc'>
           <p className='pb1'>

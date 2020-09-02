@@ -1,8 +1,8 @@
+/* global fetch */
 import React, { Component } from 'react'
 import { CardElement } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
-import * as Api from '../client/api'
 
 class DonateForm extends Component {
   constructor (props) {
@@ -64,16 +64,19 @@ class DonateForm extends Component {
     }
     try {
       const stripDollarSignAmount = parseInt(this.state.amount.replace('$', ''))
-      const responseStream = await Api.donate({
-        source: token,
-        firstName: this.state.firstName,
-        frequency: this.state.frequency,
-        lastName: this.state.lastName,
-        amount: stripDollarSignAmount,
-        email: this.state.email
+      const responseStream = await fetch('/api/donate', {
+        method: 'POST',
+        body: JSON.stringify({
+          source: token,
+          firstName: this.state.firstName,
+          frequency: this.state.frequency,
+          lastName: this.state.lastName,
+          amount: stripDollarSignAmount * 100,
+          email: this.state.email
+        })
       })
       const response = await responseStream.json()
-      if (response.ok) {
+      if (response.success) {
         this.setState({ redirectSuccess: true, loading: false })
       } else {
         this.setState({ error: `Donation failed: ${response.message}`, loading: false })
