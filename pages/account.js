@@ -60,7 +60,7 @@ const Account = () => {
               <div className='mb2 mt2'>
                 <div className='white bg-tf-yellow tf-lato b tc pa3 w-50 m-auto br-pill pointer'>
                   <Link href='donate'>
-                    <label className='ttu pointer'>donate again</label>
+                    <label className='ttu pointer'>{(user && user.donationAmount) ? 'donate again' : 'Donate today'}</label>
                   </Link>
                 </div>
               </div>
