@@ -22,7 +22,11 @@ export default (Page, pageProps) => class Context extends Component {
   }
 
   componentDidMount () {
-    this.fetchGlobalStats()
+    try {
+      this.fetchGlobalStats()
+    } catch (e) {
+      console.log('here', e)
+    }
   }
 
   async fetchGlobalStats () {

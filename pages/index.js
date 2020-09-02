@@ -23,7 +23,9 @@ class IndexPage extends Component {
 
   async fetchStats () {
     // Populate global stats
-    await this.props.helpers.fetchGlobalStats()
+    try {
+      await this.props.helpers.fetchGlobalStats()
+    } catch (e) {}
   }
 
   render () {
