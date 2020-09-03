@@ -12,7 +12,7 @@ const Account = () => {
   const [cancelLoading, setCancelLoading] = useState(false)
   const router = useRouter()
 
-  if (error) {
+  if (error || !user) {
     router.push('/signin')
   }
 

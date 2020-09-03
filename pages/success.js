@@ -15,13 +15,13 @@ const Success = () => {
           <p className='pb1'><b>Thank you!</b></p>
           <p className='pb1'>Your donation helps teachers more than can be put in words.</p>
           { user ? (
-            <Box className='pb1'>If you made a monthly donation you can
-              <Link color='blue.500' href='/signin'>{' login '}</Link>
+            <Box className='pb1'>If you made a monthly donation you can visit your
+              <Link color='blue.500' href='/account'>{' account '}</Link>
               at any time to cancel or modify your donation.
             </Box>
           ) : (
-            <Box className='pb1'>If you made a monthly donation you can visit your
-              <Link color='blue.500' href='/account'>{' account '}</Link>
+            <Box className='pb1'>If you made a monthly donation you can
+              <Link color='blue.500' href='/signin'>{' login '}</Link>
               at any time to cancel or modify your donation.
             </Box>
           )}
