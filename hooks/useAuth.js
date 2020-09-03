@@ -8,8 +8,8 @@ function fetcher (route) {
 }
 
 export default function useAuth () {
-  const { data: user, isValidating, error } = useSWR('/api/account', fetcher)
-  const loading = (user === undefined && isValidating)
+  const { data: user, isValidating, revalidate, error } = useSWR('/api/account', fetcher)
+  const loading = (user === undefined || isValidating)
 
-  return { user, loading, error }
+  return { user, loading, revalidate, error }
 }

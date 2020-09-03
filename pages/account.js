@@ -1,5 +1,5 @@
 /* global fetch */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Text, Box } from '@chakra-ui/core'
 import { useRouter } from 'next/router'
 import PageWrapper from '../components/pageWrapper'
@@ -8,18 +8,26 @@ import Link from 'next/link'
 import Card from '../components/card'
 
 const Account = () => {
-  const { user, loading, error } = useAuth()
+  const { user, revalidate } = useAuth()
   const [pageLoading, setPageLoading] = useState(true)
+  const [hasValidated, setHasValidated] = useState(false)
   const [cancelLoading, setCancelLoading] = useState(false)
   const router = useRouter()
 
-  console.log('am i here?', error, user, loading)
-
-  if ((error || !user) && loading && typeof window !== 'undefined') {
-    // router.push('/signin')
-  } else if (user && pageLoading) {
-    setPageLoading(false)
+  const routeGuard = () => {
+    if (!user && !hasValidated) {
+      revalidate()
+      setHasValidated(true)
+    } else if (!user && hasValidated) {
+      router.push('/signin')
+    } else if (user && pageLoading) {
+      setPageLoading(false)
+    }
   }
+
+  useEffect(() => {
+    routeGuard()
+  }, [user])
 
   const cancelReccuringDonation = async () => {
     setCancelLoading(true)

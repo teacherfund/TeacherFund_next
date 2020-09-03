@@ -5,7 +5,7 @@ import Link from 'next/link'
 import useAuth from '../hooks/useAuth'
 
 const Nav = () => {
-  const { user } = useAuth()
+  const { user, loading } = useAuth()
 
   const links = [
     { href: '/mission', label: 'Our Mission', key: 'our-mission' },
@@ -16,7 +16,7 @@ const Nav = () => {
     { href: '/signin', label: 'Login', key: 'login' }
   ]
 
-  if (user) {
+  if (user && !loading) {
     links.push({ href: '/account', label: 'Account', key: 'account' })
     buttons = [
       { href: '/logout', label: 'Logout', key: 'logout' }
