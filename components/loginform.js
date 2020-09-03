@@ -38,12 +38,13 @@ const LoginForm = () => {
       headers: { Authorization: `Bearer ${magicId}` }
     })
 
+    setIsLoading(false)
+
     if (authRequest.ok) {
       router.push('/account')
     } else {
       setError('Unable to login! Please email support@theteacherfund.com for help!')
     }
-    setIsLoading(false)
   }
 
   return (

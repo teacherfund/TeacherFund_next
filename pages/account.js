@@ -8,14 +8,16 @@ import Link from 'next/link'
 import Card from '../components/card'
 
 const Account = () => {
-  const { user, error } = useAuth()
+  const { user, loading, error } = useAuth()
   const [pageLoading, setPageLoading] = useState(true)
   const [cancelLoading, setCancelLoading] = useState(false)
   const router = useRouter()
 
-  if ((error || !user) & typeof window !== 'undefined') {
-    router.push('/signin')
-  } else if (user) {
+  console.log('am i here?', error, user, loading)
+
+  if ((error || !user) && loading && typeof window !== 'undefined') {
+    // router.push('/signin')
+  } else if (user && pageLoading) {
     setPageLoading(false)
   }
 
@@ -56,7 +58,7 @@ const Account = () => {
                 width='35rem'>
                 <div className='tf-oswald ts-subtext pv2 tc'>Current Monthly Donation</div>
                 <Text className='pa1' fontSize='2rem' padding='3rem'>
-                  $ {user && user.donationAmount && ((user.donationAmount / 100) || 0)}
+                  $ {(user && user.donationAmount) ? (user.donationAmount / 100) : 0}
                 </Text>
                 <Text fontSize='1.3rem' marginBottom='2rem'>
                   Public school teachers appreciate your contribution more than you know. Words do not do justice.
