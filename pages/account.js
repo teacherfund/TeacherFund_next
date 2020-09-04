@@ -58,7 +58,7 @@ const Account = () => {
               className='absolute w-100 h-100 top-0 left-0 z-minus-1'
               alt='People reading'
             />
-            <Flex flexDirection='row-reverse'>
+            <Flex flexDirection='row-reverse' margin='auto'>
               <Box className='tf-lato'
                 textAlign='center'
                 borderRadius='1rem'
