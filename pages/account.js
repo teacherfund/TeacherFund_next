@@ -62,11 +62,11 @@ const Account = () => {
               <Box className='tf-lato'
                 textAlign='center'
                 borderRadius='1rem'
-                padding={['0','3rem']}
+                padding={['0', '3rem']}
                 backgroundColor='white'
-                width={['100%','35rem']}>
+                width={['100%', '35rem']}>
                 <div className='tf-oswald ts-subtext pv2 tc'>Current Monthly Donation</div>
-                <Text className='pa1' fontSize='2rem' padding={['1rem','3rem']}>
+                <Text className='pa1' fontSize='2rem' padding={['1rem', '3rem']}>
                   $ {(user && user.donationAmount) ? (user.donationAmount / 100) : 0}
                 </Text>
                 <Text fontSize='1.3rem' marginBottom='2rem'>
@@ -89,7 +89,7 @@ const Account = () => {
                 </div>
                 <div className='mb2 mt3'>
                   <Button color='white'
-                  zIndex='1'
+                    zIndex='1'
                     isLoading={cancelLoading}
                     backgroundColor='red.500'
                     borderRadius='9999px'

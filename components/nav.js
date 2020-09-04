@@ -77,14 +77,14 @@ const Nav = () => {
         </div>
         <div className='flex-column flex justify-around h5 mt6 pt4 f3'>
           {links.map(({ key, href, label }) => (
-            <div key={key} className='db center w-auto fr ph2'>
+            <div key={key} className='db center w-auto fr ph2' onClick={toggleDrawerOpen}>
               <Link href={href}>
                 <a className='white no-underline mv4 w5 center'>{label}</a>
               </Link>
             </div>
           ))}
           {buttons.map(({ key, href, label }) => (
-            <div key={key} className='btn-menu no-underline pv3 br3 mv4 w4 w5-m center'>
+            <div key={key} className='btn-menu no-underline pv3 br3 mv4 w4 w5-m center' onClick={toggleDrawerOpen}>
               <Link href={href} key={key}>
                 <a className=''>{label}</a>
               </Link>
