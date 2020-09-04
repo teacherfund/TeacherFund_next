@@ -1,6 +1,6 @@
 /* global fetch */
 import React, { useState, useEffect } from 'react'
-import { Button, Text, Box } from '@chakra-ui/core'
+import { Button, Text, Box, Image, Flex } from '@chakra-ui/core'
 import { useRouter } from 'next/router'
 import PageWrapper from '../components/pageWrapper'
 import useAuth from '../hooks/useAuth'
@@ -45,27 +45,28 @@ const Account = () => {
 
   return (
     <PageWrapper title='Account – The Teacher Fund'>
-      <div className='w-100 h-100 flex pa5'>
+      <Flex width={['100%']} height='100%' padding={['1rem', '5rem']}>
         {pageLoading ? (
           <Card margin='auto' marginTop='10rem' borderRadius='1rem'>
             <Text fontSize='4rem'>Loading...</Text>
           </Card>
         ) : (
           <>
-            <img
+            <Image
               src='/images/man-woman-reading.jpg'
+              display={['none', 'block']}
               className='absolute w-100 h-100 top-0 left-0 z-minus-1'
               alt='People reading'
             />
-            <div className='flex flex-row-reverse m-auto'>
+            <Flex flexDirection='row-reverse'>
               <Box className='tf-lato'
                 textAlign='center'
                 borderRadius='1rem'
-                padding='3rem'
+                padding={['0','3rem']}
                 backgroundColor='white'
-                width='35rem'>
+                width={['100%','35rem']}>
                 <div className='tf-oswald ts-subtext pv2 tc'>Current Monthly Donation</div>
-                <Text className='pa1' fontSize='2rem' padding='3rem'>
+                <Text className='pa1' fontSize='2rem' padding={['1rem','3rem']}>
                   $ {(user && user.donationAmount) ? (user.donationAmount / 100) : 0}
                 </Text>
                 <Text fontSize='1.3rem' marginBottom='2rem'>
@@ -88,6 +89,7 @@ const Account = () => {
                 </div>
                 <div className='mb2 mt3'>
                   <Button color='white'
+                  zIndex='1'
                     isLoading={cancelLoading}
                     backgroundColor='red.500'
                     borderRadius='9999px'
@@ -102,10 +104,10 @@ const Account = () => {
                   </Button>
                 </div>
               </Box>
-            </div>
+            </Flex>
           </>
         )}
-      </div>
+      </Flex>
     </PageWrapper>
   )
 }

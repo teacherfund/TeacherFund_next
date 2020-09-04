@@ -76,8 +76,20 @@ const Nav = () => {
           <X />
         </div>
         <div className='flex-column flex justify-around h5 mt6 pt4 f3'>
-          <a href='/mission' className='white no-underline mv4 w5 center'>Our Mission</a>
-          <a href='/donate' className='btn-menu no-underline pv3 br3 mv4 w4 w5-m center'>Donate</a>
+          {links.map(({ key, href, label }) => (
+            <div key={key} className='db center w-auto fr ph2'>
+              <Link href={href}>
+                <a className='white no-underline mv4 w5 center'>{label}</a>
+              </Link>
+            </div>
+          ))}
+          {buttons.map(({ key, href, label }) => (
+            <div key={key} className='btn-menu no-underline pv3 br3 mv4 w4 w5-m center'>
+              <Link href={href} key={key}>
+                <a className=''>{label}</a>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>}
 
