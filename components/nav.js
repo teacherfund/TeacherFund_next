@@ -4,6 +4,10 @@ import X from './icons/x'
 import Link from 'next/link'
 import useAuth from '../hooks/useAuth'
 
+const style={
+  fontSize:25
+}
+
 const Nav = () => {
   const { user, loading } = useAuth()
 
@@ -48,9 +52,9 @@ const Nav = () => {
           </div>
           <div className='fr dn db-l flex-column flex-auto-ns mv-auto'>
             {links.map(({ key, href, label }) => (
-              <div key={key} className='db center w-auto fr ph2'>
+              <div key={key} className=' w-auto fr '>
                 <Link href={href}>
-                  <a className='nav-item tf-dark-gray no-underline black pa3'>{label}</a>
+                  <a className='nav-item tf-dark-gray no-underline black pa3' style={style}>{label}</a>
                 </Link>
               </div>
             ))}
@@ -59,7 +63,7 @@ const Nav = () => {
             {buttons.map(({ key, href, label }) => (
               <div key={key} className='db center w-auto fr ph2'>
                 <Link href={href} key={key}>
-                  <a className='btn-alt no-underline black pv3 ph4 br3'>{label}</a>
+                  <a className='btn-alt no-underline black pv3 ph4 br3' style={{fontSize:25 }}>{label}</a>
                 </Link>
               </div>
             ))}

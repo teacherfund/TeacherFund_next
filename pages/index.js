@@ -82,7 +82,7 @@ class IndexPage extends Component {
           </section>
           <section className='h-section'>
             <div className='flex flex-column mt3 pt5-l pb4 pb0-ns'>
-              <h2 className='f3 f2-l mb3-m tf-oswald center'>
+              <h2 className='f3 f2-l mb3-m tf-oswald center' style={{fontSize:40}}>
                 Our Process
               </h2>
               <div className='flex flex-row flex-wrap justify-center w-auto mt2 mt5-l center ph3 ph0-ns'>
@@ -112,7 +112,7 @@ class IndexPage extends Component {
           </section>
           <section className='h-section bg-tf-teal pt5-l'>
             <div className='flex flex-column pv3 pv0-l'>
-              <h2 className='f2-l f3 tf-oswald white tc mb5-l mv4'>
+              <h2 className='f2-l f3 tf-oswald white tc mb5-l mv4' style={{fontSize:40}}>
                 See How We're Doing
               </h2>
               <div className='center pa2 pv0-ns flex flex-column'>
@@ -155,7 +155,7 @@ class IndexPage extends Component {
           </section>
           <section className='h-section pt0-ns pt4-l'>
             <div className='flex flex-column pt4-ns'>
-              <h2 className='f2-l f3 tf-oswald tc mb5-l mv4'>
+              <h2 className='f2-l f3 tf-oswald tc mb5-l mv4' style={{fontSize:80,fontWeight:"bold"}}>
                 Get Involved
               </h2>
               <div className='flex flex-row flex-wrap justify-center w-auto mt3-m center'>
