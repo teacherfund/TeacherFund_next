@@ -5,7 +5,7 @@ import '../public/styles/main.scss'
 
 const defaultDescription = "Funding Teachers. Empowering Students. We provide funding to classrooms so teachers don't have to."
 const defaultOGURL = 'https://theteacherfund.com'
-const defaultOGImage = 'https://theteacherfund.com/public/images/Logo.png'
+const defaultOGImage = 'https://theteacherfund.com/images/Logo.png'
 
 const Head = props => (
   <div>
