@@ -32,24 +32,36 @@ Please note: all design should be made with [our home page style](https://github
 
 **In order to avoid duplicate work and to save you from wasting time, please comment in an open issue your intention to code out the resolution to that issue. If it isn't obvious how that issue will be solved, outline what you plan to do to make sure it's in line with the maintainers' vision for the project.**
 
-The website is written in [React](https://github.com/facebook/react/) using [Next.js](https://github.com/zeit/next.js) from Zeit. 
+The website is written in [React](https://github.com/facebook/react/) using [Next.js](https://github.com/zeit/next.js) from Zeit. [Chakra UI](https://chakra-ui.com/) is used as a React component library. [Magic](https://magic.link) is used for authentication. [Stripe](https://stripe.com) is used for payment processing.
 
 ### Directory Structure
-- **api**
-  - _Helper files for interacting with the TeacherFund API_
 - **components**
-  - _React components_
+  - _Custom React components_
+- **containers**
+  - _Higher-order React components_
+- **hooks**
+  - _React hooks_
+- **lib**
+  - _Utilities used by the serverless functions_
 - **pages**
   - _React component containers that correspond to actual pages_
-- **static**
+  - **api**
+    - _Vercel serverless functions to manage authentication / donations_
+- **public**
   - _Images and SCSS files_
+- **test**
+  - _Unit tests_
+- **utils**
+  - _Reusable utility functions_
 
 ### Local Development Environment
 - Install [Node.js and NPM](https://nodejs.org) `>= 8.x`
 - Fork this repository, clone it locally, and keep it in sync by following the instructions [here](https://help.github.com/articles/fork-a-repo/)
 - Install dependencies by running `npm install` in the project directory
+- Create a local environment file named `.env.local`
+  - Add `NEXT_PUBLIC_DEVELOPMENT=1` to the file. This will allow you to skip authentication during local development, since the Magic authentication environment variables are not public.
 - Start the website locally by running
-  ```bash
+  ```shell
   npm run dev
   ```
   When it's done building, access it at this link: http://localhost:3001/
@@ -60,8 +72,7 @@ Commit any code changes to a branch (e.g. `fix/header` or `feature/donate-form`)
 When you've finished making changes and committed the changes into your branch, you can open a pull request. Please reference the issue you have solved in your pull request.
 
 ### Coding Standards
-- Code should pass linting by [Standard](https://standardjs.com/). Run `npm run lint` to confirm there are no linting errors.
-- Styling should all be done through [Taychon](https://tachyons.io/docs)
+- Code should pass linting by [Standard](https://standardjs.com/). Run `npm run lint` to confirm there are no linting errors. You can have Standard auto-fix linting issues by running `npx standard --fix`.
 - Bugfixes should be accompanied by tests to avoid regression
 
 ## Thank You!

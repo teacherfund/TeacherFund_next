@@ -10,7 +10,7 @@ function autobind (funcs, self) {
   }, {})
 }
 
-export default (Page, pageProps) => class Context extends Component {
+const withContext = (Page, pageProps) => class Context extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -46,3 +46,5 @@ export default (Page, pageProps) => class Context extends Component {
     )
   }
 }
+
+export default withContext

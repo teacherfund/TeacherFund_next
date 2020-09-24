@@ -1,7 +1,6 @@
-/* global fetch */
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-import { Magic } from 'magic-sdk'
+import { login } from '../hooks/useAuth'
 import {
   Button,
   Box
@@ -22,25 +21,11 @@ const LoginForm = () => {
     setIsLoading(true)
     const { elements } = e.target
 
-    // the .loginWithMagicLink causes an email to be sent to the user
-    // after they click the magic link, this function call returns us a
-    // magic ID; if we have a magic ID returned to us, the user has
-    // successfully authenticated
-    const magicId = await new Magic(process.env.NEXT_PUBLIC_MAGIC_PUB_KEY)
-      .auth
-      .loginWithMagicLink({ email: elements.email.value })
-
-    // we can now pass the magic ID to our own backend (a vercel lambda)
-    // which knows our magic secret. the lambda will ask Magic to translate
-    // the magic ID into an email address
-    const authRequest = await fetch('/api/login', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${magicId}` }
-    })
+    const { ok } = await login({ email: elements.email.value })
 
     setIsLoading(false)
 
-    if (authRequest.ok) {
+    if (ok) {
       router.push('/account')
     } else {
       setError('Unable to login! Please email support@theteacherfund.com for help!')
