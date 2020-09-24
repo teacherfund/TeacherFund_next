@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Hamburger from './icons/hamburger'
 import X from './icons/x'
 import Link from 'next/link'
-import useAuth from '../hooks/useAuth'
+import { useAuth } from '../hooks/useAuth'
 
 const Nav = () => {
   const { user, loading } = useAuth()

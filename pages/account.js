@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Button, Text, Box, Image, Flex } from '@chakra-ui/core'
 import { useRouter } from 'next/router'
 import PageWrapper from '../components/pageWrapper'
-import useAuth from '../hooks/useAuth'
+import { useAuth } from '../hooks/useAuth'
 import Link from 'next/link'
 import Card from '../components/card'
 
@@ -14,7 +14,7 @@ const Account = () => {
   const [cancelLoading, setCancelLoading] = useState(false)
   const router = useRouter()
 
-  const routeGuard = () => {
+  useEffect(() => {
     if (!user && !hasValidated) {
       revalidate()
       setHasValidated(true)
@@ -23,10 +23,6 @@ const Account = () => {
     } else if (user && pageLoading) {
       setPageLoading(false)
     }
-  }
-
-  useEffect(() => {
-    routeGuard()
   }, [user])
 
   const cancelReccuringDonation = async () => {

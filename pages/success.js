@@ -1,6 +1,6 @@
 import { Box, Link } from '@chakra-ui/core'
 import PageWrapper from '../components/pageWrapper'
-import useAuth from '../hooks/useAuth'
+import { useAuth } from '../hooks/useAuth'
 
 const Success = () => {
   const { user } = useAuth()
