@@ -39,7 +39,7 @@ const Nav = () => {
 
   return (
     <nav>
-      <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl4 pr3 z-1'>
+      <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl4 pr3'>
         <div className='w-70-l mh-auto b--tf-yellow flex justify-between flex-row w-100'>
           <div className='pointer tc'>
             <Link href='/'>
@@ -71,7 +71,7 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      {drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray o-90 absolute white tf-lato tc pv4 pl5-ns pr5-ns'>
+      {drawerOpen && <div className='w-100 h-100 bg-tf-dark-gray z-1 fixed o-90 white tf-lato tc pv4 pl5-ns pr5-ns'>
         <div className='fr pa2 pr3 mr1 pt2-m pr2-m mr1-m mt1-m' onClick={toggleDrawerOpen}>
           <X />
         </div>
