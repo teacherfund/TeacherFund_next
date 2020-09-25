@@ -85,7 +85,6 @@ const Account = () => {
                 </div>
                 <div className='mb2 mt3'>
                   <Button color='white'
-                    zIndex='1'
                     isLoading={cancelLoading}
                     backgroundColor='red.500'
                     borderRadius='9999px'
