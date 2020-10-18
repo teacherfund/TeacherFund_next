@@ -1,14 +1,14 @@
 import React from 'react'
 import '../public/styles/main.scss'
-import { Flex, Icon } from '@chakra-ui/core'
+// import { Flex, Icon, IconButton } from '@chakra-ui/core'
 // import styles from './ScrollToTop.module.scss'
+import './ScrollToTop.css'
 
 const ScrollToTop = () => {
   return (
-    <Flex>
-      <Icon name='arrow-up' size='100px' color='#f6b333' />
-
-    </Flex>
+    <div>
+      <h1>I am scroll to top button</h1>
+    </div>
   )
 }
 

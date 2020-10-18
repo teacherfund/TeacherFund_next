@@ -13,9 +13,8 @@ const PageWrapper = (props) => {
       <Nav />
       <main id='main-content' tabIndex='-1'>
         {props.children}
+        <ScrollToTop />
       </main>
-      <ScrollToTop />
-
     </>
   )
 }

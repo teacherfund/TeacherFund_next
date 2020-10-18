@@ -6,6 +6,7 @@ import ProcessCard from '../components/ProcessCard'
 import Link from 'next/link'
 import { formatCurrency } from '../utils/formatting'
 import HeroImage from '../components/heroImage'
+import ScrollToTop from '../components/ScrollToTop'
 
 class IndexPage extends Component {
   constructor (props) {
@@ -211,6 +212,7 @@ class IndexPage extends Component {
             </div>
           </section>
         </div>
+        <ScrollToTop />
       </PageWrapper>
     )
   }
