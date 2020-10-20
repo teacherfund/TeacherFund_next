@@ -16,7 +16,6 @@ const ContactForm = () => {
           joelwass @ theteacherfund.com
         </Link>
       </Text>
-      <Text>This is a test</Text>
     </Box>
   )
 }

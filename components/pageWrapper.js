@@ -12,7 +12,7 @@ const PageWrapper = (props) => {
       <a href='#main-content' className='skip-link tf-oswald'>Skip to main content</a>
       <Nav />
       <main id='main-content' tabIndex='-1'>
-        {props.children}      
+        {props.children}
       </main>
       <ScrollToTop />
     </>

@@ -201,7 +201,6 @@ class IndexPage extends Component {
             </div>
           </section>
           <Team />
-          
           <section className='h-footer bg-tf-dark-gray'>
             <div className='flex flex-column m-auto w-20-l w-40-m w-75 tc'>
               <div className='pt4 center white m-auto tf-lato-lite'>
@@ -212,7 +211,6 @@ class IndexPage extends Component {
             </div>
           </section>
         </div>
-       
       </PageWrapper>
     )
   }
