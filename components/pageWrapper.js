@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from '../components/nav'
 import Head from '../components/head'
-import ScrollToTop from './scrolltotop'
+import ScrollToTop from '../components/scrolltotop'
 
 import '../public/styles/main.scss'
 
