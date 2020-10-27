@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from '../components/nav'
 import Head from '../components/head'
+import ScrollToTop from '../components/ScrollToTop'
 
 import '../public/styles/main.scss'
 
@@ -13,6 +14,7 @@ const PageWrapper = (props) => {
       <main id='main-content' tabIndex='-1'>
         {props.children}
       </main>
+      <ScrollToTop />
     </>
   )
 }
