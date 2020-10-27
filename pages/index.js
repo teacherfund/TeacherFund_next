@@ -165,7 +165,7 @@ class IndexPage extends Component {
                       <div className='tf-lato f3 pv2 tc'>
                         Fund Teachers
                       </div>
-                      <div className='tf-lato-lite f3-l f5 pt2 tc lh-title'>
+                      <div className='tf-lato-lite f3-l f5 pt2 tc lh-title min-h-100-ns'>
                         Because private donors cover our operating costs, you can give knowing your whole gift
                         will go toward helping equip teachers and students with the supplies they need to be successful.
                       </div>
@@ -183,7 +183,7 @@ class IndexPage extends Component {
                       <div className='tf-lato f3 pv2 tc'>
                         Volunteer
                       </div>
-                      <div className='tf-lato-lite f3-l f5 pt2 tc h4-m lh-title'>
+                      <div className='tf-lato-lite f3-l f5 pt2 tc lh-title min-h-100-ns'>
                         Interested in helping us? We’re looking for a web designer, non-profit
                         lawyer, and boots-on-the-ground volunteers to help handout supplies
                         and build teacher relationships.
