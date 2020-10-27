@@ -165,14 +165,14 @@ class IndexPage extends Component {
                       <div className='tf-lato f3 pv2 tc'>
                         Fund Teachers
                       </div>
-                      <div className='tf-lato-lite f3-l f5 pt2 tc h4-m lh-title'>
+                      <div className='tf-lato-lite f3-l f5 pt2 tc lh-title'>
                         Because private donors cover our operating costs, you can give knowing your whole gift
                         will go toward helping equip teachers and students with the supplies they need to be successful.
                       </div>
                     </div>
                     <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
                       <Link href='/donate'>
-                        <a className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid w-80 m-auto'>Donate</a>
+                        <a className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid w-100 m-auto'>Donate</a>
                       </Link>
                     </div>
                   </div>
