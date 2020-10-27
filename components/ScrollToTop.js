@@ -32,7 +32,7 @@ const ScrollToTop = () => {
           onClick={scrollBackFn}
           position='fixed'
           borderRadius='50%'
-          bottom={['50px', '200px']}
+          bottom={['50px']}
           right='30px'
           display={show ? 'block' : 'none'}
           cursor='pointer'
