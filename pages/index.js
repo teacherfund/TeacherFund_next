@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Box } from '@chakra-ui/core'
+import { Box, PseudoBox} from '@chakra-ui/core'
 import PageWrapper from '../components/pageWrapper'
 import Team from '../components/team'
 import ProcessCard from '../components/ProcessCard'
@@ -172,6 +172,7 @@ class IndexPage extends Component {
                     </div>
                     <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
                       <Link href='/donate'>
+                        {/* to be modified */}
                         <a className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid w-100 m-auto'>Donate</a>
                       </Link>
                     </div>
@@ -191,10 +192,32 @@ class IndexPage extends Component {
                     </div>
                   </div>
                   <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
-                    <a className='btn-red no-underline pa3 db br-pill tf-lato b v-mid w-80 m-auto'
+                    {/* to be modified */}
+                    <Link href='mailto:joelwass@theteacherfund.com?subject=Application'>
+                      <PseudoBox
+                          as="button"
+                          color="white"
+                          bg = "red.300"
+                          // fontWeight="semibold"
+                          fontFamily = 'Lato'
+                          py={2}
+                          px={4}
+                          borderWidth="2px"
+                          width="350px"
+                          maxWidth="100%"
+                          borderColor="red.300"
+                          rounded="md"
+                          display= "block"
+                          _hover={{ bg: "white", color: "red.300" }}
+                          _focus={{ boxShadow: "outline" }}
+                        >
+                          Apply Today
+                      </PseudoBox>
+                      </Link>
+                    {/* <a className='btn-red no-underline pa3 db br-pill tf-lato b v-mid w-80 m-auto'
                       href='mailto:joelwass@theteacherfund.com?subject=Application'>
                        Apply Today
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
