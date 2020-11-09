@@ -170,12 +170,33 @@ class IndexPage extends Component {
                         will go toward helping equip teachers and students with the supplies they need to be successful.
                       </div>
                     </div>
-                    <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
-                      <Link href='/donate'>
-                        {/* to be modified */}
-                        <a className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid w-100 m-auto'>Donate</a>
+                    <Box w="100%" p={4} display="block" marginLeft="0" marginRight="0" marginTop="7px">
+                    
+                    {/* Donate Button*/}
+                    <Link href='/donate'>
+                      <PseudoBox
+                          as="button"
+                          color="white"
+                          bg = "orange.300"
+                          fontFamily = 'Lato'
+                          fontSize={["md", "sm", "lg", "xl"]}
+                          py={2}
+                          px={4}
+                          borderWidth="2px"
+                          minWidth="75px"
+                          width="100%"
+                          maxWidth="100%"
+                          borderColor="orange.300"
+                          rounded="md"
+                          display= "block"
+                          _hover={{ bg: "white", color: "orange.300" }}
+                          _focus={{ boxShadow: "outline" }}
+                        >
+                          Donate
+                      </PseudoBox>
                       </Link>
-                    </div>
+                   
+                    </Box>
                   </div>
                 </div>
                 <div className='pa2 pa4-ns w-40-m w-33-l w-80 bg-card h5-5-ns ma3'>
@@ -191,19 +212,20 @@ class IndexPage extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
-                    {/* to be modified */}
+                  <Box w="100%" p={4} display="block" marginLeft="0" marginRight="0" marginTop="1px">
+                    {/* Button one */}
                     <Link href='mailto:joelwass@theteacherfund.com?subject=Application'>
                       <PseudoBox
                           as="button"
                           color="white"
                           bg = "red.300"
-                          // fontWeight="semibold"
                           fontFamily = 'Lato'
+                          fontSize={["md", "sm", "lg", "xl"]}
                           py={2}
                           px={4}
                           borderWidth="2px"
-                          width="350px"
+                          minWidth="70px"
+                          width="100%"
                           maxWidth="100%"
                           borderColor="red.300"
                           rounded="md"
@@ -214,11 +236,7 @@ class IndexPage extends Component {
                           Apply Today
                       </PseudoBox>
                       </Link>
-                    {/* <a className='btn-red no-underline pa3 db br-pill tf-lato b v-mid w-80 m-auto'
-                      href='mailto:joelwass@theteacherfund.com?subject=Application'>
-                       Apply Today
-                    </a> */}
-                  </div>
+                  </Box>
                 </div>
               </div>
             </div>
