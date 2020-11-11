@@ -213,7 +213,7 @@ class IndexPage extends Component {
                     </div>
                   </div>
                   <Box w="100%" p={4} display="block" marginLeft="0" marginRight="0" marginTop="1px">
-                    {/* Button one */}
+                    {/* Appky Today Button*/}
                     <Link href='mailto:joelwass@theteacherfund.com?subject=Application'>
                       <PseudoBox
                           as="button"
