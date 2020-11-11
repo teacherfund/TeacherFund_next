@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Box, PseudoBox} from '@chakra-ui/core'
+import { Box, PseudoBox } from '@chakra-ui/core'
 import PageWrapper from '../components/pageWrapper'
 import Team from '../components/team'
 import ProcessCard from '../components/ProcessCard'
@@ -170,32 +170,32 @@ class IndexPage extends Component {
                         will go toward helping equip teachers and students with the supplies they need to be successful.
                       </div>
                     </div>
-                    <Box w="100%" p={4} display="block" marginLeft="0" marginRight="0" marginTop="7px">
-                    
-                    {/* Donate Button*/}
-                    <Link href='/donate'>
-                      <PseudoBox
-                          as="button"
-                          color="white"
-                          bg = "orange.300"
-                          fontFamily = 'Lato'
-                          fontSize={["md", "sm", "lg", "xl"]}
+                    <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='7px'>
+
+                      {/* Donate Button */}
+                      <Link href='/donate'>
+                        <PseudoBox
+                          as='button'
+                          color='white'
+                          bg='orange.300'
+                          fontFamily='Lato'
+                          fontSize={['md', 'sm', 'lg', 'xl']}
                           py={2}
                           px={4}
-                          borderWidth="2px"
-                          minWidth="75px"
-                          width="100%"
-                          maxWidth="100%"
-                          borderColor="orange.300"
-                          rounded="md"
-                          display= "block"
-                          _hover={{ bg: "white", color: "orange.300" }}
-                          _focus={{ boxShadow: "outline" }}
+                          borderWidth='2px'
+                          minWidth='75px'
+                          width='100%'
+                          maxWidth='100%'
+                          borderColor='orange.300'
+                          rounded='md'
+                          display='block'
+                          _hover={{ bg: 'white', color: 'orange.300' }}
+                          _focus={{ boxShadow: 'outline' }}
                         >
                           Donate
-                      </PseudoBox>
+                        </PseudoBox>
                       </Link>
-                   
+
                     </Box>
                   </div>
                 </div>
@@ -212,30 +212,30 @@ class IndexPage extends Component {
                       </div>
                     </div>
                   </div>
-                  <Box w="100%" p={4} display="block" marginLeft="0" marginRight="0" marginTop="1px">
-                    {/* Appky Today Button*/}
+                  <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='1px'>
+                    {/* Appky Today Button */}
                     <Link href='mailto:joelwass@theteacherfund.com?subject=Application'>
                       <PseudoBox
-                          as="button"
-                          color="white"
-                          bg = "red.300"
-                          fontFamily = 'Lato'
-                          fontSize={["md", "sm", "lg", "xl"]}
-                          py={2}
-                          px={4}
-                          borderWidth="2px"
-                          minWidth="70px"
-                          width="100%"
-                          maxWidth="100%"
-                          borderColor="red.300"
-                          rounded="md"
-                          display= "block"
-                          _hover={{ bg: "white", color: "red.300" }}
-                          _focus={{ boxShadow: "outline" }}
-                        >
+                        as='button'
+                        color='white'
+                        bg='red.300'
+                        fontFamily='Lato'
+                        fontSize={['md', 'sm', 'lg', 'xl']}
+                        py={2}
+                        px={4}
+                        borderWidth='2px'
+                        minWidth='70px'
+                        width='100%'
+                        maxWidth='100%'
+                        borderColor='red.300'
+                        rounded='md'
+                        display='block'
+                        _hover={{ bg: 'white', color: 'red.300' }}
+                        _focus={{ boxShadow: 'outline' }}
+                      >
                           Apply Today
                       </PseudoBox>
-                      </Link>
+                    </Link>
                   </Box>
                 </div>
               </div>
