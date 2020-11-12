@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Box } from '@chakra-ui/core'
+import { Box, PseudoBox } from '@chakra-ui/core'
 import PageWrapper from '../components/pageWrapper'
 import Team from '../components/team'
 import ProcessCard from '../components/ProcessCard'
@@ -165,16 +165,38 @@ class IndexPage extends Component {
                       <div className='tf-lato f3 pv2 tc'>
                         Fund Teachers
                       </div>
-                      <div className='tf-lato-lite f3-l f5 pt2 tc h4-m lh-title'>
+                      <div className='tf-lato-lite f3-l f5 pt2 tc lh-title min-h-100-ns'>
                         Because private donors cover our operating costs, you can give knowing your whole gift
                         will go toward helping equip teachers and students with the supplies they need to be successful.
                       </div>
                     </div>
-                    <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
+                    <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='7px'>
+
+                      {/* Donate Button */}
                       <Link href='/donate'>
-                        <a className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid w-80 m-auto'>Donate</a>
+                        <PseudoBox
+                          as='button'
+                          color='white'
+                          bg='orange.300'
+                          fontFamily='Lato'
+                          fontSize={['md', 'sm', 'lg', 'xl']}
+                          py={2}
+                          px={4}
+                          borderWidth='2px'
+                          minWidth='75px'
+                          width='100%'
+                          maxWidth='100%'
+                          borderColor='orange.300'
+                          rounded='md'
+                          display='block'
+                          _hover={{ bg: 'white', color: 'orange.300' }}
+                          _focus={{ boxShadow: 'outline' }}
+                        >
+                          Donate
+                        </PseudoBox>
                       </Link>
-                    </div>
+
+                    </Box>
                   </div>
                 </div>
                 <div className='pa2 pa4-ns w-40-m w-33-l w-80 bg-card h5-5-ns ma3'>
@@ -183,19 +205,38 @@ class IndexPage extends Component {
                       <div className='tf-lato f3 pv2 tc'>
                         Volunteer
                       </div>
-                      <div className='tf-lato-lite f3-l f5 pt2 tc h4-m lh-title'>
+                      <div className='tf-lato-lite f3-l f5 pt2 tc lh-title min-h-100-ns'>
                         Interested in helping us? We’re looking for a web designer, non-profit
                         lawyer, and boots-on-the-ground volunteers to help handout supplies
                         and build teacher relationships.
                       </div>
                     </div>
                   </div>
-                  <div className='db center w-auto pv4 pb0-ns ph4 tc pointer'>
-                    <a className='btn-red no-underline pa3 db br-pill tf-lato b v-mid w-80 m-auto'
-                      href='mailto:joelwass@theteacherfund.com?subject=Application'>
-                       Apply Today
-                    </a>
-                  </div>
+                  <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='1px'>
+                    {/* Appky Today Button */}
+                    <Link href='mailto:joelwass@theteacherfund.com?subject=Application'>
+                      <PseudoBox
+                        as='button'
+                        color='white'
+                        bg='red.300'
+                        fontFamily='Lato'
+                        fontSize={['md', 'sm', 'lg', 'xl']}
+                        py={2}
+                        px={4}
+                        borderWidth='2px'
+                        minWidth='70px'
+                        width='100%'
+                        maxWidth='100%'
+                        borderColor='red.300'
+                        rounded='md'
+                        display='block'
+                        _hover={{ bg: 'white', color: 'red.300' }}
+                        _focus={{ boxShadow: 'outline' }}
+                      >
+                          Apply Today
+                      </PseudoBox>
+                    </Link>
+                  </Box>
                 </div>
               </div>
             </div>
