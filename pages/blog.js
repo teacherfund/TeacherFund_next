@@ -3,7 +3,7 @@ import PageWrapper from '../components/pageWrapper'
 import Blog from '../components/Blog'
 
 const BlogPage = () => (
-  <PageWrapper title='Contact Us'>
+  <PageWrapper title='Blog'>
     <Blog />
   </PageWrapper>
 )
