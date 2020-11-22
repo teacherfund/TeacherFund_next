@@ -1,26 +1,51 @@
-import React from 'react'
-import { ALL_SCHOOL } from './utils'
+import { useState } from 'react'
+import { ALL_SCHOOL } from './blog_posts'
+import { Flex, Box, Heading, Link, Image } from '@chakra-ui/core'
 
-const Blog = ({ content }) =>
-  (<div className='blog-component pa4 flex' >
-    <img src={content.imgUrl} className='mt2 mr4 mb4 ml0 w4 h4 br-100' alt={content.school} />
-    <div className='flex-column'>
-      <h2 className='mt2 mb2'><a className='blog-title tl ttc f3 measure tf-lato black'>{content.title}</a></h2>
-      <div className='pv1 lh-copy tf-lato-lite mt2 mb2'>{content.content}</div>
-      <a className='read-more fw9 mt1 lh-copy f6 measure-wide helvetica tf-teal'>READ MORE</a>
-    </div>
-  </div>
+const Blog = ({ content }) => {
+  const [showAll, setShowAll] = useState(false)
+
+  return (
+    <Flex padding={{ base: '2rem', lg: '2rem' }} marginLeft={{ base: 0, lg: '15rem' }} className='blog-component' >
+      <Flex flexDirection='column'>
+        <Heading as='h2' size='lg' fontWeight='100' textDecoration='underline'>
+          <Box>
+            {content.title}
+          </Box>
+        </Heading>
+        {!showAll && <Box marginBottom='2rem' paddingTop='2rem' className='tf-lato'>{content.summary}...</Box>}
+        {showAll && (
+          <>
+            <Box marginBottom='2rem' paddingTop='2rem' className='tf-lato'>{content.content}</Box>
+            {content.images.map((imgSrc, i) => (
+              <Image src={imgSrc} key={i} marginTop='1rem' />
+            ))}
+          </>
+        )}
+        <Link
+          onClick={() => !showAll ? setShowAll(true) : setShowAll(false)}
+          fontWeight='600'
+          fontFamily='helvetica'
+          marginTop='1rem'
+          color='tf-teal'
+          className='read-more fw9 tf-teal lh-copy measure-wide'
+        >
+          {!showAll ? 'READ MORE' : 'SHOW LESS'}
+        </Link>
+      </Flex>
+    </Flex>
   )
+}
 
 function BlogList ({ blogs, selectedSchool }) {
   return (
-    <div className='pa2'>
+    <Box padding='1rem'>
       {
         blogs
           .filter((blog) => (selectedSchool === ALL_SCHOOL || blog.school === selectedSchool)) // filter blogs based on selected school
           .map((content) => <Blog content={content} key={content.blogId} />) // render the selected blog
       }
-    </div>
+    </Box>
   )
 }
 

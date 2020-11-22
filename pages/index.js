@@ -127,7 +127,7 @@ class IndexPage extends Component {
                   </Box>
                   <Box className='index__metric border-tf-pink' aria-label='Number of teachers funded by TeacherFund'>
                     <div className='tf-lato ts-title center'>
-                      21
+                      31
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Teachers Funded
