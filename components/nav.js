@@ -10,6 +10,7 @@ const Nav = () => {
   const links = [
     { href: '/mission', label: 'Our Mission', key: 'our-mission' },
     { href: '/contact', label: 'Contact Us', key: 'contact' },
+    { href: '/blog', label: 'Blog', key: 'blog' },
     { href: '/donate', label: 'Donate', key: 'donate' }
   ]
   let buttons = [

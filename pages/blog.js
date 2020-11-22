@@ -1,10 +1,11 @@
 import React from 'react'
+import PageWrapper from '../components/pageWrapper'
 import Blog from '../components/Blog'
 
-function BlogPage () {
-  return (
+const BlogPage = () => (
+  <PageWrapper title='Contact Us'>
     <Blog />
-  )
-}
+  </PageWrapper>
+)
 
 export default BlogPage
