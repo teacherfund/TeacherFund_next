@@ -2,7 +2,22 @@ import React from 'react'
 
 const staticBlogContent = [{
   title: 'Borah Elementary - November 2020',
-  images: ['/images/drops/borah/nov_2020_1.jpg', '/images/drops/borah/nov_2020_2.jpg', '/images/drops/borah/nov_2020_3.jpg'],
+  images: [
+    {
+      src: '/images/drops/borah/nov_2020_1.jpg',
+      width: 1024,
+      height: 768
+    }, {
+      src: '/images/drops/borah/nov_2020_2.jpg',
+      width: 1080,
+      height: 720
+    },
+    {
+      src: '/images/drops/borah/nov_2020_3.jpg',
+      width: 1024,
+      height: 768
+    }
+  ],
   summary: `Masks on and bundled up, The Teacher Fund delivered over $5,000 worth of school supplies to the first cohort of
     six teachers at Borah Elementary in Coeur d'Alene Idaho. These supplies`,
   content: (
@@ -30,7 +45,23 @@ const staticBlogContent = [{
 },
 {
   title: 'Prairie View Elementary - October 2020',
-  images: ['/images/drops/prairie_view/sept_2020_1.jpg', '/images/drops/prairie_view/sept_2020_2.jpg', '/images/drops/prairie_view/sept_2020_3.jpg'],
+  images: [
+    {
+      src: '/images/drops/prairie_view/sept_2020_1.jpg',
+      width: 1080,
+      height: 720
+    },
+    {
+      src: '/images/drops/prairie_view/sept_2020_2.jpg',
+      width: 1080,
+      height: 720
+    },
+    {
+      src: '/images/drops/prairie_view/sept_2020_3.jpg',
+      width: 1080,
+      height: 720
+    }
+  ],
   summary: `Prairie View was The Teacher Fund's second elementary school to deliver to 
   as we all try to handle the Covid-19 pandemic. Schools are teaching half remote at this point and
   The Teacher Fund is trying to alleviate any pressure we can as teachers do the best`,
@@ -55,7 +86,18 @@ const staticBlogContent = [{
   title: 'Canfield Middle School Petri Dishes - September 2020',
   summary: `The Teacher Fund had the pleasure to help Canfield Middle School in Coeur d'Alene, ID
   with an unconventional yet intriguing request. Petri dishes!`,
-  images: ['/images/drops/canfield/sept_2020_1.jpg', '/images/drops/canfield/sept_2020_2.jpg'],
+  images: [
+    {
+      src: '/images/drops/canfield/sept_2020_1.jpg',
+      width: 1080,
+      height: 720
+    },
+    {
+      src: '/images/drops/canfield/sept_2020_2.jpg',
+      width: 1080,
+      height: 720
+    }
+  ],
   content: (
     <div>
       The Teacher Fund had the pleasure to help Canfield Middle School in Coeur d'Alene, ID
@@ -85,7 +127,18 @@ const staticBlogContent = [{
 },
 {
   title: 'Ponderosa Elementary - Summer 2020',
-  images: ['/images/drops/ponderosa/summer_2020_1.jpg', '/images/drops/ponderosa/summer_2020_2.jpg'],
+  images: [
+    {
+      src: '/images/drops/ponderosa/summer_2020_1.jpg',
+      width: 1024,
+      height: 768
+    },
+    {
+      src: '/images/drops/ponderosa/summer_2020_2.jpg',
+      width: 768,
+      height: 1024
+    }
+  ],
   summary: `Covid-19 derailed our Spring delivery for Ponderosa Elementary, but we know it derailed much more than that for the actual teachers. 
   This was the first semester of remote learning for Ponderosa Elementary, and we can't imagine the hardship. `,
   content: (
@@ -110,7 +163,23 @@ const staticBlogContent = [{
 },
 {
   title: 'Ponderosa Elementary - Fall 2019',
-  images: ['/images/drops/ponderosa/fall_2019_1.png', '/images/drops/ponderosa/fall_2019_2.png', '/images/drops/ponderosa/fall_2019_3.jpeg'],
+  images: [
+    {
+      src: '/images/drops/ponderosa/fall_2019_1.png',
+      width: 1080,
+      height: 720
+    },
+    {
+      src: '/images/drops/ponderosa/fall_2019_2.png',
+      width: 1080,
+      height: 720
+    },
+    {
+      src: '/images/drops/ponderosa/fall_2019_3.jpeg',
+      width: 768,
+      height: 1024
+    }
+  ],
   summary: `Our first supply drop! The culmination of months of effort to start The Teacher Fund is here! 
   We worked with three teachers for this drop to help them supply their classrooms. Ms. Powers, Ms. Olp, and Ms. Young
   received`,
