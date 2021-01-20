@@ -17,7 +17,7 @@ const teamMembers = [
   {
     name: 'Peter Squicciarini',
     src: 'pete.jpeg',
-    bio: ` A software developer at Amazon and loving father of two, Peter strives to
+    bio: `A software engineer and loving father of two, Peter strives to
           help all children and teachers succeed in an educational environment.`
   }
 ]
