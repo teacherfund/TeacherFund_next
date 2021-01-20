@@ -60,6 +60,7 @@ The website is written in [React](https://github.com/facebook/react/) using [Nex
 - Install dependencies by running `npm install` in the project directory
 - Create a local environment file named `.env.local`
   - Add `NEXT_PUBLIC_DEVELOPMENT=1` to the file. This will allow you to skip authentication during local development, since the Magic authentication environment variables are not public.
+  - If you need Stripe to work while developing locally, contact [@joelwass](https://github.com/joelwass/) and he can provide the Stripe test keys
 - Start the website locally by running
   ```shell
   npm run dev
