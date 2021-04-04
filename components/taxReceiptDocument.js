@@ -10,16 +10,21 @@ const styles = StyleSheet.create({
   }
 })
 
-const TaxReceiptDocument = () =>
-  <Document>
-    <Page style={styles.page} size={[1500, 600]} page>
-      <View style={styles.image}>
-        <Image
-          src='/images/Logo_with_text.png'
-        />
-        <Text>The Teacher Fund EIN: 83-2285506</Text>
-      </View>
-    </Page>
-  </Document>
+const TaxReceiptDocument = (props) => {
+  const { transactions } = props
+  console.log(transactions)
+  return (
+    <Document>
+      <Page style={styles.page} size={[1500, 600]} page>
+        <View style={styles.image}>
+          <Image
+            src='/images/Logo_with_text.png'
+          />
+          <Text>The Teacher Fund EIN: 83-2285506</Text>
+        </View>
+      </Page>
+    </Document>
+  )
+}
 
 export default TaxReceiptDocument

@@ -1,22 +1,18 @@
 /* global fetch */
 import React, { useState, useEffect } from 'react'
-import { Button, Text, Box, Image, Flex, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/core'
+import { Button, Text, Box, Image, Flex } from '@chakra-ui/core'
 import { useRouter } from 'next/router'
 import PageWrapper from '../components/pageWrapper'
 import { useAuth } from '../hooks/useAuth'
 import Link from 'next/link'
 import Card from '../components/card'
-import { getCurrentYear, isFutureDate } from '../utils/date.utils'
-import { PDFDownloadLink } from '@react-pdf/renderer'
-import TaxReceiptDocument from '../components/taxReceiptDocument'
+import TaxReceiptButton from '../components/taxReceiptButton'
 
 const Account = () => {
   const { user, revalidate } = useAuth()
   const [pageLoading, setPageLoading] = useState(true)
   const [hasValidated, setHasValidated] = useState(false)
   const [cancelLoading, setCancelLoading] = useState(false)
-  const [transactionsLoading, setTransactionsLoading] = useState(false)
-  const [userTransactions, setUserTransactions] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -41,67 +37,6 @@ const Account = () => {
       setCancelLoading(false)
     }
   }
-
-  const getTaxReceiptButtonMenu = (years) => (
-    <Menu>
-      <MenuButton>
-      Get Tax Receipts
-      </MenuButton>
-      <MenuList>
-        {years.map(year => (
-          <MenuItem onClick={() => getUserTransactions(year)} key={year}>
-            {year}
-          </MenuItem>
-        ))}
-      </MenuList>
-    </Menu>
-  )
-
-  const getTaxReceiptDownloadLink = () => (
-    <PDFDownloadLink document={<TaxReceiptDocument />} fileName='tax-receipt.pdf'>
-      {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download Tax Receipt')}
-    </PDFDownloadLink>
-  )
-
-  const getTaxReceiptLayout = () => {
-    const currentYear = getCurrentYear()
-    const years = [currentYear]
-    const taxDeadline = new Date(currentYear, 4, 15)
-    const isBeforeTaxDeadline = isFutureDate(taxDeadline)
-
-    if (isBeforeTaxDeadline) {
-      years.push(currentYear - 1)
-    }
-
-    if (years.length > 1 && !userTransactions) {
-      return getTaxReceiptButtonMenu(years)
-    }
-
-    return getTaxReceiptDownloadLink()
-  }
-
-  const getUserTransactions = async (year) => {
-    try {
-      setTransactionsLoading(true)
-      const transactions = await fetch('/api/user-donations')
-      setUserTransactions(transactions)
-    } catch (e) {
-      setTransactionsLoading(false)
-    } finally {
-      setTransactionsLoading(false)
-    }
-  }
-
-  // const getTaxReceiptLabel = (opts) => {
-  //   const { loading } = opts
-
-  //   if (loading) {
-  //     return 'Loading document...'
-  //   }
-  //   console.log(opts)
-  //   const today = new Date()
-  //   return `${today.getFullYear()} Tax Receipt`
-  // }
 
   const tweet = 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
 
@@ -165,9 +100,7 @@ const Account = () => {
                   </Button>
                 </div>
                 <div className='mb2 mt3' />
-                <div>
-                  {transactionsLoading ? 'Loading...' : getTaxReceiptLayout()}
-                </div>
+                <TaxReceiptButton />
               </Box>
             </Flex>
           </>
