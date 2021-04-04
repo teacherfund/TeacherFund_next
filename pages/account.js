@@ -37,6 +37,25 @@ const Account = () => {
     }
   }
 
+  // const getUserTransactions = async () => {
+  //   try {
+  //     await fetch('/api/user-donations')
+  //   } catch (e) {
+
+  //   }
+  // }
+
+  // const getTaxReceiptLabel = (opts) => {
+  //   const { loading } = opts
+
+  //   if (loading) {
+  //     return 'Loading document...'
+  //   }
+  //   console.log(opts)
+  //   const today = new Date()
+  //   return `${today.getFullYear()} Tax Receipt`
+  // }
+
   const tweet = 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
 
   return (
@@ -98,6 +117,7 @@ const Account = () => {
                     Cancel donation
                   </Button>
                 </div>
+                <div className='mb2 mt3' />
               </Box>
             </Flex>
           </>
