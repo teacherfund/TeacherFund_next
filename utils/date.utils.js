@@ -2,6 +2,17 @@ const getCurrentYear = () => {
   return new Date().getFullYear()
 }
 
+const getUnix = (date) => {
+  return Math.floor(date.getTime() / 1000)
+}
+
+const getDateAsYYYYMMDD = (date) => {
+  if (!date) {
+    return null
+  }
+  return date.toISOString().split('T')[0]
+}
+
 const getDateNoHours = (date) => {
   if (!date) {
     return null
@@ -26,5 +37,7 @@ const isFutureDate = (date) => {
 export {
   getCurrentYear,
   getDateNoHours,
-  isFutureDate
+  isFutureDate,
+  getDateAsYYYYMMDD,
+  getUnix
 }

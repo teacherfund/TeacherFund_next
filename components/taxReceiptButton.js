@@ -1,7 +1,8 @@
 /* global fetch */
 import React, { useState, useEffect } from 'react'
 import { Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/core'
-import { getCurrentYear, isFutureDate } from '../utils/date.utils'
+import { getCurrentYear, getDateAsYYYYMMDD, isFutureDate } from '../utils/date.utils'
+import { formatQueryParams } from '../utils/formatting'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import TaxReceiptDocument from '../components/taxReceiptDocument'
 
@@ -39,18 +40,21 @@ const TaxReceiptButton = () => {
   }, [])
 
   const getUserTransactions = async (year) => {
+    const params = {
+      start: getDateAsYYYYMMDD(new Date(year, 0, 1)),
+      end: getDateAsYYYYMMDD(new Date(year, 11, 31))
+    }
+
     try {
       setTransactionsLoading(true)
-      const resStream = await fetch('/api/user-donations')
+      const resStream = await fetch(`/api/user-donations?${formatQueryParams(params)}`)
       const res = await resStream.json()
 
       if (res && res.length) {
-        console.log(res)
         setUserTransactions(res)
         setShowDownloadLink(true)
       }
     } catch (e) {
-      setTransactionsLoading(false)
     } finally {
       setTransactionsLoading(false)
     }
@@ -69,7 +73,7 @@ const TaxReceiptButton = () => {
     transactionYears &&
     <Menu>
       <MenuButton className='ttu btn-primary tf-lato b tc pa3 w-50 m-auto br-pill pointer'>
-      Get Tax Receipts
+      Tax Receipts
       </MenuButton>
       <MenuList>
         {transactionYears.map(year => (
