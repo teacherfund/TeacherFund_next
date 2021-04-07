@@ -13,18 +13,24 @@ const getCustomerCharges = async (opts) => {
 }
 
 export default async (req, res) => {
-  let customerTransactions = { data: [] }
+  const customerTransactions = { data: { transactions: [], user: {} } }
   try {
     const user = await Iron.unseal(CookieService.getAuthToken(req.cookies), process.env.ENCRYPTION_SECRET, Iron.defaults)
     const customerResponse = await getCustomer({ email: user.email })
 
     const customer = customerResponse.data[0]
     if (customer) {
-      const opts = { customer: customer.id }
+      const { id, metadata } = customer
+      const opts = { customer: id }
       const { query } = req
       const { start, end } = query
       const startDate = start && getUnix(new Date(start))
       const endDate = end && getUnix(new Date(end))
+
+      if (metadata) {
+        const { firstName, lastName } = metadata
+        customerTransactions.data.user = { firstName, lastName }
+      }
 
       if (startDate || endDate) {
         opts.created = {}
@@ -35,14 +41,15 @@ export default async (req, res) => {
           opts.created.lte = endDate
         }
       }
-      customerTransactions = await getCustomerCharges(opts)
+      const chargesData = await getCustomerCharges(opts)
+      customerTransactions.data.transactions = chargesData.data.map(charge => {
+        const { amount, created } = charge
+        return { amount, created }
+      })
     }
   } catch (e) {
     return res.status(401)
   }
 
-  res.json(customerTransactions.data.map(charge => {
-    const { amount, created } = charge
-    return { amount, created }
-  }))
+  res.json(customerTransactions)
 }

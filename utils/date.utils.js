@@ -6,7 +6,11 @@ const getUnix = (date) => {
   return Math.floor(date.getTime() / 1000)
 }
 
-const getDateAsYYYYMMDD = (date) => {
+const getDateFromUnix = (sec) => {
+  return new Date((sec || 0) * 1000)
+}
+
+const formatDateAsYYYYMMDD = (date) => {
   if (!date) {
     return null
   }
@@ -34,10 +38,21 @@ const isFutureDate = (date) => {
   return dateToCompare > now
 }
 
+const formatUnixDateAsMMDDYYYY = (sec) => {
+  const date = getDateFromUnix(sec)
+  const dateString = formatDateAsYYYYMMDD(date)
+
+  const [year, month, day] = dateString.split('-')
+
+  return `${month}-${day}-${year}`
+}
+
 export {
   getCurrentYear,
   getDateNoHours,
   isFutureDate,
-  getDateAsYYYYMMDD,
-  getUnix
+  formatDateAsYYYYMMDD,
+  getUnix,
+  getDateFromUnix,
+  formatUnixDateAsMMDDYYYY
 }

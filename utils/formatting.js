@@ -10,4 +10,12 @@ const formatQueryParams = params => {
   return Object.keys(params).map(k => `${k}=${encodeURIComponent(params[k])}`).join('&')
 }
 
-export { formatCurrency, formatQueryParams }
+const formatFullName = ({ firstName, lastName }) => {
+  if (!firstName && !lastName) {
+    return null
+  }
+
+  return `${firstName} ${lastName}`
+}
+
+export { formatCurrency, formatQueryParams, formatFullName }

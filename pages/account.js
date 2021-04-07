@@ -69,14 +69,14 @@ const Account = () => {
                 <Text fontSize='1.3rem' marginBottom='2rem'>
                   Public school teachers appreciate your contribution more than you know. Words do not do justice.
                 </Text>
-                <div className='mb2 mt2'>
+                <div className='mb3'>
                   <div className='white bg-tf-yellow tf-lato b tc pa3 w-50 m-auto br-pill pointer'>
                     <Link href='donate'>
                       <label className='ttu pointer'>{(user && user.donationAmount) ? 'donate again' : 'Donate today'}</label>
                     </Link>
                   </div>
                 </div>
-                <div className='mt3'>
+                <div className='mb3'>
                   <a className='white no-underline pa3 db ttu br-pill tf-lato b v-mid bg-tf-teal w-50 m-auto tc'
                     href={tweet}
                     data-size='large'
@@ -84,7 +84,7 @@ const Account = () => {
                       Spread the Word
                   </a>
                 </div>
-                <div className='mb2 mt3'>
+                <div className='mb3'>
                   <Button color='white'
                     isLoading={cancelLoading}
                     backgroundColor='red.500'
@@ -99,7 +99,6 @@ const Account = () => {
                     Cancel donation
                   </Button>
                 </div>
-                <div className='mb2 mt3' />
                 <TaxReceiptButton />
               </Box>
             </Flex>
