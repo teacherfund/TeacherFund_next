@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ALL_SCHOOL } from './blog_posts'
-import { Flex, Box, Heading, Link, Image } from '@chakra-ui/core'
+import { Flex, Box, Heading, Link } from '@chakra-ui/core'
+import Image from 'next/image'
 
 const Blog = ({ content }) => {
   const [showAll, setShowAll] = useState(false)
@@ -17,8 +18,10 @@ const Blog = ({ content }) => {
         {showAll && (
           <>
             <Box marginBottom='2rem' paddingTop='2rem' className='tf-lato'>{content.content}</Box>
-            {content.images.map((imgSrc, i) => (
-              <Image src={imgSrc} key={i} marginTop='1rem' />
+            {content.images.map(({ src, width, height }) => (
+              <Box marginTop='1rem' key={src}>
+                <Image src={src} width={width} height={height} />
+              </Box>
             ))}
           </>
         )}
