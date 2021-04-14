@@ -1,5 +1,5 @@
 import 'react'
-import { Box } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/react'
 
 export default function ProcessCard ({ title, children, icon }) {
   return (

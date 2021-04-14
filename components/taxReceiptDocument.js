@@ -1,5 +1,5 @@
 import React from 'react'
-import { Document, Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer'
+import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer'
 import { formatUnixDateAsMMDDYYYY } from '../utils/date.utils'
 import { formatCurrency, formatFullName } from '../utils/formatting'
 
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     height: 75
   },
   page: {
-    fontFamily: 'Lato',
+    fontFamily: 'Helvetica Neue',
     color: '#212121',
     fontSize: 14,
     padding: 50
@@ -34,17 +34,8 @@ const styles = StyleSheet.create({
     width: 100
   },
   bold: {
-    fontFamily: 'Lato Bold'
+    fontFamily: 'HelveticaNeue-Bold'
   }
-})
-
-Font.register({
-  family: 'Lato',
-  src: '/fonts/lato/Lato-Regular.ttf'
-})
-Font.register({
-  family: 'Lato Bold',
-  src: '/fonts/lato/Lato-Bold.ttf'
 })
 
 const getTotalTransactions = (transactions) => {
@@ -61,8 +52,7 @@ const Header = (props) => (
   </View>
 )
 
-const Transaction = (props) => {
-  const { transaction } = props
+const Transaction = ({ transaction }) => {
   const { amount, created } = transaction
   const createdDate = new Date(created)
   return (
@@ -73,26 +63,25 @@ const Transaction = (props) => {
   )
 }
 
-const TransactionsView = (props) => (
+const TransactionsView = ({ transactions }) => (
   <View>
     <View style={styles.transactionRow}>
       <Text style={{ ...styles.transactionRowItem, ...styles.bold }}>Date</Text>
       <Text style={{ ...styles.transactionRowItem, ...styles.bold }}>Amount</Text>
     </View>
     <View style={styles.transactions}>
-      {props.transactions.map((transaction, idx) => (
+      {transactions.map((transaction, idx) => (
         <Transaction transaction={transaction} key={`transaction-${idx}`} />
       ))}
     </View>
     <View style={styles.section}>
       <Text style={styles.bold}>Total Amount Donated</Text>
-      <Text>${getTotalTransactions(props.transactions)}</Text>
+      <Text>${getTotalTransactions(transactions)}</Text>
     </View>
   </View>
 )
 
-const TaxReceiptDocument = (props) => {
-  const { transactions, year, user } = props
+const TaxReceiptDocument = ({ transactions, year, user }) => {
   const userFullName = formatFullName(user)
   return (
     <Document>

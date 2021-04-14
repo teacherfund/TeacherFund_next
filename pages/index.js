@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Box, PseudoBox } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/react'
 import PageWrapper from '../components/pageWrapper'
 import Team from '../components/team'
 import ProcessCard from '../components/ProcessCard'
@@ -174,7 +174,7 @@ class IndexPage extends Component {
 
                       {/* Donate Button */}
                       <Link href='/donate'>
-                        <PseudoBox
+                        <Box
                           as='button'
                           color='white'
                           bg='orange.300'
@@ -193,7 +193,7 @@ class IndexPage extends Component {
                           _focus={{ boxShadow: 'outline' }}
                         >
                           Donate
-                        </PseudoBox>
+                        </Box>
                       </Link>
 
                     </Box>
@@ -215,7 +215,7 @@ class IndexPage extends Component {
                   <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='1px'>
                     {/* Appky Today Button */}
                     <Link href='mailto:joelwass@theteacherfund.com?subject=Application'>
-                      <PseudoBox
+                      <Box
                         as='button'
                         color='white'
                         bg='red.300'
@@ -234,7 +234,7 @@ class IndexPage extends Component {
                         _focus={{ boxShadow: 'outline' }}
                       >
                           Apply Today
-                      </PseudoBox>
+                      </Box>
                     </Link>
                   </Box>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import App from 'next/app'
 import withContext from '../containers/withContext'
-import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/core'
+import { ChakraProvider } from '@chakra-ui/react'
 import '../public/styles/main.scss'
 import CustomTheme from '../public/theme'
 
@@ -21,12 +21,9 @@ class TeacherFundApp extends App {
     const WrappedPage = withContext(Component, pageProps)
 
     return (
-      <ThemeProvider theme={CustomTheme}>
-        <CSSReset />
-        <ColorModeProvider>
-          <WrappedPage />
-        </ColorModeProvider>
-      </ThemeProvider>
+      <ChakraProvider theme={CustomTheme}>
+        <WrappedPage />
+      </ChakraProvider>
     )
   }
 }

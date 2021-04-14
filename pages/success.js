@@ -1,4 +1,4 @@
-import { Box, Link } from '@chakra-ui/core'
+import { Box, Link } from '@chakra-ui/react'
 import PageWrapper from '../components/pageWrapper'
 import { useAuth } from '../hooks/useAuth'
 

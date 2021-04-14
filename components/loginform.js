@@ -4,7 +4,7 @@ import { login } from '../hooks/useAuth'
 import {
   Button,
   Box
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import '../public/styles/main.scss'
 
 import Card from './card'

@@ -1,20 +1,19 @@
 /* global fetch */
 import React, { useState, useEffect } from 'react'
-import { Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/core'
-import { getCurrentYear, formatDateAsYYYYMMDD, isFutureDate } from '../utils/date.utils'
-import { formatQueryParams } from '../utils/formatting'
+import { Menu, MenuButton, MenuItem, MenuList, createStandaloneToast } from '@chakra-ui/react'
+import { getCurrentYear, formatDateAsYYYYMMDD, isFutureDate, formatTimestamp } from '../utils/date.utils'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import TaxReceiptDocument from '../components/taxReceiptDocument'
 
-const TaxReceiptButtonMenu = (props) => (
-  props.taxYears && props.taxYears.length > 1
+const TaxReceiptButtonMenu = ({ taxYears, selectTaxYear, selectedTaxYear }) => (
+  taxYears && taxYears.length > 1
     ? <Menu>
       <MenuButton className='ttu btn-primary tf-lato b tc pa3 w-50 m-auto br-pill pointer'>
       Get Tax Receipt
       </MenuButton>
       <MenuList>
-        {props.taxYears.map(year => (
-          <MenuItem onClick={() => props.selectTaxYear(year)} key={year}>
+        {taxYears.map(year => (
+          <MenuItem onClick={() => selectTaxYear(year)} key={year}>
             {year}
           </MenuItem>
         ))}
@@ -22,7 +21,7 @@ const TaxReceiptButtonMenu = (props) => (
     </Menu>
     : <button
       className='ttu btn-primary tf-lato b tc pa3 w-50 m-auto br-pill pointer'
-      onClick={() => props.selectTaxYear(props.selectedTaxYear)}
+      onClick={() => selectTaxYear(selectedTaxYear)}
     >
         Get Tax Receipt
     </button>
@@ -64,7 +63,7 @@ const TaxReceiptButton = () => {
 
     try {
       setdonationsLoading(true)
-      const resStream = await fetch(`/api/user-donations?${formatQueryParams(params)}`)
+      const resStream = await fetch(`/api/user-donations?${new URLSearchParams(params)}`)
       const res = await resStream.json()
 
       if (res && res.data) {
@@ -74,6 +73,14 @@ const TaxReceiptButton = () => {
         setShowDownloadLink(true)
       }
     } catch (e) {
+      const toast = createStandaloneToast()
+
+      toast({
+        title: 'There was an issue processing the documents. Please Try Again.',
+        status: 'error',
+        duration: 9000,
+        isClosable: true
+      })
     } finally {
       setdonationsLoading(false)
     }
@@ -85,7 +92,7 @@ const TaxReceiptButton = () => {
   }
 
   const getSaveFileName = () => {
-    return `${selectedTaxYear}-tax-receipt-TF`
+    return `Teacher_Fund_Tax_Receipt_${formatTimestamp(new Date())}`
   }
 
   return (
@@ -99,7 +106,7 @@ const TaxReceiptButton = () => {
             fileName={getSaveFileName()}
             onClick={() => setShowDownloadLink(false)}
           >
-            {({ loading }) => (loading ? 'Preparing Document...' : 'Download Tax Receipt')}
+            {({ loading, error }) => (loading ? 'Preparing Document...' : 'Download Tax Receipt')}
           </PDFDownloadLink>
           : <TaxReceiptButtonMenu taxYears={taxYears} selectedTaxYear={selectedTaxYear} selectTaxYear={(year) => handleSelectTaxYear(year)} />
       }

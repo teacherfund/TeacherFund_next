@@ -17,6 +17,16 @@ const formatDateAsYYYYMMDD = (date) => {
   return date.toISOString().split('T')[0]
 }
 
+const formatTimestamp = (date) => {
+  if (!date) {
+    return ''
+  }
+
+  return date.toISOString()
+    .split('.')[0]
+    .replace(/[-:T]/g, '_')
+}
+
 const getDateNoHours = (date) => {
   if (!date) {
     return null
@@ -54,5 +64,6 @@ export {
   formatDateAsYYYYMMDD,
   getUnix,
   getDateFromUnix,
-  formatUnixDateAsMMDDYYYY
+  formatUnixDateAsMMDDYYYY,
+  formatTimestamp
 }

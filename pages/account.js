@@ -1,6 +1,6 @@
 /* global fetch */
 import React, { useState, useEffect } from 'react'
-import { Button, Text, Box, Image, Flex } from '@chakra-ui/core'
+import { Button, Text, Box, Image, Flex } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import PageWrapper from '../components/pageWrapper'
 import { useAuth } from '../hooks/useAuth'

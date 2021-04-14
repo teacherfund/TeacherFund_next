@@ -2,7 +2,7 @@ import {
   Box,
   Text,
   Link
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 const ContactForm = () => {
   return (

@@ -1,5 +1,5 @@
 // White card with a box shadow used for forms, select plans, install instuctions, etc.
-import { Box } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 
 const shadowSizes = {

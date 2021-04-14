@@ -2,7 +2,7 @@ import BlogList from './blogList'
 import SideNav from './SideNav'
 import useToRenderBlog from './blog_posts'
 import React from 'react'
-import { Flex } from '@chakra-ui/core'
+import { Flex } from '@chakra-ui/react'
 
 function BlogPage () {
   const [blogs, schoolNames, userSelectedSchool, changeUserSelectedSchool] = useToRenderBlog()
