@@ -70,14 +70,14 @@ const Account = () => {
                   Public school teachers appreciate your contribution more than you know. Words do not do justice.
                 </Text>
                 <div className='mb3'>
-                  <div className='white bg-tf-yellow tf-lato b tc pa3 w-50 m-auto br-pill pointer'>
+                  <div className='white tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer btn-primary'>
                     <Link href='donate'>
                       <label className='ttu pointer'>{(user && user.donationAmount) ? 'donate again' : 'Donate today'}</label>
                     </Link>
                   </div>
                 </div>
                 <div className='mb3'>
-                  <a className='white no-underline pa3 db ttu br-pill tf-lato b v-mid bg-tf-teal w-50 m-auto tc'
+                  <a className='white no-underline pa3 db ttu br-pill tf-lato b v-mid w-75 w-50-ns m-auto tc btn-teal'
                     href={tweet}
                     data-size='large'
                     target='_blank'>
@@ -90,13 +90,13 @@ const Account = () => {
                     backgroundColor='red.500'
                     borderRadius='9999px'
                     paddingTop='1rem'
-                    _hover={{ bg: 'red.200' }}
+                    _hover={{ bg: 'white' }}
                     paddingBottom='1rem'
-                    height='auto'
-                    width='50%'
-                    className='tf-lato ttu b tc pa2 w-50 m-auto'
+                    height='56px'
+                    width={['75%', '50%']}
+                    className='tf-lato btn-red ttu b tc pa2 w-50 m-auto'
                     onClick={cancelReccuringDonation}>
-                    Cancel donation
+                    <label>Cancel donation</label>
                   </Button>
                 </div>
                 <TaxReceiptButton />

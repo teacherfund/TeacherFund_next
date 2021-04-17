@@ -4,6 +4,11 @@
 .btn-red {
   @include btn-default($eraser-pink, white);
 }
+
+.btn-teal {
+  @include btn-default($dark-teal, white);
+}
+
 .btn-alt {
   @include btn-alt(white, $pencil-yellow);
 }

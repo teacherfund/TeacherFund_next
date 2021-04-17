@@ -42,6 +42,9 @@ const getDateNoHours = (date) => {
 }
 
 const isFutureDate = (date) => {
+  if (!date) {
+    return false
+  }
   const now = getDateNoHours(new Date())
   const dateToCompare = getDateNoHours(date)
 

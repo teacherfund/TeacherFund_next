@@ -1,30 +1,36 @@
 /* global fetch */
 import React, { useState, useEffect } from 'react'
-import { Menu, MenuButton, MenuItem, MenuList, createStandaloneToast } from '@chakra-ui/react'
+import { Button, Menu, MenuButton, MenuItem, MenuList, createStandaloneToast } from '@chakra-ui/react'
 import { getCurrentYear, formatDateAsYYYYMMDD, isFutureDate, formatTimestamp } from '../utils/date.utils'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import TaxReceiptDocument from '../components/taxReceiptDocument'
 
-const TaxReceiptButtonMenu = ({ taxYears, selectTaxYear, selectedTaxYear }) => (
+const GetTaxReceiptsButton = ({ taxYears, handleSelectTaxYear, selectedTaxYear }) => (
   taxYears && taxYears.length > 1
     ? <Menu>
-      <MenuButton className='ttu btn-primary tf-lato b tc pa3 w-50 m-auto br-pill pointer'>
+      <MenuButton className='ttu btn-primary tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer'>
       Get Tax Receipt
       </MenuButton>
       <MenuList>
         {taxYears.map(year => (
-          <MenuItem onClick={() => selectTaxYear(year)} key={year}>
+          <MenuItem onClick={() => handleSelectTaxYear(year)} key={year}>
             {year}
           </MenuItem>
         ))}
       </MenuList>
     </Menu>
-    : <button
-      className='ttu btn-primary tf-lato b tc pa3 w-50 m-auto br-pill pointer'
-      onClick={() => selectTaxYear(selectedTaxYear)}
+    : <Button
+      className='ttu btn-primary tf-lato b tc m-auto pointer'
+      backgroundColor='pencilYellow'
+      _hover={{ bg: 'white' }}
+      borderRadius='9999px'
+      padding='1rem'
+      width={['75%', '50%']}
+      height='56px'
+      onClick={() => handleSelectTaxYear(selectedTaxYear)}
     >
         Get Tax Receipt
-    </button>
+    </Button>
 )
 
 const TaxReceiptButton = () => {
@@ -38,7 +44,7 @@ const TaxReceiptButton = () => {
   const updateTaxReceiptButton = () => {
     const currentYear = getCurrentYear()
     const years = [currentYear]
-    const taxDeadline = new Date(currentYear, 4, 15)
+    const taxDeadline = new Date(currentYear, 3, 15)
     const isBeforeTaxDeadline = isFutureDate(taxDeadline)
 
     if (isBeforeTaxDeadline) {
@@ -102,21 +108,30 @@ const TaxReceiptButton = () => {
       : error ? 'Unable to Process' : 'Download Tax Receipt'
 
   return (
-    <div>
-      {donationsLoading
-        ? <div className='white no-underline pa3 db ttu br-pill tf-lato b v-mid bg-tf-gray w-50 m-auto tc'>Loading...</div>
-        : showDownloadLink
-          ? <PDFDownloadLink
-            className='db ttu btn-primary tf-lato b tc w-50 m-auto pa3 br-pill pointer'
-            document={<TaxReceiptDocument transactions={userDonations} year={selectedTaxYear} user={donationUser} />}
-            fileName={getSaveFileName()}
-            onClick={() => setShowDownloadLink(false)}
-          >
-            {pdfState => getDownloadLinkText(pdfState)}
-          </PDFDownloadLink>
-          : <TaxReceiptButtonMenu taxYears={taxYears} selectedTaxYear={selectedTaxYear} selectTaxYear={(year) => handleSelectTaxYear(year)} />
-      }
-    </div>
+    donationsLoading
+      ? <Button
+        isLoading
+        backgroundColor='pencilYellow'
+        height='56px'
+        width='50%'
+        padding='1.5rem'
+        borderRadius='9999px'
+        className='white'
+      />
+      : showDownloadLink
+        ? <PDFDownloadLink
+          className='db ttu btn-primary tf-lato b tc w-75 w-50-ns m-auto pa3 br-pill pointer'
+          document={<TaxReceiptDocument transactions={userDonations} year={selectedTaxYear} user={donationUser} />}
+          fileName={getSaveFileName()}
+          onClick={() => setShowDownloadLink(false)}
+        >
+          {pdfState => getDownloadLinkText(pdfState)}
+        </PDFDownloadLink>
+        : <GetTaxReceiptsButton
+          taxYears={taxYears}
+          handleSelectTaxYear={handleSelectTaxYear}
+          selectedTaxYear={selectedTaxYear}
+        />
   )
 }
 
