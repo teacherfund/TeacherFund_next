@@ -15,9 +15,6 @@ const getCustomerCharges = async (opts) => {
 export default async (req, res) => {
   const customerTransactions = { data: { transactions: [], user: {} } }
 
-  // using to test the toast, remove before merge
-  // res.status(500).end()
-
   let user
   try {
     user = await Iron.unseal(CookieService.getAuthToken(req.cookies), process.env.ENCRYPTION_SECRET, Iron.defaults)

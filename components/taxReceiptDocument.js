@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     height: 75
   },
   page: {
-    fontFamily: 'Helvetica Neue',
+    fontFamily: 'Helvetica',
     color: '#212121',
     fontSize: 14,
     padding: 50
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     width: 100
   },
   bold: {
-    fontFamily: 'HelveticaNeue-Bold'
+    fontFamily: 'Helvetica-Bold'
   }
 })
 

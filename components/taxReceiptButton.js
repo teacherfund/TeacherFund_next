@@ -56,14 +56,14 @@ const TaxReceiptButton = () => {
   }, [])
 
   const getUserDonations = async (year) => {
-    const params = {
+    const queryParams = new URLSearchParams({
       start: formatDateAsYYYYMMDD(new Date(year, 0, 1)),
       end: formatDateAsYYYYMMDD(new Date(year, 11, 31))
-    }
+    })
 
     try {
       setdonationsLoading(true)
-      const resStream = await fetch(`/api/user-donations?${new URLSearchParams(params)}`)
+      const resStream = await fetch(`/api/user-donations?${queryParams}`)
       const res = await resStream.json()
 
       if (res && res.data) {
@@ -77,9 +77,11 @@ const TaxReceiptButton = () => {
 
       toast({
         title: 'There was an issue processing the documents. Please Try Again.',
+        description: 'If the problem persists please reach out to joelwass@theteacherfund.com',
         status: 'error',
-        duration: 9000,
-        isClosable: true
+        duration: 7000,
+        isClosable: true,
+        position: 'top'
       })
     } finally {
       setdonationsLoading(false)
@@ -91,9 +93,13 @@ const TaxReceiptButton = () => {
     getUserDonations(year)
   }
 
-  const getSaveFileName = () => {
-    return `Teacher_Fund_Tax_Receipt_${formatTimestamp(new Date())}`
-  }
+  const getSaveFileName = () =>
+    `Teacher_Fund_Tax_Receipt_${formatTimestamp(new Date())}`
+
+  const getDownloadLinkText = ({ loading, error }) =>
+    loading
+      ? 'Preparing Document...'
+      : error ? 'Unable to Process' : 'Download Tax Receipt'
 
   return (
     <div>
@@ -106,7 +112,7 @@ const TaxReceiptButton = () => {
             fileName={getSaveFileName()}
             onClick={() => setShowDownloadLink(false)}
           >
-            {({ loading, error }) => (loading ? 'Preparing Document...' : 'Download Tax Receipt')}
+            {pdfState => getDownloadLinkText(pdfState)}
           </PDFDownloadLink>
           : <TaxReceiptButtonMenu taxYears={taxYears} selectedTaxYear={selectedTaxYear} selectTaxYear={(year) => handleSelectTaxYear(year)} />
       }
