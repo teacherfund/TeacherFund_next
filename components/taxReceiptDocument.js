@@ -82,7 +82,7 @@ const TransactionsView = ({ transactions }) => (
 )
 
 const TaxReceiptDocument = ({ transactions, year, user }) => {
-  const userFullName = (user?.firstName && user?.lastName) ? formatFullName(user) : undefined
+  const userFullName = formatFullName(user)
   return (
     <Document>
       <Page style={styles.page} size='A4' page>
@@ -96,7 +96,7 @@ const TaxReceiptDocument = ({ transactions, year, user }) => {
         <View style={styles.section}>
           <Text>Organzation: The Teacher Fund</Text>
           <Text>EIN: 83-2285506</Text>
-          {userFullName && <Text>Donor: {userFullName}</Text>}
+          {!!userFullName && <Text>Donor: {userFullName}</Text>}
         </View>
         {transactions &&
           <TransactionsView transactions={transactions} />
