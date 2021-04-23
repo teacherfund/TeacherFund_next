@@ -82,7 +82,7 @@ const TransactionsView = ({ transactions }) => (
 )
 
 const TaxReceiptDocument = ({ transactions, year, user }) => {
-  const userFullName = formatFullName(user)
+  const userFullName = (user?.firstName && user?.lastName) ? formatFullName(user) : undefined
   return (
     <Document>
       <Page style={styles.page} size='A4' page>
