@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react'
 export default function ProcessCard ({ title, children, icon }) {
   return (
     <div className='ma3 ma3-m w-25-m w-25-l'>
-      <Box className='pa3 pt3-m bg-card h5-25' width='100%' min-h-100>
+      <Box className='pa3 pt3-m bg-card h5-25 min-h-100' width='100%'>
         <div className='pa2 tc'>
           <div className='center br-100 pa4 pa2-m ba b--black-05 mb2 ma3-m h4 h3-m w4 w3-m bg-white'>
             {icon}
