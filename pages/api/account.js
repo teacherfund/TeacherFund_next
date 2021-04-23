@@ -17,7 +17,7 @@ export default async (req, res) => {
       email: user.email
     })
     const { data } = response
-    const customer = data[0]
+    const [customer] = data
 
     const { id, metadata } = customer
     const { firstName, lastName } = metadata
