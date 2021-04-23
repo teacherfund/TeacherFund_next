@@ -39,7 +39,7 @@ const LoginForm = () => {
           <div className='tf-lato'>
             <p className='red'>{error}</p>
           </div>
-          <Box marginButtom='1rem'>
+          <Box marginBottom='1rem'>
             <p className='tf-lato'>{message}</p>
           </Box>
           <form onSubmit={handleSubmit}>

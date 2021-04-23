@@ -16,8 +16,20 @@ export default async (req, res) => {
     const response = await stripe.customers.list({
       email: user.email
     })
+    const { data } = response
+    const customer = data[0]
 
-    const subscription = response.data[0].subscriptions.data[0]
+    const { id, metadata } = customer
+    const { firstName, lastName } = metadata
+
+    user = {
+      ...user,
+      customerId: id,
+      firstName,
+      lastName
+    }
+
+    const subscription = customer.subscriptions.data[0]
 
     if (subscription) {
       user.donationAmount = subscription.plan.amount

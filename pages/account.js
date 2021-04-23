@@ -86,6 +86,7 @@ const Account = () => {
                     Spread the Word
                 </a>
               </div>
+              { user && user.customerId &&
               <div className='mb3'>
                 <Button color='white'
                   isLoading={cancelLoading}
@@ -101,7 +102,8 @@ const Account = () => {
                   <label>Cancel donation</label>
                 </Button>
               </div>
-              <TaxReceiptButton />
+              }
+              { user && user.customerId && <TaxReceiptButton /> }
             </Box>
           </>
         )}
