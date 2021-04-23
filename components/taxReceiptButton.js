@@ -75,7 +75,6 @@ const TaxReceiptButton = () => {
       if (res && res.data) {
         const { transactions, user } = res.data
         setUserDonations(transactions)
-        console.log('here', user)
         setDonationUser(user)
         setShowDownloadLink(true)
       }
