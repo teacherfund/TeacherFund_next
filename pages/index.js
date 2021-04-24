@@ -163,7 +163,7 @@ class IndexPage extends Component {
                     _focus={{ boxShadow: 'outline' }}
                     fontWeight='none'
                   >
-                    Check out our blog
+                    Check out our past deliveries
                   </Button>
                 </Link>
               </div>
