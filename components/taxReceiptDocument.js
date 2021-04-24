@@ -96,7 +96,7 @@ const TaxReceiptDocument = ({ transactions, year, user }) => {
         <View style={styles.section}>
           <Text>Organzation: The Teacher Fund</Text>
           <Text>EIN: 83-2285506</Text>
-          {userFullName && <Text>Donor: {userFullName}</Text>}
+          {!!userFullName && <Text>Donor: {userFullName}</Text>}
         </View>
         {transactions &&
           <TransactionsView transactions={transactions} />
