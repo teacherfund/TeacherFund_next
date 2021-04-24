@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../public/styles/main.scss'
-import { Flex, PseudoBox, IconButton } from '@chakra-ui/core'
+import { Flex, Box } from '@chakra-ui/react'
+import { ChevronUpIcon } from '@chakra-ui/icons'
 
 const ScrollToTop = () => {
   const [show, setShow] = useState(false)
@@ -22,22 +23,22 @@ const ScrollToTop = () => {
 
   return (
     <Flex>
-      <PseudoBox _hover={{ color: '#f6b333' }}>
-        <IconButton
-          icon='chevron-up'
-          variantColor='black'
+      <Box _hover={{ color: '#f6b333' }}>
+        <ChevronUpIcon
+          colorScheme='black'
           variant='outline'
           aria-label='Top'
           fontSize='25px'
           onClick={scrollBackFn}
           position='fixed'
           borderRadius='50%'
+          w={8} h={8}
           bottom={['50px']}
           right='30px'
           display={show ? 'block' : 'none'}
           cursor='pointer'
         />
-      </PseudoBox>
+      </Box>
     </Flex>
   )
 }

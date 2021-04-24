@@ -1,4 +1,4 @@
-import { Box, Text, PseudoBox } from '@chakra-ui/core'
+import { Box, Text } from '@chakra-ui/react'
 
 import Card from '../card'
 import ContactForm from './contactForm'
@@ -14,9 +14,9 @@ const ContactSection = ({ contactPage, hideHeading, ...props }) => {
       padding={{ base: '3rem 1.5rem', lg: '6rem 7.5rem' }}
       {...props}
     >
-      <PseudoBox align='center' fontSize='28px' paddingBottom='2rem'>
+      <Box align='center' fontSize='28px' paddingBottom='2rem'>
         <h1>Contact Us</h1>
-      </PseudoBox>
+      </Box>
       <Card width='100%' maxWidth='45rem'>
         <Text
           textTransform='uppercase'

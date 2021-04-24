@@ -1,4 +1,4 @@
-import { Input } from '@chakra-ui/core'
+import { Input } from '@chakra-ui/react'
 
 const TextInput = ({ id, type, register, ...props }) => (
   <Input

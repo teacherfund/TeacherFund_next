@@ -1,6 +1,6 @@
 /* global fetch */
 import { useEffect } from 'react'
-import { Text, Flex } from '@chakra-ui/core'
+import { Text, Flex } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import Card from '../components/card'
 

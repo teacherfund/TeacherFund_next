@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Link } from '@chakra-ui/core'
+import { Flex, Link } from '@chakra-ui/react'
 
 function SideNav ({ schools, selectedSchool, onSchoolSelected }) {
   return (

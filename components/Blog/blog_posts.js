@@ -1,6 +1,33 @@
 import React from 'react'
 
 const staticBlogContent = [{
+  title: 'Borah Elementary - February 2021',
+  images: ['/images/drops/borah/feb_2021_1.jpeg', '/images/drops/borah/feb_2021_2.jpeg', '/images/drops/borah/feb_2021_3.jpeg'],
+  summary: `In our largest haul yet, The Teacher Fund opened up support to every teacher at Borah Elementary
+   and delivered over $10,000 worth of school supplies. This meant every`,
+  content: (
+    <div>
+      In our largest haul yet, The Teacher Fund opened up support to every teacher at Borah Elementary
+      and delivered over $10,000 worth of school supplies. This meant every teacher, no matter how long they've been
+      teaching, was able to purchase school supplies they thought their classroom needed. We do not advise or hold
+      back teachers on what they choose to purchase, it is solely up to them to decide what they think would make
+      for the best learning environment in their classrooms.
+      <br /><br />
+      At this point Borah Elementary is now under
+      the Teacher Fund Umbrella, meaning any new teacher Borah hires will be able to purchase school supplies
+      through The Teacher Fund, at no cost to them. We hope this support will help Borah recruit
+      and retain teachers, in a time when Idaho public school funding is taking a hard hit.<br /><br /> We
+      hope over the course of the next year to bring more elementary schools under our Umbrella so no teacher
+      has to pay out of pocket to supply their new classroom.
+      <br /><br />For this supply drop, we had
+      Deon Watson, Christine Woeller and Joel Wasserman helping deliver.
+      <br /><br />
+      See photos below!
+    </div>
+  ),
+  school: 'Borah Elementary',
+  blogId: 6
+}, {
   title: 'Borah Elementary - November 2020',
   images: ['/images/drops/borah/nov_2020_1.jpg', '/images/drops/borah/nov_2020_2.jpg', '/images/drops/borah/nov_2020_3.jpg'],
   summary: `Masks on and bundled up, The Teacher Fund delivered over $5,000 worth of school supplies to the first cohort of

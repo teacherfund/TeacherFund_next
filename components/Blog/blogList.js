@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ALL_SCHOOL } from './blog_posts'
-import { Flex, Box, Heading, Link, Image } from '@chakra-ui/core'
+import { Flex, Box, Heading, Link, Image } from '@chakra-ui/react'
 
 const Blog = ({ content }) => {
   const [showAll, setShowAll] = useState(false)
