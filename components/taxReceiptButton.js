@@ -9,7 +9,7 @@ const GetTaxReceiptsButton = ({ taxYears, handleSelectTaxYear, selectedTaxYear }
   taxYears && taxYears.length > 1
     ? <Menu>
       <MenuButton className='ttu btn-primary tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer'>
-      Get Tax Receipt
+        Get Tax Receipt
       </MenuButton>
       <MenuList>
         {taxYears.map(year => (
@@ -18,18 +18,18 @@ const GetTaxReceiptsButton = ({ taxYears, handleSelectTaxYear, selectedTaxYear }
           </MenuItem>
         ))}
       </MenuList>
-    </Menu>
+      </Menu>
     : <Button
-      className='ttu btn-primary tf-lato b tc m-auto pointer'
-      backgroundColor='pencilYellow'
-      _hover={{ bg: 'white' }}
-      borderRadius='9999px'
-      padding='1rem'
-      width={['75%', '50%']}
-      height='56px'
-      onClick={() => handleSelectTaxYear(selectedTaxYear)}
-    >
-        Get Tax Receipt
+        className='ttu btn-primary tf-lato b tc m-auto pointer'
+        backgroundColor='pencilYellow'
+        _hover={{ bg: 'white' }}
+        borderRadius='9999px'
+        padding='1rem'
+        width={['75%', '50%']}
+        height='56px'
+        onClick={() => handleSelectTaxYear(selectedTaxYear)}
+      >
+      Get Tax Receipt
     </Button>
 )
 
@@ -100,7 +100,7 @@ const TaxReceiptButton = () => {
   }
 
   const getSaveFileName = () =>
-    `Teacher_Fund_Tax_Receipt_${formatTimestamp(new Date())}`
+  `Teacher_Fund_Tax_Receipt_${formatTimestamp(new Date())}`
 
   const getDownloadLinkText = ({ loading, error }) =>
     loading
@@ -110,28 +110,28 @@ const TaxReceiptButton = () => {
   return (
     donationsLoading
       ? <Button
-        isLoading
-        backgroundColor='pencilYellow'
-        height='56px'
-        width='50%'
-        padding='1.5rem'
-        borderRadius='9999px'
-        className='white'
-      />
+          isLoading
+          backgroundColor='pencilYellow'
+          height='56px'
+          width='50%'
+          padding='1.5rem'
+          borderRadius='9999px'
+          className='white'
+        />
       : showDownloadLink
         ? <PDFDownloadLink
-          className='db ttu btn-primary tf-lato b tc w-75 w-50-ns m-auto pa3 br-pill pointer'
-          document={<TaxReceiptDocument transactions={userDonations} year={selectedTaxYear} user={donationUser} />}
-          fileName={getSaveFileName()}
-          onClick={() => setShowDownloadLink(false)}
-        >
+            className='db ttu btn-primary tf-lato b tc w-75 w-50-ns m-auto pa3 br-pill pointer'
+            document={<TaxReceiptDocument transactions={userDonations} year={selectedTaxYear} user={donationUser} />}
+            fileName={getSaveFileName()}
+            onClick={() => setShowDownloadLink(false)}
+          >
           {pdfState => getDownloadLinkText(pdfState)}
-        </PDFDownloadLink>
+          </PDFDownloadLink>
         : <GetTaxReceiptsButton
-          taxYears={taxYears}
-          handleSelectTaxYear={handleSelectTaxYear}
-          selectedTaxYear={selectedTaxYear}
-        />
+            taxYears={taxYears}
+            handleSelectTaxYear={handleSelectTaxYear}
+            selectedTaxYear={selectedTaxYear}
+          />
   )
 }
 

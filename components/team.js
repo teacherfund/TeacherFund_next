@@ -27,7 +27,7 @@ const Team = (props) =>
     <section className='h-section mb0-ns pv5-l bg-card'>
       <div className='flex flex-column z-100 pt4-m'>
         <h2 className='f2-l f3 mv3-m tf-oswald center'>
-        Meet the Team
+          Meet the Team
         </h2>
         <ul className='list flex flex-row flex-wrap justify-center w-auto mb0 pv0 ph0 center bg'>
           {teamMembers.map(member =>
@@ -36,8 +36,7 @@ const Team = (props) =>
               src={member.src}
               bio={member.bio}
               key={member.bio}
-            />)
-          }
+            />)}
         </ul>
       </div>
     </section>

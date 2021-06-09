@@ -14,7 +14,7 @@ const Success = () => {
         <Box paddingTop='9rem' className='bn ba br2 flex flex-column pa4-ns pa2 pb4 w-50-ns tf-lato tc m-auto'>
           <p className='pb1'><b>Thank you!</b></p>
           <p className='pb1'>Your donation helps teachers more than can be put in words.</p>
-          { user ? (
+          {user ? (
             <Box className='pb1'>If you made a monthly donation you can visit your
               <Link color='blue.500' href='/account'>{' account '}</Link>
               at any time to cancel or modify your donation.
