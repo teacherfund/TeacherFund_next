@@ -13,5 +13,10 @@ export const handlers = [
   // }),
   rest.post('/api/donate', (req, res, ctx) => {
     return res(ctx.json({ success: true }))
+  }),
+
+  rest.get('/api/donations', (req, res, ctx) => {
+    const mockDonations = 199999999
+    return res(ctx.json([{ amount: mockDonations }]))
   })
 ]
