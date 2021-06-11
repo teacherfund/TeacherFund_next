@@ -1,12 +1,23 @@
 /* global fetch */
 import { useState } from 'react'
-import { Input, Textarea, Button, FormControl, FormLabel, FormHelperText } from '@chakra-ui/react'
+import { Input, Textarea, Button, FormControl, FormLabel, FormHelperText, useToast } from '@chakra-ui/react'
 
 const ContactForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
+
+  const toast = useToast()
+  const showToast = ({ title, description, status, duration }) => (
+    toast({
+      title,
+      description,
+      status,
+      duration,
+      isClosable: true
+    })
+  )
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -31,11 +42,31 @@ const ContactForm = () => {
         setEmail('')
         setSubject('')
         setMessage('')
+        showToast({
+          title: 'Message Sent',
+          description: "We'll be in touch!",
+          status: 'success',
+          duration: '8000'
+        })
       } else {
+        // TODO: Add better error handling
+        console.log('Response:', res)
+        showToast({
+          title: 'Error sending message',
+          description: `HTTP Response Code: ${res.status}`,
+          status: 'error',
+          duration: '12000'
+        })
       }
     }).catch((err) => {
-      // TODO: Add error handling
+      // TODO: Add better error handling
       console.log('ERROR:', err)
+      showToast({
+        title: 'Error sending message',
+        description: err,
+        status: 'error',
+        duration: null
+      })
     })
   }
 
@@ -58,6 +89,7 @@ const ContactForm = () => {
           onChange={(e) => {
             setEmail(e.target.value)
           }}
+          value={email}
         />
         <FormHelperText>We'll never share your email.</FormHelperText>
       </FormControl>
@@ -68,6 +100,7 @@ const ContactForm = () => {
           onChange={(e) => {
             setSubject(e.target.value)
           }}
+          value={subject}
         />
       </FormControl>
       <FormControl mt={3} id='message'>
@@ -77,6 +110,7 @@ const ContactForm = () => {
           onChange={(e) => {
             setMessage(e.target.value)
           }}
+          value={message}
         />
       </FormControl>
       <Button
