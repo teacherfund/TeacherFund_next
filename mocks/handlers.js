@@ -1,25 +1,24 @@
 import { rest } from 'msw'
-import Iron from '@hapi/iron'
+// import Iron from '@hapi/iron'
 // import { serialize } from 'cookie'
-import CookieService from '../lib/cookie'
+// import CookieService from '../lib/cookie'
 
-const TOKEN_NAME = 'api_token'
-const MAX_AGE = 60 * 60 * 24 * 1000 // 1 day in ms
+// const TOKEN_NAME = 'api_token'
+// const MAX_AGE = 60 * 60 * 24 * 1000 // 1 day in ms
 
 export const handlers = [
   rest.get('/api/account', async (req, res, ctx) => {
-    let user
-    try {
-      user = await Iron.unseal(CookieService.getAuthToken(req.cookies), process.env.ENCRYPTION_SECRET, Iron.defaults)
-    } catch (error) {
+    const apiResponse = await ctx.fetch(req)
+
+    if (apiResponse.status === 401) {
       return res(ctx.status(401))
     }
-    user = {
-      ...user,
+
+    const user = {
       customerId: 'id',
       firstName: 'firstName',
       lastName: 'lastName',
-      // email: 'test@test.com',
+      email: 'test@test.com',
       donationAmount: 100000
     }
 
@@ -33,36 +32,36 @@ export const handlers = [
   rest.get('/api/donations', (req, res, ctx) => {
     const mockDonations = 199999999
     return res(ctx.json([{ amount: mockDonations }]))
-  }),
+  })
 
   // rest.get('/api/deleteDonation', (req, res, ctx) => {
   //   return res(ctx.json({ success: true }))
   // }),
 
-  rest.post('/api/login', async (req, res, ctx) => {
-    if (req.method !== 'POST') return res.status(405).end()
+  // rest.post('/api/login', async (req, res, ctx) => {
+  //   if (req.method !== 'POST') return res.status(405).end()
 
-    const user = { email: 'test@theteacherfund.com' }
-    const token = await Iron.seal(user, process.env.ENCRYPTION_SECRET, Iron.defaults)
-    // Cookie.setMockTokenCookie(res, token, ctx)
-    return res(
-      // setMockTokenCookie(res, token, ctx)
-      ctx.cookie(TOKEN_NAME, token, {
-        maxAge: MAX_AGE,
-        expires: new Date(Date.now() + MAX_AGE),
-        secure: process.env.NODE_ENV === 'production',
-        path: '/',
-        httpOnly: false
-      }),
-      ctx.cookie('authed', true, {
-        maxAge: MAX_AGE,
-        expires: new Date(Date.now() + MAX_AGE),
-        secure: process.env.NODE_ENV === 'production',
-        path: '/',
-        httpOnly: false
-      })
-    )
-  })
+  //   const user = { email: 'test@theteacherfund.com' }
+  //   const token = await Iron.seal(user, process.env.ENCRYPTION_SECRET, Iron.defaults)
+  //   // Cookie.setMockTokenCookie(res, token, ctx)
+  //   return res(
+  //     // setMockTokenCookie(res, token, ctx)
+  //     ctx.cookie(TOKEN_NAME, token, {
+  //       maxAge: MAX_AGE,
+  //       expires: new Date(Date.now() + MAX_AGE),
+  //       secure: process.env.NODE_ENV === 'production',
+  //       path: '/',
+  //       httpOnly: false
+  //     }),
+  //     ctx.cookie('authed', true, {
+  //       maxAge: MAX_AGE,
+  //       expires: new Date(Date.now() + MAX_AGE),
+  //       secure: process.env.NODE_ENV === 'production',
+  //       path: '/',
+  //       httpOnly: false
+  //     })
+  //   )
+  // })
 ]
 
 // function setMockTokenCookie (res, token, ctx) {
