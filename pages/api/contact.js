@@ -22,10 +22,8 @@ export default function (req, res) {
   transporter.sendMail(mailData, function (err, info) {
     if (err) {
       // TODO: Add error handling
-      console.log('Error sending email:', err)
       res.status(500).json({ success: false, err })
     } else {
-      console.log(info)
       res.status(200).json({ success: true })
     }
   })
