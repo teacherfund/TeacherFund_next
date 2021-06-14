@@ -50,7 +50,6 @@ const ContactForm = () => {
         })
       } else {
         // TODO: Add better error handling
-        console.log('Response:', res)
         showToast({
           title: 'Error sending message',
           description: `HTTP Response Code: ${res.status}`,
@@ -60,10 +59,9 @@ const ContactForm = () => {
       }
     }).catch((err) => {
       // TODO: Add better error handling
-      console.log('ERROR:', err)
       showToast({
         title: 'Error sending message',
-        description: err,
+        description: err.message,
         status: 'error',
         duration: null
       })
