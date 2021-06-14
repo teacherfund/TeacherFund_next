@@ -7,23 +7,23 @@ import { rest } from 'msw'
 // const MAX_AGE = 60 * 60 * 24 * 1000 // 1 day in ms
 
 export const handlers = [
-  rest.get('/api/account', async (req, res, ctx) => {
-    const apiResponse = await ctx.fetch(req)
+  // rest.get('/api/account', async (req, res, ctx) => {
+  //   const apiResponse = await ctx.fetch(req)
 
-    if (apiResponse.status === 401) {
-      return res(ctx.status(401))
-    }
+  //   if (apiResponse.status === 401) {
+  //     return res(ctx.status(401))
+  //   }
 
-    const user = {
-      customerId: 'id',
-      firstName: 'firstName',
-      lastName: 'lastName',
-      email: 'test@test.com',
-      donationAmount: 100000
-    }
+  //   const user = {
+  //     customerId: 'id',
+  //     firstName: 'firstName',
+  //     lastName: 'lastName',
+  //     email: 'test@test.com',
+  //     donationAmount: 100000
+  //   }
 
-    return res(ctx.json(user))
-  }),
+  //   return res(ctx.json(user))
+  // }),
 
   // rest.get('/api/user-donations', async (req, res, ctx) => {
   //   const apiResponse = await ctx.fetch(req)
@@ -50,6 +50,16 @@ export const handlers = [
       // "has_more": false,
       data: [
         {
+          subscriptions: {
+            data: [
+              {
+                id: 'sub_BZ9fY6Cds9rbmJ',
+                plan: {
+                  amount: 11100
+                }
+              }
+            ]
+          },
           id: 'cus_4QEipX9Dj5Om1P',
           // "object": "customer",
           // "address": null,
@@ -253,6 +263,16 @@ export const handlers = [
     }
 
     return res(ctx.json(mockResponse))
+  }),
+
+  rest.delete('https://api.stripe.com/v1/subscriptions/:id', (req, res, ctx) => {
+    // TODO: create universal property object for all handlers..?
+    // TODO: delete property from user object?
+    // const subscriptionId = req.params.id
+    const mockCanceledSubscriptionObject = {}
+    return res(
+      ctx.delay(),
+      ctx.json(mockCanceledSubscriptionObject))
   }),
 
   rest.post('/api/donate', (req, res, ctx) => {
