@@ -445,75 +445,105 @@ export const handlers = [
     // TODO: create universal property object for all handlers..?
     // TODO: delete property from user object?
     // const subscriptionId = req.params.id
-    const mockCanceledSubscriptionObject = {}
+    const mockResponse = {}
     return res(
       ctx.delay(),
-      ctx.json(mockCanceledSubscriptionObject))
+      ctx.json(mockResponse))
   }),
 
   // stripe.subscriptions.update
   rest.post('https://api.stripe.com/v1/subscriptions/:id', (req, res, ctx) => {
-    const mockCanceledSubscriptionObject = {}
+    const mockResponse = {}
     return res(
       ctx.delay(),
-      ctx.json(mockCanceledSubscriptionObject))
+      ctx.json(mockResponse))
   }),
 
-  // rest.post('/api/donate', (req, res, ctx) => {
-  //   return res(ctx.json({ success: true }))
-  // }),
-
-  rest.get('/api/donations', (req, res, ctx) => {
-    const mockDonations = 199999999
-    return res(ctx.json([{ amount: mockDonations }]))
+  // stripe.payouts.list
+  rest.get('https://api.stripe.com/v1/payouts', (req, res, ctx) => {
+    const mockResponse = {
+      object: 'list',
+      url: '/v1/payouts',
+      has_more: false,
+      data: [
+        {
+          id: 'po_1J2POv2eZvKYlo2C1MRcdeXG',
+          object: 'payout',
+          amount: 99999999,
+          arrival_date: 1623714065,
+          automatic: true,
+          balance_transaction: 'txn_1032HU2eZvKYlo2CEPtcnUvl',
+          created: 1623714065,
+          currency: 'usd',
+          description: 'STRIPE PAYOUT',
+          destination: 'ba_1J2POv2eZvKYlo2C8tu1sDZB',
+          failure_balance_transaction: null,
+          failure_code: null,
+          failure_message: null,
+          livemode: false,
+          metadata: {},
+          method: 'standard',
+          original_payout: null,
+          reversed_by: null,
+          source_type: 'card',
+          statement_descriptor: null,
+          status: 'in_transit',
+          type: 'bank_account'
+        },
+        {
+          id: 'po_1J2POv2eZvKYlo2C1MRcdeXG',
+          object: 'payout',
+          amount: 99999999,
+          arrival_date: 1623714065,
+          automatic: true,
+          balance_transaction: 'txn_1032HU2eZvKYlo2CEPtcnUvl',
+          created: 1623714065,
+          currency: 'usd',
+          description: 'STRIPE PAYOUT',
+          destination: 'ba_1J2POv2eZvKYlo2C8tu1sDZB',
+          failure_balance_transaction: null,
+          failure_code: null,
+          failure_message: null,
+          livemode: false,
+          metadata: {},
+          method: 'standard',
+          original_payout: null,
+          reversed_by: null,
+          source_type: 'card',
+          statement_descriptor: null,
+          status: 'in_transit',
+          type: 'bank_account'
+        },
+        {
+          id: 'po_1J2POv2eZvKYlo2C1MRcdeXG',
+          object: 'payout',
+          amount: 100,
+          arrival_date: 1623714065,
+          automatic: true,
+          balance_transaction: 'txn_1032HU2eZvKYlo2CEPtcnUvl',
+          created: 1623714065,
+          currency: 'usd',
+          description: 'STRIPE PAYOUT',
+          destination: 'ba_1J2POv2eZvKYlo2C8tu1sDZB',
+          failure_balance_transaction: null,
+          failure_code: null,
+          failure_message: null,
+          livemode: false,
+          metadata: {},
+          method: 'standard',
+          original_payout: null,
+          reversed_by: null,
+          source_type: 'card',
+          statement_descriptor: null,
+          status: 'in_transit',
+          type: 'bank_account'
+        }
+      ]
+    }
+    return res(
+      ctx.delay(),
+      ctx.json(mockResponse))
   })
-
-  // rest.get('/api/deleteDonation', (req, res, ctx) => {
-  //   return res(ctx.json({ success: true }))
-  // }),
-
-  // rest.post('/api/login', async (req, res, ctx) => {
-  //   if (req.method !== 'POST') return res.status(405).end()
-
-  //   const user = { email: 'test@theteacherfund.com' }
-  //   const token = await Iron.seal(user, process.env.ENCRYPTION_SECRET, Iron.defaults)
-  //   // Cookie.setMockTokenCookie(res, token, ctx)
-  //   return res(
-  //     // setMockTokenCookie(res, token, ctx)
-  //     ctx.cookie(TOKEN_NAME, token, {
-  //       maxAge: MAX_AGE,
-  //       expires: new Date(Date.now() + MAX_AGE),
-  //       secure: process.env.NODE_ENV === 'production',
-  //       path: '/',
-  //       httpOnly: false
-  //     }),
-  //     ctx.cookie('authed', true, {
-  //       maxAge: MAX_AGE,
-  //       expires: new Date(Date.now() + MAX_AGE),
-  //       secure: process.env.NODE_ENV === 'production',
-  //       path: '/',
-  //       httpOnly: false
-  //     })
-  //   )
-  // })
 ]
-
-// function setMockTokenCookie (res, token, ctx) {
-//   ctx.set('headers', 'Set-Cookie', [
-//     createMockCookie(TOKEN_NAME, token),
-//     createMockCookie('authed', true, { httpOnly: false })
-//   ])
-// }
-
-// function createMockCookie (name, data, options = {}) {
-//   return serialize(name, data, {
-//     maxAge: MAX_AGE,
-//     expires: new Date(Date.now() + MAX_AGE),
-//     secure: process.env.NODE_ENV === 'production',
-//     path: '/',
-//     httpOnly: true,
-//     ...options
-//   })
-// }
 
 // todo: mock stripe 'db' to pull from for testing instances?
