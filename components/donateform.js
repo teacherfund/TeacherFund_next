@@ -55,21 +55,17 @@ donate = async (ev) => {
   let token
   try {
     const cardElement = this.props.elements.getElement(CardElement)
-    // const res = await this.props.stripe.createToken(cardElement);
-    console.log('cardElement: ', cardElement)
     let res
     if (process.env.STRIPE_PUBLIC_KEY === 'test') {
       res = {
-        error: 'error',
+        error: 'error with test token ',
         token: mockToken
       }
     } else {
       res = await this.props.stripe.createToken(cardElement)
     }
 
-    console.log('createToken res: ', res)
     token = res.token
-    console.log('token: ', token)
   } catch (e) {
     this.setState({ error: e.message, loading: false })
     return

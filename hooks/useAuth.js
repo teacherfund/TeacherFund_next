@@ -12,11 +12,6 @@ export function useAuth () {
   const { data: user, isValidating, revalidate, error } = useSWR('/api/account', fetcher)
   const loading = (user === undefined || isValidating)
 
-  console.log(`Data being returned: 
-  user: ${user},
-  isValidating: ${isValidating},
-  error: ${error}`)
-
   return { user, loading, revalidate, error }
 }
 
