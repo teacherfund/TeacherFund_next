@@ -4,7 +4,7 @@ import { rest } from 'msw'
 // https://stripe.com/docs/testing#cards
 
 export const handlers = [
-  // stripe.customers.list
+  // stripe.customers.list <https://stripe.com/docs/api/customers/list>
   rest.get('https://api.stripe.com/v1/customers', (req, res, ctx) => {
     const mockResponse = {
       data: [
@@ -41,7 +41,7 @@ export const handlers = [
     )
   }),
 
-  // stripe.charges.list
+  // stripe.charges.list <https://stripe.com/docs/api/charges/list>
   rest.get('https://api.stripe.com/v1/charges', (req, res, ctx) => {
     const mockResponse = {
       data: [
@@ -62,7 +62,7 @@ export const handlers = [
     )
   }),
 
-  // stripe.charges.create
+  // stripe.charges.create <https://stripe.com/docs/api/charges/create>
   rest.post('https://api.stripe.com/v1/charges', (req, res, ctx) => {
     const mockResponse = {
       id: 'ch_1J1VO42eZvKYlo2C4hLhMTQf'
@@ -74,7 +74,7 @@ export const handlers = [
     )
   }),
 
-  // stripe.subscriptionItems.create
+  // stripe.subscriptionItems.create <https://stripe.com/docs/api/subscription_items/create>
   // utilized during execution of stripe.subscriptions.update?
   rest.post('https://api.stripe.com/v1/subscription_items', (req, res, ctx) => {
     const mockResponse = {}
@@ -85,7 +85,7 @@ export const handlers = [
     )
   }),
 
-  // stripe.plans.list
+  // stripe.plans.list <https://stripe.com/docs/api/plans/list>
   rest.get('https://api.stripe.com/v1/plans', (req, res, ctx) => {
     const mockResponse = {
       // object: 'list',
@@ -105,7 +105,7 @@ export const handlers = [
     )
   }),
 
-  // stripe.plans.create
+  // stripe.plans.create <https://stripe.com/docs/api/plans/create>
   rest.post('https://api.stripe.com/v1/plans', (req, res, ctx) => {
     const mockResponse = {
       id: 'price_1J25Xi2eZvKYlo2CXymasmSv'
@@ -117,7 +117,7 @@ export const handlers = [
     )
   }),
 
-  // stripe.subscriptions.del
+  // stripe.subscriptions.del <https://stripe.com/docs/api/subscription_items/delete>
   rest.delete('https://api.stripe.com/v1/subscriptions/:id', (req, res, ctx) => {
     const mockResponse = {
       status: 'canceled'
@@ -128,7 +128,7 @@ export const handlers = [
     )
   }),
 
-  // stripe.subscriptions.update
+  // stripe.subscriptions.update <https://stripe.com/docs/api/subscriptions/update>
   rest.post('https://api.stripe.com/v1/subscriptions/:id', (req, res, ctx) => {
     const mockResponse = {}
     return res(
@@ -137,7 +137,7 @@ export const handlers = [
     )
   }),
 
-  // stripe.payouts.list
+  // stripe.payouts.list <https://stripe.com/docs/api/payouts/list>
   rest.get('https://api.stripe.com/v1/payouts', (req, res, ctx) => {
     const mockResponse = {
       data: [
