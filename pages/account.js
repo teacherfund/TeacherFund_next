@@ -79,31 +79,34 @@ const Account = () => {
                 </div>
               </div>
               <div className='mb3'>
-                <a className='white no-underline pa3 db ttu br-pill tf-lato b v-mid w-75 w-50-ns m-auto tc btn-teal'
+                <a
+                  className='white no-underline pa3 db ttu br-pill tf-lato b v-mid w-75 w-50-ns m-auto tc btn-teal'
                   href={tweet}
                   data-size='large'
-                  target='_blank'>
-                    Spread the Word
+                  target='_blank'
+                >
+                  Spread the Word
                 </a>
               </div>
-              { user && user.customerId &&
-              <div className='mb3'>
-                <Button color='white'
-                  isLoading={cancelLoading}
-                  backgroundColor='red.500'
-                  borderRadius='9999px'
-                  paddingTop='1rem'
-                  _hover={{ bg: 'white' }}
-                  paddingBottom='1rem'
-                  height='56px'
-                  width={['75%', '50%']}
-                  className='tf-lato btn-red ttu b tc pa2 w-50 m-auto'
-                  onClick={cancelReccuringDonation}>
-                  <label>Cancel donation</label>
-                </Button>
-              </div>
-              }
-              { user && user.customerId && <TaxReceiptButton /> }
+              {user && user.customerId &&
+                <div className='mb3'>
+                  <Button
+                    color='white'
+                    isLoading={cancelLoading}
+                    backgroundColor='red.500'
+                    borderRadius='9999px'
+                    paddingTop='1rem'
+                    _hover={{ bg: 'white' }}
+                    paddingBottom='1rem'
+                    height='56px'
+                    width={['75%', '50%']}
+                    className='tf-lato btn-red ttu b tc pa2 w-50 m-auto'
+                    onClick={cancelReccuringDonation}
+                  >
+                    <label>Cancel donation</label>
+                  </Button>
+                </div>}
+              {user && user.customerId && <TaxReceiptButton />}
             </Box>
           </>
         )}

@@ -6,7 +6,7 @@ const Blog = ({ content }) => {
   const [showAll, setShowAll] = useState(false)
 
   return (
-    <Flex padding={{ base: '2rem', lg: '2rem' }} marginLeft={{ base: 0, lg: '15rem' }} className='blog-component' >
+    <Flex padding={{ base: '2rem', lg: '2rem' }} marginLeft={{ base: 0, lg: '15rem' }} className='blog-component'>
       <Flex flexDirection='column'>
         <Heading as='h2' size='lg' fontWeight='100' textDecoration='underline'>
           <Box>

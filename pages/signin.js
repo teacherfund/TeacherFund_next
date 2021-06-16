@@ -16,7 +16,8 @@ const SignIn = (props) => (
       padding={{ base: '3rem 1.5rem', lg: '6rem 7.5rem' }}
       backgroundColor='gray.50'
       height='100vh'
-      {...props}>
+      {...props}
+    >
       <Box align='center' fontSize='28px' paddingBottom='2rem'>
         <h1>Sign in</h1>
       </Box>

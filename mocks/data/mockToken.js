@@ -1,0 +1,33 @@
+module.exports.mockToken = {
+  id: 'tok_1J0Dv42eZvKYlo2CxYxXm76y',
+  object: 'token',
+  card: {
+    id: 'card_1J0Dv42eZvKYlo2Czn7hWLUG',
+    object: 'card',
+    address_city: null,
+    address_country: null,
+    address_line1: null,
+    address_line1_check: null,
+    address_line2: null,
+    address_state: null,
+    address_zip: null,
+    address_zip_check: null,
+    brand: 'Visa',
+    country: 'US',
+    cvc_check: 'pass',
+    dynamic_last4: null,
+    exp_month: 8,
+    exp_year: 2022,
+    fingerprint: 'Xt5EWLLDS7FJjR1c',
+    funding: 'credit',
+    last4: '4242',
+    metadata: {},
+    name: null,
+    tokenization_method: null
+  },
+  client_ip: null,
+  created: 1623193274,
+  livemode: false,
+  type: 'card',
+  used: false
+}

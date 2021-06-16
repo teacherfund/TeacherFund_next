@@ -11,8 +11,12 @@ const deleteDonation = async ({ email }) => {
 
   if (!currentSubscription) return
 
-  // Delete the customers subscription
-  await stripe.subscriptions.del(currentSubscription.id)
+  try {
+    // Delete the customers subscription
+    await stripe.subscriptions.del(currentSubscription.id)
+  } catch (e) {
+    console.error(e)
+  }
 }
 
 export default async (req, res) => {

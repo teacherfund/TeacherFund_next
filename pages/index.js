@@ -249,7 +249,7 @@ class IndexPage extends Component {
                         _hover={{ bg: 'white', color: 'red.300' }}
                         _focus={{ boxShadow: 'outline' }}
                       >
-                          Apply Today
+                        Apply Today
                       </Box>
                     </Link>
                   </Box>

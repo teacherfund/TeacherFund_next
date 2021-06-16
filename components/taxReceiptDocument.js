@@ -99,8 +99,7 @@ const TaxReceiptDocument = ({ transactions, year, user }) => {
           {!!userFullName && <Text>Donor: {userFullName}</Text>}
         </View>
         {transactions &&
-          <TransactionsView transactions={transactions} />
-        }
+          <TransactionsView transactions={transactions} />}
       </Page>
     </Document>
   )

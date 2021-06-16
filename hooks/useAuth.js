@@ -4,7 +4,7 @@ import { Magic } from 'magic-sdk'
 
 function fetcher (route) {
   return fetch(route)
-    .then((r) => r.ok && r.json())
+    .then((r) => { return r.ok && r.json() })
     .then((user) => user || null)
 }
 

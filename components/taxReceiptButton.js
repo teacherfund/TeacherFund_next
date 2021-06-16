@@ -29,7 +29,7 @@ const GetTaxReceiptsButton = ({ taxYears, handleSelectTaxYear, selectedTaxYear }
       height='56px'
       onClick={() => handleSelectTaxYear(selectedTaxYear)}
     >
-        Get Tax Receipt
+      Get Tax Receipt
     </Button>
 )
 

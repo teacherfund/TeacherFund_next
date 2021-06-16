@@ -5,6 +5,11 @@ import { ChakraProvider } from '@chakra-ui/react'
 import '../public/styles/main.scss'
 import CustomTheme from '../public/theme'
 
+// if (process.env.NODE_ENV === 'development'){
+//   require('../mocks');
+// }
+require('../mocks')
+
 class TeacherFundApp extends App {
   static async getInitialProps ({ Component, ctx }) {
     let pageProps = {}

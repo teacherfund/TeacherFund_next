@@ -21,7 +21,8 @@ const Percent = (props) => (
           height: 100px;
           padding-left: -10px;
         }
-      `}</style>
+      `}
+    </style>
   </div>
 )
 
