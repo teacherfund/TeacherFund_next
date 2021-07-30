@@ -17,7 +17,7 @@ function Collage ({ content, selectedSchool }) {
     setCheck('true')
     setImages([])
     for (var i = 0; i < content.length; i++) {
-      if (selectedSchool == 'All') {
+      if (selectedSchool === 'All') {
         setImages([
           content[0].images[0],
           content[1].images[1],
@@ -28,9 +28,9 @@ function Collage ({ content, selectedSchool }) {
         ])
         break
       }
-      if (content[i].school == selectedSchool) {
+      if (content[i].school === selectedSchool) {
         for (var j = 0; j < 3; j++) {
-          if (content[i].images[j] != undefined) {
+          if (content[i].images[j] !== undefined) {
             arr.push(content[i].images[j])
           }
         }

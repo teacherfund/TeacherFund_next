@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import {
   Box,
-  Text,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription
+  Text
 } from '@chakra-ui/react'
 
 import emailjs from 'emailjs-com'
@@ -22,7 +18,7 @@ const ContactSection = ({ contactPage, hideHeading, ...props }) => {
     e.preventDefault()
     console.log('message is ', message)
     console.log('email is', email)
-    if (message != '' && email != '') {
+    if (message !== '' && email !== '') {
       emailjs
         .sendForm(
           // tutorial: https://www.youtube.com/watch?v=NgWGllOjkbs

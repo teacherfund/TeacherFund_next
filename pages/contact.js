@@ -2,7 +2,7 @@ import PageWrapper from '../components/pageWrapper'
 // TODO: move this to common?
 import ContactSection from '../components/about/contactSection'
 import '../public/styles/partials/contactform.scss'
-import { transitions, positions, types, Provider as AlertProvider } from 'react-alert'
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 
 const options = {
