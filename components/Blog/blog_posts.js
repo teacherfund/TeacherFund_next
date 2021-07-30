@@ -112,7 +112,7 @@ const staticBlogContent = [{
 },
 {
   title: 'Ponderosa Elementary - Summer 2020',
-  images: ['/images/drops/ponderosa/summer_2020_1.jpg', '/images/drops/ponderosa/summer_2020_2.jpg'],
+  images: ['/images/drops/ponderosa/summer_2020_1.jpg', '/images/drops/ponderosa/summer_2020_2updated.jpg'],
   summary: `Covid-19 derailed our Spring delivery for Ponderosa Elementary, but we know it derailed much more than that for the actual teachers. 
   This was the first semester of remote learning for Ponderosa Elementary, and we can't imagine the hardship. `,
   content: (
@@ -137,7 +137,7 @@ const staticBlogContent = [{
 },
 {
   title: 'Ponderosa Elementary - Fall 2019',
-  images: ['/images/drops/ponderosa/fall_2019_1.png', '/images/drops/ponderosa/fall_2019_2.png', '/images/drops/ponderosa/fall_2019_3.jpeg'],
+  images: ['/images/drops/ponderosa/fall_2019_1.png', '/images/drops/ponderosa/fall_2019_2.png', '/images/drops/ponderosa/fall_2019_3updated.jpg'],
   summary: `Our first supply drop! The culmination of months of effort to start The Teacher Fund is here! 
   We worked with three teachers for this drop to help them supply their classrooms. Ms. Powers, Ms. Olp, and Ms. Young
   received`,
