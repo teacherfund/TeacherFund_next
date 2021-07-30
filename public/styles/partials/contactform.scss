@@ -1,0 +1,85 @@
+
+textarea[name="message"] {
+	resize: none;
+}
+.container {
+	width: 90%;
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0px 0px 20px #00000010;
+	background-color: white;
+	border-radius: 8px;
+	margin-bottom: 20px;
+}
+.form-group {
+	width: 100%;
+	font-size: 18px;
+	input {
+		width: 100%;
+		padding: 0px;
+		font-size: 18px;
+		border: 1px solid rgba(128, 128, 128, 0.199);
+		margin-top: 0px;
+	}
+	textarea {
+		width: 100%;
+		padding: 0px;
+		font-size: 18px;
+		border: 1px solid rgba(128, 128, 128, 0.199);
+		margin-top: 0px;
+	}
+}
+.textinput {
+	font-size: 10px;
+}
+button[type="submit"] {
+	width: 100%;
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 24px;
+	border-radius: 8px;
+	font-family: "Oswald";
+	color: rgb(27, 166, 247);
+	text-align: center;
+	cursor: pointer;
+	margin-top: 10px;
+	transition: 0.3s ease background-color;
+	&:hover {
+		background-color: rgb(214, 226, 236);
+	}
+}
+#status {
+	width: 90%;
+	max-width: 500px;
+	text-align: center;
+	padding: 10px;
+	margin: 0 auto;
+	border-radius: 8px;
+}
+#status.success {
+	background-color: rgb(211, 250, 153);
+	animation: status 4s ease forwards;
+}
+#status.error {
+	background-color: rgb(250, 129, 92);
+	color: white;
+	animation: status 4s ease forwards;
+}
+
+#__react-alert__ {
+	div {
+		div {
+			div {
+				-webkit-box-flex: 3;
+				-webkit-flex: 3;
+				-ms-flex: 3;
+				flex: 3;
+				text-transform: initial !important;
+				//font: inherit !important;
+				padding: 8px 10px;
+			}
+		}
+	}
+}
