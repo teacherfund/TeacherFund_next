@@ -108,13 +108,13 @@
   }
 
   &__metric {
+    border-left-width: 0.5rem;
+    border-left-style: solid;
     @extend .w5,
             .pa3,
             .pa0-ns,
             .h4-ns,
             .bg-white,
-            .bl,
-            .bw3,
             .ma2,
             .ma4-l,
             .flex,
