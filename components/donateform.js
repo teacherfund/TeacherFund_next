@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 import { CardElement } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
+import { Input, FormControl, FormErrorMessage, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { Form, Formik } from 'formik'
+import { validateCurrency, validateEmail, validateText } from '../utils/validation.util'
 
 class DonateForm extends Component {
   constructor (props) {
@@ -10,13 +13,7 @@ class DonateForm extends Component {
     this.donate = this.donate.bind(this)
     this.state = {
       loading: false,
-      redirectSuccess: false,
-      firstName: '',
-      lastName: '',
-      amount: '',
-      email: '',
-      frequency: 'once',
-      error: ''
+      redirectSuccess: false
     }
   }
 
@@ -25,28 +22,7 @@ class DonateForm extends Component {
     this.setState(state)
   }
 
-  updateFirstName = (e) => {
-    this.setLocalState({ firstName: e.target.value })
-  }
-
-  updateFrequency = (ev) => {
-    this.setLocalState({ frequency: ev.target.value })
-  }
-
-  updateLastName = (e) => {
-    this.setLocalState({ lastName: e.target.value })
-  }
-
-  updateEmail = (e) => {
-    this.setLocalState({ email: e.target.value })
-  }
-
-  updateAmount = (e) => {
-    this.setLocalState({ amount: `${e.target.value.includes('$') ? '' : '$'}${e.target.value}` })
-  }
-
-  donate = async (ev) => {
-    ev.preventDefault()
+  donate = async (formValues) => {
     this.setLocalState({ loading: true })
     let token
     try {
@@ -63,16 +39,16 @@ class DonateForm extends Component {
       return
     }
     try {
-      const stripDollarSignAmount = parseInt(this.state.amount.replace('$', ''))
+      const { frequency, firstName, lastName, email, amount } = formValues
       const responseStream = await fetch('/api/donate', {
         method: 'POST',
         body: JSON.stringify({
           source: token,
-          firstName: this.state.firstName,
-          frequency: this.state.frequency,
-          lastName: this.state.lastName,
-          amount: stripDollarSignAmount * 100,
-          email: this.state.email
+          firstName,
+          frequency,
+          lastName,
+          amount: amount * 100,
+          email
         })
       })
       const response = await responseStream.json()
@@ -91,27 +67,144 @@ class DonateForm extends Component {
 
     if (redirectSuccess) {
       Router.push('/success')
+      return (
+        <div />
+      )
     }
 
-    if (redirectSuccess) return (<div />)
-
     return (
-      <form className='flex flex-column f4-m ph2' onSubmit={this.donate}>
-        <div className='error tf-lato tc'>
-          <p className='red' aria-live='assertive'>{this.state.error}</p>
-        </div>
+      <Formik
+        initialValues={{
+          frequency: 'once',
+          firstName: '',
+          lastName: '',
+          email: '',
+          amount: ''
+        }}
+        validate={values => {
+          const { firstName, lastName, email, amount } = values
+          const errors = {}
+          const firstNameError = validateText(firstName)
+          if (firstNameError) {
+            errors.firstName = firstNameError
+          }
+          const lastNameError = validateText(lastName)
+          if (lastNameError) {
+            errors.lastName = lastNameError
+          }
+          const emailError = validateEmail(email)
+          if (emailError) {
+            errors.email = emailError
+          }
+          const amountError = validateCurrency(amount)
+          if (amountError) {
+            errors.amount = amountError
+          }
+          return errors
+        }}
+        onSubmit={async (values, opts) => {
+          await this.donate(values)
+          opts.setSubmitting(false)
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting
+        }) => (
+          <Form className='flex flex-column f4-m ph2' onSubmit={handleSubmit}>
+            <div className='error tf-lato tc'>
+              <p className='red' aria-live='assertive'>{this.state.error}</p>
+            </div>
 
-        <DonationFrequency updateFrequency={this.updateFrequency} frequency={this.state.frequency} />
-        <input type='text' required className='bn ba pa3 mv2' placeholder='First name' value={this.state.firstName} onChange={this.updateFirstName} aria-label='First Name' />
-        <input type='text' required className='bn ba pa3 mv2' placeholder='Last name' value={this.state.lastName} onChange={this.updateLastName} aria-label='Last Name' />
-        <input type='email' required className='bn ba pa3 mv2' placeholder='Email' value={this.state.email} onChange={this.updateEmail} aria-label='Email' />
-        <input type='text' required className='bn ba pa3 mv2' placeholder='$ Amount' value={this.state.amount} onChange={this.updateAmount} aria-label='Amount' />
-        <div className='bg-white bn ba pa3 mv2'>
-          <CardElement />
-        </div>
-        { loading && <h2 className='tc tf-lato'>Loading...</h2>}
-        <button type='submit' className='white btn-donate tf-lato b tc pa3 mt3 mt3-m mh-auto br-pill pointer w-50'>Donate</button>
-      </form>
+            <DonationFrequency name='frequency' updateFrequency={handleChange} frequency={values.frequency} />
+            <FormControl
+              className='form-control'
+              isInvalid={errors.firstName && touched.firstName}
+            >
+              <Input
+                type='text'
+                name='firstName'
+                maxLength={64}
+                placeholder='First name'
+                value={values.firstName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                aria-label='First Name' />
+              <FormErrorMessage>{errors.firstName}</FormErrorMessage>
+            </FormControl>
+            <FormControl
+              className='form-control'
+              isInvalid={errors.lastName && touched.lastName}
+            >
+              <Input
+                type='text'
+                name='lastName'
+                maxLength={64}
+                placeholder='Last name'
+                value={values.lastName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                aria-label='Last Name' />
+              <FormErrorMessage>{errors.lastName}</FormErrorMessage>
+            </FormControl>
+            <FormControl
+              className='form-control'
+              isInvalid={errors.email && touched.email}
+            >
+              <Input
+                type='email'
+                name='email'
+                maxLength={320} // max email address len
+                placeholder='Email'
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                aria-label='Email' />
+              <FormErrorMessage>{errors.email}</FormErrorMessage>
+            </FormControl>
+            <FormControl
+              className='form-control'
+              isInvalid={errors.amount && touched.amount}>
+              <InputGroup>
+                <InputLeftElement
+                  pointerEvents='none'
+                  children='$'
+                  color='lightGray'
+                  style={{ height: '100%', width: '2.6rem' }}
+                />
+                <Input
+                  style={{ paddingLeft: '2rem' }}
+                  type='text'
+                  name='amount'
+                  placeholder='Amount'
+                  maxLength={10}
+                  value={values.amount}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  aria-label='Amount' />
+
+              </InputGroup>
+              <FormErrorMessage>{errors.amount}</FormErrorMessage>
+            </FormControl>
+            <div className='bg-white bn ba pa3 mb2'>
+              <CardElement handleChange={handleChange} name='cardNumber' />
+            </div>
+            { loading && <h2 className='tc tf-lato'>Loading...</h2>}
+            <button
+              type='submit'
+              disabled={isSubmitting}
+              className='white btn-donate tf-lato b tc pa3 mt3 mt3-m mh-auto br-pill pointer w-50'
+            >
+              Donate
+            </button>
+          </Form>
+        )}
+      </Formik>
     )
   }
 }
