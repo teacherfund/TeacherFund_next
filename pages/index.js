@@ -157,7 +157,10 @@ class IndexPage extends Component {
                     margin='auto'
                     bg='orange.300'
                     color='white'
+                    borderColor='orange.300'
+                    borderWidth='0.2rem'
                     fontFamily='Lato'
+                    padding='1.5rem'
                     fontSize={['md', 'sm', 'lg', 'xl']}
                     _hover={{ bg: 'white', color: 'orange.300' }}
                     _focus={{ boxShadow: 'outline' }}
