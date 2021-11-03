@@ -65,7 +65,7 @@
 }
 
 .blog-side-nav-school-selected {
-  color: lighten($light-gray, 25%);
+  color:lighten($light-gray, 25%) !important;
   background-color: $lead-gray;
 }
 
