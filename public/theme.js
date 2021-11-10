@@ -14,6 +14,34 @@ const breakpoints = createBreakpoints({
   xl: '80em'
 })
 
+const Input = {
+  baseStyle: {
+    field: {
+      padding: '2rem 0',
+      height: '5rem',
+      _invalid: {
+        borderColor: 'red.500',
+        borderWidth: '0.08rem'
+      }
+    }
+  },
+  defaultProps: {
+    variant: null
+  }
+}
+
+const FormError = {
+  baseStyle: {
+    text: {
+      margin: '0',
+      marginLeft: '0.3rem'
+    }
+  },
+  defaultProps: {
+    variant: null
+  }
+}
+
 const overrides = {
   breakpoints,
   fonts: {
@@ -27,6 +55,10 @@ const overrides = {
     eraserPink: '#e06767',
     darkTeal: '#336e7b',
     lightGray: '#95a4a6'
+  },
+  components: {
+    Input,
+    FormError
   }
 }
 

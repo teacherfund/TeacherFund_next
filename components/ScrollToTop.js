@@ -25,7 +25,6 @@ const ScrollToTop = () => {
     <Flex>
       <Box _hover={{ color: '#f6b333' }}>
         <ChevronUpIcon
-          colorScheme='black'
           variant='outline'
           aria-label='Top'
           fontSize='25px'
