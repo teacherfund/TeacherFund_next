@@ -28,9 +28,9 @@ const findOrCreateCustomer = async ({ email, meta, source }) => {
     if (customer && customer.sources && customer.sources.total_count > 0) {
       // if the customer already has a payment method, update it to be the one
       // just entered
-      // await stripe.customers.update(customer.id, {
-      //   source: source.id
-      // })
+      await stripe.customers.update(customer.id, {
+        source: source.id
+      })
     }
 
     return customer
@@ -67,8 +67,7 @@ export default async (req, res) => {
         customer: customer.id,
         currency: 'usd',
         description: 'Donation',
-        receipt_email: email,
-        source: source.id
+        receipt_email: email
       })
     } catch (err) {
       if (err.message === 'Invalid account.') err.message = 'Invalid payment details, please verify the credit card information.'
