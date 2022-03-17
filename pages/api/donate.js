@@ -53,13 +53,17 @@ export default async (req, res) => {
   if (frequency === 'once') {
     const customer = await findOrCreateCustomer({ email, meta, source })
 
-    await stripe.charges.create({
-      amount,
-      customer: customer.id,
-      currency: 'usd',
-      description: 'Donation',
-      receipt_email: email
-    })
+    try {
+      await stripe.charges.create({
+        amount,
+        customer: customer.id,
+        currency: 'usd',
+        description: 'Donation',
+        receipt_email: email
+      })
+    } catch (err) {
+      return res.json({ success: false, message: err.message })
+    }
   } else {
     /**
      * - First check to see if a customer with this email already exists
