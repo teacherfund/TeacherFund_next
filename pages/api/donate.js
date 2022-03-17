@@ -62,6 +62,7 @@ export default async (req, res) => {
         receipt_email: email
       })
     } catch (err) {
+      if (err.message === 'Invalid account.') err.message = 'Invalid payment details, please verify the credit card information.'
       return res.json({ success: false, message: err.message })
     }
   } else {
