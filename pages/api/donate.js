@@ -24,7 +24,16 @@ const createDonation = async ({ customerId, planId }) => {
 const findOrCreateCustomer = async ({ email, meta, source }) => {
   const existingCustomerRes = await stripe.customers.list({ email })
   if (existingCustomerRes.data.length) {
-    return existingCustomerRes.data[0]
+    const customer = existingCustomerRes.data[0]
+    if (customer && customer.sources && customer.sources.total_count > 0) {
+      // if the customer already has a payment method, update it to be the one
+      // just entered
+      await stripe.customers.update(customer.id, {
+        source: source.id
+      })
+    }
+
+    return customer
   } else {
     return stripe.customers.create({
       email,
@@ -52,7 +61,6 @@ export default async (req, res) => {
   // If frequency is once just issue a charge, otherwise create customer and making recurring donation
   if (frequency === 'once') {
     const customer = await findOrCreateCustomer({ email, meta, source })
-
     try {
       await stripe.charges.create({
         amount,
