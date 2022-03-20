@@ -127,7 +127,7 @@ class IndexPage extends Component {
                   </Box>
                   <Box className='index__metric border-tf-pink' aria-label='Number of teachers funded by TeacherFund'>
                     <div className='tf-lato ts-title center'>
-                      31
+                      43
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Teachers Funded
@@ -135,7 +135,7 @@ class IndexPage extends Component {
                   </Box>
                   <Box className='index__metric border-tf-dark-gray' aria-label='Number of schools partenered with TeacherFund'>
                     <div className='tf-lato ts-title center'>
-                      4
+                      5
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Partner Schools
@@ -143,7 +143,7 @@ class IndexPage extends Component {
                   </Box>
                   <Box className='index__metric border-tf-gray' aria-label='Number of students impacted by TeacherFund'>
                     <div className='tf-lato ts-title center'>
-                      973
+                      1461
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Students Impacted
