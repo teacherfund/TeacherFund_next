@@ -40,6 +40,16 @@ Start the server in the current directory
 
 The generated site is available at `http://localhost:3001`
 
+## Styles
+
+  1. [Types](#types)
+  1. [References](#references)
+
+  ## Types
+
+  <a name="types--primitives"></a><a name="1.1"></a>
+  - [1.1](#types--primitives) **Primitives**: You must work directly on its value when you access a primitive type.
+
 ## License
 MIT
 
