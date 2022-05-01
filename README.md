@@ -20,8 +20,6 @@ To build and view the site locally:
 
     The generated site is available at `http://localhost:3001`
 
-
-
 ## Contributing
 We welcome any contributions to this project!!
 
@@ -34,11 +32,11 @@ cd into the directory where you cloned this repository, update brew with the lat
 `It might take around 5 minutes at first if you do not have node or have a deprecated version on your system'
 
 create a local environment file with `echo -e "NEXT_PUBLIC_DEVELOPMENT=1\nENCRYPTION_SECRET=<the_space_needle_is_gorgeous_this_time_of_year>" >> .env.local`
+You can swap the provided encryption secret with any 32 bit char string.
 
 Start the server in the current directory
 
     npm run dev
-
 
 The generated site is available at `http://localhost:3001`
 
