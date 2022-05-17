@@ -1,6 +1,31 @@
 import React from 'react'
 
+// Next id: 8
 const staticBlogContent = [{
+  title: 'Broadview Thompson K-8 - March 2022',
+  images: ['/images/drops/broadview/feb_2022_1.jpg', '/images/drops/broadview/feb_2022_2.jpg', '/images/drops/broadview/feb_2022_3.jpg'],
+  summary: `The Teacher Fund took to Seattle the spring of 2022 to help outfit any teacher who needed classroom supplies
+   at Broadview Thompson K-8, purchasing over $15,000 worth of classroom supplies.`,
+  content: (
+    <div>
+      The Teacher Fund took to Seattle the spring of 2022 to help outfit any teacher who needed classroom supplies
+      at Broadview Thompson K-8, purchasing over $15,000 worth of classroom supplies. From books to soap to fidget
+      spinners, the teachers were overwhelmed with appreciation for their complete overhaul.
+      "I am in shock you were able to order it all. It will be Christmas in March!".
+      "I often receive requests for tools like pencil grips or sensory accommodations
+      like fidget tools and wiggle cushions and haven't always had the resources available
+      to help. With everything you sent (pictured below - and I think there is more to come
+      still! THANK YOU!!!), so many more Broadview-Thomson students will be better equipped
+      for success at school. I really, really appreciate it!"
+      <br /><br />
+      Broadview Thompson is now under The Teacher Fund umbrella, meaning each semester The Teacher Fund will reach out
+      and help any new teachers joining Broadview Thompson outfit their classroom.
+      <br /><br />For this supply drop, we delivered direct to the teachers, check out some pictures below!
+    </div>
+  ),
+  school: 'Broadview Thompson K-8',
+  blogId: 7
+}, {
   title: 'Borah Elementary - February 2021',
   images: ['/images/drops/borah/feb_2021_1.jpeg', '/images/drops/borah/feb_2021_2.jpeg', '/images/drops/borah/feb_2021_3.jpeg'],
   summary: `In our largest haul yet, The Teacher Fund opened up support to every teacher at Borah Elementary
