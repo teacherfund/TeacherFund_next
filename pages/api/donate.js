@@ -50,7 +50,8 @@ export default async (req, res) => {
     lastName,
     frequency,
     amount,
-    email
+    email,
+    description
   } = JSON.parse(req.body)
 
   const meta = {
@@ -66,7 +67,7 @@ export default async (req, res) => {
         amount,
         customer: customer.id,
         currency: 'usd',
-        description: 'Donation',
+        description,
         receipt_email: email
       })
     } catch (err) {

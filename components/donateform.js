@@ -39,7 +39,12 @@ class DonateForm extends Component {
       return
     }
     try {
-      const { frequency, firstName, lastName, email, amount } = formValues
+      let { frequency, firstName, lastName, email, amount } = formValues
+      let description = 'Donation'
+      if (frequency === '2022_fall_event') {
+        description = '2022_fall_event donation'
+        frequency = 'once'
+      }
       const responseStream = await fetch('/api/donate', {
         method: 'POST',
         body: JSON.stringify({
@@ -48,7 +53,8 @@ class DonateForm extends Component {
           frequency,
           lastName,
           amount: amount * 100,
-          email
+          email,
+          description
         })
       })
       const response = await responseStream.json()
