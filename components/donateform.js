@@ -6,6 +6,7 @@ import Router from 'next/router'
 import { Input, FormControl, FormErrorMessage, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
 import { validateCurrency, validateEmail, validateText } from '../utils/validation.util'
+import { fundraisingEventString } from '../lib/constants'
 
 class DonateForm extends Component {
   constructor (props) {
@@ -41,7 +42,7 @@ class DonateForm extends Component {
     try {
       let { frequency, firstName, lastName, email, amount } = formValues
       let description = 'Donation'
-      if (frequency === '2022_fall_event') {
+      if (frequency === fundraisingEventString) {
         description = '2022_fall_event donation'
         frequency = 'once'
       }
