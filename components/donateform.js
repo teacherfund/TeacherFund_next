@@ -6,6 +6,7 @@ import Router from 'next/router'
 import { Input, FormControl, FormErrorMessage, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
 import { validateCurrency, validateEmail, validateText } from '../utils/validation.util'
+import { fundraisingEventString } from '../lib/constants'
 
 class DonateForm extends Component {
   constructor (props) {
@@ -39,7 +40,12 @@ class DonateForm extends Component {
       return
     }
     try {
-      const { frequency, firstName, lastName, email, amount } = formValues
+      let { frequency, firstName, lastName, email, amount } = formValues
+      let description = 'Donation'
+      if (frequency === fundraisingEventString) {
+        description = '2022_fall_event donation'
+        frequency = 'once'
+      }
       const responseStream = await fetch('/api/donate', {
         method: 'POST',
         body: JSON.stringify({
@@ -48,7 +54,8 @@ class DonateForm extends Component {
           frequency,
           lastName,
           amount: amount * 100,
-          email
+          email,
+          description
         })
       })
       const response = await responseStream.json()
