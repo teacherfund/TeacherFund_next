@@ -1,4 +1,6 @@
 import React from 'react'
+import { Box } from '@chakra-ui/react'
+import { fundraisingEventString } from '../lib/constants'
 
 const DonationFrequency = ({ updateFrequency, frequency }) => (
   <div className='flex flex-row tf-lato mt1 mb4' role='radiogroup' aria-labelledby='donate-freq'>
@@ -7,9 +9,15 @@ const DonationFrequency = ({ updateFrequency, frequency }) => (
       <input className='sr-only--input' type='radio' name='frequency' value='once' onInput={updateFrequency} />
       Give Once
     </label>
+    <Box width='1px' bg='black' height='auto' marginTop='1' />
     <label className={`tc mt1 pv2 ph1 bn ba b--black ttu pointer flex-auto ${frequency === 'monthly' ? 'bg-tf-yellow tf-dark-gray' : 'tf-dark-gray bg-white pointer'}`}>
       <input className='sr-only--input' type='radio' name='frequency' value='monthly' onInput={updateFrequency} />
       Monthly
+    </label>
+    <Box width='1px' bg='black' height='auto' marginTop='1' />
+    <label className={`tc mt1 pv2 ph1 bn ba b--black ttu pointer flex-auto ${frequency === fundraisingEventString ? 'bg-tf-yellow tf-dark-gray' : 'tf-dark-gray bg-white pointer'}`}>
+      <input className='sr-only--input' type='radio' name='frequency' value={fundraisingEventString} onInput={updateFrequency} />
+      Fall 2022 Event
     </label>
   </div>
 )
