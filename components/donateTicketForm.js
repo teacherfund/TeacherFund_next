@@ -27,7 +27,6 @@ class DonateTicketForm extends Component {
 
   customOnFrequencyChange = (e, handleChange, setFieldValue) => {
     const frequency = e.currentTarget.value
-    console.log('here values', frequency)
     if (frequency !== this.state.previousFrequency) {
       this.state.previousFrequency = frequency
       if (frequency === fundraisingEventTicket) {
