@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PageWrapper from '../components/pageWrapper'
 import DonateForm from '../components/donateform'
-import { Box } from '@chakra-ui/react'
 import { Elements, ElementsConsumer } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 
@@ -35,11 +34,6 @@ class Donate extends Component {
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                     With 100 percent of your donation funding public school teachers in need, you can
                     give knowing that your entire gift will help equip classrooms and help students.
-              </p>
-              <Box width='30%' margin='auto' height='1px' bg='black' />
-              <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    Fall 2022 we will be holding a fundraising event in Seattle with live music, food, speakers, and more.
-                    If you'd like to donate towards the event please select that option below.
               </p>
             </div>
             <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>

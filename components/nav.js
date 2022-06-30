@@ -11,7 +11,8 @@ const Nav = () => {
     { href: '/mission', label: 'Our Mission', key: 'our-mission' },
     { href: '/contact', label: 'Contact Us', key: 'contact' },
     { href: '/blog', label: 'Blog', key: 'blog' },
-    { href: '/donate', label: 'Donate', key: 'donate' }
+    { href: '/donate', label: 'Donate', key: 'donate' },
+    { href: '/tickets', label: 'Event Tickets', key: 'tickets' }
   ]
   let buttons = [
     { href: '/signin', label: 'Login', key: 'login' }
