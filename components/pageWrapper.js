@@ -19,7 +19,6 @@ const PageWrapper = (props) => {
             <Link href={'/tickets'}>
               <a className='white no-underline mv4 w5 center'>here</a>
             </Link>
-            .
           </Text>
         </Box>
       )}

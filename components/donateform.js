@@ -11,7 +11,16 @@ class DonateForm extends Component {
   constructor (props) {
     super(props)
     this.donate = this.donate.bind(this)
-    this.frequenciesAvailable = ['once', 'monthly']
+    this.availableFrequencies = [
+      {
+        name: 'once',
+        text: 'Give Once'
+      },
+      {
+        name: 'monthly',
+        text: 'Monthly'
+      }
+    ]
     this.state = {
       loading: false,
       redirectSuccess: false
@@ -40,14 +49,14 @@ class DonateForm extends Component {
       return
     }
     try {
-      const { frequency, firstName, lastName, email, amount } = formValues
+      const { frequencyIdx, firstName, lastName, email, amount } = formValues
       const description = 'Donation'
       const responseStream = await fetch('/api/donate', {
         method: 'POST',
         body: JSON.stringify({
           source: token,
           firstName,
-          frequency,
+          frequency: this.availableFrequencies[frequencyIdx].name,
           lastName,
           amount: amount * 100,
           email,
@@ -78,7 +87,7 @@ class DonateForm extends Component {
     return (
       <Formik
         initialValues={{
-          frequency: 'once',
+          frequencyIdx: 0,
           firstName: '',
           lastName: '',
           email: '',
@@ -124,7 +133,12 @@ class DonateForm extends Component {
               <p className='red' aria-live='assertive'>{this.state.error}</p>
             </div>
 
-            <DonationFrequency name='frequency' updateFrequency={handleChange} frequency={values.frequency} frequenciesAvailable={this.frequenciesAvailable} />
+            <DonationFrequency
+              name='frequencyIdx'
+              updateFrequency={handleChange}
+              frequencyIdx={values.frequencyIdx}
+              availableFrequencies={this.availableFrequencies}
+            />
             <FormControl
               className='form-control'
               isInvalid={errors.firstName && touched.firstName}

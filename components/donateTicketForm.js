@@ -12,11 +12,22 @@ class DonateTicketForm extends Component {
   constructor (props) {
     super(props)
     this.donate = this.donate.bind(this)
-    this.frequenciesAvailable = [fundraisingEventTicket, fundraisingEventTicketPatron]
+    this.availableFrequencies = [
+      {
+        name: fundraisingEventTicket,
+        text: 'Fall 2022 Ticket',
+        amount: '100'
+      },
+      {
+        name: fundraisingEventTicketPatron,
+        text: 'Fall 2022 Patron',
+        amount: '200'
+      }
+    ]
     this.state = {
       loading: false,
       redirectSuccess: false,
-      previousFrequency: fundraisingEventTicket
+      currentFrequencyIdx: 0
     }
   }
 
@@ -26,14 +37,10 @@ class DonateTicketForm extends Component {
   }
 
   customOnFrequencyChange = (e, handleChange, setFieldValue) => {
-    const frequency = e.currentTarget.value
-    if (frequency !== this.state.previousFrequency) {
-      this.state.previousFrequency = frequency
-      if (frequency === fundraisingEventTicket) {
-        setFieldValue('amount', '100')
-      } else if (frequency === fundraisingEventTicketPatron) {
-        setFieldValue('amount', '200')
-      }
+    const newFrequencyIdx = e.currentTarget.value
+    if (newFrequencyIdx !== this.state.currentFrequencyIdx) {
+      this.state.currentFrequencyIdx = newFrequencyIdx
+      setFieldValue('amount', this.availableFrequencies[newFrequencyIdx].amount)
     }
     handleChange(e)
   }
@@ -55,13 +62,13 @@ class DonateTicketForm extends Component {
       return
     }
     try {
-      const { frequency, firstName, lastName, email, amount } = formValues
+      const { frequencyIdx, firstName, lastName, email, amount } = formValues
       const responseStream = await fetch('/api/purchase-ticket', {
         method: 'POST',
         body: JSON.stringify({
           source: token,
           firstName,
-          frequency,
+          frequency: this.availableFrequencies[frequencyIdx].name,
           lastName,
           amount: amount * 100,
           email
@@ -91,7 +98,7 @@ class DonateTicketForm extends Component {
     return (
       <Formik
         initialValues={{
-          frequency: fundraisingEventTicket,
+          frequencyIdx: 0,
           firstName: '',
           lastName: '',
           email: '',
@@ -137,8 +144,8 @@ class DonateTicketForm extends Component {
             <DonationFrequency
               name='frequency'
               updateFrequency={(e) => this.customOnFrequencyChange(e, handleChange, setFieldValue)}
-              frequency={values.frequency}
-              frequenciesAvailable={this.frequenciesAvailable}
+              frequencyIdx={values.frequencyIdx}
+              availableFrequencies={this.availableFrequencies}
             />
             <FormControl
               className='form-control'

@@ -23,7 +23,7 @@ class Tickets extends Component {
           <div className='flex flex-column bg-trans-gray justify-between ph3 pv4 pv5-ns pa4-ns'>
             <div className='flex flex-column tf-lato tc mv-auto'>
               <h1 className='tf-dark-gray f2 f1-l tf-oswald fl'>
-                    Fund Teachers. Help Students. Purchase tickets to the fall 2022 event today!
+                    Purchase tickets to the fall 2022 event today!
               </h1>
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                     With 100 percent of your ticket donation funding public school teachers in need, you can
