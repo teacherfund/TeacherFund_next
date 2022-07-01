@@ -5,7 +5,7 @@ import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
 import { Input, FormControl, FormErrorMessage, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
-import { validateCurrency, validateEmail, validateText } from '../utils/validation.util'
+import { validateEmail, validateText } from '../utils/validation.util'
 import { fundraisingEventTicket, fundraisingEventTicketPatron } from '../lib/constants'
 
 class DonateTicketForm extends Component {
@@ -97,8 +97,8 @@ class DonateTicketForm extends Component {
           email: '',
           amount: '100'
         }}
-        validate={(values, actions) => {
-          const { firstName, lastName, email, amount } = values
+        validate={(values) => {
+          const { firstName, lastName, email } = values
           const errors = {}
           const firstNameError = validateText(firstName)
           if (firstNameError) {
@@ -111,10 +111,6 @@ class DonateTicketForm extends Component {
           const emailError = validateEmail(email)
           if (emailError) {
             errors.email = emailError
-          }
-          const amountError = validateCurrency(amount)
-          if (amountError) {
-            errors.amount = amountError
           }
           return errors
         }}
