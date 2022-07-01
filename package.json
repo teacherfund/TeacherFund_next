@@ -36,7 +36,7 @@
     "react-google-maps": "^9.4.5",
     "react-hook-form": "^6.8.4",
     "react-motion-drawer": "^3.1.0",
-    "stripe": "^8.98.0",
+    "stripe": "^8.222.0",
     "swr": "^0.3.4"
   },
   "devDependencies": {

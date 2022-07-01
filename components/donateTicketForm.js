@@ -5,31 +5,44 @@ import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
 import { Input, FormControl, FormErrorMessage, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
-import { validateCurrency, validateEmail, validateText } from '../utils/validation.util'
+import { validateEmail, validateText } from '../utils/validation.util'
+import { fundraisingEventTicket, fundraisingEventTicketPatron } from '../lib/constants'
 
-class DonateForm extends Component {
+class DonateTicketForm extends Component {
   constructor (props) {
     super(props)
     this.donate = this.donate.bind(this)
     this.availableFrequencies = [
       {
-        name: 'once',
-        text: 'Give Once'
+        name: fundraisingEventTicket,
+        text: 'Fall 2022 Ticket',
+        amount: '100'
       },
       {
-        name: 'monthly',
-        text: 'Monthly'
+        name: fundraisingEventTicketPatron,
+        text: 'Fall 2022 Patron',
+        amount: '200'
       }
     ]
     this.state = {
       loading: false,
-      redirectSuccess: false
+      redirectSuccess: false,
+      currentFrequencyIdx: 0
     }
   }
 
   setLocalState = (state) => {
     if (!state.error) state.error = ''
     this.setState(state)
+  }
+
+  customOnFrequencyChange = (e, handleChange, setFieldValue) => {
+    const newFrequencyIdx = e.currentTarget.value
+    if (newFrequencyIdx !== this.state.currentFrequencyIdx) {
+      this.state.currentFrequencyIdx = newFrequencyIdx
+      setFieldValue('amount', this.availableFrequencies[newFrequencyIdx].amount)
+    }
+    handleChange(e)
   }
 
   donate = async (formValues) => {
@@ -50,8 +63,7 @@ class DonateForm extends Component {
     }
     try {
       const { frequencyIdx, firstName, lastName, email, amount } = formValues
-      const description = 'Donation'
-      const responseStream = await fetch('/api/donate', {
+      const responseStream = await fetch('/api/purchase-ticket', {
         method: 'POST',
         body: JSON.stringify({
           source: token,
@@ -59,8 +71,7 @@ class DonateForm extends Component {
           frequency: this.availableFrequencies[frequencyIdx].name,
           lastName,
           amount: amount * 100,
-          email,
-          description
+          email
         })
       })
       const response = await responseStream.json()
@@ -78,7 +89,7 @@ class DonateForm extends Component {
     const { redirectSuccess, loading } = this.state
 
     if (redirectSuccess) {
-      Router.push('/success')
+      Router.push('/ticket-success')
       return (
         <div />
       )
@@ -91,10 +102,10 @@ class DonateForm extends Component {
           firstName: '',
           lastName: '',
           email: '',
-          amount: ''
+          amount: '100'
         }}
-        validate={values => {
-          const { firstName, lastName, email, amount } = values
+        validate={(values) => {
+          const { firstName, lastName, email } = values
           const errors = {}
           const firstNameError = validateText(firstName)
           if (firstNameError) {
@@ -107,10 +118,6 @@ class DonateForm extends Component {
           const emailError = validateEmail(email)
           if (emailError) {
             errors.email = emailError
-          }
-          const amountError = validateCurrency(amount)
-          if (amountError) {
-            errors.amount = amountError
           }
           return errors
         }}
@@ -126,6 +133,7 @@ class DonateForm extends Component {
           handleChange,
           handleBlur,
           handleSubmit,
+          setFieldValue,
           isSubmitting
         }) => (
           <Form className='flex flex-column f4-m ph2' onSubmit={handleSubmit}>
@@ -134,8 +142,8 @@ class DonateForm extends Component {
             </div>
 
             <DonationFrequency
-              name='frequencyIdx'
-              updateFrequency={handleChange}
+              name='frequency'
+              updateFrequency={(e) => this.customOnFrequencyChange(e, handleChange, setFieldValue)}
               frequencyIdx={values.frequencyIdx}
               availableFrequencies={this.availableFrequencies}
             />
@@ -200,6 +208,7 @@ class DonateForm extends Component {
                   name='amount'
                   placeholder='Amount'
                   maxLength={10}
+                  readOnly
                   value={values.amount}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -217,7 +226,7 @@ class DonateForm extends Component {
               disabled={isSubmitting}
               className='white btn-donate tf-lato b tc pa3 mt3 mt3-m mh-auto br-pill pointer w-50'
             >
-              Donate
+              Purchase ticket
             </button>
           </Form>
         )}
@@ -226,4 +235,4 @@ class DonateForm extends Component {
   }
 }
 
-export default DonateForm
+export default DonateTicketForm
