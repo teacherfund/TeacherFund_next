@@ -27,7 +27,8 @@ class DonateTicketForm extends Component {
     this.state = {
       loading: false,
       redirectSuccess: false,
-      currentFrequencyIdx: 0
+      currentFrequencyIdx: 0,
+      currentQuantity: 1
     }
   }
 
@@ -40,7 +41,7 @@ class DonateTicketForm extends Component {
     const newFrequencyIdx = e.currentTarget.value
     if (newFrequencyIdx !== this.state.currentFrequencyIdx) {
       this.state.currentFrequencyIdx = newFrequencyIdx
-      setFieldValue('amount', this.availableFrequencies[newFrequencyIdx].amount)
+      setFieldValue('amount', this.availableFrequencies[newFrequencyIdx].amount * this.state.currentQuantity)
     }
     handleChange(e)
   }
@@ -51,6 +52,7 @@ class DonateTicketForm extends Component {
       handleChange(e)
       return
     }
+    this.state.currentQuantity = newQuantity
     setFieldValue('amount', this.availableFrequencies[this.state.currentFrequencyIdx].amount * newQuantity)
     handleChange(e)
   }
