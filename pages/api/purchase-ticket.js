@@ -9,7 +9,8 @@ export default async (req, res) => {
     lastName,
     frequency,
     amount,
-    email
+    email,
+    quantity
   } = JSON.parse(req.body)
 
   const meta = {
@@ -23,7 +24,7 @@ export default async (req, res) => {
       amount,
       customer: customer.id,
       currency: 'usd',
-      description: `Ticket purchase: ${frequency}`,
+      description: `Ticket (${quantity}) purchased: ${frequency}`,
       receipt_email: email
     })
   } catch (err) {

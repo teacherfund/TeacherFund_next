@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { CardElement } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
-import { Input, FormControl, FormErrorMessage, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { Input, FormControl, Text, FormErrorMessage, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
 import { validateEmail, validateText } from '../utils/validation.util'
 import { fundraisingEventTicket, fundraisingEventTicketPatron } from '../lib/constants'
@@ -45,6 +45,16 @@ class DonateTicketForm extends Component {
     handleChange(e)
   }
 
+  customOnQuantityChange = (e, handleChange, setFieldValue) => {
+    const newQuantity = e.currentTarget.value
+    if (!newQuantity) {
+      handleChange(e)
+      return
+    }
+    setFieldValue('amount', this.availableFrequencies[this.state.currentFrequencyIdx].amount * newQuantity)
+    handleChange(e)
+  }
+
   donate = async (formValues) => {
     this.setLocalState({ loading: true })
     let token
@@ -62,13 +72,14 @@ class DonateTicketForm extends Component {
       return
     }
     try {
-      const { frequencyIdx, firstName, lastName, email, amount } = formValues
+      const { frequencyIdx, firstName, lastName, email, amount, quantity } = formValues
       const responseStream = await fetch('/api/purchase-ticket', {
         method: 'POST',
         body: JSON.stringify({
           source: token,
           firstName,
           frequency: this.availableFrequencies[frequencyIdx].name,
+          quantity,
           lastName,
           amount: amount * 100,
           email
@@ -101,15 +112,19 @@ class DonateTicketForm extends Component {
           frequencyIdx: 0,
           firstName: '',
           lastName: '',
+          quantity: 1,
           email: '',
           amount: '100'
         }}
         validate={(values) => {
-          const { firstName, lastName, email } = values
+          const { firstName, lastName, email, quantity } = values
           const errors = {}
           const firstNameError = validateText(firstName)
           if (firstNameError) {
             errors.firstName = firstNameError
+          }
+          if (!quantity) {
+            errors.quantity = 'Quantity must be > 0'
           }
           const lastNameError = validateText(lastName)
           if (lastNameError) {
@@ -151,6 +166,7 @@ class DonateTicketForm extends Component {
               className='form-control'
               isInvalid={errors.firstName && touched.firstName}
             >
+              <Text>First Name:</Text>
               <Input
                 type='text'
                 name='firstName'
@@ -163,9 +179,11 @@ class DonateTicketForm extends Component {
               <FormErrorMessage>{errors.firstName}</FormErrorMessage>
             </FormControl>
             <FormControl
+              marginTop='1.5rem'
               className='form-control'
               isInvalid={errors.lastName && touched.lastName}
             >
+              <Text>Last Name:</Text>
               <Input
                 type='text'
                 name='lastName'
@@ -178,9 +196,11 @@ class DonateTicketForm extends Component {
               <FormErrorMessage>{errors.lastName}</FormErrorMessage>
             </FormControl>
             <FormControl
+              marginTop='1.5rem'
               className='form-control'
               isInvalid={errors.email && touched.email}
             >
+              <Text>Email:</Text>
               <Input
                 type='email'
                 name='email'
@@ -193,8 +213,26 @@ class DonateTicketForm extends Component {
               <FormErrorMessage>{errors.email}</FormErrorMessage>
             </FormControl>
             <FormControl
+              marginTop='1.5rem'
+              className='form-control'
+              isInvalid={errors.quantity && touched.quantity}
+            >
+              <Text>Quantity:</Text>
+              <Input
+                type='number'
+                name='quantity'
+                placeholder='Quantity'
+                value={values.quantity}
+                onChange={(e) => this.customOnQuantityChange(e, handleChange, setFieldValue)}
+                onBlur={handleBlur}
+                aria-label='Quantity' />
+              <FormErrorMessage>{errors.quantity}</FormErrorMessage>
+            </FormControl>
+            <FormControl
+              marginTop='1.5rem'
               className='form-control'
               isInvalid={errors.amount && touched.amount}>
+              <Text>Amount:</Text>
               <InputGroup>
                 <InputLeftElement
                   pointerEvents='none'
@@ -217,6 +255,7 @@ class DonateTicketForm extends Component {
               </InputGroup>
               <FormErrorMessage>{errors.amount}</FormErrorMessage>
             </FormControl>
+            <Text marginTop='1.5rem'>Payment Info:</Text>
             <div className='bg-white bn ba pa3 mb2'>
               <CardElement handleChange={handleChange} name='cardNumber' />
             </div>
