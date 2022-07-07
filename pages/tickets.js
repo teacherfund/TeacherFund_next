@@ -42,7 +42,7 @@ class Tickets extends Component {
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                     Each of the ticket options
-                    below will grant entry and are a 501c3 tax deductable donation.
+                    below will grant entry and are a 501c3 tax deductible donation.
               </p>
             </div>
             <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
