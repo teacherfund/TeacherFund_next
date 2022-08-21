@@ -23,15 +23,15 @@ class Tickets extends Component {
           <div className='flex flex-column bg-trans-gray justify-between ph3 pv4 pv5-ns pa4-ns'>
             <div className='flex flex-column tf-lato tc mv-auto'>
               <h1 className='tf-dark-gray f2 f1-l tf-oswald fl'>
-                    Purchase tickets to the fall 2022 event today!
+                The Teacher Fund-Raiser!
               </h1>
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    With 100 percent of your ticket donation funding public school teachers in need, you can
+                 With 100 percent of your ticket donation funding public school teachers in need, you can
                     give knowing that your entire gift will help equip classrooms and help students.
               </p>
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    The fundraiser will be held in Seattle with live music, free food, free alcohol, speakers, and more.
+                We are having a philanthropy event with delicious Filipino Food catered by Musang Seattle, a medley of music through the decades provided by the Seattle String Quartet, and a fun selection of local wines, beers, and signature beverages being served through the night. We hope you can join us to celebrate, recognize, and raise money for the hard-working teachers and our Seattle students.
               </p>
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                     WHERE: Ballard Cathedral.
@@ -41,8 +41,8 @@ class Tickets extends Component {
               </p>
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    Each of the ticket options
-                    below will grant entry and are a 501c3 tax deductible donation.
+                    Each of the ticket options below will grant entry.
+                    Patron tickets cover the costs of special educators in attendance. For those seeking group reservations for tables of up to 5, please reach out to Michael Baldovino at mbbaldovino@gmail.com. All ticket purchases and donations are a 501c3 tax deductible donation.
               </p>
             </div>
             <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
