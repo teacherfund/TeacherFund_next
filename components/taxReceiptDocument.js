@@ -1,7 +1,7 @@
 import React from 'react'
 import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer'
 import { formatUnixDateAsMMDDYYYY } from '../utils/date.utils'
-import { formatCurrency, formatFullName } from '../utils/formatting'
+import { formatCurrency } from '../utils/formatting'
 
 const styles = StyleSheet.create({
   image: {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   transactionRowItem: {
     margin: '3 0',
-    width: 100
+    width: 140
   },
   bold: {
     fontFamily: 'Helvetica-Bold'
@@ -53,12 +53,13 @@ const Header = (props) => (
 )
 
 const Transaction = ({ transaction }) => {
-  const { amount, created } = transaction
+  const { amount, created, description } = transaction
   const createdDate = new Date(created)
   return (
     <View style={styles.transactionRow}>
       <Text style={styles.transactionRowItem}>{formatUnixDateAsMMDDYYYY(createdDate)}</Text>
       <Text style={styles.transactionRowItem}>${formatCurrency(amount / 100)} </Text>
+      <Text style={styles.transactionRowItem}>{description || 'cash'} </Text>
     </View>
   )
 }
@@ -68,6 +69,7 @@ const TransactionsView = ({ transactions }) => (
     <View style={styles.transactionRow}>
       <Text style={{ ...styles.transactionRowItem, ...styles.bold }}>Date</Text>
       <Text style={{ ...styles.transactionRowItem, ...styles.bold }}>Amount</Text>
+      <Text style={{ ...styles.transactionRowItem, ...styles.bold }}>Description</Text>
     </View>
     <View style={styles.transactions}>
       {transactions.map((transaction, idx) => (
@@ -81,8 +83,7 @@ const TransactionsView = ({ transactions }) => (
   </View>
 )
 
-const TaxReceiptDocument = ({ transactions, year, user }) => {
-  const userFullName = formatFullName(user)
+const TaxReceiptDocument = ({ transactions, year }) => {
   return (
     <Document>
       <Page style={styles.page} size='A4' page>
@@ -96,7 +97,7 @@ const TaxReceiptDocument = ({ transactions, year, user }) => {
         <View style={styles.section}>
           <Text>Organzation: The Teacher Fund</Text>
           <Text>EIN: 83-2285506</Text>
-          {!!userFullName && <Text>Donor: {userFullName}</Text>}
+          <Text>Donor: Locus Wines</Text>
         </View>
         {transactions &&
           <TransactionsView transactions={transactions} />

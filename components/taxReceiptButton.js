@@ -1,7 +1,6 @@
-/* global fetch */
 import React, { useState, useEffect } from 'react'
 import { Button, Menu, MenuButton, MenuItem, MenuList, createStandaloneToast } from '@chakra-ui/react'
-import { getCurrentYear, formatDateAsYYYYMMDD, isFutureDate, formatTimestamp } from '../utils/date.utils'
+import { getCurrentYear, isFutureDate, formatTimestamp } from '../utils/date.utils'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import TaxReceiptDocument from '../components/taxReceiptDocument'
 
@@ -61,23 +60,28 @@ const TaxReceiptButton = () => {
     updateTaxReceiptButton()
   }, [])
 
-  const getUserDonations = async (year) => {
-    const queryParams = new URLSearchParams({
-      start: formatDateAsYYYYMMDD(new Date(year, 0, 1)),
-      end: formatDateAsYYYYMMDD(new Date(year, 11, 31))
-    })
-
+  const getUserDonations = async () => {
     try {
       setdonationsLoading(true)
-      const resStream = await fetch(`/api/user-donations?${queryParams}`)
-      const res = await resStream.json()
+      // const resStream = await fetch(`/api/user-donations?${queryParams}`)
+      // const res = await resStream.json()
 
-      if (res && res.data) {
-        const { transactions, user } = res.data
-        setUserDonations(transactions)
-        setDonationUser(user)
-        setShowDownloadLink(true)
-      }
+      // if (res && res.data) {
+      //   const { transactions, user } = res.data
+      const transactions = [{
+        created: 1659661189,
+        amount: 57600,
+        description: 'Four cases of wine'
+      },
+      {
+        created: 1659661189,
+        amount: 45000,
+        description: 'Food and wine pairing experience for 8'
+      }]
+      setUserDonations(transactions)
+      setDonationUser({})
+      setShowDownloadLink(true)
+      // }
     } catch (e) {
       const toast = createStandaloneToast()
 

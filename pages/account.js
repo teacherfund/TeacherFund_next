@@ -3,28 +3,27 @@ import React, { useState, useEffect } from 'react'
 import { Button, Text, Box, Image, Flex } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import PageWrapper from '../components/pageWrapper'
-import { useAuth } from '../hooks/useAuth'
 import Link from 'next/link'
 import Card from '../components/card'
 import TaxReceiptButton from '../components/taxReceiptButton'
 
 const Account = () => {
-  const { user, revalidate } = useAuth()
+  const user = {}
+  // const { user, revalidate } = useAuth()
   const [pageLoading, setPageLoading] = useState(true)
-  const [hasValidated, setHasValidated] = useState(false)
   const [cancelLoading, setCancelLoading] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
-    if (!user && !hasValidated) {
-      revalidate()
-      setHasValidated(true)
-    } else if (!user && hasValidated) {
-      router.push('/signin')
-    } else if (user && pageLoading) {
-      setPageLoading(false)
-    }
-  }, [user])
+    // if (!user && !hasValidated) {
+    //   revalidate()
+    //   setHasValidated(true)
+    // } else if (!user && hasValidated) {
+    //   router.push('/signin')
+    // } else if (user && pageLoading) {
+    setPageLoading(false)
+    // }
+  }, [])
 
   const cancelReccuringDonation = async () => {
     setCancelLoading(true)
@@ -103,7 +102,7 @@ const Account = () => {
                 </Button>
               </div>
               }
-              { user && user.customerId && <TaxReceiptButton /> }
+              <TaxReceiptButton />
             </Box>
           </>
         )}
