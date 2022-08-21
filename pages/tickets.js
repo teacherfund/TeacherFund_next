@@ -33,6 +33,7 @@ class Tickets extends Component {
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                 We are having a philanthropy event with delicious Filipino Food catered by Musang Seattle, a medley of music through the decades provided by the Seattle String Quartet, and a fun selection of local wines, beers, and signature beverages being served through the night. We hope you can join us to celebrate, recognize, and raise money for the hard-working teachers and our Seattle students.
               </p>
+              <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                     WHERE: Ballard Cathedral.
               </p>
