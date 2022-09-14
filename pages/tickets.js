@@ -35,7 +35,7 @@ class Tickets extends Component {
               </p>
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    WHERE: Ballard Cathedral.
+                    WHERE: Cathedral in Ballard: 5449 Ballard Ave NW, Seattle, WA 98107
               </p>
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                     WHEN: September 15th, from 5:30pm-9pm.
