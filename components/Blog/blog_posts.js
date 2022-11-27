@@ -1,13 +1,48 @@
 import React from 'react'
 
-// Next id: 8
-const staticBlogContent = [{
-  title: 'Broadview Thompson K-8 - March 2022',
-  images: ['/images/drops/broadview/feb_2022_1.jpg', '/images/drops/broadview/feb_2022_2.jpg', '/images/drops/broadview/feb_2022_3.jpg'],
-  summary: `The Teacher Fund took to Seattle the spring of 2022 to help outfit any teacher who needed classroom supplies
+// Next id: 10
+const staticBlogContent = [
+  {
+    title: 'Borah Elementary - October 2022',
+    images: ['/images/drops/borah/nov_22_1.jpeg', '/images/drops/borah/nov_22_2.jpeg', '/images/drops/borah/nov_22_3.jpeg'],
+    summary: `The Teacher Fund returns to North Idaho to help new teachers joining Borah Elementary!`,
+    content: (
+      <div>
+        The Teacher Fund returns to North Idaho to help new teachers joining Borah Elementary!<br /><br />
+        4 new teachers joined Borah Elementary this fall and The Teacher Fund was there to aide in their
+        welcoming! See pictures below of The Teacher Fund supplies helping teachers organize their classrooms
+        and improve their learning environment with common learning tools such as mobile desks and wobble stools!
+      </div>
+    ),
+    school: 'Borah Elementary',
+    blogId: 9
+  },
+  {
+    title: 'Broadview Thompson K-8 - Nov 2022',
+    images: [],
+    summary: `The Teacher Fund returns to Seattle after our 2022 fundraiser to replace all 
+     remaining chalk boards in Broadview Thompson K-8 classrooms with whiteboards, purchasing over $14,000 worth of whiteboards...`,
+    content: (
+      <div>
+        The Teacher Fund returns to Seattle after our 2022 fundraiser to replace all
+        remaining chalk boards in Broadview Thompson K-8 classrooms with whiteboards,
+        purchasing over $14,000 worth of whiteboards as well as the labor to install them.
+        This is crucial for both teacher health (dust from chalkboards) as well as speed and flexibility
+        in teaching!<br /><br />
+        Broadview Thompson remains under The Teacher Fund umbrella, meaning each semester The Teacher Fund will reach out
+        and help any new teachers joining Broadview Thompson outfit their classroom.
+      </div>
+    ),
+    school: 'Broadview Thompson K-8',
+    blogId: 8
+  },
+  {
+    title: 'Broadview Thompson K-8 - March 2022',
+    images: ['/images/drops/broadview/feb_2022_1.jpg', '/images/drops/broadview/feb_2022_2.jpg', '/images/drops/broadview/feb_2022_3.jpg'],
+    summary: `The Teacher Fund took to Seattle the spring of 2022 to help outfit any teacher who needed classroom supplies
    at Broadview Thompson K-8, purchasing over $15,000 worth of classroom supplies.`,
-  content: (
-    <div>
+    content: (
+      <div>
       The Teacher Fund took to Seattle the spring of 2022 to help outfit any teacher who needed classroom supplies
       at Broadview Thompson K-8, purchasing over $15,000 worth of classroom supplies. From books to soap to fidget
       spinners, the teachers were overwhelmed with appreciation for their complete overhaul.
@@ -17,48 +52,48 @@ const staticBlogContent = [{
       to help. With everything you sent (pictured below - and I think there is more to come
       still! THANK YOU!!!), so many more Broadview-Thomson students will be better equipped
       for success at school. I really, really appreciate it!"
-      <br /><br />
+        <br /><br />
       Broadview Thompson is now under The Teacher Fund umbrella, meaning each semester The Teacher Fund will reach out
       and help any new teachers joining Broadview Thompson outfit their classroom.
-      <br /><br />For this supply drop, we delivered direct to the teachers, check out some pictures below!
-    </div>
-  ),
-  school: 'Broadview Thompson K-8',
-  blogId: 7
-}, {
-  title: 'Borah Elementary - February 2021',
-  images: ['/images/drops/borah/feb_2021_1.jpeg', '/images/drops/borah/feb_2021_2.jpeg', '/images/drops/borah/feb_2021_3.jpeg'],
-  summary: `In our largest haul yet, The Teacher Fund opened up support to every teacher at Borah Elementary
+        <br /><br />For this supply drop, we delivered direct to the teachers, check out some pictures below!
+      </div>
+    ),
+    school: 'Broadview Thompson K-8',
+    blogId: 7
+  }, {
+    title: 'Borah Elementary - February 2021',
+    images: ['/images/drops/borah/feb_2021_1.jpeg', '/images/drops/borah/feb_2021_2.jpeg', '/images/drops/borah/feb_2021_3.jpeg'],
+    summary: `In our largest haul yet, The Teacher Fund opened up support to every teacher at Borah Elementary
    and delivered over $10,000 worth of school supplies. This meant every`,
-  content: (
-    <div>
+    content: (
+      <div>
       In our largest haul yet, The Teacher Fund opened up support to every teacher at Borah Elementary
       and delivered over $10,000 worth of school supplies. This meant every teacher, no matter how long they've been
       teaching, was able to purchase school supplies they thought their classroom needed. We do not advise or hold
       back teachers on what they choose to purchase, it is solely up to them to decide what they think would make
       for the best learning environment in their classrooms.
-      <br /><br />
+        <br /><br />
       At this point Borah Elementary is now under
       the Teacher Fund Umbrella, meaning any new teacher Borah hires will be able to purchase school supplies
       through The Teacher Fund, at no cost to them. We hope this support will help Borah recruit
       and retain teachers, in a time when Idaho public school funding is taking a hard hit.<br /><br /> We
       hope over the course of the next year to bring more elementary schools under our Umbrella so no teacher
       has to pay out of pocket to supply their new classroom.
-      <br /><br />For this supply drop, we had
+        <br /><br />For this supply drop, we had
       Deon Watson, Christine Woeller and Joel Wasserman helping deliver.
-      <br /><br />
+        <br /><br />
       See photos below!
-    </div>
-  ),
-  school: 'Borah Elementary',
-  blogId: 6
-}, {
-  title: 'Borah Elementary - November 2020',
-  images: ['/images/drops/borah/nov_2020_1.jpg', '/images/drops/borah/nov_2020_2.jpg', '/images/drops/borah/nov_2020_3.jpg'],
-  summary: `Masks on and bundled up, The Teacher Fund delivered over $5,000 worth of school supplies to the first cohort of
+      </div>
+    ),
+    school: 'Borah Elementary',
+    blogId: 6
+  }, {
+    title: 'Borah Elementary - November 2020',
+    images: ['/images/drops/borah/nov_2020_1.jpg', '/images/drops/borah/nov_2020_2.jpg', '/images/drops/borah/nov_2020_3.jpg'],
+    summary: `Masks on and bundled up, The Teacher Fund delivered over $5,000 worth of school supplies to the first cohort of
     six teachers at Borah Elementary in Coeur d'Alene Idaho. These supplies`,
-  content: (
-    <div>
+    content: (
+      <div>
       Masks on and bundled up, The Teacher Fund delivered over $5,000 worth of school supplies to the first cohort of
       six teachers at Borah Elementary in Coeur d'Alene Idaho. These supplies ranged from clip boards to wobble stools
       and everything in between. <br /><br />As we've done now with 2 other schools, Borah has become our third Elementary
@@ -67,49 +102,49 @@ const staticBlogContent = [{
       the help of McKenzie Mattis, one of our high shool senior interns, as well as Christine Woeller. Coincidentally,
       Christine attended this elementary school when she was younger! <br /><br />
       Here are some quotes from the teachers when they learned The Teacher Fund could help them purchase supplies.
-      <br /><br />
+        <br /><br />
       "Wow!! I’m in tears over this email! I have spent over a thousand dollars setting up
       and buying supplies for my kindergarten class and now I am being switched to 2nd grade.
       I now have to purchase several new things to teach this grade level. I am so grateful for the help!" - Ms. Osborne
-      <br /><br />
+        <br /><br />
       "Bless you. You have no idea how this has blessed us after a very emotional week. I am overcome by your generosity." - Ms Davenport (Principal)
-      <br /><br />
+        <br /><br />
       See photos below!
-    </div>
-  ),
-  school: 'Borah Elementary',
-  blogId: 3
-},
-{
-  title: 'Prairie View Elementary - October 2020',
-  images: ['/images/drops/prairie_view/sept_2020_1.jpg', '/images/drops/prairie_view/sept_2020_2.jpg', '/images/drops/prairie_view/sept_2020_3.jpg'],
-  summary: `Prairie View was The Teacher Fund's second elementary school to deliver to 
+      </div>
+    ),
+    school: 'Borah Elementary',
+    blogId: 3
+  },
+  {
+    title: 'Prairie View Elementary - October 2020',
+    images: ['/images/drops/prairie_view/sept_2020_1.jpg', '/images/drops/prairie_view/sept_2020_2.jpg', '/images/drops/prairie_view/sept_2020_3.jpg'],
+    summary: `Prairie View was The Teacher Fund's second elementary school to deliver to 
   as we all try to handle the Covid-19 pandemic. Schools are teaching half remote at this point and
   The Teacher Fund is trying to alleviate any pressure we can as teachers do the best`,
-  content: (
-    <div>
+    content: (
+      <div>
       Prairie View was The Teacher Fund's second elementary school to deliver to
       as we all try to handle the Covid-19 pandemic. Schools are teaching half remote at this point and
       The Teacher Fund is trying to alleviate any pressure we can as teachers do the best they can.
-      <br /><br />
+        <br /><br />
       The Prairie View serves about 500 students in North Idaho and we were able to supply three teachers
       with close to $3,000 worth of classroom supplies they've needed. We hope with this infusion of classroom
       supplies the teachers have the best teaching environment possible, especially as we navigate the pandemic.
-      <br /><br />
+        <br /><br />
       Below, see pictures of Deon Watson and the teachers
       of Prairie View during the drop off, taken by Christine Woeller.
-    </div>
-  ),
-  school: 'Prairie View Elementary',
-  blogId: 5
-},
-{
-  title: 'Canfield Middle School Petri Dishes - September 2020',
-  summary: `The Teacher Fund had the pleasure to help Canfield Middle School in Coeur d'Alene, ID
+      </div>
+    ),
+    school: 'Prairie View Elementary',
+    blogId: 5
+  },
+  {
+    title: 'Canfield Middle School Petri Dishes - September 2020',
+    summary: `The Teacher Fund had the pleasure to help Canfield Middle School in Coeur d'Alene, ID
   with an unconventional yet intriguing request. Petri dishes!`,
-  images: ['/images/drops/canfield/sept_2020_1.jpg', '/images/drops/canfield/sept_2020_2.jpg'],
-  content: (
-    <div>
+    images: ['/images/drops/canfield/sept_2020_1.jpg', '/images/drops/canfield/sept_2020_2.jpg'],
+    content: (
+      <div>
       The Teacher Fund had the pleasure to help Canfield Middle School in Coeur d'Alene, ID
       with an unconventional yet intriguing request. <br /><br />Usually, The Teacher Fund helps new teachers
       supply their classrooms, so when we were reached out to with a request for petri
@@ -130,18 +165,18 @@ const staticBlogContent = [{
       In the pictures you'll also see Christine Woeller and Joel Wasserman, cofounders of The
       Teacher Fund. <br /><br />We didn't hang around long enough to see what fungi would be
       overcome those petri dishes in a few short weeks...
-    </div>
-  ),
-  school: 'Canfield Middle School',
-  blogId: 1
-},
-{
-  title: 'Ponderosa Elementary - Summer 2020',
-  images: ['/images/drops/ponderosa/summer_2020_1.jpg', '/images/drops/ponderosa/summer_2020_2.jpg'],
-  summary: `Covid-19 derailed our Spring delivery for Ponderosa Elementary, but we know it derailed much more than that for the actual teachers. 
+      </div>
+    ),
+    school: 'Canfield Middle School',
+    blogId: 1
+  },
+  {
+    title: 'Ponderosa Elementary - Summer 2020',
+    images: ['/images/drops/ponderosa/summer_2020_1.jpg', '/images/drops/ponderosa/summer_2020_2.jpg'],
+    summary: `Covid-19 derailed our Spring delivery for Ponderosa Elementary, but we know it derailed much more than that for the actual teachers. 
   This was the first semester of remote learning for Ponderosa Elementary, and we can't imagine the hardship. `,
-  content: (
-    <div>
+    content: (
+      <div>
       Covid-19 derailed our Spring delivery for Ponderosa Elementary, but we know it derailed much more
       than that for teachers in School District 271.
       This was the first semester of remote learning for Ponderosa Elementary, and we can't imagine
@@ -155,19 +190,19 @@ const staticBlogContent = [{
       See the pictures of this dropoff below, this was the first time we could fill
       THREE cars with classroom supplies! You'll see Cami Williams, Deon Watson, Joel Wasserman,
       Alan Wasserman, and Ms. Powers, a teacher at Ponderosa!
-    </div>
-  ),
-  school: 'Ponderosa Elementary',
-  blogId: 2
-},
-{
-  title: 'Ponderosa Elementary - Fall 2019',
-  images: ['/images/drops/ponderosa/fall_2019_1.png', '/images/drops/ponderosa/fall_2019_2.png', '/images/drops/ponderosa/fall_2019_3.jpeg'],
-  summary: `Our first supply drop! The culmination of months of effort to start The Teacher Fund is here! 
+      </div>
+    ),
+    school: 'Ponderosa Elementary',
+    blogId: 2
+  },
+  {
+    title: 'Ponderosa Elementary - Fall 2019',
+    images: ['/images/drops/ponderosa/fall_2019_1.png', '/images/drops/ponderosa/fall_2019_2.png', '/images/drops/ponderosa/fall_2019_3.jpeg'],
+    summary: `Our first supply drop! The culmination of months of effort to start The Teacher Fund is here! 
   We worked with three teachers for this drop to help them supply their classrooms. Ms. Powers, Ms. Olp, and Ms. Young
   received`,
-  content: (
-    <div>
+    content: (
+      <div>
       Our first supply drop! The culmination of months of effort to start The Teacher Fund is here!
       We worked with three teachers for this drop to help them supply their classrooms. Ms. Powers,
       Ms. Olp, and Ms. Young received school supplies with this drop. Class was in session while
@@ -177,11 +212,11 @@ const staticBlogContent = [{
       are inadequately supplied... The kid's eyes lit up when they saw supplies being brought into their classrooms
       box after box. All made possible due to our donors, so THANK YOU. <br /><br />
       Deon Watson, Christine Woeller and Joel Wasserman helped with this supply drop.
-    </div>
-  ),
-  school: 'Ponderosa Elementary',
-  blogId: 4
-}]
+      </div>
+    ),
+    school: 'Ponderosa Elementary',
+    blogId: 4
+  }]
 
 export const ALL_SCHOOL = 'All'
 
