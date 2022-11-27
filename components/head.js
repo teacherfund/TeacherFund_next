@@ -1,7 +1,6 @@
 import React from 'react'
 import NextHead from 'next/head'
 import { string } from 'prop-types'
-// import '../public/styles/main.scss'
 
 const defaultDescription = "Funding Teachers. Empowering Students. We provide funding to classrooms so teachers don't have to."
 const defaultOGURL = 'https://theteacherfund.com'

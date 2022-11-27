@@ -5,7 +5,6 @@ import {
   Button,
   Box
 } from '@chakra-ui/react'
-// import '../public/styles/main.scss'
 
 import Card from './card'
 
