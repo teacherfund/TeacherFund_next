@@ -15,7 +15,7 @@ const PendingLogin = (props) => (
               If you haven't signed up yet you will not receive an email.
           </p>
           <div className='white bg-tf-yellow tf-lato b tc pa2 w5 m-auto br-pill pointer'>
-            <Link href='/signinregister?type=donor'>
+            <Link href='/signinregister?type=donor' legacyBehavior>
               <label className='ttu'>Go back</label>
             </Link>
           </div>

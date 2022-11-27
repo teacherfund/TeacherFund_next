@@ -26,8 +26,10 @@ const Mission = () => {
 
           <Box marginBottom='1rem'>Please consider a donation to help impact the lives of so many teachers and students.</Box>
           <div className=' db center  w-40-l w-80 pv3 pb0-ns ph4 tc pointer'>
-            <Link href='/donate'>
-              <a className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>Donate</a>
+            <Link
+              href='/donate'
+              className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>
+              Donate
             </Link>
           </div>
         </div>

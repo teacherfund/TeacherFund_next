@@ -150,7 +150,7 @@ class IndexPage extends Component {
                     </div>
                   </Box>
                 </div>
-                <Link href='/blog'>
+                <Link href='/blog' legacyBehavior>
                   <Button
                     textAlign='center'
                     width='auto'
@@ -192,7 +192,7 @@ class IndexPage extends Component {
                     <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='7px'>
 
                       {/* Donate Button */}
-                      <Link href='/donate'>
+                      <Link href='/donate' legacyBehavior>
                         <Box
                           as='button'
                           color='white'
@@ -233,7 +233,9 @@ class IndexPage extends Component {
                   </div>
                   <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='1px'>
                     {/* Appky Today Button */}
-                    <Link href='mailto:joelwass@theteacherfund.com?subject=Application'>
+                    <Link
+                      href='mailto:joelwass@theteacherfund.com?subject=Application'
+                      legacyBehavior>
                       <Box
                         as='button'
                         color='white'
