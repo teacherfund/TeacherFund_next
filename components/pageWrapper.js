@@ -13,7 +13,7 @@ const PageWrapper = (props) => {
       <Head title={props.title} />
       <a href='#main-content' className='skip-link tf-oswald'>Skip to main content</a>
       <Nav />
-      {!props.noShowBanner && (
+      {!false && ( // false right now to never show banner, can change this to re use banners in the nav in the future
         <Box width='100%' height='auto' display='flex' padding='1rem 3rem' textAlign='center' bg='tomato'>
           <Text margin='auto'>Looking to purchase tickets to the Fall 2022 Seattle fundraising event? Click{' '}
             <Link href={'/tickets'}>
