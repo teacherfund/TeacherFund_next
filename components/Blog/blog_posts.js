@@ -3,21 +3,6 @@ import React from 'react'
 // Next id: 10
 const staticBlogContent = [
   {
-    title: 'Borah Elementary - October 2022',
-    images: ['/images/drops/borah/nov_22_1.jpeg', '/images/drops/borah/nov_22_2.jpeg', '/images/drops/borah/nov_22_3.jpeg'],
-    summary: `The Teacher Fund returns to North Idaho to help new teachers joining Borah Elementary!`,
-    content: (
-      <div>
-        The Teacher Fund returns to North Idaho to help new teachers joining Borah Elementary!<br /><br />
-        4 new teachers joined Borah Elementary this fall and The Teacher Fund was there to aide in their
-        welcoming! See pictures below of The Teacher Fund supplies helping teachers organize their classrooms
-        and improve their learning environment with common learning tools such as mobile desks and wobble stools!
-      </div>
-    ),
-    school: 'Borah Elementary',
-    blogId: 9
-  },
-  {
     title: 'Broadview Thompson K-8 - Nov 2022',
     images: [],
     summary: `The Teacher Fund returns to Seattle after our 2022 fundraiser to replace all 
@@ -34,6 +19,21 @@ const staticBlogContent = [
       </div>
     ),
     school: 'Broadview Thompson K-8',
+    blogId: 9
+  },
+  {
+    title: 'Borah Elementary - October 2022',
+    images: ['/images/drops/borah/nov_22_1.jpeg', '/images/drops/borah/nov_22_2.jpeg', '/images/drops/borah/nov_22_3.jpeg'],
+    summary: `The Teacher Fund returns to North Idaho to help new teachers joining Borah Elementary!`,
+    content: (
+      <div>
+        The Teacher Fund returns to North Idaho to help new teachers joining Borah Elementary!<br /><br />
+        4 new teachers joined Borah Elementary this fall and The Teacher Fund was there to aide in their
+        welcoming! See pictures below of The Teacher Fund supplies helping teachers organize their classrooms
+        and improve their learning environment with common learning tools such as mobile desks and wobble stools!
+      </div>
+    ),
+    school: 'Borah Elementary',
     blogId: 8
   },
   {
