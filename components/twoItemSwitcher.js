@@ -1,5 +1,5 @@
 import React from 'react'
-import '../public/styles/main.scss'
+// import '../public/styles/main.scss'
 
 const TwoItemSwitcher = (props) => (
   <div className='flex flex-row tf-lato justify-between ma1'>

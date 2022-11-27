@@ -1,6 +1,6 @@
 import React from 'react'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
-import '../public/styles/main.scss'
+// import '../public/styles/main.scss'
 
 const MapGraphic = withScriptjs(withGoogleMap((props) => (
   <div className='mapgraphic'>
