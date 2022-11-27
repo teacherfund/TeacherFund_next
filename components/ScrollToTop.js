@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import '../public/styles/main.scss'
 import { Flex, Box } from '@chakra-ui/react'
 import { ChevronUpIcon } from '@chakra-ui/icons'
 
