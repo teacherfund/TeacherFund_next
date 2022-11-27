@@ -73,7 +73,7 @@ const Account = () => {
               </Text>
               <div className='mb3'>
                 <div className='white tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer btn-primary'>
-                  <Link href='donate'>
+                  <Link href='donate' legacyBehavior>
                     <label className='ttu pointer'>{(user && user.donationAmount) ? 'donate again' : 'Donate today'}</label>
                   </Link>
                 </div>

@@ -1,4 +1,4 @@
 import BlogPage from './blogPage'
-import './blog.scss'
+// import './blog.scss'
 
 export default BlogPage

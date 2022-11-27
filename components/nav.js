@@ -44,15 +44,15 @@ const Nav = () => {
       <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl4 pr3'>
         <div className='w-70-l mh-auto b--tf-yellow flex justify-between flex-row w-100'>
           <div className='pointer tc'>
-            <Link href='/'>
+            <Link href='/' legacyBehavior>
               <img src='/images/Logo_with_text.png' className='w4' alt='The Teacher Fund – Home' />
             </Link>
           </div>
           <div className='fr dn db-l flex-column flex-auto-ns mv-auto'>
             {links.map(({ key, href, label }) => (
               <div key={key} className='db center w-auto fr ph2'>
-                <Link href={href}>
-                  <a className='nav-item tf-dark-gray no-underline black pa3'>{label}</a>
+                <Link href={href} className='nav-item tf-dark-gray no-underline black pa3'>
+                  {label}
                 </Link>
               </div>
             ))}
@@ -60,8 +60,8 @@ const Nav = () => {
           <div className='fr dn db-l tf-yellow mv-auto ml4'>
             {buttons.map(({ key, href, label }) => (
               <div key={key} className='db center w-auto fr ph2'>
-                <Link href={href} key={key}>
-                  <a className='btn-alt no-underline black pv3 ph4 br3'>{label}</a>
+                <Link href={href} key={key} className='btn-alt no-underline black pv3 ph4 br3'>
+                  {label}
                 </Link>
               </div>
             ))}
@@ -80,15 +80,15 @@ const Nav = () => {
         <div className='flex-column flex justify-around h5 mt6 pt4 f3'>
           {links.map(({ key, href, label }) => (
             <div key={key} className='db center w-auto fr ph2' onClick={toggleDrawerOpen}>
-              <Link href={href}>
-                <a className='white no-underline mv4 w5 center'>{label}</a>
+              <Link href={href} className='white no-underline mv4 w5 center'>
+                {label}
               </Link>
             </div>
           ))}
           {buttons.map(({ key, href, label }) => (
             <div key={key} className='btn-menu no-underline pv3 br3 mv4 w4 w5-m center' onClick={toggleDrawerOpen}>
-              <Link href={href} key={key}>
-                <a className=''>{label}</a>
+              <Link href={href} key={key} className=''>
+                {label}
               </Link>
             </div>
           ))}

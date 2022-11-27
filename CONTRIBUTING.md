@@ -28,7 +28,7 @@ These would be very helpful to include:
 ## Writing Code
 If you are interested in writing code to fix issues, read the below to understand our project structure and set up your development environment.
 
-Please note: all design should be made with [our home page style](https://github.com/teacherfund/TeacherFund_next/blob/master/HomePageDesign.pdf) in mind.
+Please note: all design should be made with [our home page style](https://github.com/teacherfund/TeacherFund_next/blob/master/home_page_design.pdf) in mind.
 
 **In order to avoid duplicate work and to save you from wasting time, please comment in an open issue your intention to code out the resolution to that issue. If it isn't obvious how that issue will be solved, outline what you plan to do to make sure it's in line with the maintainers' vision for the project.**
 
