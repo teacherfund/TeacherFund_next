@@ -1,11 +1,17 @@
 .index {
   &__header {
-    background-image: url('/images/pencils.png');
+    background-image: url("/images/pencils.png");
     display: flex;
     height: 40rem;
     background-size: auto 100%;
     background-repeat: no-repeat;
     display: flex;
+    @media screen and (max-width: $medium-screen) {
+      background-image: url("/images/pencils-med.png");
+    }
+    @media screen and (max-width: $x-small-screen) {
+      background-image: url("/images/pencils-small.png");
+    }
   }
 
   &__provide {
@@ -21,7 +27,7 @@
     }
 
     &-image {
-      background-image: url('/images/children-class-classroom.png');
+      background-image: url("/images/children-class-classroom.png");
       height: 35rem;
 
       @media screen and (max-width: $x-large-screen) {
@@ -32,6 +38,7 @@
       }
       @media screen and (max-width: $medium-screen) {
         height: 24rem;
+        background-image: url("/images/children-class-classroom-med.png");
       }
       @media screen and (max-width: $tablet-width) {
         height: 20rem;
@@ -41,8 +48,8 @@
       }
       @media screen and (max-width: $x-small-screen) {
         height: 15rem;
+        background-image: url("/images/children-class-classroom-small.png");
       }
-
     }
     &-content {
       height: 30rem;
@@ -100,26 +107,22 @@
     @media screen and (min-width: 1648px) {
       padding: 0 31rem;
     }
-    @extend .flex,
-            .flex-column,
-            .flex-row-ns,
-            .flex-wrap,
-            .justify-center;
+    @extend .flex, .flex-column, .flex-row-ns, .flex-wrap, .justify-center;
   }
 
   &__metric {
     border-left-width: 0.5rem;
     border-left-style: solid;
     @extend .w5,
-            .pa3,
-            .pa0-ns,
-            .h4-ns,
-            .bg-white,
-            .ma2,
-            .ma4-l,
-            .flex,
-            .flex-column,
-            .items-center,
-            .justify-center;
+      .pa3,
+      .pa0-ns,
+      .h4-ns,
+      .bg-white,
+      .ma2,
+      .ma4-l,
+      .flex,
+      .flex-column,
+      .items-center,
+      .justify-center;
   }
 }

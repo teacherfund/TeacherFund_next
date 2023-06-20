@@ -38,7 +38,8 @@ const Account = () => {
     }
   }
 
-  const tweet = 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
+  const tweet =
+    'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
 
   return (
     <PageWrapper title='Account – The Teacher Fund'>
@@ -64,46 +65,57 @@ const Account = () => {
               margin='auto'
               width={['100%', '100%', '80%', '35rem']}
             >
-              <div className='tf-oswald ts-subtext pv2 tc'>Current Monthly Donation</div>
+              <div className='tf-oswald ts-subtext pv2 tc'>
+                Current Monthly Donation
+              </div>
               <Text className='pa1' fontSize='2rem' padding={['1rem', '3rem']}>
-                $ {(user && user.donationAmount) ? (user.donationAmount / 100) : 0}
+                $ {user && user.donationAmount ? user.donationAmount / 100 : 0}
               </Text>
               <Text fontSize='1.3rem' marginBottom='2rem'>
-                Public school teachers appreciate your contribution more than you know. Words do not do justice.
+                Public school teachers appreciate your contribution more than
+                you know. Words do not do justice.
               </Text>
               <div className='mb3'>
                 <div className='white tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer btn-primary'>
                   <Link href='donate' legacyBehavior>
-                    <label className='ttu pointer'>{(user && user.donationAmount) ? 'donate again' : 'Donate today'}</label>
+                    <label className='ttu pointer'>
+                      {user && user.donationAmount
+                        ? 'donate again'
+                        : 'Donate today'}
+                    </label>
                   </Link>
                 </div>
               </div>
               <div className='mb3'>
-                <a className='white no-underline pa3 db ttu br-pill tf-lato b v-mid w-75 w-50-ns m-auto tc btn-teal'
+                <a
+                  className='white no-underline pa3 db ttu br-pill tf-lato b v-mid w-75 w-50-ns m-auto tc btn-teal'
                   href={tweet}
                   data-size='large'
-                  target='_blank'>
-                    Spread the Word
+                  target='_blank'
+                >
+                  Spread the Word
                 </a>
               </div>
-              { user && user.customerId &&
-              <div className='mb3'>
-                <Button color='white'
-                  isLoading={cancelLoading}
-                  backgroundColor='red.500'
-                  borderRadius='9999px'
-                  paddingTop='1rem'
-                  _hover={{ bg: 'white' }}
-                  paddingBottom='1rem'
-                  height='56px'
-                  width={['75%', '50%']}
-                  className='tf-lato btn-red ttu b tc pa2 w-50 m-auto'
-                  onClick={cancelReccuringDonation}>
-                  <label>Cancel donation</label>
-                </Button>
-              </div>
-              }
-              { user && user.customerId && <TaxReceiptButton /> }
+              {user && user.customerId && (
+                <div className='mb3'>
+                  <Button
+                    color='white'
+                    isLoading={cancelLoading}
+                    backgroundColor='red.500'
+                    borderRadius='9999px'
+                    paddingTop='1rem'
+                    _hover={{ bg: 'white' }}
+                    paddingBottom='1rem'
+                    height='56px'
+                    width={['75%', '50%']}
+                    className='tf-lato btn-red ttu b tc pa2 w-50 m-auto'
+                    onClick={cancelReccuringDonation}
+                  >
+                    <label>Cancel donation</label>
+                  </Button>
+                </div>
+              )}
+              {user && user.customerId && <TaxReceiptButton />}
             </Box>
           </>
         )}
