@@ -5,8 +5,13 @@ const teamMembers = [
   {
     name: 'Joel Wasserman',
     src: 'joel.jpg',
-    bio: `A software engineer at Google, Joel formerly worked
-          at two education startups and is passionate about public education and technology.`
+    bio: `A software engineer, Joel formerly worked
+          at two education startups and is passionate about public education, technology, and societal improvement.`
+  },
+  {
+    name: 'Michael Baldovino',
+    src: 'michael.jpeg',
+    bio: `With experience in organizational development, Michael is passionate to grow equity and a greater sense of belonging within education.`
   },
   {
     name: 'Christine Woeller',
