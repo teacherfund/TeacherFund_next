@@ -3,13 +3,28 @@ import React from 'react'
 // Next id: 10
 const staticBlogContent = [
   {
-    title: 'Broadview Thompson K-8 - Nov 2022',
+    title: 'Amazon Wishlists - July 2023',
     images: [],
+    summary: `Over the past year The Teacher Fund has focused on fulfilling our ever growing public school teacher connections wishlists...`,
+    content: (
+      <div>
+        Over the past year The Teacher Fund has focused on fulfilling our ever growing public school
+        teacher connections wishlists, resulting in over $4,000 donated to supply 1st and second year public
+        school teachers with the supplies they've deemed would make the learning environment better.<br /><br />
+        If you know a public school teacher in need, send them our way!
+      </div>
+    ),
+    school: 'Broadview Thompson K-8',
+    blogId: 9
+  },
+  {
+    title: 'Broadview Thompson K-8 - Nov 2022',
+    images: ['/images/drops/broadview/broadview_thankyou_2022.jpeg'],
     summary: `The Teacher Fund returns to Seattle after our 2022 fundraiser to replace all 
      remaining chalk boards in Broadview Thompson K-8 classrooms with whiteboards, purchasing over $14,000 worth of whiteboards...`,
     content: (
       <div>
-        The Teacher Fund returns to Seattle after our 2022 fundraiser to replace all
+        The Teacher Fund returns to Seattle after our 2022 fundraiser (led and organized by Michael Baldovino) to replace all
         remaining chalk boards in Broadview Thompson K-8 classrooms with whiteboards,
         purchasing over $14,000 worth of whiteboards as well as the labor to install them.
         This is crucial for both teacher health (dust from chalkboards) as well as speed and flexibility
