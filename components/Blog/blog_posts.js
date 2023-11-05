@@ -1,7 +1,42 @@
 import React from 'react'
 
-// Next id: 10
+// Next id: 13
 const staticBlogContent = [
+  {
+    title: 'Bell Elementary - Oct 2023',
+    images: [],
+    summary: `The Teacher Fund initiates support for Bell Elementary with over $7,000 in classroom supply donations in October 2023...`,
+    content: (
+      <div>
+        The Teacher Fund initiates support for Bell Elementary with over $7,000 in classroom supply donations in October 2023.
+        This was the first time we worked with Bell Elementary, and we owe a big thanks to Brian Story, the principal of
+        Bell Elementary, for facilitating the communication between the new teachers and us.<br />
+        Bell Elementary has 3 new special educators, all receiving support to outfit their classrooms from the
+        Teacher Fund, allowing them to start the school year, and their tenure at a new school, without worrying
+        about the finances necessary to outfit their classrooms.<br /><br />
+        Bell Elementary is in the Seattle Area, and we're excited to add them to the Teacher Fund support umbrella!
+      </div>
+    ),
+    school: 'Bell Elementary',
+    blogId: 12
+  },
+  {
+    title: 'Broadview Thompson K-8 - Oct 2023',
+    images: [],
+    summary: `The Teacher Fund continues support for Broadview Thompson by supporting 5...`,
+    content: (
+      <div>
+        The Teacher Fund continues support for Broadview Thompson by supporting 5 new teachers in October 2023 with over $6,000 in classroom supplies.
+        This is a continuation in our support of title I schools in the Seattle area. Broadview Thompson is under our umbrella of support, which means the Teacher Fund
+        guarantees support for a school's new teachers, allowing new teachers joining each semester to have the economic security
+        to teach with their best foot forward, not worrying about the finances necessary to fill out a classroom and make it ready
+        for students.<br /><br />
+        In this case, that meant supporting 5 new teachers for 2023. We wish them the best and hope they have an incredible school year!
+      </div>
+    ),
+    school: 'Broadview Thompson K-8',
+    blogId: 11
+  },
   {
     title: 'Amazon Wishlists - July 2023',
     images: [],
@@ -11,11 +46,17 @@ const staticBlogContent = [
         Over the past year The Teacher Fund has focused on fulfilling our ever growing public school
         teacher connections wishlists, resulting in over $4,000 donated to supply 1st and second year public
         school teachers with the supplies they've deemed would make the learning environment better.<br /><br />
-        If you know a public school teacher in need, send them our way!
+        Here are some quotes from the public school teachers across the country we've supported:<br /><br />
+        Reagan from Fresno, CA:<br />
+        "I can't tell you what it means to me to have received supplies from The Teacher Fund. I work at a Title I school, so the majority of my students are considered socio-economically disadvantaged and do not always have the resources for school supplies or extra fun things in the classroom. I try and make my classroom a place where kids actually want to come, so being able to provide my kids with not only the supplies they need for class, but also things that make learning fun is so special for me. Without The Teacher Fund's support I wouldn't have been able to start this year off in the great way that I did. I am so grateful for you and the work you do to support teachers!"
+        Bailey from Carlsbad, CA:<br />
+        "I am eternally grateful to the Teacher Fund for their generous contributions to my classroom this past fall. As a first year teacher, it is incredible to receive support in building a comfortable and engaging learning environment for my students. There are extensive costs to create the learning space we dream of as teachers. Thanks to the Teacher Fund, I was able to put my dreams into action and make a space I am proud to work in every day with my students. Thank you so much!"<br /><br />
+        Azeema from Concord, CA:<br />
+        "I have bought most of the supplies and materials in my classroom from my own wallet. As teachers, we often have to buy things or ask for family and friends to support us through DonorsChoose Projects and Amazon Wishlists. I feel very lucky that The Teacher Fund was able to support my classroom by buying items for my classroom. Everything from tissues for students to extra lighting for my classroom. I'm extremely grateful for their support!"
       </div>
     ),
-    school: 'Broadview Thompson K-8',
-    blogId: 9
+    school: 'Amazon Wishlists',
+    blogId: 10
   },
   {
     title: 'Broadview Thompson K-8 - Nov 2022',
