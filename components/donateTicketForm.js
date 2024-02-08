@@ -15,12 +15,12 @@ class DonateTicketForm extends Component {
     this.availableFrequencies = [
       {
         name: fundraisingEventTicket,
-        text: 'Fall 2022 Ticket',
+        text: 'Spring 2024 Ticket',
         amount: '100'
       },
       {
         name: fundraisingEventTicketPatron,
-        text: 'Fall 2022 Patron',
+        text: 'Spring 2024 Patron',
         amount: '200'
       }
     ]

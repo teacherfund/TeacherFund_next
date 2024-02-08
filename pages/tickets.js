@@ -23,7 +23,7 @@ class Tickets extends Component {
           <div className='flex flex-column bg-trans-gray justify-between ph3 pv4 pv5-ns pa4-ns'>
             <div className='flex flex-column tf-lato tc mv-auto'>
               <h1 className='tf-dark-gray f2 f1-l tf-oswald fl'>
-                The Teacher Fund-Raiser!
+                The Teacher Fund-Raiser: The Happiest Hours!
               </h1>
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                  With 100 percent of your ticket donation funding public school teachers in need, you can
@@ -31,22 +31,26 @@ class Tickets extends Component {
               </p>
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                We are having a philanthropy event with delicious Filipino Food catered by Musang Seattle, a medley of music through the decades provided by the Seattle String Quartet, and a fun selection of local wines, beers, and signature beverages being served through the night. We hope you can join us to celebrate, recognize, and raise money for the hard-working teachers and our Seattle students.
+                We are hosting a happy hour event with delicious Food catered by Stella Fiore Pizza, a medley of music,
+                and a fun selection of local wines, beers, and signature beverages being served throughout the afternoon.
+                We hope you can join us to celebrate, recognize, and raise money for hard working Seattle Public School teachers.
               </p>
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    WHERE: Cathedral in Ballard: 5449 Ballard Ave NW, Seattle, WA 98107
+                    WHERE: Labour Temple in Downtown Seattle: 2800 1st Ave, Seattle, WA 98121
               </p>
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    WHEN: September 15th, from 5:30pm-9pm.
+                    WHEN: May 19th, from 3:30pm-6:30pm.
               </p>
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    SILENT AUCTION: Checks and cash accepted, or online donations. Bidding ends at 8:30pm.
+                    SILENT AUCTION: Checks and cash accepted, or online donations. Bidding ends at 5:30pm.
               </p>
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                     Each of the ticket options below will grant entry.
-                    Patron tickets cover the costs of special educators in attendance. For those seeking group reservations for tables of up to 5, please reach out to Michael Baldovino at mbbaldovino@gmail.com. All ticket purchases and donations are a 501c3 tax deductible donation.
+                    Patron tickets cover the costs of our local educators in attendance.
+                    All ticket purchases and donations are a 501c3 tax deductible donation and receipts
+                    can be retrieved by logging in with the email used for ticket purchase.
               </p>
             </div>
             <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
