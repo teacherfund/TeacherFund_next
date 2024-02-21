@@ -31,26 +31,26 @@ class Tickets extends Component {
               </p>
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                We are hosting a happy hour event with delicious Food catered by Stella Fiore Pizza, a medley of music,
-                and a fun selection of local wines, beers, and signature beverages being served throughout the afternoon.
+                We are hosting a happy hour event with delicious Food catered by <b>Arista Catering</b>, a medley of music,
+                and a fun selection of <b>local wines, beers</b>, and signature beverages being served throughout the afternoon.
                 We hope you can join us to celebrate, recognize, and raise money for hard working Seattle Public School teachers.
               </p>
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    WHERE: Labour Temple in Downtown Seattle: 2800 1st Ave, Seattle, WA 98121
+                <b>WHERE:</b> Labour Temple in Downtown Seattle: 2800 1st Ave, Seattle, WA 98121
               </p>
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    WHEN: May 19th, from 3:30pm-6:30pm.
+                <b>WHEN:</b> May 19th, from 3:30pm-6:30pm.
               </p>
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    SILENT AUCTION: Checks and cash accepted, or online donations. Bidding ends at 5:30pm.
+                <b>SILENT AUCTION:</b> Checks and cash accepted, or online donations. Bidding ends at 5:30pm.
               </p>
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    Each of the ticket options below will grant entry.
-                    Patron tickets cover the costs of our local educators in attendance.
-                    All ticket purchases and donations are a 501c3 tax deductible donation and receipts
-                    can be retrieved by logging in with the email used for ticket purchase.
+                Each of the ticket options below will grant entry.
+                Patron tickets cover the costs of our local educators in attendance.
+                <b> All ticket purchases and donations are a 501c3 tax deductible donation</b> and receipts
+                can be retrieved by logging in with the email used for ticket purchase.
               </p>
             </div>
             <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
