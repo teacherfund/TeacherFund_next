@@ -25,6 +25,8 @@ We welcome any contributions to this project!!
 
 If you're interested in fixing bugs or implementing new features, please see the document [How to Contribute](https://github.com/teacherfund/TeacherFund_next/blob/production/CONTRIBUTING.md).
 
+If you want to contribute in the code make sure first fork this repo, set as origin then make your seprate branch.
+
 ## Building & Viewing ##
 
 cd into the directory where you cloned this repository, update brew with the latest node version with `brew update` then install node with `brew install node`. Then install the node packet manager with `npm install`.
