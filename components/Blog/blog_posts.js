@@ -1,7 +1,45 @@
 import React from 'react'
 
-// Next id: 13
+// Next id: 15
 const staticBlogContent = [
+  {
+    title: 'Dimmitt Middle School - September 2024',
+    images: ['/images/drops/dimmit/dimmit-1.png', '/images/drops/dimmit/dimmit-2.jpg'],
+    summary: `The Teacher Fund initiates support for Bell Elementary with over $7,000 in classroom supply donations in October 2023...`,
+    content: (
+      <div>
+        The Teacher Fund initiates support for Dimmit Middle School, a Title 1 school in the Renton school district, just south of Seattle.
+        Through Brandon Lee, we had the pleasure to be introduced to Baron You, the assistant principal of Dimmit Middle School at our fundraising event
+        just a few months ago at Labour Temple in Belltown, Seattle. Baron chatted with us about the challenges we're all too familiar with at this point,
+        from teacher recruiting to teacher retention. The Teacher Fund went on to sponsor 4 new teachers at Dimmit Middle School, resulting in a sponsorship
+        just shy of $4,000 to those teachers, and the school.<br /><br />As The Teacher Fund has been doing for the past few years, we facilitate the donations
+        through Amazon wishlists, allowing the teachers to browse the limitless digital aisles to find the supplies they think will best enhance their classrooms.
+        This also makes purchasing, shipping, and delivery of the school supplies much easier.
+        <br /><br />
+        Dimmit Middle School is in the Seattle Area, and we're excited to add them to the Teacher Fund support umbrella!
+      </div>
+    ),
+    school: 'Bell Elementary',
+    blogId: 14
+  },
+  {
+    title: '2024 Summer Fundraiser',
+    images: ['/images/fundraisers/2024/2024-fundraiser-1.JPG', '/images/fundraisers/2024-fundraiser-2.JPG'],
+    summary: `The Teacher Fund had an incredible May fundraiser at Labour Temple in Belltown, Sea...`,
+    content: (
+      <div>
+        The Teacher Fund had an incredible May fundraiser at Labour Temple in Belltown, Seattle. Food was catered by Arista catering
+        and there was live music of Cheryl Grohn playing on a harp. Brandon Lee from Broadview Thompson k-8 spoke about the challenges facing
+        Seattle public school teachers, especially relevent this year as budget cuts threatened the closing of their school, amongst others.<br /><br />
+        Through Brandon Lee, we also were introduced to Baron You, the assistant principal at Dimmit Middle School, who we went on to sponsor in the fall 2024.
+        <br /><br />
+        Through the silent auction and driveby donations leading up to the event, The Teacher Fund raised over $9,000 with the highest auction item
+        being a five course dinner certificate for four, which ended up selling for $800.
+      </div>
+    ),
+    school: 'Fundraisers',
+    blogId: 13
+  },
   {
     title: 'Bell Elementary - Oct 2023',
     images: [],
