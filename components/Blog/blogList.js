@@ -18,7 +18,7 @@ const Blog = ({ content }) => {
           <>
             <Box marginBottom='2rem' paddingTop='2rem' className='tf-lato'>{content.content}</Box>
             {content.images.map((imgSrc, i) => (
-              <Image src={imgSrc} key={i} marginTop='1rem' maxWidth='600px' />
+              <Image src={imgSrc} key={i} marginTop='1rem' />
             ))}
           </>
         )}
