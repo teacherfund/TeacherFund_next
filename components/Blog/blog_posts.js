@@ -5,7 +5,7 @@ const staticBlogContent = [
   {
     title: 'Dimmitt Middle School - September 2024',
     images: ['/images/drops/dimmit/dimmit-1.png', '/images/drops/dimmit/dimmit-2.jpg'],
-    summary: `The Teacher Fund initiates support for Bell Elementary with over $7,000 in classroom supply donations in October 2023...`,
+    summary: `The Teacher Fund initiates support for Dimmit Middle School, a Title 1 school in...`,
     content: (
       <div>
         The Teacher Fund initiates support for Dimmit Middle School, a Title 1 school in the Renton school district, just south of Seattle.
@@ -24,7 +24,7 @@ const staticBlogContent = [
   },
   {
     title: '2024 Summer Fundraiser',
-    images: ['/images/fundraisers/2024/2024-fundraiser-1.JPG', '/images/fundraisers/2024-fundraiser-2.JPG'],
+    images: ['/images/fundraisers/2024/2024-fundraiser-1.JPG', '/images/fundraisers/2024/2024-fundraiser-2.JPG'],
     summary: `The Teacher Fund had an incredible May fundraiser at Labour Temple in Belltown, Sea...`,
     content: (
       <div>
