@@ -3,6 +3,25 @@ import React from 'react'
 // Next id: 15
 const staticBlogContent = [
   {
+    title: 'Emerson Elementary - February 2025',
+    images: ['/images/drops/emerson/1.jpg', '/images/drops/emerson/2.jpg', '/images/drops/emerson/3.jpg', '/images/drops/emerson/4.jpg', '/images/drops/emerson/5.jpg', '/images/drops/emerson/6.jpg', '/images/drops/emerson/7.jpg'],
+    summary: `The Teacher Fund initiates support for Emerson Elementary School, a Title 1 school in...`,
+    content: (
+      <div>
+        The Teacher Fund initiates support for Emerson Elementary School, a Title 1 school in Ranier Beach.
+        Through J.C. Fretz, we had the pleasure of being introduced to Emerson Elementary administrators. We subsequently supported
+        Emerson Elementary teachers with over $15,000 in school supplies, hopefully outfitting classrooms well into the future
+        in order to provide the best learning environment possible.<br /><br />As The Teacher Fund has been doing for the past few years, we facilitate the donations
+        through Amazon wishlists, allowing the teachers to browse the limitless digital aisles to find the supplies they think will best enhance their classrooms.
+        This also makes purchasing, shipping, and delivery of the school supplies much easier.
+        <br /><br />
+        Emerson ELementary School is in the Seattle Area, and we're excited to welcome yet another school under the Teacher Fund support umbrella!
+      </div>
+    ),
+    school: 'Emerson Elementary School',
+    blogId: 15
+  },
+  {
     title: 'Dimmitt Middle School - September 2024',
     images: ['/images/drops/dimmit/dimmit-1.png', '/images/drops/dimmit/dimmit-2.jpg'],
     summary: `The Teacher Fund initiates support for Dimmit Middle School, a Title 1 school in...`,
@@ -19,7 +38,7 @@ const staticBlogContent = [
         Dimmit Middle School is in the Seattle Area, and we're excited to add them to the Teacher Fund support umbrella!
       </div>
     ),
-    school: 'Bell Elementary',
+    school: 'Dimmitt Middle School',
     blogId: 14
   },
   {
