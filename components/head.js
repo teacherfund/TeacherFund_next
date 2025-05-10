@@ -34,8 +34,6 @@ const Head = props => (
       <meta property='og:image' content={props.ogImage || defaultOGImage} />
       <meta property='og:image:width' content='1200' />
       <meta property='og:image:height' content='630' />
-      <script src='https://js.stripe.com/v3/' />
-      <link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,500,700' rel='stylesheet' />
       <meta name='monetization' content='$ilp.uphold.com/aNhkaA3n23Gw' />
     </NextHead>
   </div>
