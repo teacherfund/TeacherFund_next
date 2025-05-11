@@ -3,8 +3,14 @@ import PageWrapper from '../components/pageWrapper'
 import DonateForm from '../components/donateform'
 import { Elements, ElementsConsumer } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
+// import { createStripeSession } from '../lib/stripeHelpers'
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
+
+const stripeOptions = {
+  mode: 'setup',
+  currency: 'usd'
+}
 
 const InjectedDonateForm = () => (
   <ElementsConsumer>
@@ -37,7 +43,7 @@ class Donate extends Component {
               </p>
             </div>
             <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
-              <Elements stripe={stripePromise}>
+              <Elements stripe={stripePromise} options={stripeOptions}>
                 <InjectedDonateForm />
               </Elements>
             </div>
@@ -45,7 +51,7 @@ class Donate extends Component {
           {this.state.showPaypalButton &&
           <div className='flex flex-column pv4 pb5-ns'>
             <h3 className='tf-lato v-mid m-auto mv4 pb4 f4'>
-                      Donate With PayPal
+                      Or, Donate With PayPal
             </h3>
             <div className='m-auto'>
               <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>

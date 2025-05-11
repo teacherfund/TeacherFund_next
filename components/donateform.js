@@ -1,9 +1,13 @@
 /* global fetch */
 import React, { Component } from 'react'
-import { CardElement } from '@stripe/react-stripe-js'
+import { PaymentElement } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
-import { Input, FormControl, FormErrorMessage, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { Input, InputGroup } from '@chakra-ui/react'
+import {
+  FormControl,
+  FormErrorMessage
+} from '@chakra-ui/form-control'
 import { Form, Formik } from 'formik'
 import { validateCurrency, validateEmail, validateText } from '../utils/validation.util'
 
@@ -36,7 +40,7 @@ class DonateForm extends Component {
     this.setLocalState({ loading: true })
     let token
     try {
-      const cardElement = this.props.elements.getElement(CardElement)
+      const cardElement = this.props.elements.getElement(PaymentElement)
       const res = await this.props.stripe.createToken(cardElement)
       token = res.token
     } catch (e) {
@@ -187,13 +191,7 @@ class DonateForm extends Component {
             <FormControl
               className='form-control'
               isInvalid={errors.amount && touched.amount}>
-              <InputGroup>
-                <InputLeftElement
-                  pointerEvents='none'
-                  children='$'
-                  color='lightGray'
-                  style={{ height: '100%', width: '2.6rem' }}
-                />
+              <InputGroup startElement='$' endElement='USD'>
                 <Input
                   style={{ paddingLeft: '2rem' }}
                   type='text'
@@ -209,7 +207,7 @@ class DonateForm extends Component {
               <FormErrorMessage>{errors.amount}</FormErrorMessage>
             </FormControl>
             <div className='bg-white bn ba pa3 mb2'>
-              <CardElement handleChange={handleChange} name='cardNumber' />
+              <PaymentElement handleChange={handleChange} name='cardNumber' />
             </div>
             { loading && <h2 className='tc tf-lato'>Loading...</h2>}
             <button

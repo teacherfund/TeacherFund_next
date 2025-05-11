@@ -3,7 +3,11 @@ import React, { Component } from 'react'
 import { CardElement } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
-import { Input, FormControl, Text, FormErrorMessage, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { Input, Text, InputGroup } from '@chakra-ui/react'
+import {
+  FormControl,
+  FormErrorMessage
+} from '@chakra-ui/form-control'
 import { Form, Formik } from 'formik'
 import { validateEmail, validateText } from '../utils/validation.util'
 import { fundraisingEventTicket, fundraisingEventTicketPatron } from '../lib/constants'
@@ -235,13 +239,7 @@ class DonateTicketForm extends Component {
               className='form-control'
               isInvalid={errors.amount && touched.amount}>
               <Text>Amount:</Text>
-              <InputGroup>
-                <InputLeftElement
-                  pointerEvents='none'
-                  children='$'
-                  color='lightGray'
-                  style={{ height: '100%', width: '2.6rem' }}
-                />
+              <InputGroup startElement='$' endElement='USD'>
                 <Input
                   style={{ paddingLeft: '2rem' }}
                   type='text'

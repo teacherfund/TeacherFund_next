@@ -31,7 +31,7 @@ const ScrollToTop = () => {
           onClick={scrollBackFn}
           position='fixed'
           borderRadius='50%'
-          w={40} h={40}
+          w={8} h={8}
           bottom={['50px']}
           right='30px'
           display={show ? 'block' : 'none'}
