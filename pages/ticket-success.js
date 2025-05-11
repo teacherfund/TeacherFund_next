@@ -12,7 +12,7 @@ const TicketSuccess = () => {
           <p className='pb1'><b>Thank you!</b></p>
           <p className='pb1'>Your ticket donation helps teachers more than can be put in words.</p>
           <Box className='pb1'>
-            We're so excited to see you at the event! Mark your calendars for May 19th 3:30-6:30pm at The Labour Temple. All food, drink, and entertainment (Professional Harpist!) is free of charge with your ticket! Thank you for supporting your local public school teachers.
+            We're so excited to see you at the event! Mark your calendars for August 10th 3:00-6:00pm at The Labour Temple. All food, drink, and entertainment is free of charge with your ticket! Thank you for supporting your local public school teachers.
           </Box>
           <Box className='pb1'>You can log in at any time using your email to download your tax receipt for the current year
             <Link color='blue.500' href='/account'>{' by clicking here. '}</Link>

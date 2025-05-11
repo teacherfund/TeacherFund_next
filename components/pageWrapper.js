@@ -10,7 +10,7 @@ const PageWrapper = (props) => {
     <Head title={props.title} />
     <a href='#main-content' className='skip-link tf-oswald'>Skip to main content</a>
     <Nav />
-    {true && (
+    {!props.noShowBanner && (
       <Box width='100%' height='auto' display='flex' padding='1rem 3rem' textAlign='center' bg='tomato'>
         <Text margin='auto'>Looking to purchase tickets to the Spring 2025 Seattle fundraising event? Click{' '}
           <Link href={'/tickets'} className='white no-underline mv4 w5 center'>
