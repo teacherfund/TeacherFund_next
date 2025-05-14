@@ -1,5 +1,11 @@
 // From https://chakra-ui.com/docs/theming/customization/overview. we want to extend default theme but add colors + icons
-import { createSystem, defaultConfig, defineConfig, defineTextStyles, defineRecipe } from '@chakra-ui/react'
+import {
+  createSystem,
+  defaultConfig,
+  defineConfig,
+  defineTextStyles,
+  defineRecipe
+} from '@chakra-ui/react'
 
 const fontStack = `"Oswald", Lato, Frutiger, "Frutiger Linotype",
     Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad,
@@ -14,30 +20,18 @@ const breakpoints = {
 }
 
 const InputRecipe = defineRecipe({
-  baseStyle: {
-    field: {
-      padding: '2rem 0',
-      height: '5rem',
-      _invalid: {
-        borderColor: 'red.500',
-        borderWidth: '0.08rem'
-      }
+  base: {
+    pt: '2rem',
+    pb: '2rem',
+    _invalid: {
+      borderColor: 'red.500'
     }
-  },
-  defaultProps: {
-    variant: null
   }
 })
 
 const FormErrorRecipe = defineRecipe({
-  baseStyle: {
-    text: {
-      margin: '0',
-      marginLeft: '0.3rem'
-    }
-  },
-  defaultProps: {
-    variant: null
+  base: {
+    color: 'red.500'
   }
 })
 
@@ -47,27 +41,23 @@ export const textStyles = defineTextStyles({
   mono: 'Menlo, monospace'
 })
 
-const overrides = {
-  breakpoints,
-  textStyles,
-  tokens: {
-    colors: {
-      pencilYellow: '#f6b333',
-      leadGray: '#434343',
-      eraserPink: '#e06767',
-      darkTeal: '#336e7b',
-      lightGray: '#95a4a6'
-    }
-  },
-  recipes: {
-    input: InputRecipe,
-    formError: FormErrorRecipe
-  }
-}
-
 const customConfig = defineConfig({
   theme: {
-    ...overrides
+    breakpoints,
+    textStyles,
+    tokens: {
+      colors: {
+        pencilYellow: '#f6b333',
+        leadGray: '#434343',
+        eraserPink: '#e06767',
+        darkTeal: '#336e7b',
+        lightGray: '#95a4a6'
+      }
+    },
+    recipes: {
+      input: InputRecipe,
+      formError: FormErrorRecipe
+    }
   }
 })
 

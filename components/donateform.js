@@ -3,11 +3,7 @@ import React, { Component } from 'react'
 import { PaymentElement } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
-import { Input, InputGroup } from '@chakra-ui/react'
-import {
-  FormControl,
-  FormErrorMessage
-} from '@chakra-ui/form-control'
+import { Input, InputGroup, Field } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
 import { validateCurrency, validateEmail, validateText } from '../utils/validation.util'
 
@@ -143,9 +139,9 @@ class DonateForm extends Component {
               frequencyIdx={values.frequencyIdx}
               availableFrequencies={this.availableFrequencies}
             />
-            <FormControl
+            <Field.Root
               className='form-control'
-              isInvalid={errors.firstName && touched.firstName}
+              invalid={errors.firstName && touched.firstName}
             >
               <Input
                 type='text'
@@ -156,11 +152,11 @@ class DonateForm extends Component {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 aria-label='First Name' />
-              <FormErrorMessage>{errors.firstName}</FormErrorMessage>
-            </FormControl>
-            <FormControl
+              <Field.ErrorText>{errors.firstName}</Field.ErrorText>
+            </Field.Root>
+            <Field.Root
               className='form-control'
-              isInvalid={errors.lastName && touched.lastName}
+              invalid={errors.lastName && touched.lastName}
             >
               <Input
                 type='text'
@@ -171,11 +167,11 @@ class DonateForm extends Component {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 aria-label='Last Name' />
-              <FormErrorMessage>{errors.lastName}</FormErrorMessage>
-            </FormControl>
-            <FormControl
+              <Field.ErrorText>{errors.lastName}</Field.ErrorText>
+            </Field.Root>
+            <Field.Root
               className='form-control'
-              isInvalid={errors.email && touched.email}
+              invalid={errors.email && touched.email}
             >
               <Input
                 type='email'
@@ -186,11 +182,11 @@ class DonateForm extends Component {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 aria-label='Email' />
-              <FormErrorMessage>{errors.email}</FormErrorMessage>
-            </FormControl>
-            <FormControl
+              <Field.ErrorText>{errors.email}</Field.ErrorText>
+            </Field.Root>
+            <Field.Root
               className='form-control'
-              isInvalid={errors.amount && touched.amount}>
+              invalid={errors.amount && touched.amount}>
               <InputGroup startElement='$' endElement='USD'>
                 <Input
                   style={{ paddingLeft: '2rem' }}
@@ -204,8 +200,8 @@ class DonateForm extends Component {
                   aria-label='Amount' />
 
               </InputGroup>
-              <FormErrorMessage>{errors.amount}</FormErrorMessage>
-            </FormControl>
+              <Field.ErrorText>{errors.amount}</Field.ErrorText>
+            </Field.Root>
             <div className='bg-white bn ba pa3 mb2'>
               <PaymentElement handleChange={handleChange} name='cardNumber' />
             </div>
