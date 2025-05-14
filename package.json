@@ -28,7 +28,6 @@
     "isomorphic-fetch": "^2.2.1",
     "magic-sdk": "^2.6.0",
     "next": "^13.0.5",
-    "node-sass": "^7.0.0",
     "npm": "^11.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -55,6 +54,6 @@
     "parser": "babel-eslint"
   },
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   }
 }
