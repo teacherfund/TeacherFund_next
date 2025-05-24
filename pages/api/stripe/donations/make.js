@@ -1,5 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-const { findOrCreateCustomer, findOrCreatePlan, createDonation } = require('../../lib/stripeHelpers')
+const { findOrCreateCustomer, findOrCreatePlan, createDonation } = require('../../../../lib/stripeHelpers')
 
 export default async (req, res) => {
   const {
@@ -21,6 +21,7 @@ export default async (req, res) => {
   if (frequency === 'once') {
     const customer = await findOrCreateCustomer({ email, meta, source })
     try {
+      console.log(customer)
       await stripe.charges.create({
         amount,
         customer: customer.id,

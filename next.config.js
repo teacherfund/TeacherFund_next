@@ -4,6 +4,9 @@ const path = require('path')
 const Dotenv = require('dotenv-webpack')
 
 module.exports = {
+  experimental: {
+    forceSwcTransforms: true
+  },
   webpack: config => {
     // Fixes npm packages that depend on `fs` module
     config.plugins = config.plugins || []

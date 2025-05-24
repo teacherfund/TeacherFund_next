@@ -8,7 +8,7 @@ const Logout = () => {
   const router = useRouter()
 
   const logout = async () => {
-    await fetch('/api/logout')
+    await fetch('/api/auth/logout')
     router.push('/')
   }
 

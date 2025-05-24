@@ -79,7 +79,7 @@ class DonateTicketForm extends Component {
     }
     try {
       const { frequencyIdx, firstName, lastName, email, amount, quantity } = formValues
-      const responseStream = await fetch('/api/purchase-ticket', {
+      const responseStream = await fetch('/api/donations/purchase-ticket', {
         method: 'POST',
         body: JSON.stringify({
           source: token,

@@ -19,6 +19,10 @@ export default async (req, res) => {
     const { data } = response
     const [customer] = data
 
+    if (!customer) {
+      return res.json(user)
+    }
+
     const { id, metadata } = customer
     const { firstName, lastName } = metadata
 
@@ -34,9 +38,9 @@ export default async (req, res) => {
     if (subscription) {
       user.donationAmount = subscription.plan.amount
     }
+
+    res.json(user)
   } catch (e) {
     console.error(e)
   }
-
-  res.json(user)
 }

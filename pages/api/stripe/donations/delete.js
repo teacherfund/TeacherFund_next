@@ -1,5 +1,5 @@
 import Iron from '@hapi/iron'
-import CookieService from '../../lib/cookie'
+import CookieService from '../../../../lib/cookie'
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 

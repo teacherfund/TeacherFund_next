@@ -29,7 +29,7 @@ const Account = () => {
   const cancelReccuringDonation = async () => {
     setCancelLoading(true)
     try {
-      await fetch('/api/deleteDonation')
+      await fetch('/api/donations/delete')
       router.reload()
     } catch (e) {
       // TODO show error deleting donation
@@ -39,7 +39,7 @@ const Account = () => {
   }
 
   const tweet =
-    'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
+    'https://x.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
 
   return (
     <PageWrapper title='Account – The Teacher Fund'>
@@ -111,7 +111,7 @@ const Account = () => {
                     className='tf-lato btn-red ttu b tc pa2 w-50 m-auto'
                     onClick={cancelReccuringDonation}
                   >
-                    <label>Cancel donation</label>
+                    <span>Cancel donation</span>
                   </Button>
                 </div>
               )}

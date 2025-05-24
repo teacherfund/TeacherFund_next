@@ -1,23 +1,23 @@
+/* global fetch */
 import React, { Component } from 'react'
 import PageWrapper from '../components/pageWrapper'
 import DonateForm from '../components/donateform'
-import { Elements, ElementsConsumer } from '@stripe/react-stripe-js'
+import { CheckoutProvider } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
-// import { createStripeSession } from '../lib/stripeHelpers'
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
 
-const stripeOptions = {
-  mode: 'setup',
-  currency: 'usd'
+const fetchClientSecret = async () => {
+  const response = await fetch('/api/stripe/checkout-session', { method: 'POST' })
+  const data = await response.json()
+  if (data.error) return null
+  return data.clientSecret
 }
 
 const InjectedDonateForm = () => (
-  <ElementsConsumer>
-    {({ elements, stripe }) => (
-      <DonateForm elements={elements} stripe={stripe} />
-    )}
-  </ElementsConsumer>
+  <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}>
+    <DonateForm />
+  </CheckoutProvider>
 )
 
 class Donate extends Component {
@@ -43,15 +43,13 @@ class Donate extends Component {
               </p>
             </div>
             <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
-              <Elements stripe={stripePromise} options={stripeOptions}>
-                <InjectedDonateForm />
-              </Elements>
+              <InjectedDonateForm />
             </div>
           </div>
           {this.state.showPaypalButton &&
           <div className='flex flex-column pv4 pb5-ns'>
             <h3 className='tf-lato v-mid m-auto mv4 pb4 f4'>
-                      Or, Donate With PayPal
+              Or, Donate With PayPal
             </h3>
             <div className='m-auto'>
               <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
