@@ -1,81 +1,54 @@
-/* global fetch */
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PageWrapper from '../components/pageWrapper'
 import DonateForm from '../components/donateform'
-import { CheckoutProvider } from '@stripe/react-stripe-js'
-import { loadStripe } from '@stripe/stripe-js'
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
+export default function Donate () {
+  const [showPaypalButton] = useState(true)
 
-const fetchClientSecret = async () => {
-  const response = await fetch('/api/stripe/checkout-session', { method: 'POST' })
-  const data = await response.json()
-  if (data.error) return null
-  return data.clientSecret
-}
-
-const InjectedDonateForm = () => (
-  <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}>
-    <DonateForm />
-  </CheckoutProvider>
-)
-
-class Donate extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      showPaypalButton: true
-    }
-  }
-
-  render () {
-    return (
-      <PageWrapper title='Donate – The Teacher Fund'>
-        <React.Fragment>
-          <div className='flex flex-column bg-trans-gray justify-between ph3 pv4 pv5-ns pa4-ns'>
-            <div className='flex flex-column tf-lato tc mv-auto'>
-              <h1 className='tf-dark-gray f2 f1-l tf-oswald fl'>
-                    Fund Teachers. Help Students.
-              </h1>
-              <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
-                    With 100 percent of your donation funding public school teachers in need, you can
-                    give knowing that your entire gift will help equip classrooms and help students.
-              </p>
-            </div>
-            <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
-              <InjectedDonateForm />
-            </div>
+  return (
+    <PageWrapper title='Donate – The Teacher Fund'>
+      <React.Fragment>
+        <div className='flex flex-column bg-trans-gray justify-between ph3 pv4 pv5-ns pa4-ns'>
+          <div className='flex flex-column tf-lato tc mv-auto'>
+            <h1 className='tf-dark-gray f2 f1-l tf-oswald fl'>
+                  Fund Teachers. Help Students.
+            </h1>
+            <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
+                  With 100 percent of your donation funding public school teachers in need, you can
+                  give knowing that your entire gift will help equip classrooms and help students.
+            </p>
           </div>
-          {this.state.showPaypalButton &&
-          <div className='flex flex-column pv4 pb5-ns'>
-            <h3 className='tf-lato v-mid m-auto mv4 pb4 f4'>
-              Or, Donate With PayPal
-            </h3>
-            <div className='m-auto'>
-              <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
-                <input type='hidden' name='cmd' value='_s-xclick' />
-                <input type='hidden' name='hosted_button_id' value='W235G2KHKQLP8' />
-                <input
-                  type='image'
-                  src='https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif'
-                  border='0'
-                  name='submit'
-                  title='PayPal - The safer, easier way to pay online!'
-                  alt='Donate with PayPal button' />
-                <img
-                  alt=''
-                  border='0'
-                  src='https://www.paypal.com/en_US/i/scr/pixel.gif'
-                  width='1'
-                  height='1' />
-              </form>
-            </div>
+          <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
+            <DonateForm />
           </div>
-          }
-        </React.Fragment>
-      </PageWrapper>
-    )
-  }
+        </div>
+        {showPaypalButton &&
+        <div className='flex flex-column pv4 pb5-ns'>
+          <h3 className='tf-lato v-mid m-auto mv4 pb4 f4'>
+            Or, Donate With PayPal
+          </h3>
+          <div className='m-auto'>
+            <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
+              <input type='hidden' name='cmd' value='_s-xclick' />
+              <input type='hidden' name='hosted_button_id' value='W235G2KHKQLP8' />
+              <input
+                type='image'
+                src='https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif'
+                border='0'
+                name='submit'
+                title='PayPal - The safer, easier way to pay online!'
+                alt='Donate with PayPal button' />
+              <img
+                alt=''
+                border='0'
+                src='https://www.paypal.com/en_US/i/scr/pixel.gif'
+                width='1'
+                height='1' />
+            </form>
+          </div>
+        </div>
+        }
+      </React.Fragment>
+    </PageWrapper>
+  )
 }
-
-export default Donate

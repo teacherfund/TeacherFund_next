@@ -1,30 +1,44 @@
-/* global fetch */
+const { findOrCreateCustomer } = require('../../../lib/stripeHelpers')
+
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 export default async (req, res) => {
   if (req.method !== 'POST') return res.status(405).end()
+  const data = req.body
 
+  // Get or create customer
+  const customer = await findOrCreateCustomer({
+    name: `${data.firstName} ${data.lastName}`,
+    email: data.email
+  })
+
+  // Create checkout session for the user
   try {
-    let user
-    const response = await fetch('/api/account')
-    if (response.ok) {
-      user = await response.json()
-    }
-
-    // Create checkout session for the user
     const session = await stripe.checkout.sessions.create({
-      customer: user?.customerId,
-      customer_email: user?.email,
+      customer: customer.id,
       ui_mode: 'custom',
-      mode: 'setup',
-      currency: 'usd',
+      payment_method_types: ['card', 'us_bank_account', 'link'],
+      mode: data.mode, // 'payment' or 'subscription'
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: `Teacher Fund Donation of $${data.amount / 100}`
+            },
+            recurring: data.mode === 'subscription' ? {
+              interval: 'month'
+            } : undefined,
+            unit_amount: data.amount
+          },
+          quantity: 1
+        }
+      ],
       return_url: `${process.env.DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`
     })
 
-    console.log(session)
-    res.send({ clientSecret: session.client_secret })
+    res.json({ clientSecret: session.client_secret })
   } catch (error) {
-    console.error('Error creating checkout session:', error)
-    res.status(500).send({ error: 'Failed to create checkout session' })
+    res.status(500).json({ error: 'Failed to create checkout session: ' + error.message })
   }
 }

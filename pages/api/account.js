@@ -33,8 +33,7 @@ export default async (req, res) => {
       lastName
     }
 
-    const subscription = customer.subscriptions.data[0]
-
+    const subscription = customer.subscriptions?.data?.[0]
     if (subscription) {
       user.donationAmount = subscription.plan.amount
     }
@@ -42,5 +41,6 @@ export default async (req, res) => {
     res.json(user)
   } catch (e) {
     console.error(e)
+    return res.status(500).json({ error: 'Failed to fetch customer data from Stripe' })
   }
 }
