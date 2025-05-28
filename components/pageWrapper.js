@@ -11,8 +11,8 @@ const PageWrapper = (props) => {
     <a href='#main-content' className='skip-link tf-oswald'>Skip to main content</a>
     <Nav />
     {true && (
-      <Box width='100%' height='auto' display='flex' padding='1rem 3rem' textAlign='center' bg='tomato'>
-        <Text margin='auto'>Looking to purchase tickets to the Fall 2025 Seattle fundraising event? Click{' '}
+      <Box width='100%' height='auto' display='flex' padding='1.2rem 3rem' textAlign='center' bg='tomato'>
+        <Text margin='auto'>Looking to purchase tickets to the Spring 2025 Seattle fundraising event? Click{' '}
           <Link href={'/tickets'} className='white no-underline mv4 w5 center'>
             here
           </Link>

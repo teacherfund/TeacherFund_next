@@ -8,7 +8,7 @@ const Blog = ({ content }) => {
   return (
     <Flex padding={{ base: '2rem', lg: '2rem' }} marginLeft={{ base: 0, lg: '15rem' }} className='blog-component' >
       <Flex flexDirection='column'>
-        <Heading as='h2' size='lg' fontWeight='100' textDecoration='underline'>
+        <Heading as='h2' fontSize='3xl' fontWeight='100' textDecoration='underline'>
           <Box>
             {content.title}
           </Box>
