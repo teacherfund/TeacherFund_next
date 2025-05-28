@@ -151,7 +151,16 @@ class DonateForm extends Component {
                 value={values.firstName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                aria-label='First Name' />
+                fontFamily='inherit'
+                fontSize='md'
+                border='none'
+                bg='white'
+                _invalid={{ borderColor: 'red.500' }}
+                _placeholder={{ color: 'grey' }}
+                _focus={{ boxShadow: 'none' }}
+                _hover={{ border: 'none' }}
+                aria-label='First Name'
+              />
               <Field.ErrorText>{errors.firstName}</Field.ErrorText>
             </Field.Root>
             <Field.Root
@@ -166,7 +175,15 @@ class DonateForm extends Component {
                 value={values.lastName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                aria-label='Last Name' />
+                fontFamily='inherit'
+                fontSize='md'
+                border='none'
+                bg='white'
+                _placeholder={{ color: 'grey' }}
+                _focus={{ boxShadow: 'none' }}
+                _hover={{ border: 'none' }}
+                aria-label='Last Name'
+              />
               <Field.ErrorText>{errors.lastName}</Field.ErrorText>
             </Field.Root>
             <Field.Root
@@ -181,7 +198,15 @@ class DonateForm extends Component {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                aria-label='Email' />
+                fontFamily='inherit'
+                fontSize='md'
+                border='none'
+                bg='white'
+                _placeholder={{ color: 'grey' }}
+                _focus={{ boxShadow: 'none' }}
+                _hover={{ border: 'none' }}
+                aria-label='Email'
+              />
               <Field.ErrorText>{errors.email}</Field.ErrorText>
             </Field.Root>
             <Field.Root
@@ -197,8 +222,15 @@ class DonateForm extends Component {
                   value={values.amount}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  aria-label='Amount' />
-
+                  fontFamily='inherit'
+                  fontSize='md'
+                  border='none'
+                  bg='white'
+                  _placeholder={{ color: 'grey' }}
+                  _focus={{ boxShadow: 'none' }}
+                  _hover={{ border: 'none' }}
+                  aria-label='Amount'
+                />
               </InputGroup>
               <Field.ErrorText>{errors.amount}</Field.ErrorText>
             </Field.Root>
