@@ -21,7 +21,6 @@ export default async (req, res) => {
   if (frequency === 'once') {
     const customer = await findOrCreateCustomer({ email, meta, source })
     try {
-      console.log(customer)
       await stripe.charges.create({
         amount,
         customer: customer.id,

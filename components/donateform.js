@@ -109,7 +109,6 @@ export default function DonateForm () {
       setLocalState({ isCheckoutSessionReady: true, loading: false })
       setCheckoutSession(responseData)
     } catch (error) {
-      console.error('Error creating checkout session:', error)
       setLocalState({ error: 'Failed to create checkout session', loading: false })
     }
   }
@@ -222,7 +221,7 @@ export default function DonateForm () {
             </InputGroup>
             <Field.ErrorText>{errors.amount}</Field.ErrorText>
           </Field.Root>
-          { statuses.loading && <h2 className='tc tf-lato'>Loading...</h2>}
+          { statuses.loading && <h2 className='tc tf-lato mb3 mb3-m'>Loading...</h2>}
           {(statuses.isCheckoutSessionReady && checkoutSession) && (
             <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret: () => checkoutSession.clientSecret }}>
               <ConfirmCheckout handleChange={handleChange} update={setCheckout} />

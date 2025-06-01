@@ -33,14 +33,23 @@ export default async (req, res) => {
       lastName
     }
 
-    const subscription = customer.subscriptions?.data?.[0]
-    if (subscription) {
-      user.donationAmount = subscription.plan.amount
+    // Get customer most recent subscription
+    const subscriptions = await stripe.subscriptions.list({
+      customer: id,
+      limit: 1,
+      status: 'active'
+    })
+    const [subscription] = subscriptions.data
+    if (!subscription) {
+      return res.json(user)
     }
+
+    user.subscriptionId = subscription.id
+    user.subscriptionStart = new Date(subscription.start_date * 1000) // Convert to milliseconds
+    user.donationAmount = subscription.plan.amount
 
     res.json(user)
   } catch (e) {
-    console.error(e)
     return res.status(500).json({ error: 'Failed to fetch customer data from Stripe' })
   }
 }
