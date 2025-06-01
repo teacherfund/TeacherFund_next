@@ -15,7 +15,7 @@ const ContactSection = ({ contactPage, hideHeading, ...props }) => {
       {...props}
     >
       <Box align='center' fontSize='28px' paddingBottom='2rem'>
-        <h1>Contact Us</h1>
+        <h4>Contact Us</h4>
       </Box>
       <Card width='100%' maxWidth='45rem'>
         <Text

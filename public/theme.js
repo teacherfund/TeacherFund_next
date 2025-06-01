@@ -36,9 +36,14 @@ const FormErrorRecipe = defineRecipe({
 })
 
 export const textStyles = defineTextStyles({
-  body: fontStack,
-  heading: fontStack,
-  mono: 'Menlo, monospace'
+  body: {
+    fontSize: 'md',
+    lineHeight: 'base'
+  },
+  heading: {
+    fontWeight: 'bold',
+    lineHeight: 'shorter'
+  }
 })
 
 const customConfig = defineConfig({
@@ -46,6 +51,11 @@ const customConfig = defineConfig({
     breakpoints,
     textStyles,
     tokens: {
+      fonts: {
+        body: fontStack,
+        heading: fontStack,
+        mono: 'Menlo, monospace'
+      },
       colors: {
         pencilYellow: '#f6b333',
         leadGray: '#434343',

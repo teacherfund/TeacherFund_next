@@ -20,7 +20,7 @@ function SideNav ({ schools, selectedSchool, onSchoolSelected }) {
             ? 'blog-side-nav-school-selected'
             : 'blog-side-nav-school-non-selected'} pa2 tc ttc mb1`
           return (
-            <Link className={className} width='100%' key={school} onClick={() => onSchoolSelected(school)}>
+            <Link className={className} display='block' width='100%' key={school} onClick={() => onSchoolSelected(school)}>
               {school}
             </Link>
           )

@@ -3,11 +3,7 @@ import React, { Component } from 'react'
 import { CardElement } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
 import Router from 'next/router'
-import { Input, Text, InputGroup } from '@chakra-ui/react'
-import {
-  FormControl,
-  FormErrorMessage
-} from '@chakra-ui/form-control'
+import { Input, Text, InputGroup, Field } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
 import { validateEmail, validateText } from '../utils/validation.util'
 import { fundraisingEventTicket, fundraisingEventTicketPatron } from '../lib/constants'
@@ -168,7 +164,7 @@ class DonateTicketForm extends Component {
               frequencyIdx={values.frequencyIdx}
               availableFrequencies={this.availableFrequencies}
             />
-            <FormControl
+            <Field.Root
               className='form-control'
               isInvalid={errors.firstName && touched.firstName}
             >
@@ -181,11 +177,20 @@ class DonateTicketForm extends Component {
                 value={values.firstName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                aria-label='First Name' />
-              <FormErrorMessage>{errors.firstName}</FormErrorMessage>
-            </FormControl>
-            <FormControl
-              marginTop='1.5rem'
+                fontFamily='inherit'
+                border='none'
+                fontSize='md'
+                bg='white'
+                _invalid={{ borderColor: 'red.500' }}
+                _placeholder={{ color: 'grey' }}
+                _focus={{ boxShadow: 'none' }}
+                _hover={{ border: 'none' }}
+                aria-label='First Name'
+              />
+              <Field.ErrorText>{errors.firstName}</Field.ErrorText>
+            </Field.Root>
+            <Field.Root
+              // marginTop='1.5rem'
               className='form-control'
               isInvalid={errors.lastName && touched.lastName}
             >
@@ -198,11 +203,19 @@ class DonateTicketForm extends Component {
                 value={values.lastName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                aria-label='Last Name' />
-              <FormErrorMessage>{errors.lastName}</FormErrorMessage>
-            </FormControl>
-            <FormControl
-              marginTop='1.5rem'
+                fontFamily='inherit'
+                fontSize='md'
+                border='none'
+                bg='white'
+                _placeholder={{ color: 'grey' }}
+                _focus={{ boxShadow: 'none' }}
+                _hover={{ border: 'none' }}
+                aria-label='Last Name'
+              />
+              <Field.ErrorText>{errors.lastName}</Field.ErrorText>
+            </Field.Root>
+            <Field.Root
+              // marginTop='1.5rem'
               className='form-control'
               isInvalid={errors.email && touched.email}
             >
@@ -215,11 +228,19 @@ class DonateTicketForm extends Component {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                aria-label='Email' />
-              <FormErrorMessage>{errors.email}</FormErrorMessage>
-            </FormControl>
-            <FormControl
-              marginTop='1.5rem'
+                fontFamily='inherit'
+                fontSize='md'
+                border='none'
+                bg='white'
+                _placeholder={{ color: 'grey' }}
+                _focus={{ boxShadow: 'none' }}
+                _hover={{ border: 'none' }}
+                aria-label='Email'
+              />
+              <Field.ErrorText>{errors.email}</Field.ErrorText>
+            </Field.Root>
+            <Field.Root
+              // marginTop='1.5rem'
               className='form-control'
               isInvalid={errors.quantity && touched.quantity}
             >
@@ -231,11 +252,19 @@ class DonateTicketForm extends Component {
                 value={values.quantity}
                 onChange={(e) => this.customOnQuantityChange(e, handleChange, setFieldValue)}
                 onBlur={handleBlur}
-                aria-label='Quantity' />
-              <FormErrorMessage>{errors.quantity}</FormErrorMessage>
-            </FormControl>
-            <FormControl
-              marginTop='1.5rem'
+                fontFamily='inherit'
+                fontSize='md'
+                border='none'
+                bg='white'
+                _placeholder={{ color: 'grey' }}
+                _focus={{ boxShadow: 'none' }}
+                _hover={{ border: 'none' }}
+                aria-label='Quantity'
+              />
+              <Field.ErrorText>{errors.quantity}</Field.ErrorText>
+            </Field.Root>
+            <Field.Root
+              // marginTop='1.5rem'
               className='form-control'
               isInvalid={errors.amount && touched.amount}>
               <Text>Amount:</Text>
@@ -250,12 +279,22 @@ class DonateTicketForm extends Component {
                   value={values.amount}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  aria-label='Amount' />
-
+                  fontFamily='inherit'
+                  fontSize='md'
+                  border='none'
+                  bg='white'
+                  _placeholder={{ color: 'grey' }}
+                  _focus={{ boxShadow: 'none' }}
+                  _hover={{ border: 'none' }}
+                  aria-label='Amount'
+                />
               </InputGroup>
-              <FormErrorMessage>{errors.amount}</FormErrorMessage>
-            </FormControl>
-            <Text marginTop='1.5rem'>Payment Info:</Text>
+              <Field.ErrorText>{errors.amount}</Field.ErrorText>
+            </Field.Root>
+            <Text
+            // marginTop='1.5rem'
+            >
+              Payment Info:</Text>
             <div className='bg-white bn ba pa3 mb2'>
               <CardElement handleChange={handleChange} name='cardNumber' />
             </div>
