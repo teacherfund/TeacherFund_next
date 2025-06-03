@@ -29,8 +29,14 @@ const Account = () => {
   const cancelReccuringDonation = async () => {
     setCancelLoading(true)
     try {
-      await fetch('/api/donations/delete')
-      router.reload()
+      const response = await fetch('/api/stripe/donations/delete', { method: 'DELETE' })
+      if (response.ok) {
+        const data = await response.json()
+        if (data.error) {
+          throw new Error(data.error)
+        }
+        router.reload()
+      }
     } catch (e) {
       // TODO show error deleting donation
     } finally {
@@ -96,7 +102,7 @@ const Account = () => {
                   Spread the Word
                 </a>
               </div>
-              {user && user.customerId && (
+              {user && user.subscriptionId && (
                 <div className='mb3'>
                   <Button
                     color='white'
