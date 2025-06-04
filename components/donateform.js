@@ -153,12 +153,8 @@ class DonateForm extends Component {
                 onBlur={handleBlur}
                 fontFamily='inherit'
                 fontSize='md'
-                border='none'
                 bg='white'
-                _invalid={{ borderColor: 'red.500' }}
                 _placeholder={{ color: 'grey' }}
-                _focus={{ boxShadow: 'none' }}
-                _hover={{ border: 'none' }}
                 aria-label='First Name'
               />
               <Field.ErrorText>{errors.firstName}</Field.ErrorText>
@@ -177,11 +173,8 @@ class DonateForm extends Component {
                 onBlur={handleBlur}
                 fontFamily='inherit'
                 fontSize='md'
-                border='none'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
-                _focus={{ boxShadow: 'none' }}
-                _hover={{ border: 'none' }}
                 aria-label='Last Name'
               />
               <Field.ErrorText>{errors.lastName}</Field.ErrorText>
@@ -200,11 +193,8 @@ class DonateForm extends Component {
                 onBlur={handleBlur}
                 fontFamily='inherit'
                 fontSize='md'
-                border='none'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
-                _focus={{ boxShadow: 'none' }}
-                _hover={{ border: 'none' }}
                 aria-label='Email'
               />
               <Field.ErrorText>{errors.email}</Field.ErrorText>
@@ -215,20 +205,24 @@ class DonateForm extends Component {
               <InputGroup startElement='$' endElement='USD'>
                 <Input
                   style={{ paddingLeft: '2rem' }}
-                  type='text'
+                  type='number'
                   name='amount'
                   placeholder='Amount'
                   maxLength={10}
                   value={values.amount}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  onKeyDown={(e) => {
+                  // Block minus key, plus key, and 'e' (scientific notation)
+                    if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
+                      e.preventDefault()
+                    }
+                  }}
+                  min='0'
                   fontFamily='inherit'
                   fontSize='md'
-                  border='none'
                   bg='white'
                   _placeholder={{ color: 'grey' }}
-                  _focus={{ boxShadow: 'none' }}
-                  _hover={{ border: 'none' }}
                   aria-label='Amount'
                 />
               </InputGroup>

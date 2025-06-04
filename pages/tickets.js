@@ -48,10 +48,10 @@ class Tickets extends Component {
               <Box width='30%' margin='auto' height='1px' bg='black' />
               <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                 Each of the ticket options below will grant entry.
-                Patron tickets cover the costs of our local educators in attendance.
-                <b> All ticket purchases and donations are a 501c3 tax deductible donation</b> and receipts
-                can be retrieved by logging in with the email used for ticket purchase.
               </p>
+              <p>Patron tickets cover the costs of our local educators in attendance.</p>
+              <b> All ticket purchases and donations are a 501c3 tax deductible donation</b> and receipts
+              can be retrieved by logging in with the email used for ticket purchase.
             </div>
             <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
               <Elements stripe={stripePromise}>

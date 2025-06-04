@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Hamburger from './icons/hamburger'
 import X from './icons/x'
 import Link from 'next/link'
@@ -26,6 +26,7 @@ const Nav = () => {
   }
 
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const toggleDrawerOpen = () => {
     if (!drawerOpen) {
@@ -39,9 +40,25 @@ const Nav = () => {
     setDrawerOpen(!drawerOpen)
   }
 
+  // Scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 50) // Trigger shrink after 50px scroll
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <nav>
-      <div className='f6 f5-m tf-lato bg-white pv4 flex fl w-100 pl5-ns pr5-ns pl4 pr3'>
+    <nav
+      className={`fixed top-0 w-100 z-999 transition-all duration-300 ${
+        isScrolled ? 'shadow-2' : ''
+      }`}
+    >
+      <div className={`f6 f5-m tf-lato bg-white flex fl w-100 pl5-ns pr5-ns pl4 pr3 transition-all duration-300 ${
+        isScrolled ? 'pv2' : 'pv4'}`}>
         <div className='w-70-l mh-auto b--tf-yellow flex justify-between flex-row w-100'>
           <div className='pointer tc'>
             <Link href='/' legacyBehavior>

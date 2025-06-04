@@ -166,7 +166,7 @@ class DonateTicketForm extends Component {
             />
             <Field.Root
               className='form-control'
-              isInvalid={errors.firstName && touched.firstName}
+              invalid={errors.firstName && touched.firstName}
             >
               <Text>First Name:</Text>
               <Input
@@ -178,13 +178,9 @@ class DonateTicketForm extends Component {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 fontFamily='inherit'
-                border='none'
                 fontSize='md'
                 bg='white'
-                _invalid={{ borderColor: 'red.500' }}
                 _placeholder={{ color: 'grey' }}
-                _focus={{ boxShadow: 'none' }}
-                _hover={{ border: 'none' }}
                 aria-label='First Name'
               />
               <Field.ErrorText>{errors.firstName}</Field.ErrorText>
@@ -192,7 +188,7 @@ class DonateTicketForm extends Component {
             <Field.Root
               // marginTop='1.5rem'
               className='form-control'
-              isInvalid={errors.lastName && touched.lastName}
+              invalid={errors.lastName && touched.lastName}
             >
               <Text>Last Name:</Text>
               <Input
@@ -205,11 +201,8 @@ class DonateTicketForm extends Component {
                 onBlur={handleBlur}
                 fontFamily='inherit'
                 fontSize='md'
-                border='none'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
-                _focus={{ boxShadow: 'none' }}
-                _hover={{ border: 'none' }}
                 aria-label='Last Name'
               />
               <Field.ErrorText>{errors.lastName}</Field.ErrorText>
@@ -217,7 +210,7 @@ class DonateTicketForm extends Component {
             <Field.Root
               // marginTop='1.5rem'
               className='form-control'
-              isInvalid={errors.email && touched.email}
+              invalid={errors.email && touched.email}
             >
               <Text>Email:</Text>
               <Input
@@ -230,11 +223,8 @@ class DonateTicketForm extends Component {
                 onBlur={handleBlur}
                 fontFamily='inherit'
                 fontSize='md'
-                border='none'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
-                _focus={{ boxShadow: 'none' }}
-                _hover={{ border: 'none' }}
                 aria-label='Email'
               />
               <Field.ErrorText>{errors.email}</Field.ErrorText>
@@ -242,7 +232,7 @@ class DonateTicketForm extends Component {
             <Field.Root
               // marginTop='1.5rem'
               className='form-control'
-              isInvalid={errors.quantity && touched.quantity}
+              invalid={errors.quantity && touched.quantity}
             >
               <Text>Quantity:</Text>
               <Input
@@ -252,13 +242,17 @@ class DonateTicketForm extends Component {
                 value={values.quantity}
                 onChange={(e) => this.customOnQuantityChange(e, handleChange, setFieldValue)}
                 onBlur={handleBlur}
+                onKeyDown={(e) => {
+                  // Block minus key, plus key, and 'e' (scientific notation)
+                  if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
+                    e.preventDefault()
+                  }
+                }}
+                min='0'
                 fontFamily='inherit'
                 fontSize='md'
-                border='none'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
-                _focus={{ boxShadow: 'none' }}
-                _hover={{ border: 'none' }}
                 aria-label='Quantity'
               />
               <Field.ErrorText>{errors.quantity}</Field.ErrorText>
@@ -266,7 +260,7 @@ class DonateTicketForm extends Component {
             <Field.Root
               // marginTop='1.5rem'
               className='form-control'
-              isInvalid={errors.amount && touched.amount}>
+              invalid={errors.amount && touched.amount}>
               <Text>Amount:</Text>
               <InputGroup startElement='$' endElement='USD'>
                 <Input
@@ -281,11 +275,8 @@ class DonateTicketForm extends Component {
                   onBlur={handleBlur}
                   fontFamily='inherit'
                   fontSize='md'
-                  border='none'
                   bg='white'
                   _placeholder={{ color: 'grey' }}
-                  _focus={{ boxShadow: 'none' }}
-                  _hover={{ border: 'none' }}
                   aria-label='Amount'
                 />
               </InputGroup>
