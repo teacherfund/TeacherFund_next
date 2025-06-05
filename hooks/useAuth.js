@@ -9,7 +9,7 @@ function fetcher (route) {
 }
 
 export function useAuth () {
-  const { data: user, isValidating, revalidate, error } = useSWR('/api/account', fetcher)
+  const { data: user, error, isValidating, mutate: revalidate } = useSWR('/api/account', fetcher)
   const loading = (user === undefined || isValidating)
 
   return { user, loading, revalidate, error }
@@ -30,7 +30,7 @@ export async function login ({ email }) {
   // we can now pass the magic ID to our own backend (a vercel lambda)
   // which knows our magic secret. the lambda will ask Magic to translate
   // the magic ID into an email address
-  const authRequest = await fetch('/api/login', {
+  const authRequest = await fetch('/api/auth/login', {
     method: 'POST',
     headers: { Authorization: `Bearer ${magicId}` }
   })

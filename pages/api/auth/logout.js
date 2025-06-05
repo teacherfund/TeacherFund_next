@@ -1,6 +1,6 @@
 import Iron from '@hapi/iron'
 import { Magic } from '@magic-sdk/admin'
-import Cookie from '../../lib/cookie'
+import Cookie from '../../../lib/cookie'
 
 const magic = new Magic(process.env.MAGIC_SECRET_KEY)
 

@@ -69,7 +69,7 @@ const TaxReceiptButton = () => {
 
     try {
       setdonationsLoading(true)
-      const resStream = await fetch(`/api/user-donations?${queryParams}`)
+      const resStream = await fetch(`/api/donations/user?${queryParams}`)
       const res = await resStream.json()
 
       if (res && res.data) {
