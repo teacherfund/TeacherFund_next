@@ -25,7 +25,6 @@ const deleteDonation = async ({ email, subscriptionId }) => {
       subscriptionId = subscriptions.data[0].id
     }
 
-    console.log('Found subscription:', subscriptionId)
     await stripe.subscriptions.cancel(subscriptionId, {
       invoice_now: true,
       prorate: false
