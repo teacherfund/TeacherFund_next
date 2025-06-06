@@ -6,7 +6,7 @@ const Dotenv = require('dotenv-webpack')
 module.exports = {
   experimental: {
     forceSwcTransforms: true,
-    optimizePackageImports: ["@chakra-ui/react"]
+    optimizePackageImports: ['@chakra-ui/react']
   },
   webpack: config => {
     // Fixes npm packages that depend on `fs` module
