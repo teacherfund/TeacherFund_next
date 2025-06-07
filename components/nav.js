@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Hamburger from './icons/hamburger'
 import X from './icons/x'
 import Link from 'next/link'
@@ -6,6 +6,9 @@ import { useAuth } from '../hooks/useAuth'
 
 const Nav = () => {
   const { user, loading } = useAuth()
+  const navRef = useRef(null)
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const links = [
     { href: '/mission', label: 'Our Mission', key: 'our-mission' },
@@ -25,9 +28,6 @@ const Nav = () => {
     ]
   }
 
-  const [drawerOpen, setDrawerOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
   const toggleDrawerOpen = () => {
     if (!drawerOpen) {
       document.body.classList.add('no-scroll')
@@ -38,6 +38,13 @@ const Nav = () => {
     }
 
     setDrawerOpen(!drawerOpen)
+  }
+
+  const updateNavHeight = () => {
+    if (navRef.current) {
+      const height = navRef.current.offsetHeight
+      document.documentElement.style.setProperty('--nav-height', `${height}px`)
+    }
   }
 
   // Scroll detection
@@ -51,8 +58,22 @@ const Nav = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Update nav height after scroll state changes
+  useEffect(() => {
+    const timer = setTimeout(updateNavHeight, 0)
+    return () => clearTimeout(timer)
+  }, [isScrolled])
+
+  // Sets the initial height and handles window resizing
+  useEffect(() => {
+    updateNavHeight()
+    window.addEventListener('resize', updateNavHeight)
+    return () => window.removeEventListener('resize', updateNavHeight)
+  }, [])
+
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 w-100 z-999 transition-all duration-300 ${
         isScrolled ? 'shadow-2' : ''
       }`}

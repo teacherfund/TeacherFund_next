@@ -168,7 +168,6 @@ export default function DonateForm () {
               onChange={handleChange}
               onBlur={handleBlur}
               fontFamily='inherit'
-              fontSize='md'
               bg='white'
               _placeholder={{ color: 'grey' }}
               aria-label='First Name' />
@@ -188,7 +187,6 @@ export default function DonateForm () {
               onChange={handleChange}
               onBlur={handleBlur}
               fontFamily='inherit'
-              fontSize='md'
               bg='white'
               _placeholder={{ color: 'grey' }}
               aria-label='Last Name' />
@@ -202,13 +200,12 @@ export default function DonateForm () {
             <Input
               type='email'
               name='email'
-              maxLength={320} // max email address len
+              maxLength={320}
               placeholder='Email'
               value={values.email}
               onChange={handleChange}
               onBlur={handleBlur}
               fontFamily='inherit'
-              fontSize='md'
               bg='white'
               _placeholder={{ color: 'grey' }}
               aria-label='Email'
@@ -238,7 +235,6 @@ export default function DonateForm () {
                 }}
                 min='0'
                 fontFamily='inherit'
-                fontSize='md'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
                 aria-label='Amount' />

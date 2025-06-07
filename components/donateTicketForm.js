@@ -178,7 +178,6 @@ class DonateTicketForm extends Component {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 fontFamily='inherit'
-                fontSize='md'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
                 aria-label='First Name'
@@ -186,7 +185,6 @@ class DonateTicketForm extends Component {
               <Field.ErrorText>{errors.firstName}</Field.ErrorText>
             </Field.Root>
             <Field.Root
-              // marginTop='1.5rem'
               className='form-control'
               invalid={errors.lastName && touched.lastName}
             >
@@ -200,7 +198,6 @@ class DonateTicketForm extends Component {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 fontFamily='inherit'
-                fontSize='md'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
                 aria-label='Last Name'
@@ -208,7 +205,6 @@ class DonateTicketForm extends Component {
               <Field.ErrorText>{errors.lastName}</Field.ErrorText>
             </Field.Root>
             <Field.Root
-              // marginTop='1.5rem'
               className='form-control'
               invalid={errors.email && touched.email}
             >
@@ -222,7 +218,6 @@ class DonateTicketForm extends Component {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 fontFamily='inherit'
-                fontSize='md'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
                 aria-label='Email'
@@ -230,7 +225,6 @@ class DonateTicketForm extends Component {
               <Field.ErrorText>{errors.email}</Field.ErrorText>
             </Field.Root>
             <Field.Root
-              // marginTop='1.5rem'
               className='form-control'
               invalid={errors.quantity && touched.quantity}
             >
@@ -250,7 +244,6 @@ class DonateTicketForm extends Component {
                 }}
                 min='0'
                 fontFamily='inherit'
-                fontSize='md'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
                 aria-label='Quantity'
@@ -258,7 +251,6 @@ class DonateTicketForm extends Component {
               <Field.ErrorText>{errors.quantity}</Field.ErrorText>
             </Field.Root>
             <Field.Root
-              // marginTop='1.5rem'
               className='form-control'
               invalid={errors.amount && touched.amount}>
               <Text>Amount:</Text>
@@ -274,7 +266,6 @@ class DonateTicketForm extends Component {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   fontFamily='inherit'
-                  fontSize='md'
                   bg='white'
                   _placeholder={{ color: 'grey' }}
                   aria-label='Amount'
@@ -283,7 +274,6 @@ class DonateTicketForm extends Component {
               <Field.ErrorText>{errors.amount}</Field.ErrorText>
             </Field.Root>
             <Text
-            // marginTop='1.5rem'
             >
               Payment Info:</Text>
             <div className='bg-white bn ba pa3 mb2'>
