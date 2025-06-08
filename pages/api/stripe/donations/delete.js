@@ -30,7 +30,7 @@ const deleteDonation = async ({ email, subscriptionId }) => {
       prorate: false
     })
   } catch (error) {
-    throw new Error('Failed to delete donation')
+    throw new Error(`Failed to delete donation: ${error.message}`)
   }
 }
 
