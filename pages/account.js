@@ -7,6 +7,7 @@ import { useAuth } from '../hooks/useAuth'
 import Link from 'next/link'
 import Card from '../components/card'
 import TaxReceiptButton from '../components/taxReceiptButton'
+import { toaster } from '../components/ui/toaster'
 
 const Account = () => {
   const { user, revalidate } = useAuth()
@@ -38,7 +39,12 @@ const Account = () => {
         router.reload()
       }
     } catch (e) {
-      // TODO show error deleting donation
+      toaster.create({
+        title: 'There was an issue canceling your donation.',
+        description: e.message || 'Please try again later.',
+        closable: true,
+        type: 'error'
+      })
     } finally {
       setCancelLoading(false)
     }
