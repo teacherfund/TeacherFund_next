@@ -130,7 +130,7 @@ const TaxReceiptButton = () => {
     setTimeout(() => {
       updateTaxReceiptButton()
       toaster.create({
-        title: 'Document ready for download',
+        title: 'Download Complete',
         description: 'Your tax receipt is now in your downloads folder.',
         type: 'success'
       })
