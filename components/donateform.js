@@ -1,5 +1,5 @@
 /* global fetch */
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import DonationFrequency from './donationFrequency'
 import { Input, InputGroup, Field } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
