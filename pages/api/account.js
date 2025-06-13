@@ -45,7 +45,7 @@ export default async (req, res) => {
     }
 
     user.subscriptionId = subscription.id
-    user.subscriptionStart = new Date(subscription.start_date * 1000) // Convert to milliseconds
+    user.subscriptionStart = new Date(subscription.start_date * 1000).toLocaleString() // Convert to milliseconds
     user.donationAmount = subscription.plan.amount
 
     res.json(user)

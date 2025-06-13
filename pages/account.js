@@ -7,6 +7,7 @@ import { useAuth } from '../hooks/useAuth'
 import Link from 'next/link'
 import Card from '../components/card'
 import TaxReceiptButton from '../components/taxReceiptButton'
+import { toaster } from '../components/ui/toaster'
 
 const Account = () => {
   const { user, revalidate } = useAuth()
@@ -29,10 +30,21 @@ const Account = () => {
   const cancelReccuringDonation = async () => {
     setCancelLoading(true)
     try {
-      await fetch('/api/donations/delete')
-      router.reload()
+      const response = await fetch('/api/stripe/donations/delete', { method: 'DELETE' })
+      if (response.ok) {
+        const data = await response.json()
+        if (data.error) {
+          throw new Error(data.error)
+        }
+        router.reload()
+      }
     } catch (e) {
-      // TODO show error deleting donation
+      toaster.create({
+        title: 'There was an issue canceling your donation.',
+        description: e.message || 'Please try again later.',
+        closable: true,
+        type: 'error'
+      })
     } finally {
       setCancelLoading(false)
     }
@@ -96,7 +108,7 @@ const Account = () => {
                   Spread the Word
                 </a>
               </div>
-              {user && user.customerId && (
+              {user && user.subscriptionId && (
                 <div className='mb3'>
                   <Button
                     color='white'

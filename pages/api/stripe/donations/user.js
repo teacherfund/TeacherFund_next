@@ -4,14 +4,6 @@ import { getUnix } from '../../../../utils/date.utils'
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
-const getCustomer = async ({ email }) => {
-  return stripe.customers.list({ email })
-}
-
-const getCustomerCharges = async (opts) => {
-  return stripe.charges.list(opts)
-}
-
 export default async (req, res) => {
   const customerTransactions = { data: { transactions: [], user: {} } }
 
@@ -23,7 +15,7 @@ export default async (req, res) => {
   }
 
   try {
-    const customerResponse = await getCustomer({ email: user.email })
+    const customerResponse = await stripe.customers.list({ email: user.email })
     const customer = customerResponse.data[0]
 
     if (!customer) {
@@ -36,7 +28,7 @@ export default async (req, res) => {
     const startDate = start && getUnix(new Date(start))
     const endDate = end && getUnix(new Date(end))
 
-    if (metadata) {
+    if (metadata && Object.keys(metadata).length > 0) {
       const { firstName, lastName } = metadata
       customerTransactions.data.user = { firstName, lastName }
     }
@@ -50,12 +42,16 @@ export default async (req, res) => {
         opts.created.lte = endDate
       }
     }
-    const chargesData = await getCustomerCharges(opts)
+    const chargesData = await stripe.charges.list(opts)
     customerTransactions.data.transactions = chargesData.data.map(charge => {
       const { amount, created } = charge
       return { amount, created }
     })
-  } catch (e) {}
 
-  res.json(customerTransactions)
+    customerTransactions.data.transactions.sort((a, b) => b.created - a.created)
+    return res.json(customerTransactions)
+  } catch (e) {
+    console.error('Error fetching customer transactions:', e)
+    return res.status(500).json({ error: 'Failed to fetch customer transactions' })
+  }
 }

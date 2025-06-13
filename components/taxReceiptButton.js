@@ -1,25 +1,37 @@
 /* global fetch */
 import React, { useState, useEffect } from 'react'
-import { Button, Menu, MenuButton, MenuItem, MenuList, createStandaloneToast } from '@chakra-ui/react'
-import { getCurrentYear, formatDateAsYYYYMMDD, isFutureDate, formatTimestamp } from '../utils/date.utils'
+import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
+import { Toaster, toaster } from './ui/toaster'
+import {
+  getCurrentYear,
+  formatDateAsYYYYMMDD,
+  isFutureDate,
+  formatTimestamp
+} from '../utils/date.utils'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import TaxReceiptDocument from '../components/taxReceiptDocument'
 
-const GetTaxReceiptsButton = ({ taxYears, handleSelectTaxYear, selectedTaxYear }) => (
-  taxYears && taxYears.length > 1
-    ? <Menu>
+const GetTaxReceiptsButton = ({
+  taxYears,
+  handleSelectTaxYear,
+  selectedTaxYear,
+  isLoading = false
+}) =>
+  taxYears && taxYears.length > 1 ? (
+    <Menu>
       <MenuButton className='ttu btn-primary tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer'>
-      Get Tax Receipt
+        Get Tax Receipt
       </MenuButton>
       <MenuList>
-        {taxYears.map(year => (
+        {taxYears.map((year) => (
           <MenuItem onClick={() => handleSelectTaxYear(year)} key={year}>
             {year}
           </MenuItem>
         ))}
       </MenuList>
     </Menu>
-    : <Button
+  ) : (
+    <Button
       className='ttu btn-primary tf-lato b tc m-auto pointer'
       backgroundColor='pencilYellow'
       _hover={{ bg: 'white' }}
@@ -28,10 +40,11 @@ const GetTaxReceiptsButton = ({ taxYears, handleSelectTaxYear, selectedTaxYear }
       width={['75%', '50%']}
       height='56px'
       onClick={() => handleSelectTaxYear(selectedTaxYear)}
+      disabled={isLoading}
     >
-        Get Tax Receipt
+      {isLoading ? 'Fetching receipts...' : 'Get Tax Receipt'}
     </Button>
-)
+  )
 
 const TaxReceiptButton = () => {
   const [donationsLoading, setdonationsLoading] = useState(false)
@@ -69,7 +82,7 @@ const TaxReceiptButton = () => {
 
     try {
       setdonationsLoading(true)
-      const resStream = await fetch(`/api/donations/user?${queryParams}`)
+      const resStream = await fetch(`/api/stripe/donations/user?${queryParams}`)
       const res = await resStream.json()
 
       if (res && res.data) {
@@ -79,15 +92,19 @@ const TaxReceiptButton = () => {
         setShowDownloadLink(true)
       }
     } catch (e) {
-      const toast = createStandaloneToast()
-
-      toast({
-        title: 'There was an issue processing the documents. Please Try Again.',
-        description: 'If the problem persists please reach out to joelwass@theteacherfund.com',
-        status: 'error',
-        duration: 7000,
-        isClosable: true,
-        position: 'top'
+      toaster.create({
+        title: 'There was an issue processing the documents. Please try again.',
+        description:
+          'If the problem persists please reach out to joelwass@theteacherfund.com',
+        closable: true,
+        action: {
+          label: 'Retry',
+          onClick: () => {
+            setShowDownloadLink(false)
+            getUserDonations(selectedTaxYear)
+          }
+        },
+        type: 'error'
       })
     } finally {
       setdonationsLoading(false)
@@ -100,38 +117,53 @@ const TaxReceiptButton = () => {
   }
 
   const getSaveFileName = () =>
-    `Teacher_Fund_Tax_Receipt_${formatTimestamp(new Date())}`
+    `Teacher_Fund_Tax_Receipt_${formatTimestamp(new Date())}.pdf`
 
   const getDownloadLinkText = ({ loading, error }) =>
     loading
       ? 'Preparing Document...'
-      : error ? 'Unable to Process' : 'Download Tax Receipt'
+      : error
+        ? 'Unable to Process'
+        : 'Download Tax Receipt'
+
+  const onComplete = () => {
+    setTimeout(() => {
+      updateTaxReceiptButton()
+      toaster.create({
+        title: 'Download Complete',
+        description: 'Your tax receipt is now in your downloads folder.',
+        type: 'success'
+      })
+    }, 2000)
+  }
 
   return (
-    donationsLoading
-      ? <Button
-        isLoading
-        backgroundColor='pencilYellow'
-        height='56px'
-        width='50%'
-        padding='1.5rem'
-        borderRadius='9999px'
-        className='white'
-      />
-      : showDownloadLink
-        ? <PDFDownloadLink
+    <>
+      {showDownloadLink ? (
+        <PDFDownloadLink
           className='db ttu btn-primary tf-lato b tc w-75 w-50-ns m-auto pa3 br-pill pointer'
-          document={<TaxReceiptDocument transactions={userDonations} year={selectedTaxYear} user={donationUser} />}
+          document={
+            <TaxReceiptDocument
+              transactions={userDonations}
+              year={selectedTaxYear}
+              user={donationUser}
+            />
+          }
           fileName={getSaveFileName()}
-          onClick={() => setShowDownloadLink(false)}
+          onClick={onComplete}
         >
-          {pdfState => getDownloadLinkText(pdfState)}
+          {({ error, loading }) => getDownloadLinkText({ error, loading })}
         </PDFDownloadLink>
-        : <GetTaxReceiptsButton
+      ) : (
+        <GetTaxReceiptsButton
           taxYears={taxYears}
           handleSelectTaxYear={handleSelectTaxYear}
           selectedTaxYear={selectedTaxYear}
+          isLoading={donationsLoading}
         />
+      )}
+      <Toaster />
+    </>
   )
 }
 

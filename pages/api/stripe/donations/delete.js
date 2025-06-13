@@ -3,25 +3,69 @@ import CookieService from '../../../../lib/cookie'
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
-const deleteDonation = async ({ email }) => {
-  const customerRes = await stripe.customers.list({ email })
-  const customer = customerRes.data[0]
+const deleteDonation = async ({ email, subscriptionId }) => {
+  try {
+    if (!subscriptionId) {
+      const customers = await stripe.customers.list({
+        email
+      })
+      if (!customers.data?.length) {
+        throw new Error('No customer found with this email')
+      }
 
-  const currentSubscription = customer.subscriptions.data[0]
+      const subscriptions = await stripe.subscriptions.list({
+        customer: customers.data[0].id,
+        status: 'active',
+        limit: 1
+      })
+      if (!subscriptions.data.length) {
+        throw new Error('No active subscription found for this customer')
+      }
 
-  if (!currentSubscription) return
+      subscriptionId = subscriptions.data[0].id
+    }
 
-  // Delete the customers subscription
-  await stripe.subscriptions.del(currentSubscription.id)
+    await stripe.subscriptions.cancel(subscriptionId, {
+      invoice_now: true,
+      prorate: false
+    })
+  } catch (error) {
+    throw new Error(`Failed to delete donation: ${error.message}`)
+  }
 }
 
 export default async (req, res) => {
-  try {
-    const user = await Iron.unseal(CookieService.getAuthToken(req.cookies), process.env.ENCRYPTION_SECRET, Iron.defaults)
-    await deleteDonation({ email: user.email })
-  } catch (e) {
-    return res.status(401)
+  if (req.method !== 'DELETE') {
+    return res.status(405).end() // Method Not Allowed
   }
 
-  res.json({ success: true })
+  try {
+    const user = await Iron.unseal(
+      CookieService.getAuthToken(req.cookies),
+      process.env.ENCRYPTION_SECRET,
+      Iron.defaults
+    )
+    if (!user) {
+      return res.status(401).json({ error: 'Unauthorized' })
+    }
+
+    // Delete the donation subscription
+    await deleteDonation(
+      user.subscriptionId
+        ? { subscriptionId: user.subscriptionId }
+        : { email: user.email }
+    )
+
+    // Remove subscription details from user object
+    delete user.subscriptionId
+    delete user.donationAmount
+    delete user.subscriptionStart
+
+    // Seal the updated user object
+    const token = await Iron.seal(user, process.env.ENCRYPTION_SECRET, Iron.defaults)
+    CookieService.setTokenCookie(res, token)
+    return res.status(200).json({ message: 'Donation deleted successfully' })
+  } catch (e) {
+    return res.status(400).json({ error: e.message })
+  }
 }
