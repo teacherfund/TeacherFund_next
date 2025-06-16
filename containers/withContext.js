@@ -22,7 +22,7 @@ const withContext = (Page, pageProps) => (class Context extends Component {
   }
 
   async fetchGlobalStats () {
-    const resStream = await fetch('/api/donations')
+    const resStream = await fetch('/api/stripe/donations/list')
     const res = await resStream.json()
     if (res && res.length) {
       const amountDonated = res.reduce((acc, val) => {
