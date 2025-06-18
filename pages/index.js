@@ -30,7 +30,11 @@ class IndexPage extends Component {
 
   render () {
     return (
-      <PageWrapper title='The Teacher Fund'>
+      <PageWrapper
+        title='The Teacher Fund - Funding Teachers and Empowering Students'
+        description='Support public school teachers with funding for classroom supplies and resources. Help increase teacher retention and impact student success.'
+        url='https://theteacherfund.com'
+      >
         <div className='bg-white index tf-dark-gray'>
           <HeroImage />
           <section className='h-section ph2 pt4 pt6-l'>

@@ -4,6 +4,7 @@ import DonateForm from '../components/donateform'
 
 export default function Donate () {
   const [showPaypalButton] = useState(true)
+  const [imgError, setImgError] = useState(false)
 
   return (
     <PageWrapper title='Donate – The Teacher Fund'>
@@ -33,11 +34,13 @@ export default function Donate () {
               <input type='hidden' name='hosted_button_id' value='W235G2KHKQLP8' />
               <input
                 type='image'
-                src='https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif'
+                src={imgError ? '/images/PayPal.gif' : 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif'}
+                onError={() => setImgError(true)}
                 border='0'
                 name='submit'
                 title='PayPal - The safer, easier way to pay online!'
-                alt='Donate with PayPal button' />
+                alt='Donate with PayPal button'
+              />
               <img
                 alt=''
                 border='0'

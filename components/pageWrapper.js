@@ -7,7 +7,11 @@ import ScrollToTop from '../components/ScrollToTop'
 
 const PageWrapper = (props) => {
   return <>
-    <Head title={props.title} />
+    <Head
+      title={props.title}
+      description={props.description}
+      url={props.url}
+    />
     <a href='#main-content' className='skip-link tf-oswald'>Skip to main content</a>
     <Nav />
     {true && (

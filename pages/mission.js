@@ -25,7 +25,7 @@ const Mission = () => {
           <Box marginTop='2rem'>
             <Heading marginBottom='1rem'>Organization Goals</Heading>
 
-            <List.Root>
+            <List.Root ps='5'>
               <List.Item>
                 <Text>
                     Increase access to classroom resources
