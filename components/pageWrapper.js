@@ -14,7 +14,7 @@ const PageWrapper = (props) => {
     />
     <a href='#main-content' className='skip-link tf-oswald'>Skip to main content</a>
     <Nav />
-    {true && (
+    {!props.noShowBanner && (
       <>
         <Box
           width='100%'

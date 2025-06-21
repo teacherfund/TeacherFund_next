@@ -11,12 +11,12 @@ import { fundraisingEventTicket, fundraisingEventTicketPatron } from '../lib/con
 const availableFrequencies = [
   {
     name: fundraisingEventTicket,
-    text: 'Spring 2024 Ticket',
+    text: '2025 Ticket',
     amount: '100'
   },
   {
     name: fundraisingEventTicketPatron,
-    text: 'Spring 2024 Patron',
+    text: '2025 Patron',
     amount: '200'
   }
 ]
@@ -30,6 +30,7 @@ const validateForm = (values) => {
   }
   if (!quantity || quantity <= 0) {
     errors.quantity = 'Quantity must be > 0'
+
   }
   const lastNameError = validateText(lastName)
   if (lastNameError) {
