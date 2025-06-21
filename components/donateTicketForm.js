@@ -98,7 +98,7 @@ export default function DonateTicketForm ({ initialFrequency = 0 }) {
           firstName,
           lastName,
           email,
-          amount: amount * 100, // Convert to cents
+          amount: (amount / quantity) * 100, // Convert to cents
           mode: 'payment', // Must be payment or subscription, since tickets are always solo payments, hard code this.
           isTicket: true,
           frequency: availableFrequencies[frequencyIdx].name,
