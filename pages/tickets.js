@@ -2,18 +2,6 @@ import React, { useState, useEffect } from 'react'
 import PageWrapper from '../components/pageWrapper'
 import DonateTicketForm from '../components/donateTicketForm'
 import { Box } from '@chakra-ui/react'
-import { Elements, ElementsConsumer } from '@stripe/react-stripe-js'
-import { loadStripe } from '@stripe/stripe-js'
-
-const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
-
-const InjectedDonateForm = ({ initialFrequency }) => (
-  <ElementsConsumer>
-    {({ elements, stripe }) => (
-      <DonateTicketForm elements={elements} stripe={stripe} initialFrequency={initialFrequency} />
-    )}
-  </ElementsConsumer>
-)
 
 export default function Tickets () {
   const [initialFrequency, setInitialFrequency] = useState(0)
@@ -66,9 +54,7 @@ export default function Tickets () {
               can be retrieved by logging in with the email used for ticket purchase.
           </div>
           <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
-            <Elements stripe={stripePromise}>
-              <InjectedDonateForm initialFrequency={initialFrequency} />
-            </Elements>
+            <DonateTicketForm initialFrequency={initialFrequency} />
           </div>
         </div>
       </React.Fragment>
