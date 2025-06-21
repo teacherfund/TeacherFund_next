@@ -13,8 +13,12 @@ export default async (req, res) => {
   })
 
   const isTicketPurchase = data.isTicket || false
+  let productName
   let recurring
-  if (!isTicketPurchase) {
+  if (isTicketPurchase) {
+    productName = `Teacher Fund Ticket (${data.quantity}) purchased: ${data.frequency}`
+  } else {
+    productName = `Teacher Fund Donation of $${data.amount / 100}`
     recurring = data.mode === 'subscription' ? {
       interval: 'month'
     } : undefined
@@ -32,7 +36,7 @@ export default async (req, res) => {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: `Teacher Fund Ticket (${data.quantity}) purchased: ${data.frequency}`
+              name: productName
             },
             recurring,
             unit_amount: data.amount
