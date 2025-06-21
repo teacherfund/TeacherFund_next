@@ -30,7 +30,11 @@ class IndexPage extends Component {
 
   render () {
     return (
-      <PageWrapper title='The Teacher Fund'>
+      <PageWrapper
+        title='The Teacher Fund - Funding Teachers and Empowering Students'
+        description='Support public school teachers with funding for classroom supplies and resources. Help increase teacher retention and impact student success.'
+        url='https://theteacherfund.com'
+      >
         <div className='bg-white index tf-dark-gray'>
           <HeroImage />
           <section className='h-section ph2 pt4 pt6-l'>
@@ -135,7 +139,7 @@ class IndexPage extends Component {
                   </Box>
                   <Box className='index__metric border-tf-dark-gray' aria-label='Number of schools partenered with TeacherFund'>
                     <div className='tf-lato ts-title center'>
-                      5
+                      8
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Partner Schools
@@ -143,7 +147,7 @@ class IndexPage extends Component {
                   </Box>
                   <Box className='index__metric border-tf-gray' aria-label='Number of students impacted by TeacherFund'>
                     <div className='tf-lato ts-title center'>
-                      1461
+                      1642
                     </div>
                     <div className='pt2 tf-lato-lite ts-subtext center'>
                       Students Impacted
@@ -192,7 +196,7 @@ class IndexPage extends Component {
                     <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='7px'>
 
                       {/* Donate Button */}
-                      <Link href='/donate' legacyBehavior>
+                      <Link href='/donate?frequency=monthly' legacyBehavior>
                         <Box
                           as='button'
                           color='white'
@@ -232,7 +236,7 @@ class IndexPage extends Component {
                     </div>
                   </div>
                   <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='1px'>
-                    {/* Appky Today Button */}
+                    {/* Apply Today Button */}
                     <Link
                       href='mailto:joelwass@theteacherfund.com?subject=Application'
                       legacyBehavior>

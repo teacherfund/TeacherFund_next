@@ -7,7 +7,7 @@ const shadowSizes = {
   lg: '0 3px 20px rgba(0,0,0, .16)'
 }
 
-const Card = ({ shadowSz, children, ...props }) => (
+const Card = ({ shadowSz = 'md', children, ...props }) => (
   <Box
     backgroundColor='white'
     padding={{ base: '1.5rem', md: '3.125rem' }}
@@ -17,10 +17,6 @@ const Card = ({ shadowSz, children, ...props }) => (
     {children}
   </Box>
 )
-
-Card.defaultProps = {
-  shadowSz: 'md'
-}
 
 Card.propTypes = {
   shadowSz: PropTypes.string

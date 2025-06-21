@@ -3,7 +3,7 @@ import App from 'next/app'
 import withContext from '../containers/withContext'
 import { ChakraProvider } from '@chakra-ui/react'
 import '../public/styles/main.scss'
-import CustomTheme from '../public/theme'
+import { system } from '../public/theme'
 
 class TeacherFundApp extends App {
   static async getInitialProps ({ Component, ctx }) {
@@ -21,7 +21,7 @@ class TeacherFundApp extends App {
     const WrappedPage = withContext(Component, pageProps)
 
     return (
-      <ChakraProvider theme={CustomTheme}>
+      <ChakraProvider value={system}>
         <WrappedPage />
       </ChakraProvider>
     )

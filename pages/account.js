@@ -7,6 +7,7 @@ import { useAuth } from '../hooks/useAuth'
 import Link from 'next/link'
 import Card from '../components/card'
 import TaxReceiptButton from '../components/taxReceiptButton'
+import { toaster } from '../components/ui/toaster'
 
 const Account = () => {
   const { user, revalidate } = useAuth()
@@ -26,20 +27,31 @@ const Account = () => {
     }
   }, [user])
 
-  const cancelReccuringDonation = async () => {
+  const cancelRecurringDonation = async () => {
     setCancelLoading(true)
     try {
-      await fetch('/api/deleteDonation')
-      router.reload()
+      const response = await fetch('/api/stripe/donations/delete', { method: 'DELETE' })
+      if (response.ok) {
+        const data = await response.json()
+        if (data.error) {
+          throw new Error(data.error)
+        }
+        router.reload()
+      }
     } catch (e) {
-      // TODO show error deleting donation
+      toaster.create({
+        title: 'There was an issue canceling your donation.',
+        description: e.message || 'Please try again later.',
+        closable: true,
+        type: 'error'
+      })
     } finally {
       setCancelLoading(false)
     }
   }
 
   const tweet =
-    'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
+    'https://x.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
 
   return (
     <PageWrapper title='Account – The Teacher Fund'>
@@ -77,7 +89,7 @@ const Account = () => {
               </Text>
               <div className='mb3'>
                 <div className='white tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer btn-primary'>
-                  <Link href='donate' legacyBehavior>
+                  <Link href='donate?frequency=monthly' legacyBehavior>
                     <label className='ttu pointer'>
                       {user && user.donationAmount
                         ? 'donate again'
@@ -96,7 +108,7 @@ const Account = () => {
                   Spread the Word
                 </a>
               </div>
-              {user && user.customerId && (
+              {user && user.subscriptionId && (
                 <div className='mb3'>
                   <Button
                     color='white'
@@ -109,9 +121,9 @@ const Account = () => {
                     height='56px'
                     width={['75%', '50%']}
                     className='tf-lato btn-red ttu b tc pa2 w-50 m-auto'
-                    onClick={cancelReccuringDonation}
+                    onClick={cancelRecurringDonation}
                   >
-                    <label>Cancel donation</label>
+                    <span>Cancel donation</span>
                   </Button>
                 </div>
               )}

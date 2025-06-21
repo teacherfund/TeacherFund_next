@@ -1,6 +1,6 @@
 const Stripe = require('stripe')
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY)
-const { findOrCreateCustomer } = require('../../lib/stripeHelpers')
+const { findOrCreateCustomer } = require('../../../lib/stripeHelpers')
 
 export default async (req, res) => {
   const {

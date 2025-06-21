@@ -19,6 +19,10 @@ export default async (req, res) => {
     const { data } = response
     const [customer] = data
 
+    if (!customer) {
+      return res.json(user)
+    }
+
     const { id, metadata } = customer
     const { firstName, lastName } = metadata
 
@@ -29,14 +33,23 @@ export default async (req, res) => {
       lastName
     }
 
-    const subscription = customer.subscriptions.data[0]
-
-    if (subscription) {
-      user.donationAmount = subscription.plan.amount
+    // Get customer most recent subscription
+    const subscriptions = await stripe.subscriptions.list({
+      customer: id,
+      limit: 1,
+      status: 'active'
+    })
+    const [subscription] = subscriptions.data
+    if (!subscription) {
+      return res.json(user)
     }
-  } catch (e) {
-    console.error(e)
-  }
 
-  res.json(user)
+    user.subscriptionId = subscription.id
+    user.subscriptionStart = new Date(subscription.start_date * 1000).toLocaleString() // Convert to milliseconds
+    user.donationAmount = subscription.plan.amount
+
+    res.json(user)
+  } catch (e) {
+    return res.status(500).json({ error: 'Failed to fetch customer data from Stripe' })
+  }
 }

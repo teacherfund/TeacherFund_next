@@ -18,7 +18,7 @@ const SignIn = (props) => (
       height='100vh'
       {...props}>
       <Box align='center' fontSize='28px' paddingBottom='2rem'>
-        <h1>Sign in</h1>
+        <h4>Sign in</h4>
       </Box>
       <LoginForm />
     </Box>
