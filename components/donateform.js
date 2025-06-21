@@ -40,14 +40,6 @@ const validateForm = (values) => {
   return errors
 }
 
-const initialFormValues = {
-  frequencyIdx: 0,
-  firstName: '',
-  lastName: '',
-  email: '',
-  amount: ''
-}
-
 const ConfirmCheckout = ({ handleChange, update }) => {
   const checkout = useCheckout()
   if (!checkout) {
@@ -67,7 +59,7 @@ const ConfirmCheckout = ({ handleChange, update }) => {
   )
 }
 
-export default function DonateForm () {
+export default function DonateForm ({ initialFrequency = 0 }) {
   const [statuses, setStatuses] = useState({
     loading: false,
     redirectSuccess: false,
@@ -76,6 +68,14 @@ export default function DonateForm () {
   })
   const [checkoutSession, setCheckoutSession] = useState(null)
   const [checkout, setCheckout] = useState(null)
+
+  const initialFormValues = {
+    frequencyIdx: initialFrequency,
+    firstName: '',
+    lastName: '',
+    email: '',
+    amount: ''
+  }
 
   const setLocalState = (state) => {
     if (!state.error) state.error = ''
@@ -129,6 +129,7 @@ export default function DonateForm () {
     <Formik
       initialValues={initialFormValues}
       validate={validateForm}
+      enableReinitialize
       onSubmit={async (values, opts) => {
         await (statuses.isCheckoutSessionReady ? confirmCheckout() : donate(values))
         opts.setSubmitting(false)
@@ -144,10 +145,6 @@ export default function DonateForm () {
         isSubmitting
       }) => (
         <Form className='flex flex-column f4-m ph2' onSubmit={handleSubmit}>
-          <div className='error tf-lato tc'>
-            <p className='red' aria-live='assertive'>{statuses.error}</p>
-          </div>
-
           <DonationFrequency
             name='frequencyIdx'
             updateFrequency={handleChange}
@@ -241,6 +238,10 @@ export default function DonateForm () {
             </InputGroup>
             <Field.ErrorText>{errors.amount}</Field.ErrorText>
           </Field.Root>
+          <div className='error tf-lato tc'>
+            <p className='red' aria-live='assertive'>{statuses.error}</p>
+          </div>
+
           { statuses.loading && <h2 className='tc tf-lato mb3 mb3-m'>Loading...</h2>}
           {(statuses.isCheckoutSessionReady && checkoutSession) && (
             <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret: () => checkoutSession.clientSecret }}>

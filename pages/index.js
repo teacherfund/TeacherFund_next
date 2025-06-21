@@ -196,7 +196,7 @@ class IndexPage extends Component {
                     <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='7px'>
 
                       {/* Donate Button */}
-                      <Link href='/donate' legacyBehavior>
+                      <Link href='/donate?frequency=monthly' legacyBehavior>
                         <Box
                           as='button'
                           color='white'
@@ -236,7 +236,7 @@ class IndexPage extends Component {
                     </div>
                   </div>
                   <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='1px'>
-                    {/* Appky Today Button */}
+                    {/* Apply Today Button */}
                     <Link
                       href='mailto:joelwass@theteacherfund.com?subject=Application'
                       legacyBehavior>

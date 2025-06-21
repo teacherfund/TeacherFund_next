@@ -27,7 +27,7 @@ const Account = () => {
     }
   }, [user])
 
-  const cancelReccuringDonation = async () => {
+  const cancelRecurringDonation = async () => {
     setCancelLoading(true)
     try {
       const response = await fetch('/api/stripe/donations/delete', { method: 'DELETE' })
@@ -89,7 +89,7 @@ const Account = () => {
               </Text>
               <div className='mb3'>
                 <div className='white tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer btn-primary'>
-                  <Link href='donate' legacyBehavior>
+                  <Link href='donate?frequency=monthly' legacyBehavior>
                     <label className='ttu pointer'>
                       {user && user.donationAmount
                         ? 'donate again'
@@ -121,7 +121,7 @@ const Account = () => {
                     height='56px'
                     width={['75%', '50%']}
                     className='tf-lato btn-red ttu b tc pa2 w-50 m-auto'
-                    onClick={cancelReccuringDonation}
+                    onClick={cancelRecurringDonation}
                   >
                     <span>Cancel donation</span>
                   </Button>

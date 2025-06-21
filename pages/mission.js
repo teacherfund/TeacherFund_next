@@ -61,7 +61,7 @@ const Mission = () => {
 
           <div className=' db center  w-40-l w-80 pv3 pb0-ns ph4 tc pointer mt4'>
             <Link
-              href='/donate'
+              href='/donate?frequency=monthly'
               className='btn-primary no-underline pa3 db br-pill tf-lato b v-mid bg-tf-yellow w-80 m-auto'>
               Donate
             </Link>

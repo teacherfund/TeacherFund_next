@@ -31,7 +31,7 @@ const PageWrapper = (props) => {
           }}
         >
           <Text margin='auto'>Looking to purchase tickets to the Spring 2025 Seattle fundraising event? Click{' '}
-            <Link href={'/tickets'} className='white no-underline mv4 w5 center'>
+            <Link href={'/tickets?frequency=patron'} className='white no-underline mv4 w5 center'>
               here
             </Link>
           </Text>
