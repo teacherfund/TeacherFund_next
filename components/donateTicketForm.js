@@ -30,7 +30,6 @@ const validateForm = (values) => {
   }
   if (!quantity || quantity <= 0) {
     errors.quantity = 'Quantity must be > 0'
-
   }
   const lastNameError = validateText(lastName)
   if (lastNameError) {
