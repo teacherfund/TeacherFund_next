@@ -1,5 +1,5 @@
 /* global fetch */
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import DonationFrequency from './donationFrequency'
 import { Input, InputGroup, Field } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
@@ -40,7 +40,7 @@ const validateForm = (values) => {
   return errors
 }
 
-const ConfirmCheckout = ({ handleChange, update }) => {
+const StripePaymentElement = ({ handleChange, update }) => {
   const checkout = useCheckout()
   if (!checkout) {
     return <h2 className='tc tf-lato'>Loading payment options...</h2>
@@ -82,7 +82,7 @@ export default function DonateForm ({ initialFrequency = 0 }) {
     setStatuses(prev => ({ ...prev, ...state }))
   }
 
-  const donate = async (formValues) => {
+  const createStripeSession = async (formValues) => {
     setLocalState({ loading: true })
 
     try {
@@ -131,7 +131,7 @@ export default function DonateForm ({ initialFrequency = 0 }) {
       validate={validateForm}
       enableReinitialize
       onSubmit={async (values, opts) => {
-        await (statuses.isCheckoutSessionReady ? confirmCheckout() : donate(values))
+        await (statuses.isCheckoutSessionReady ? confirmCheckout() : createStripeSession(values))
         opts.setSubmitting(false)
       }}
     >
@@ -245,7 +245,7 @@ export default function DonateForm ({ initialFrequency = 0 }) {
           { statuses.loading && <h2 className='tc tf-lato mb3 mb3-m'>Loading...</h2>}
           {(statuses.isCheckoutSessionReady && checkoutSession) && (
             <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret: () => checkoutSession.clientSecret }}>
-              <ConfirmCheckout handleChange={handleChange} update={setCheckout} />
+              <StripePaymentElement handleChange={handleChange} update={setCheckout} />
             </CheckoutProvider>
           )}
           <button

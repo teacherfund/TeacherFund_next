@@ -1,12 +1,11 @@
 /* global fetch */
-import React, { useState } from 'react'
-import { CardElement } from '@stripe/react-stripe-js'
+import { useState, useEffect } from 'react'
+import { PaymentElement, CheckoutProvider, useCheckout } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
-import Router from 'next/router'
 import { Input, Text, InputGroup, Field } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
 import { validateEmail, validateText } from '../utils/validation.util'
-import { fundraisingEventTicket, fundraisingEventTicketPatron } from '../lib/constants'
+import { fundraisingEventTicket, fundraisingEventTicketPatron, stripePromise } from '../lib/constants'
 
 const availableFrequencies = [
   {
@@ -42,13 +41,34 @@ const validateForm = (values) => {
   return errors
 }
 
-export default function DonateTicketForm ({ initialFrequency = 0, stripe, elements }) {
+const StripePaymentElement = ({ handleChange, update }) => {
+  const checkout = useCheckout()
+  if (!checkout) {
+    return <h2 className='tc tf-lato'>Loading payment options...</h2>
+  }
+
+  useEffect(() => update(checkout), [])
+
+  return (
+    <div className='bg-white bn ba pa3 mb2'>
+      <PaymentElement
+        options={{ layout: 'tabs' }}
+        handleChange={handleChange}
+        name='cardNumber'
+      />
+    </div>
+  )
+}
+
+export default function DonateTicketForm ({ initialFrequency = 0 }) {
   const [statuses, setStatuses] = useState({
     loading: false,
     redirectSuccess: false,
     error: '',
     currentQuantity: 1
   })
+  const [checkoutSession, setCheckoutSession] = useState(null)
+  const [checkout, setCheckout] = useState(null)
 
   const initialFormValues = {
     frequencyIdx: initialFrequency,
@@ -64,6 +84,40 @@ export default function DonateTicketForm ({ initialFrequency = 0, stripe, elemen
     setStatuses(prev => ({ ...prev, ...state }))
   }
 
+  const createStripeSession = async (formValues) => {
+    setLocalState({ loading: true })
+
+    try {
+      const { frequencyIdx, firstName, lastName, email, amount, quantity } = formValues
+      const response = await fetch('/api/stripe/checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          amount: amount * 100, // Convert to cents
+          mode: 'payment', // Must be payment or subscription, since tickets are always solo payments, hard code this.
+          isTicket: true,
+          frequency: availableFrequencies[frequencyIdx].name,
+          quantity
+        })
+      })
+
+      const responseData = await response.json()
+      if (!response.ok) {
+        throw new Error(responseData.error || 'Failed to create checkout session')
+      }
+
+      setLocalState({ isCheckoutSessionReady: true, loading: false })
+      setCheckoutSession(responseData)
+    } catch (error) {
+      setLocalState({ error: 'Failed to create checkout session', loading: false })
+    }
+  }
+
   const customOnFrequencyChange = (e, handleChange, setFieldValue, values) => {
     const newFrequencyIdx = parseInt(e.currentTarget.value)
 
@@ -74,65 +128,22 @@ export default function DonateTicketForm ({ initialFrequency = 0, stripe, elemen
 
   const customOnQuantityChange = (e, handleChange, setFieldValue, values) => {
     const newQuantity = parseInt(e.currentTarget.value) || 0
-    // if (!newQuantity) {
-    //   handleChange(e)
-    //   return
-    // }
     const newAmount = availableFrequencies[values.frequencyIdx].amount * newQuantity
     setStatuses(prev => ({ ...prev, currentQuantity: newQuantity }))
     setFieldValue('amount', newAmount)
     handleChange(e)
   }
-  const donate = async (formValues) => {
+
+  const confirmCheckout = async () => {
     setLocalState({ loading: true })
-    let token
     try {
-      const cardElement = elements.getElement(CardElement)
-      const res = await stripe.createToken(cardElement)
-      token = res.token
-    } catch (e) {
-      setLocalState({ error: e.message, loading: false })
-      return
-    }
-
-    if (!token) {
-      setLocalState({ error: 'Invalid CC info!', loading: false })
-      return
-    }
-
-    try {
-      const { frequencyIdx, firstName, lastName, email, amount, quantity } = formValues
-      const responseStream = await fetch('/api/donations/purchase-ticket', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          source: token,
-          firstName,
-          frequency: availableFrequencies[frequencyIdx].name,
-          quantity,
-          lastName,
-          amount: amount * 100,
-          email
-        })
-      })
-      const response = await responseStream.json()
-      if (response.success) {
-        setLocalState({ redirectSuccess: true, loading: false })
-      } else {
-        setLocalState({ error: `Donation failed: ${response.message}`, loading: false })
+      const result = await checkout.confirm()
+      if (result.error) {
+        throw new Error(result.error.message || 'Payment confirmation failed')
       }
-    } catch (e) {
-      setLocalState({ error: e.message, loading: false })
+    } catch (error) {
+      setLocalState({ error: error.message, loading: false })
     }
-  }
-
-  const { redirectSuccess, loading, error } = statuses
-
-  if (redirectSuccess) {
-    Router.push('/ticket-success')
-    return <div />
   }
 
   return (
@@ -141,7 +152,7 @@ export default function DonateTicketForm ({ initialFrequency = 0, stripe, elemen
       validate={validateForm}
       enableReinitialize
       onSubmit={async (values, opts) => {
-        await donate(values)
+        await (statuses.isCheckoutSessionReady ? confirmCheckout() : createStripeSession(values))
         opts.setSubmitting(false)
       }}
     >
@@ -164,6 +175,7 @@ export default function DonateTicketForm ({ initialFrequency = 0, stripe, elemen
           <Field.Root
             className='form-control'
             invalid={errors.firstName && touched.firstName}
+            disabled={statuses.isCheckoutSessionReady}
           >
             <Text>First Name:</Text>
             <Input
@@ -184,6 +196,7 @@ export default function DonateTicketForm ({ initialFrequency = 0, stripe, elemen
           <Field.Root
             className='form-control'
             invalid={errors.lastName && touched.lastName}
+            disabled={statuses.isCheckoutSessionReady}
           >
             <Text>Last Name:</Text>
             <Input
@@ -204,6 +217,7 @@ export default function DonateTicketForm ({ initialFrequency = 0, stripe, elemen
           <Field.Root
             className='form-control'
             invalid={errors.email && touched.email}
+            disabled={statuses.isCheckoutSessionReady}
           >
             <Text>Email:</Text>
             <Input
@@ -224,6 +238,7 @@ export default function DonateTicketForm ({ initialFrequency = 0, stripe, elemen
           <Field.Root
             className='form-control'
             invalid={errors.quantity && touched.quantity}
+            disabled={statuses.isCheckoutSessionReady}
           >
             <Text>Quantity:</Text>
             <Input
@@ -250,6 +265,7 @@ export default function DonateTicketForm ({ initialFrequency = 0, stripe, elemen
           <Field.Root
             className='form-control'
             invalid={errors.amount && touched.amount}
+            disabled={statuses.isCheckoutSessionReady}
           >
             <Text>Amount:</Text>
             <InputGroup startElement='$' endElement='USD'>
@@ -272,20 +288,21 @@ export default function DonateTicketForm ({ initialFrequency = 0, stripe, elemen
             <Field.ErrorText>{errors.amount}</Field.ErrorText>
           </Field.Root>
           <div className='error tf-lato tc'>
-            <p className='red' aria-live='assertive'>{error}</p>
+            <p className='red' aria-live='assertive'>{statuses.error}</p>
           </div>
 
-          <Text>Payment Info:</Text>
-          <div className='bg-white bn ba pa3 mb2'>
-            <CardElement handleChange={handleChange} name='cardNumber' />
-          </div>
-          { loading && <h2 className='tc tf-lato'>Loading...</h2>}
+          { statuses.loading && <h2 className='tc tf-lato mb3 mb3-m'>Loading...</h2>}
+          {(statuses.isCheckoutSessionReady && checkoutSession) && (
+            <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret: () => checkoutSession.clientSecret }}>
+              <StripePaymentElement handleChange={handleChange} update={setCheckout} />
+            </CheckoutProvider>
+          )}
           <button
             type='submit'
-            disabled={isSubmitting}
+            disabled={isSubmitting || statuses.loading}
             className='white btn-donate tf-lato b tc pa3 mt3 mt3-m mh-auto br-pill pointer w-50'
           >
-            Purchase ticket
+            {statuses.loading ? 'Processing...' : statuses.isCheckoutSessionReady ? 'Purchase Ticket' : 'Load Payment Form'}
           </button>
         </Form>
       )}

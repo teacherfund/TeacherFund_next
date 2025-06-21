@@ -12,6 +12,14 @@ export default async (req, res) => {
     email: data.email
   })
 
+  const isTicketPurchase = data.isTicket || false
+  let recurring
+  if (!isTicketPurchase) {
+    recurring = data.mode === 'subscription' ? {
+      interval: 'month'
+    } : undefined
+  }
+
   // Create checkout session for the user
   try {
     const session = await stripe.checkout.sessions.create({
@@ -24,17 +32,15 @@ export default async (req, res) => {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: `Teacher Fund Donation of $${data.amount / 100}`
+              name: `Teacher Fund Ticket (${data.quantity}) purchased: ${data.frequency}`
             },
-            recurring: data.mode === 'subscription' ? {
-              interval: 'month'
-            } : undefined,
+            recurring,
             unit_amount: data.amount
           },
-          quantity: 1
+          quantity: data.quantity || 1
         }
       ],
-      return_url: `${process.env.DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`
+      return_url: isTicketPurchase ? `${process.env.DOMAIN}/ticket-success?session_id={CHECKOUT_SESSION_ID}` : `${process.env.DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`
     })
 
     res.json({ clientSecret: session.client_secret })
