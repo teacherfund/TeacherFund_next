@@ -39,6 +39,6 @@ export default async (req, res) => {
 
     res.json({ clientSecret: session.client_secret })
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create checkout session: ' + error.message })
+    res.status(500).json({ error: `Failed to create checkout session: ${error.message}` })
   }
 }

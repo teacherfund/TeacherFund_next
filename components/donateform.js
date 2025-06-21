@@ -253,7 +253,7 @@ export default function DonateForm ({ initialFrequency = 0 }) {
             disabled={isSubmitting || statuses.loading}
             className='white btn-donate tf-lato b tc pa3 mt3 mt3-m mh-auto br-pill pointer w-50'
           >
-            {statuses.loading ? 'Processing...' : statuses.isCheckoutSessionReady ? 'Confirm Payment' : 'Donate'}
+            {statuses.loading ? 'Processing...' : statuses.isCheckoutSessionReady ? 'Confirm Payment' : 'Load Payment Form'}
           </button>
         </Form>
       )}
