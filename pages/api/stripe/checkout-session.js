@@ -27,17 +27,25 @@ export default async (req, res) => {
   // Create checkout session for the user
   try {
     // Cancel the customer's existing subscription
-    const { data: subscriptions } = await stripe.subscriptions.list({
-      customer: customer.id,
-      status: 'active',
-      limit: 1
-    })
-
-    if (subscriptions.length > 0) {
-      await stripe.subscriptions.cancel(subscriptions[0].id, {
-        invoice_now: true,
-        prorate: false
+    if (!isTicketPurchase && recurring) {
+      const { data: subscriptions } = await stripe.subscriptions.list({
+        customer: customer.id,
+        status: 'active',
+        limit: 1
       })
+
+      if (subscriptions.length > 0) {
+        // Ensure it is not the same subscription
+        const { items: { data: [firstItem] } } = subscriptions[0]
+        if (firstItem.price.unit_amount === data.amount) {
+          return res.status(400).json({ error: 'You already have a recurring donation of the same amount' })
+        }
+
+        await stripe.subscriptions.cancel(subscriptions[0].id, {
+          invoice_now: true,
+          prorate: false
+        })
+      }
     }
 
     // Create a new checkout session

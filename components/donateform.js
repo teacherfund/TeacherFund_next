@@ -109,7 +109,7 @@ export default function DonateForm ({ initialFrequency = 0 }) {
       setLocalState({ isCheckoutSessionReady: true, loading: false })
       setCheckoutSession(responseData)
     } catch (error) {
-      setLocalState({ error: 'Failed to create checkout session', loading: false })
+      setLocalState({ error: error.message || 'Failed to create checkout session', loading: false })
     }
   }
 
