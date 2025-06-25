@@ -41,10 +41,7 @@ export default async (req, res) => {
           return res.status(400).json({ error: 'You already have a recurring donation of the same amount' })
         }
 
-        await stripe.subscriptions.cancel(subscriptions[0].id, {
-          invoice_now: true,
-          prorate: false
-        })
+        await stripe.subscriptions.cancel(subscriptions[0].id)
       }
     }
 
