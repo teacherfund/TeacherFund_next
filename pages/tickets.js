@@ -1,20 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PageWrapper from '../components/pageWrapper'
 import DonateTicketForm from '../components/donateTicketForm'
 import { Box } from '@chakra-ui/react'
 
 export default function Tickets () {
-  const [initialFrequency, setInitialFrequency] = useState(0)
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search)
-    const frequency = urlParams.get('frequency')
-
-    if (frequency === 'patron') {
-      setInitialFrequency(1)
-    }
-  }, [])
-
   return (
     <PageWrapper title='Ticket Donation – The Teacher Fund' noShowBanner>
       <React.Fragment>
@@ -54,7 +43,7 @@ export default function Tickets () {
               can be retrieved by logging in with the email used for ticket purchase.
           </div>
           <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
-            <DonateTicketForm initialFrequency={initialFrequency} />
+            <DonateTicketForm />
           </div>
         </div>
       </React.Fragment>

@@ -1,5 +1,6 @@
 /* global fetch */
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { PaymentElement, CheckoutProvider, useCheckout } from '@stripe/react-stripe-js'
 import DonationFrequency from './donationFrequency'
 import { Input, Text, InputGroup, Field } from '@chakra-ui/react'
@@ -41,7 +42,7 @@ const validateForm = (values) => {
   return errors
 }
 
-const StripePaymentElement = ({ handleChange, update }) => {
+const StripePaymentElement = ({ handleChange, update, onStripeChange }) => {
   const checkout = useCheckout()
   if (!checkout) {
     return <h2 className='tc tf-lato'>Loading payment options...</h2>
@@ -53,6 +54,7 @@ const StripePaymentElement = ({ handleChange, update }) => {
     <div className='bg-white bn ba pa3 mb2'>
       <PaymentElement
         options={{ layout: 'tabs' }}
+        onChange={onStripeChange}
         handleChange={handleChange}
         name='cardNumber'
       />
@@ -60,7 +62,8 @@ const StripePaymentElement = ({ handleChange, update }) => {
   )
 }
 
-export default function DonateTicketForm ({ initialFrequency = 0 }) {
+export default function DonateTicketForm () {
+  const router = useRouter()
   const [statuses, setStatuses] = useState({
     loading: false,
     redirectSuccess: false,
@@ -70,18 +73,64 @@ export default function DonateTicketForm ({ initialFrequency = 0 }) {
   const [checkoutSession, setCheckoutSession] = useState(null)
   const [checkout, setCheckout] = useState(null)
 
+  const getInitialFrequency = () => {
+    if (!router.isReady) return 0
+    const frequency = router.query.frequency
+    return frequency === 'patron' ? 1 : 0
+  }
+
+  const getInitialAmount = () => {
+    const frequencyIdx = getInitialFrequency()
+    return availableFrequencies[frequencyIdx].amount
+  }
+
   const initialFormValues = {
-    frequencyIdx: initialFrequency,
+    frequencyIdx: getInitialFrequency(),
     firstName: '',
     lastName: '',
     quantity: 1,
     email: '',
-    amount: availableFrequencies[initialFrequency].amount
+    amount: getInitialAmount()
   }
 
   const setLocalState = (state) => {
     if (!state.error) state.error = ''
     setStatuses(prev => ({ ...prev, ...state }))
+  }
+
+  const handleStripeChange = () => {
+    if (statuses.error) {
+      setTimeout(() => setLocalState({ error: '' }), 300)
+    }
+  }
+
+  const customOnFrequencyChange = (event, setFieldValue, values) => {
+    const frequencyIdx = parseInt(event.currentTarget.value)
+
+    // Update form state
+    const newAmount = availableFrequencies[frequencyIdx].amount * values.quantity
+    setFieldValue('frequencyIdx', frequencyIdx)
+    setFieldValue('amount', newAmount)
+
+    // Update URL
+    const frequencyParam = frequencyIdx === 1 ? 'patron' : 'regular'
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, frequency: frequencyParam }
+    }, undefined, { shallow: true })
+  }
+
+  const customOnQuantityChange = (event, setFieldValue, values) => {
+    const newQuantity = parseInt(event.currentTarget.value) || 0
+
+    const newAmount = availableFrequencies[values.frequencyIdx].amount * newQuantity
+
+    // Update both form fields directly
+    setFieldValue('quantity', newQuantity)
+    setFieldValue('amount', newAmount)
+
+    // Update local state for UI purposes
+    setStatuses(prev => ({ ...prev, currentQuantity: newQuantity }))
   }
 
   const createStripeSession = async (formValues) => {
@@ -118,22 +167,6 @@ export default function DonateTicketForm ({ initialFrequency = 0 }) {
     }
   }
 
-  const customOnFrequencyChange = (e, handleChange, setFieldValue, values) => {
-    const newFrequencyIdx = parseInt(e.currentTarget.value)
-
-    const newAmount = availableFrequencies[newFrequencyIdx].amount * values.quantity
-    setFieldValue('amount', newAmount)
-    handleChange(e)
-  }
-
-  const customOnQuantityChange = (e, handleChange, setFieldValue, values) => {
-    const newQuantity = parseInt(e.currentTarget.value) || 0
-    const newAmount = availableFrequencies[values.frequencyIdx].amount * newQuantity
-    setStatuses(prev => ({ ...prev, currentQuantity: newQuantity }))
-    setFieldValue('amount', newAmount)
-    handleChange(e)
-  }
-
   const confirmCheckout = async () => {
     setLocalState({ loading: true })
     try {
@@ -168,7 +201,7 @@ export default function DonateTicketForm ({ initialFrequency = 0 }) {
       }) => (
         <Form className='flex flex-column f4-m ph2' onSubmit={handleSubmit}>
           <DonationFrequency
-            updateFrequency={(e) => customOnFrequencyChange(e, handleChange, setFieldValue, values)}
+            updateFrequency={(e) => customOnFrequencyChange(e, setFieldValue, values)}
             frequencyIdx={values.frequencyIdx}
             availableFrequencies={availableFrequencies}
           />
@@ -246,8 +279,11 @@ export default function DonateTicketForm ({ initialFrequency = 0 }) {
               name='quantity'
               placeholder='Quantity'
               value={values.quantity}
-              onChange={(e) => customOnQuantityChange(e, handleChange, setFieldValue, values)}
+              onChange={(e) => customOnQuantityChange(e, setFieldValue, values)}
               onBlur={handleBlur}
+              onWheel={(e) => {
+                e.target.blur()
+              }}
               onKeyDown={(e) => {
                 // Block minus key, plus key, and 'e' (scientific notation)
                 if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
@@ -294,7 +330,11 @@ export default function DonateTicketForm ({ initialFrequency = 0 }) {
           { statuses.loading && <h2 className='tc tf-lato mb3 mb3-m'>Loading...</h2>}
           {(statuses.isCheckoutSessionReady && checkoutSession) && (
             <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret: () => checkoutSession.clientSecret }}>
-              <StripePaymentElement handleChange={handleChange} update={setCheckout} />
+              <StripePaymentElement
+                handleChange={handleChange}
+                update={setCheckout}
+                onStripeChange={handleStripeChange}
+              />
             </CheckoutProvider>
           )}
           <button
