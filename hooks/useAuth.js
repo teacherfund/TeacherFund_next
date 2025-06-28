@@ -11,7 +11,6 @@ function fetcher (route) {
 export function useAuth () {
   const { data: user, error, isValidating, mutate: revalidate } = useSWR('/api/account', fetcher)
   const loading = (user === undefined || isValidating)
-
   return { user, loading, revalidate, error }
 }
 
