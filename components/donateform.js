@@ -112,6 +112,29 @@ export default function DonateForm () {
     }, undefined, { shallow: true })
   }
 
+  const customOnAmountChange = (event, setFieldValue) => {
+    let inputValue = event.currentTarget.value
+
+    // Handle empty field or remove leading zeros
+    if (inputValue === '') {
+      setFieldValue('amount', '')
+      return
+    }
+
+    inputValue = inputValue.replace(/^0+/, '')
+
+    // Parse as decimal integer, then validate
+    const newAmount = parseInt(inputValue, 10)
+
+    // Only proceed if it's a valid number >= 1
+    if (isNaN(newAmount) || newAmount < 1) {
+      return
+    }
+
+    setFieldValue('amount', newAmount)
+    event.currentTarget.value = newAmount.toString()
+  }
+
   const createStripeSession = async (formValues) => {
     setLocalState({ loading: true })
 
@@ -253,18 +276,18 @@ export default function DonateForm () {
                 placeholder='Amount'
                 maxLength={10}
                 value={values.amount}
-                onChange={handleChange}
+                onChange={(e) => customOnAmountChange(e, setFieldValue)}
                 onBlur={handleBlur}
                 onWheel={(e) => {
                   e.target.blur()
                 }}
                 onKeyDown={(e) => {
                   // Block minus key, plus key, and 'e' (scientific notation)
-                  if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
+                  if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E' || e.key === '.') {
                     e.preventDefault()
                   }
                 }}
-                min='0'
+                min='1'
                 fontFamily='inherit'
                 bg='white'
                 _placeholder={{ color: 'grey' }}

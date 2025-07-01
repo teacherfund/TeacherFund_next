@@ -121,7 +121,25 @@ export default function DonateTicketForm () {
   }
 
   const customOnQuantityChange = (event, setFieldValue, values) => {
-    const newQuantity = parseInt(event.currentTarget.value) || 0
+    let inputValue = event.currentTarget.value
+
+    // Handle empty field or remove leading zeros
+    if (inputValue === '') {
+      setFieldValue('quantity', '')
+      setFieldValue('amount', 0)
+      setStatuses(prev => ({ ...prev, currentQuantity: 0 }))
+      return
+    }
+
+    inputValue = inputValue.replace(/^0+/, '')
+
+    // Parse as decimal integer, then validate
+    const newQuantity = parseInt(inputValue, 10)
+
+    // Only proceed if it's a valid number >= 1
+    if (isNaN(newQuantity) || newQuantity < 1) {
+      return
+    }
 
     const newAmount = availableFrequencies[values.frequencyIdx].amount * newQuantity
 
@@ -131,6 +149,8 @@ export default function DonateTicketForm () {
 
     // Update local state for UI purposes
     setStatuses(prev => ({ ...prev, currentQuantity: newQuantity }))
+
+    event.currentTarget.value = newQuantity.toString()
   }
 
   const createStripeSession = async (formValues) => {
@@ -286,7 +306,7 @@ export default function DonateTicketForm () {
               }}
               onKeyDown={(e) => {
                 // Block minus key, plus key, and 'e' (scientific notation)
-                if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
+                if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E' || e.key === '.') {
                   e.preventDefault()
                 }
               }}
