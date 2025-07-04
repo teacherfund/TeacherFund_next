@@ -1,6 +1,6 @@
 /* global fetch */
 import React, { useState, useEffect } from 'react'
-import { Button, Text, Box, Image, Flex, CloseButton } from '@chakra-ui/react'
+import { Button, Text, Box, Image, Flex } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import PageWrapper from '../components/pageWrapper'
 import { useAuth } from '../hooks/useAuth'
@@ -8,17 +8,6 @@ import Link from 'next/link'
 import Card from '../components/card'
 import TaxReceiptButton from '../components/taxReceiptButton'
 import { toaster } from '../components/ui/toaster'
-import {
-  DialogRoot,
-  DialogTrigger,
-  DialogContent,
-  DialogBody,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogCloseTrigger,
-  DialogActionTrigger
-} from '../components/ui/dialog'
 
 const Account = () => {
   const { user, revalidate } = useAuth()
@@ -99,51 +88,13 @@ const Account = () => {
                 you know. Words do not do justice.
               </Text>
               <div className='mb3'>
-                {!user?.donationAmount ? (
-                  <div className='white tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer btn-primary'>
-                    <Link href='donate?frequency=monthly' legacyBehavior>
-                      <label className='ttu pointer'>Donate Now</label>
-                    </Link>
-                  </div>
-                ) : (
-                  <DialogRoot
-                    placement='center'
-                    motionPreset='slide-in-bottom'
-                  >
-                    <DialogTrigger asChild>
-                      <div className='white tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer btn-primary'>
-                        <label className='ttu pointer'>Donate Again</label>
-                      </div>
-                    </DialogTrigger>
-                    <DialogContent
-                      portalled
-                      backdrop
-                      width='100%'
-                      maxWidth='500px'
-                    >
-                      <DialogHeader>
-                        <DialogTitle>This action is irreversible!</DialogTitle>
-                      </DialogHeader>
-                      <DialogBody>
-                        <Text fontSize='1.5rem' marginBottom='1rem' className='tf-lato'>
-                            Are you sure you want to donate again? This will cancel your current
-                            active recurring donation and create a new one.
-                        </Text>
-                      </DialogBody>
-                      <DialogFooter>
-                        <DialogActionTrigger asChild>
-                          <Button className='tf-lato btn-secondary w-50 ttu b tc pa3 m-auto br-pill'>Cancel</Button>
-                        </DialogActionTrigger>
-                        <Link href='donate?frequency=monthly' legacyBehavior asChild>
-                          <Button className='tf-lato btn-primary w-50 ttu b tc pa3 m-auto br-pill'>Proceed</Button>
-                        </Link>
-                      </DialogFooter>
-                      <DialogCloseTrigger asChild>
-                        <CloseButton size='sm' />
-                      </DialogCloseTrigger>
-                    </DialogContent>
-                  </DialogRoot>
-                )}
+                <div className='white tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer btn-primary'>
+                  <Link href='donate?frequency=monthly' legacyBehavior>
+                    <label className='ttu pointer'>
+                      {user?.donationAmount ? 'Donate Again' : 'Donate Now'}
+                    </label>
+                  </Link>
+                </div>
               </div>
               <div className='mb3'>
                 <a

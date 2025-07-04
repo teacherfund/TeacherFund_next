@@ -7,6 +7,8 @@ import { Form, Formik } from 'formik'
 import { validateCurrency, validateEmail, validateText } from '../utils/validation.util'
 import { PaymentElement, CheckoutProvider, useCheckout } from '@stripe/react-stripe-js'
 import { stripePromise } from '../lib/constants'
+import { useAuth } from '../hooks/useAuth'
+import ExistingDonationDialog from './existingDonationDialog'
 
 const availableFrequencies = [
   {
@@ -64,14 +66,16 @@ const StripePaymentElement = ({ handleChange, update, onStripeChange }) => {
 
 export default function DonateForm () {
   const router = useRouter()
+  const { user } = useAuth()
   const [statuses, setStatuses] = useState({
-    loading: false,
     redirectSuccess: false,
     error: '',
     isCheckoutSessionReady: false
   })
   const [checkoutSession, setCheckoutSession] = useState(null)
   const [checkout, setCheckout] = useState(null)
+  const [showConfirmationDialog, setShowConfirmationDialog] = useState(false)
+  const [pendingFormValues, setPendingFormValues] = useState(null)
 
   const getInitialFrequency = () => {
     if (!router.isReady) return 0
@@ -113,8 +117,6 @@ export default function DonateForm () {
   }
 
   const createStripeSession = async (formValues) => {
-    setLocalState({ loading: true })
-
     try {
       const { frequencyIdx, firstName, lastName, email, amount } = formValues
       const response = await fetch('/api/stripe/checkout-session', {
@@ -136,23 +138,55 @@ export default function DonateForm () {
         throw new Error(responseData.error || 'Failed to create checkout session')
       }
 
-      setLocalState({ isCheckoutSessionReady: true, loading: false })
+      setLocalState({ isCheckoutSessionReady: true })
       setCheckoutSession(responseData)
     } catch (error) {
-      setLocalState({ error: error.message || 'Failed to create checkout session', loading: false })
+      setLocalState({ error: error.message || 'Failed to create checkout session' })
     }
   }
 
   const confirmCheckout = async () => {
-    setLocalState({ loading: true })
     try {
       const result = await checkout.confirm()
       if (result.error) {
         throw new Error(result.error.message || 'Payment confirmation failed')
       }
     } catch (error) {
-      setLocalState({ error: error.message, loading: false })
+      setLocalState({ error: error.message })
     }
+  }
+
+  const handleFormSubmit = async (values, opts) => {
+    // Check if user is trying to set up a monthly donation and already has one
+    // Only show dialog if the amounts are different (server will handle same amount case)
+    if (values.frequencyIdx === 1 && user?.donationAmount && user?.subscriptionId) {
+      const currentAmount = user.donationAmount / 100
+      const newAmount = parseFloat(values.amount)
+      if (currentAmount !== newAmount) {
+        setPendingFormValues(values)
+        setShowConfirmationDialog(true)
+        return
+      }
+    }
+
+    // Proceed with normal submission
+    if (statuses.isCheckoutSessionReady) {
+      await confirmCheckout()
+    } else {
+      await createStripeSession(values)
+    }
+  }
+
+  const handleConfirmUpdate = async () => {
+    setShowConfirmationDialog(false)
+    if (pendingFormValues) {
+      await createStripeSession(pendingFormValues)
+    }
+  }
+
+  const handleCancelUpdate = () => {
+    setShowConfirmationDialog(false)
+    setPendingFormValues(null)
   }
 
   return (
@@ -160,10 +194,7 @@ export default function DonateForm () {
       initialValues={initialFormValues}
       validate={validateForm}
       enableReinitialize
-      onSubmit={async (values, opts) => {
-        await (statuses.isCheckoutSessionReady ? confirmCheckout() : createStripeSession(values))
-        opts.setSubmitting(false)
-      }}
+      onSubmit={handleFormSubmit}
     >
       {({
         values,
@@ -175,125 +206,135 @@ export default function DonateForm () {
         setFieldValue,
         isSubmitting
       }) => (
-        <Form className='flex flex-column f4-m ph2' onSubmit={handleSubmit}>
-          <DonationFrequency
-            name='frequencyIdx'
-            updateFrequency={(e) => customOnFrequencyChange(e, setFieldValue)}
-            frequencyIdx={values.frequencyIdx}
-            availableFrequencies={availableFrequencies}
-          />
-          <Field.Root
-            className='form-control'
-            invalid={errors.firstName && touched.firstName}
-            disabled={statuses.isCheckoutSessionReady}
-          >
-            <Input
-              type='text'
-              name='firstName'
-              maxLength={64}
-              placeholder='First name'
-              value={values.firstName}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              fontFamily='inherit'
-              bg='white'
-              _placeholder={{ color: 'grey' }}
-              aria-label='First Name' />
-            <Field.ErrorText>{errors.firstName}</Field.ErrorText>
-          </Field.Root>
-          <Field.Root
-            className='form-control'
-            invalid={errors.lastName && touched.lastName}
-            disabled={statuses.isCheckoutSessionReady}
-          >
-            <Input
-              type='text'
-              name='lastName'
-              maxLength={64}
-              placeholder='Last name'
-              value={values.lastName}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              fontFamily='inherit'
-              bg='white'
-              _placeholder={{ color: 'grey' }}
-              aria-label='Last Name' />
-            <Field.ErrorText>{errors.lastName}</Field.ErrorText>
-          </Field.Root>
-          <Field.Root
-            className='form-control'
-            invalid={errors.email && touched.email}
-            disabled={statuses.isCheckoutSessionReady}
-          >
-            <Input
-              type='email'
-              name='email'
-              maxLength={320}
-              placeholder='Email'
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              fontFamily='inherit'
-              bg='white'
-              _placeholder={{ color: 'grey' }}
-              aria-label='Email'
+        <>
+          <Form className='flex flex-column f4-m ph2' onSubmit={handleSubmit}>
+            <DonationFrequency
+              name='frequencyIdx'
+              updateFrequency={(e) => customOnFrequencyChange(e, setFieldValue)}
+              frequencyIdx={values.frequencyIdx}
+              availableFrequencies={availableFrequencies}
             />
-            <Field.ErrorText>{errors.email}</Field.ErrorText>
-          </Field.Root>
-          <Field.Root
-            className='form-control'
-            invalid={errors.amount && touched.amount}
-            disabled={statuses.isCheckoutSessionReady}
-          >
-            <InputGroup startElement='$' endElement='USD'>
+            <Field.Root
+              className='form-control'
+              invalid={errors.firstName && touched.firstName}
+              disabled={isSubmitting || statuses.isCheckoutSessionReady}
+            >
               <Input
-                style={{ paddingLeft: '2rem' }}
-                type='number'
-                name='amount'
-                placeholder='Amount'
-                maxLength={10}
-                value={values.amount}
+                type='text'
+                name='firstName'
+                maxLength={64}
+                placeholder='First name'
+                value={values.firstName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                onWheel={(e) => {
-                  e.target.blur()
-                }}
-                onKeyDown={(e) => {
-                  // Block minus key, plus key, and 'e' (scientific notation)
-                  if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
-                    e.preventDefault()
-                  }
-                }}
-                min='0'
                 fontFamily='inherit'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
-                aria-label='Amount' />
-            </InputGroup>
-            <Field.ErrorText>{errors.amount}</Field.ErrorText>
-          </Field.Root>
-          <div className='error tf-lato tc'>
-            <p className='red' aria-live='assertive'>{statuses.error}</p>
-          </div>
-
-          { statuses.loading && <h2 className='tc tf-lato mb3 mb3-m'>Loading...</h2>}
-          {(statuses.isCheckoutSessionReady && checkoutSession) && (
-            <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret: () => checkoutSession.clientSecret }}>
-              <StripePaymentElement
-                handleChange={handleChange}
-                update={setCheckout}
-                onStripeChange={handleStripeChange}
+                aria-label='First Name' />
+              <Field.ErrorText>{errors.firstName}</Field.ErrorText>
+            </Field.Root>
+            <Field.Root
+              className='form-control'
+              invalid={errors.lastName && touched.lastName}
+              disabled={isSubmitting || statuses.isCheckoutSessionReady}
+            >
+              <Input
+                type='text'
+                name='lastName'
+                maxLength={64}
+                placeholder='Last name'
+                value={values.lastName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                fontFamily='inherit'
+                bg='white'
+                _placeholder={{ color: 'grey' }}
+                aria-label='Last Name' />
+              <Field.ErrorText>{errors.lastName}</Field.ErrorText>
+            </Field.Root>
+            <Field.Root
+              className='form-control'
+              invalid={errors.email && touched.email}
+              disabled={isSubmitting || statuses.isCheckoutSessionReady}
+            >
+              <Input
+                type='email'
+                name='email'
+                maxLength={320}
+                placeholder='Email'
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                fontFamily='inherit'
+                bg='white'
+                _placeholder={{ color: 'grey' }}
+                aria-label='Email'
               />
-            </CheckoutProvider>
-          )}
-          <button
-            type='submit'
-            disabled={isSubmitting || statuses.loading}
-            className='white btn-donate tf-lato b tc pa3 mt3 mt3-m mh-auto br-pill pointer w-50'
-          >
-            {statuses.loading ? 'Processing...' : statuses.isCheckoutSessionReady ? 'Confirm Payment' : 'Load Payment Form'}
-          </button>
-        </Form>
+              <Field.ErrorText>{errors.email}</Field.ErrorText>
+            </Field.Root>
+            <Field.Root
+              className='form-control'
+              invalid={errors.amount && touched.amount}
+              disabled={isSubmitting || statuses.isCheckoutSessionReady}
+            >
+              <InputGroup startElement='$' endElement='USD'>
+                <Input
+                  style={{ paddingLeft: '2rem' }}
+                  type='number'
+                  name='amount'
+                  placeholder='Amount'
+                  maxLength={10}
+                  value={values.amount}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  onWheel={(e) => {
+                    e.target.blur()
+                  }}
+                  onKeyDown={(e) => {
+                  // Block minus key, plus key, and 'e' (scientific notation)
+                    if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
+                      e.preventDefault()
+                    }
+                  }}
+                  min='0'
+                  fontFamily='inherit'
+                  bg='white'
+                  _placeholder={{ color: 'grey' }}
+                  aria-label='Amount' />
+              </InputGroup>
+              <Field.ErrorText>{errors.amount}</Field.ErrorText>
+            </Field.Root>
+            <div className='error tf-lato tc'>
+              <p className='red' aria-live='assertive'>{statuses.error}</p>
+            </div>
+            {(statuses.isCheckoutSessionReady && checkoutSession) && (
+              <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret: () => checkoutSession.clientSecret }}>
+                <StripePaymentElement
+                  handleChange={handleChange}
+                  update={setCheckout}
+                  onStripeChange={handleStripeChange}
+                />
+              </CheckoutProvider>
+            )}
+            <button
+              type='submit'
+              disabled={isSubmitting}
+              className='white btn-donate tf-lato b tc pa3 mt3 mt3-m mh-auto br-pill pointer w-50'
+            >
+              {isSubmitting ? 'Processing...' : statuses.isCheckoutSessionReady ? 'Confirm Payment' : 'Continue'}
+            </button>
+          </Form>
+
+          {/* Confirmation Dialog for Existing Monthly Donation */}
+          <ExistingDonationDialog
+            isOpen={showConfirmationDialog}
+            onClose={() => setShowConfirmationDialog(false)}
+            onConfirm={handleConfirmUpdate}
+            onCancel={handleCancelUpdate}
+            currentAmount={user?.donationAmount ? user.donationAmount / 100 : 0}
+            newAmount={pendingFormValues?.amount || 0}
+          />
+        </>
       )}
     </Formik>
   )
