@@ -1,5 +1,6 @@
 /* global fetch */
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import DonationFrequency from './donationFrequency'
 import { Input, InputGroup, Field } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
@@ -40,16 +41,9 @@ const validateForm = (values) => {
   return errors
 }
 
-const initialFormValues = {
-  frequencyIdx: 0,
-  firstName: '',
-  lastName: '',
-  email: '',
-  amount: ''
-}
-
-const ConfirmCheckout = ({ handleChange, update }) => {
+const StripePaymentElement = ({ handleChange, update, onStripeChange }) => {
   const checkout = useCheckout()
+
   if (!checkout) {
     return <h2 className='tc tf-lato'>Loading payment options...</h2>
   }
@@ -60,6 +54,7 @@ const ConfirmCheckout = ({ handleChange, update }) => {
     <div className='bg-white bn ba pa3 mb2'>
       <PaymentElement
         options={{ layout: 'tabs' }}
+        onChange={onStripeChange}
         handleChange={handleChange}
         name='cardNumber'
       />
@@ -68,6 +63,7 @@ const ConfirmCheckout = ({ handleChange, update }) => {
 }
 
 export default function DonateForm () {
+  const router = useRouter()
   const [statuses, setStatuses] = useState({
     loading: false,
     redirectSuccess: false,
@@ -77,12 +73,69 @@ export default function DonateForm () {
   const [checkoutSession, setCheckoutSession] = useState(null)
   const [checkout, setCheckout] = useState(null)
 
+  const getInitialFrequency = () => {
+    if (!router.isReady) return 0
+    const frequency = router.query.frequency
+    return frequency === 'monthly' ? 1 : 0
+  }
+
+  const initialFormValues = {
+    frequencyIdx: getInitialFrequency(),
+    firstName: '',
+    lastName: '',
+    email: '',
+    amount: ''
+  }
+
   const setLocalState = (state) => {
     if (!state.error) state.error = ''
     setStatuses(prev => ({ ...prev, ...state }))
   }
 
-  const donate = async (formValues) => {
+  const handleStripeChange = () => {
+    if (statuses.error) {
+      setTimeout(() => setLocalState({ error: '' }), 300)
+    }
+  }
+
+  const customOnFrequencyChange = (event, setFieldValue) => {
+    const frequencyIdx = parseInt(event.target.value)
+
+    // Update form state
+    setFieldValue('frequencyIdx', frequencyIdx)
+
+    // Update URL
+    const frequencyParam = frequencyIdx === 1 ? 'monthly' : 'single'
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, frequency: frequencyParam }
+    }, undefined, { shallow: true })
+  }
+
+  const customOnAmountChange = (event, setFieldValue) => {
+    let inputValue = event.currentTarget.value
+
+    // Handle empty field or remove leading zeros
+    if (inputValue === '') {
+      setFieldValue('amount', '')
+      return
+    }
+
+    inputValue = inputValue.replace(/^0+/, '')
+
+    // Parse as decimal integer, then validate
+    const newAmount = parseInt(inputValue, 10)
+
+    // Only proceed if it's a valid number >= 1
+    if (isNaN(newAmount) || newAmount < 1) {
+      return
+    }
+
+    setFieldValue('amount', newAmount)
+    event.currentTarget.value = newAmount.toString()
+  }
+
+  const createStripeSession = async (formValues) => {
     setLocalState({ loading: true })
 
     try {
@@ -109,7 +162,7 @@ export default function DonateForm () {
       setLocalState({ isCheckoutSessionReady: true, loading: false })
       setCheckoutSession(responseData)
     } catch (error) {
-      setLocalState({ error: 'Failed to create checkout session', loading: false })
+      setLocalState({ error: error.message || 'Failed to create checkout session', loading: false })
     }
   }
 
@@ -129,8 +182,9 @@ export default function DonateForm () {
     <Formik
       initialValues={initialFormValues}
       validate={validateForm}
+      enableReinitialize
       onSubmit={async (values, opts) => {
-        await (statuses.isCheckoutSessionReady ? confirmCheckout() : donate(values))
+        await (statuses.isCheckoutSessionReady ? confirmCheckout() : createStripeSession(values))
         opts.setSubmitting(false)
       }}
     >
@@ -141,16 +195,13 @@ export default function DonateForm () {
         handleChange,
         handleBlur,
         handleSubmit,
+        setFieldValue,
         isSubmitting
       }) => (
         <Form className='flex flex-column f4-m ph2' onSubmit={handleSubmit}>
-          <div className='error tf-lato tc'>
-            <p className='red' aria-live='assertive'>{statuses.error}</p>
-          </div>
-
           <DonationFrequency
             name='frequencyIdx'
-            updateFrequency={handleChange}
+            updateFrequency={(e) => customOnFrequencyChange(e, setFieldValue)}
             frequencyIdx={values.frequencyIdx}
             availableFrequencies={availableFrequencies}
           />
@@ -168,13 +219,8 @@ export default function DonateForm () {
               onChange={handleChange}
               onBlur={handleBlur}
               fontFamily='inherit'
-              fontSize='md'
-              border='none'
               bg='white'
-              _invalid={{ borderColor: 'red.500' }}
               _placeholder={{ color: 'grey' }}
-              _focus={{ boxShadow: 'none' }}
-              _hover={{ border: 'none' }}
               aria-label='First Name' />
             <Field.ErrorText>{errors.firstName}</Field.ErrorText>
           </Field.Root>
@@ -192,12 +238,8 @@ export default function DonateForm () {
               onChange={handleChange}
               onBlur={handleBlur}
               fontFamily='inherit'
-              fontSize='md'
-              border='none'
               bg='white'
               _placeholder={{ color: 'grey' }}
-              _focus={{ boxShadow: 'none' }}
-              _hover={{ border: 'none' }}
               aria-label='Last Name' />
             <Field.ErrorText>{errors.lastName}</Field.ErrorText>
           </Field.Root>
@@ -209,18 +251,14 @@ export default function DonateForm () {
             <Input
               type='email'
               name='email'
-              maxLength={320} // max email address len
+              maxLength={320}
               placeholder='Email'
               value={values.email}
               onChange={handleChange}
               onBlur={handleBlur}
               fontFamily='inherit'
-              fontSize='md'
-              border='none'
               bg='white'
               _placeholder={{ color: 'grey' }}
-              _focus={{ boxShadow: 'none' }}
-              _hover={{ border: 'none' }}
               aria-label='Email'
             />
             <Field.ErrorText>{errors.email}</Field.ErrorText>
@@ -233,28 +271,42 @@ export default function DonateForm () {
             <InputGroup startElement='$' endElement='USD'>
               <Input
                 style={{ paddingLeft: '2rem' }}
-                type='text'
+                type='number'
                 name='amount'
                 placeholder='Amount'
                 maxLength={10}
                 value={values.amount}
-                onChange={handleChange}
+                onChange={(e) => customOnAmountChange(e, setFieldValue)}
                 onBlur={handleBlur}
+                onWheel={(e) => {
+                  e.target.blur()
+                }}
+                onKeyDown={(e) => {
+                  // Block minus key, plus key, and 'e' (scientific notation)
+                  if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E' || e.key === '.') {
+                    e.preventDefault()
+                  }
+                }}
+                min='1'
                 fontFamily='inherit'
-                fontSize='md'
-                border='none'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
-                _focus={{ boxShadow: 'none' }}
-                _hover={{ border: 'none' }}
                 aria-label='Amount' />
             </InputGroup>
             <Field.ErrorText>{errors.amount}</Field.ErrorText>
           </Field.Root>
+          <div className='error tf-lato tc'>
+            <p className='red' aria-live='assertive'>{statuses.error}</p>
+          </div>
+
           { statuses.loading && <h2 className='tc tf-lato mb3 mb3-m'>Loading...</h2>}
           {(statuses.isCheckoutSessionReady && checkoutSession) && (
             <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret: () => checkoutSession.clientSecret }}>
-              <ConfirmCheckout handleChange={handleChange} update={setCheckout} />
+              <StripePaymentElement
+                handleChange={handleChange}
+                update={setCheckout}
+                onStripeChange={handleStripeChange}
+              />
             </CheckoutProvider>
           )}
           <button
@@ -262,7 +314,7 @@ export default function DonateForm () {
             disabled={isSubmitting || statuses.loading}
             className='white btn-donate tf-lato b tc pa3 mt3 mt3-m mh-auto br-pill pointer w-50'
           >
-            {statuses.loading ? 'Processing...' : statuses.isCheckoutSessionReady ? 'Confirm Payment' : 'Donate'}
+            {statuses.loading ? 'Processing...' : statuses.isCheckoutSessionReady ? 'Confirm Payment' : 'Load Payment Form'}
           </button>
         </Form>
       )}

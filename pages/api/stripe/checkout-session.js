@@ -12,8 +12,40 @@ export default async (req, res) => {
     email: data.email
   })
 
+  const isTicketPurchase = data.isTicket || false
+  let productName
+  let recurring
+  if (isTicketPurchase) {
+    productName = `Teacher Fund Ticket (${data.quantity}) purchased: ${data.frequency}`
+  } else {
+    productName = `Teacher Fund Donation of $${data.amount / 100}`
+    recurring = data.mode === 'subscription' ? {
+      interval: 'month'
+    } : undefined
+  }
+
   // Create checkout session for the user
   try {
+    // Cancel the customer's existing subscription
+    if (!isTicketPurchase && recurring) {
+      const { data: subscriptions } = await stripe.subscriptions.list({
+        customer: customer.id,
+        status: 'active',
+        limit: 1
+      })
+
+      if (subscriptions.length > 0) {
+        // Ensure it is not the same subscription
+        const { items: { data: [firstItem] } } = subscriptions[0]
+        if (firstItem.price.unit_amount === data.amount) {
+          return res.status(400).json({ error: 'You already have a recurring donation of the same amount' })
+        }
+
+        await stripe.subscriptions.cancel(subscriptions[0].id)
+      }
+    }
+
+    // Create a new checkout session
     const session = await stripe.checkout.sessions.create({
       customer: customer.id,
       ui_mode: 'custom',
@@ -24,21 +56,19 @@ export default async (req, res) => {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: `Teacher Fund Donation of $${data.amount / 100}`
+              name: productName
             },
-            recurring: data.mode === 'subscription' ? {
-              interval: 'month'
-            } : undefined,
+            recurring,
             unit_amount: data.amount
           },
-          quantity: 1
+          quantity: data.quantity || 1
         }
       ],
-      return_url: `${process.env.DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`
+      return_url: isTicketPurchase ? `${process.env.DOMAIN}/ticket-success?session_id={CHECKOUT_SESSION_ID}` : `${process.env.DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`
     })
 
     res.json({ clientSecret: session.client_secret })
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create checkout session: ' + error.message })
+    res.status(500).json({ error: `Failed to create checkout session: ${error.message}` })
   }
 }
