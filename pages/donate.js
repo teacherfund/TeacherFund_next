@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PageWrapper from '../components/pageWrapper'
 import DonateForm from '../components/donateform'
 
 export default function Donate () {
   const [showPaypalButton] = useState(true)
   const [imgError, setImgError] = useState(false)
-  const [initialFrequency, setInitialFrequency] = useState(0)
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search)
-    const frequency = urlParams.get('frequency')
-
-    if (frequency === 'monthly') {
-      setInitialFrequency(1)
-    }
-  }, [])
 
   return (
     <PageWrapper title='Donate – The Teacher Fund'>
@@ -30,7 +20,7 @@ export default function Donate () {
             </p>
           </div>
           <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
-            <DonateForm initialFrequency={initialFrequency} />
+            <DonateForm />
           </div>
         </div>
         {showPaypalButton &&

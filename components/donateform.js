@@ -1,5 +1,6 @@
 /* global fetch */
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import DonationFrequency from './donationFrequency'
 import { Input, InputGroup, Field } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
@@ -40,8 +41,9 @@ const validateForm = (values) => {
   return errors
 }
 
-const StripePaymentElement = ({ handleChange, update }) => {
+const StripePaymentElement = ({ handleChange, update, onStripeChange }) => {
   const checkout = useCheckout()
+
   if (!checkout) {
     return <h2 className='tc tf-lato'>Loading payment options...</h2>
   }
@@ -52,6 +54,7 @@ const StripePaymentElement = ({ handleChange, update }) => {
     <div className='bg-white bn ba pa3 mb2'>
       <PaymentElement
         options={{ layout: 'tabs' }}
+        onChange={onStripeChange}
         handleChange={handleChange}
         name='cardNumber'
       />
@@ -59,7 +62,8 @@ const StripePaymentElement = ({ handleChange, update }) => {
   )
 }
 
-export default function DonateForm ({ initialFrequency = 0 }) {
+export default function DonateForm () {
+  const router = useRouter()
   const [statuses, setStatuses] = useState({
     loading: false,
     redirectSuccess: false,
@@ -69,8 +73,14 @@ export default function DonateForm ({ initialFrequency = 0 }) {
   const [checkoutSession, setCheckoutSession] = useState(null)
   const [checkout, setCheckout] = useState(null)
 
+  const getInitialFrequency = () => {
+    if (!router.isReady) return 0
+    const frequency = router.query.frequency
+    return frequency === 'monthly' ? 1 : 0
+  }
+
   const initialFormValues = {
-    frequencyIdx: initialFrequency,
+    frequencyIdx: getInitialFrequency(),
     firstName: '',
     lastName: '',
     email: '',
@@ -80,6 +90,49 @@ export default function DonateForm ({ initialFrequency = 0 }) {
   const setLocalState = (state) => {
     if (!state.error) state.error = ''
     setStatuses(prev => ({ ...prev, ...state }))
+  }
+
+  const handleStripeChange = () => {
+    if (statuses.error) {
+      setTimeout(() => setLocalState({ error: '' }), 300)
+    }
+  }
+
+  const customOnFrequencyChange = (event, setFieldValue) => {
+    const frequencyIdx = parseInt(event.target.value)
+
+    // Update form state
+    setFieldValue('frequencyIdx', frequencyIdx)
+
+    // Update URL
+    const frequencyParam = frequencyIdx === 1 ? 'monthly' : 'single'
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, frequency: frequencyParam }
+    }, undefined, { shallow: true })
+  }
+
+  const customOnAmountChange = (event, setFieldValue) => {
+    let inputValue = event.currentTarget.value
+
+    // Handle empty field or remove leading zeros
+    if (inputValue === '') {
+      setFieldValue('amount', '')
+      return
+    }
+
+    inputValue = inputValue.replace(/^0+/, '')
+
+    // Parse as decimal integer, then validate
+    const newAmount = parseInt(inputValue, 10)
+
+    // Only proceed if it's a valid number >= 1
+    if (isNaN(newAmount) || newAmount < 1) {
+      return
+    }
+
+    setFieldValue('amount', newAmount)
+    event.currentTarget.value = newAmount.toString()
   }
 
   const createStripeSession = async (formValues) => {
@@ -142,12 +195,13 @@ export default function DonateForm ({ initialFrequency = 0 }) {
         handleChange,
         handleBlur,
         handleSubmit,
+        setFieldValue,
         isSubmitting
       }) => (
         <Form className='flex flex-column f4-m ph2' onSubmit={handleSubmit}>
           <DonationFrequency
             name='frequencyIdx'
-            updateFrequency={handleChange}
+            updateFrequency={(e) => customOnFrequencyChange(e, setFieldValue)}
             frequencyIdx={values.frequencyIdx}
             availableFrequencies={availableFrequencies}
           />
@@ -222,15 +276,18 @@ export default function DonateForm ({ initialFrequency = 0 }) {
                 placeholder='Amount'
                 maxLength={10}
                 value={values.amount}
-                onChange={handleChange}
+                onChange={(e) => customOnAmountChange(e, setFieldValue)}
                 onBlur={handleBlur}
+                onWheel={(e) => {
+                  e.target.blur()
+                }}
                 onKeyDown={(e) => {
                   // Block minus key, plus key, and 'e' (scientific notation)
-                  if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
+                  if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E' || e.key === '.') {
                     e.preventDefault()
                   }
                 }}
-                min='0'
+                min='1'
                 fontFamily='inherit'
                 bg='white'
                 _placeholder={{ color: 'grey' }}
@@ -245,7 +302,11 @@ export default function DonateForm ({ initialFrequency = 0 }) {
           { statuses.loading && <h2 className='tc tf-lato mb3 mb3-m'>Loading...</h2>}
           {(statuses.isCheckoutSessionReady && checkoutSession) && (
             <CheckoutProvider stripe={stripePromise} options={{ fetchClientSecret: () => checkoutSession.clientSecret }}>
-              <StripePaymentElement handleChange={handleChange} update={setCheckout} />
+              <StripePaymentElement
+                handleChange={handleChange}
+                update={setCheckout}
+                onStripeChange={handleStripeChange}
+              />
             </CheckoutProvider>
           )}
           <button
