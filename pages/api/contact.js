@@ -14,8 +14,8 @@ export default async (req, res) => {
   }
 
   const { data, error } = await resend.emails.send({
-    from: "No Reply <noreply@theteacherfund.com>",
-    to: "joel@theteacherfund.com",
+    from: 'No Reply <noreply@theteacherfund.com>',
+    to: 'joel@theteacherfund.com',
     subject,
     react: ContactEmailTemplate({
       name,
