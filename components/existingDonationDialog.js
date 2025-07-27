@@ -64,6 +64,7 @@ const ExistingDonationDialog = ({
               fontSize='0.9rem'
               fontWeight='bold'
               textTransform='uppercase'
+              boxShadow='none'
               _hover={{
                 backgroundColor: '#336e7b',
                 color: 'white',
@@ -94,7 +95,7 @@ const ExistingDonationDialog = ({
             }}
             transition='all 0.2s ease-in-out'
           >
-            Submit
+            Continue
           </Button>
         </DialogFooter>
         <DialogCloseTrigger asChild>
