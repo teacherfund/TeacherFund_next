@@ -6,6 +6,7 @@ import Link from 'next/link'
 import ScrollToTop from '../components/ScrollToTop'
 
 const PageWrapper = (props) => {
+  const shouldShowBanner = false /* !props.noShowBanner */
   return <>
     <Head
       title={props.title}
@@ -14,7 +15,7 @@ const PageWrapper = (props) => {
     />
     <a href='#main-content' className='skip-link tf-oswald'>Skip to main content</a>
     <Nav />
-    {!props.noShowBanner ? (
+    {shouldShowBanner ? (
       <>
         <Box
           width='100%'

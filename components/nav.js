@@ -78,8 +78,7 @@ const Nav = () => {
         isScrolled ? 'shadow-2' : ''
       }`}
     >
-      <div className={`f6 f5-m tf-lato bg-white flex fl w-100 pl5-ns pr5-ns pl4 pr3 transition-all duration-300 ${
-        isScrolled ? 'pv2' : 'pv4'}`}>
+      <div className={`f6 f5-m tf-lato bg-white flex fl w-100 pl5-ns pr5-ns pl4 pr3 transition-all duration-300 pv3`}>
         <div className='w-70-l mh-auto b--tf-yellow flex justify-between flex-row w-100'>
           <div className='pointer tc'>
             <Link href='/' legacyBehavior>
