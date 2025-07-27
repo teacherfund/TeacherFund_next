@@ -92,21 +92,21 @@ class IndexPage extends Component {
               <div className='flex flex-row flex-wrap justify-center w-auto mt2 mt5-l center ph3 ph0-ns'>
                 <ProcessCard
                   title='Quality Teachers'
-                  icon={<img src='/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' />}
+                  icon={<img src='/images/Mortarboard_icon.png' className='contain' title='Icon of graduation cap' alt='Icon of graduation cap' />}
                 >
                   We fund dedicated teachers working diligently to improve their
                   classrooms and their students’ education.
                 </ProcessCard>
                 <ProcessCard
                   title='Local Schools'
-                  icon={<img src='/images/School_icon.png' className='contain' title='Icon of school' />}
+                  icon={<img src='/images/School_icon.png' className='contain' title='Icon of school' alt='Icon of school' />}
                 >
                   Partnering with nearby schools ensures we are providing exactly what
                   their teachers and students need.
                 </ProcessCard>
                 <ProcessCard
                   title='Tangible Impact'
-                  icon={<img src='/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' />}
+                  icon={<img src='/images/Hand_icon.png' className='contain' title='Icon of hand holding money cap' alt='Icon of hand holding money cap' />}
                 >
                   We monitor each dollar donated so you can see the direct
                   impact your donation has on these classrooms.

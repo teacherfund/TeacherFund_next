@@ -10,7 +10,7 @@ const teamMembers = [
   },
   {
     name: 'Michael Baldovino',
-    src: 'michael.jpeg',
+    src: 'michael.jpg',
     bio: `With experience in organizational development, Michael is passionate to grow equity and a greater sense of belonging within education.`
   },
   {
