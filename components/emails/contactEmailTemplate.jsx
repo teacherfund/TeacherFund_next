@@ -1,158 +1,95 @@
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  VStack,
-  HStack,
-  Separator,
-  CardBody,
-  Badge
-} from '@chakra-ui/react'
-import Card from '../card'
-
 const ContactEmailTemplate = ({ name, email, subject, message }) => {
   return (
-    <Box
-      bg='gray.50'
-      minH='100vh'
-      py={8}
-      fontFamily='body'
-    >
-      <Container maxW='2xl' centerContent>
-        <Card
-          w='full'
-          shadow='lg'
-          borderRadius='lg'
-          overflow='hidden'
-        >
-          <CardBody p={8}>
+    <div className='email-container'>
+      <div className='email-wrapper'>
+        <div className='email-card'>
+          <div className='email-card-body'>
             {/* Header */}
-            <VStack spacing={6} align='stretch'>
-              <Box>
-                <Heading
-                  as='h1'
-                  size='xl'
-                  color='blue.600'
-                  fontFamily='heading'
-                  mb={2}
-                >
+            <div className='email-header'>
+              <div>
+                <h1 className='email-title'>
                   The Teacher Fund
-                </Heading>
-                <Text color='gray.600' fontWeight='light'>
+                </h1>
+                <p className='email-subtitle'>
                   Contact Form Submission
-                </Text>
-                <Separator borderColor='blue.600' borderWidth='2px' mt={4} />
-              </Box>
+                </p>
+                <div className='email-separator' />
+              </div>
+            </div>
 
-              {/* Content */}
-              <Box>
-                <HStack spacing={3} align='center' mb={6}>
-                  <Heading as='h2' size='lg' color='blue.600' fontFamily='heading'>
-                    New Contact Form Message
-                  </Heading>
-                  <Badge colorScheme='blue' variant='subtle'>
-                    New
-                  </Badge>
-                </HStack>
+            {/* Content */}
+            <div className='email-content'>
+              <div className='email-content-header'>
+                <h2 className='email-content-title'>
+                  New Contact Form Message
+                </h2>
+                <span className='email-badge'>
+                  New
+                </span>
+              </div>
 
-                <VStack spacing={5} align='stretch'>
-                  {/* Name Field */}
-                  <Box>
-                    <Text fontWeight='bold' color='gray.700' mb={2}>
-                      Name:
-                    </Text>
-                    <Box
-                      bg='gray.50'
-                      p={4}
-                      borderRadius='md'
-                      borderLeft='4px solid'
-                      borderLeftColor='blue.600'
-                    >
-                      <Text wordBreak='break-word'>{name}</Text>
-                    </Box>
-                  </Box>
+              <div>
+                {/* Name Field */}
+                <div className='email-field'>
+                  <div className='email-field-label'>
+                    Name:
+                  </div>
+                  <div className='email-field-content'>
+                    <p className='email-field-text'>{name}</p>
+                  </div>
+                </div>
 
-                  {/* Email Field */}
-                  <Box>
-                    <Text fontWeight='bold' color='gray.700' mb={2}>
-                      Email:
-                    </Text>
-                    <Box
-                      bg='gray.50'
-                      p={4}
-                      borderRadius='md'
-                      borderLeft='4px solid'
-                      borderLeftColor='blue.600'
-                    >
-                      <Text wordBreak='break-word' color='blue.600'>
-                        {email}
-                      </Text>
-                    </Box>
-                  </Box>
+                {/* Email Field */}
+                <div className='email-field'>
+                  <div className='email-field-label'>
+                    Email:
+                  </div>
+                  <div className='email-field-content'>
+                    <p className='email-field-email'>{email}</p>
+                  </div>
+                </div>
 
-                  {/* Subject Field */}
-                  <Box>
-                    <Text fontWeight='bold' color='gray.700' mb={2}>
-                      Subject:
-                    </Text>
-                    <Box
-                      bg='gray.50'
-                      p={4}
-                      borderRadius='md'
-                      borderLeft='4px solid'
-                      borderLeftColor='blue.600'
-                    >
-                      <Text wordBreak='break-word' fontWeight='medium'>
-                        {subject}
-                      </Text>
-                    </Box>
-                  </Box>
+                {/* Subject Field */}
+                <div className='email-field'>
+                  <div className='email-field-label'>
+                    Subject:
+                  </div>
+                  <div className='email-field-content'>
+                    <p className='email-field-subject'>{subject}</p>
+                  </div>
+                </div>
 
-                  {/* Message Field */}
-                  <Box>
-                    <Text fontWeight='bold' color='gray.700' mb={2}>
-                      Message:
-                    </Text>
-                    <Box
-                      bg='gray.50'
-                      p={6}
-                      borderRadius='md'
-                      borderLeft='4px solid'
-                      borderLeftColor='blue.600'
-                    >
-                      <Text
-                        whiteSpace='pre-wrap'
-                        wordBreak='break-word'
-                        lineHeight='tall'
-                      >
-                        {message}
-                      </Text>
-                    </Box>
-                  </Box>
-                </VStack>
-              </Box>
+                {/* Message Field */}
+                <div className='email-field'>
+                  <div className='email-field-label'>
+                    Message:
+                  </div>
+                  <div className='email-field-content'>
+                    <p className='email-field-message'>{message}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-              {/* Footer */}
-              <Box pt={6}>
-                <Separator borderColor='gray.200' mb={4} />
-                <VStack spacing={2} align='flex-start'>
-                  <Text fontSize='sm' color='gray.500'>
-                    This message was sent from the Teacher Fund contact form.
-                  </Text>
-                  <Text fontSize='sm' color='gray.500'>
-                    Please respond directly to:{' '}
-                    <Text as='span' color='blue.600' fontWeight='medium'>
-                      {email}
-                    </Text>
-                  </Text>
-                </VStack>
-              </Box>
-            </VStack>
-          </CardBody>
-        </Card>
-      </Container>
-    </Box>
+            {/* Footer */}
+            <div className='email-footer'>
+              <div className='email-footer-separator' />
+              <div>
+                <p className='email-footer-text'>
+                  This message was sent from the Teacher Fund contact form.
+                </p>
+                <p className='email-footer-text'>
+                  Please respond directly to:{' '}
+                  <span className='email-footer-email'>
+                    {email}
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
