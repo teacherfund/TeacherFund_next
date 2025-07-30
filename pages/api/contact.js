@@ -21,7 +21,8 @@ export default async (req, res) => {
       name,
       email,
       subject,
-      message
+      message,
+      cc: email
     })
   })
 
