@@ -51,7 +51,7 @@ const ExistingDonationDialog = ({
             we'll update it for you to <strong>${newAmount}</strong> from now on.
           </Text>
         </DialogBody>
-        <DialogFooter className='flex justify-end gap-4'>
+        <DialogFooter className='flex justify-center gap-4'>
           <DialogActionTrigger asChild>
             <Button
               onClick={onCancel}
