@@ -81,7 +81,7 @@ const Nav = () => {
       <div className={`f6 f5-m tf-lato bg-white flex fl w-100 pl5-ns pr5-ns pl4 pr3 transition-all duration-300 pv3`}>
         <div className='w-70-l mh-auto b--tf-yellow flex justify-between flex-row w-100'>
           <div className='pointer tc'>
-            <Link href='/' legacyBehavior>
+            <Link href='/'>
               <img src='/images/Logo_with_text.png' className='w4' alt='The Teacher Fund – Home' />
             </Link>
           </div>
