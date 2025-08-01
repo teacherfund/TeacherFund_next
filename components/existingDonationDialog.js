@@ -100,10 +100,9 @@ const ExistingDonationDialog = ({
         </DialogFooter>
         <DialogCloseTrigger asChild>
           <CloseButton
+            as='span'
             size='sm'
             position='absolute'
-            top='1rem'
-            right='1rem'
             color='#95a4a6'
             _hover={{
               color: '#434343',
