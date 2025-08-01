@@ -154,25 +154,25 @@ class IndexPage extends Component {
                     </div>
                   </Box>
                 </div>
-                <Link href='/blog' legacyBehavior>
-                  <Button
-                    textAlign='center'
-                    width='auto'
-                    margin='auto'
-                    bg='orange.300'
-                    color='white'
-                    borderColor='orange.300'
-                    borderWidth='0.2rem'
-                    fontFamily='Lato'
-                    padding='1.5rem'
-                    fontSize={['md', 'sm', 'lg', 'xl']}
-                    _hover={{ bg: 'white', color: 'orange.300' }}
-                    _focus={{ boxShadow: 'outline' }}
-                    fontWeight='none'
-                  >
+                <Button
+                  as={Link}
+                  href='/blog'
+                  textAlign='center'
+                  width='auto'
+                  margin='auto'
+                  bg='orange.300'
+                  color='white'
+                  borderColor='orange.300'
+                  borderWidth='0.2rem'
+                  fontFamily='Lato'
+                  padding='1.5rem'
+                  fontSize={['md', 'sm', 'lg', 'xl']}
+                  _hover={{ bg: 'white', color: 'orange.300' }}
+                  _focus={{ boxShadow: 'outline' }}
+                  fontWeight='none'
+                >
                     Check out our past deliveries
-                  </Button>
-                </Link>
+                </Button>
               </div>
             </div>
           </section>
@@ -196,7 +196,7 @@ class IndexPage extends Component {
                     <Box w='100%' p={4} display='block' marginLeft='0' marginRight='0' marginTop='7px'>
 
                       {/* Donate Button */}
-                      <Link href='/donate?frequency=monthly' legacyBehavior>
+                      <Link href='/donate?frequency=monthly'>
                         <Box
                           as='button'
                           color='white'
@@ -239,7 +239,7 @@ class IndexPage extends Component {
                     {/* Apply Today Button */}
                     <Link
                       href='mailto:joelwass@theteacherfund.com?subject=Application'
-                      legacyBehavior>
+                    >
                       <Box
                         as='button'
                         color='white'
