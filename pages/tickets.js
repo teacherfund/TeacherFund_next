@@ -1,7 +1,7 @@
 import React from 'react'
 import PageWrapper from '../components/pageWrapper'
-import DonateTicketForm from '../components/donateTicketForm'
-import { Box } from '@chakra-ui/react'
+// import DonateTicketForm from '../components/donateTicketForm'
+// import { Box } from '@chakra-ui/react'
 
 export default function Tickets () {
   return (
@@ -10,9 +10,9 @@ export default function Tickets () {
         <div className='flex flex-column bg-trans-gray justify-between ph3 pv4 pv5-ns pa4-ns'>
           <div className='flex flex-column tf-lato tc mv-auto'>
             <h1 className='tf-dark-gray f2 f1-l tf-oswald fl'>
-                The Teacher Fund-Raiser!
+                The Teacher Fund-Raiser was cancelled this year...
             </h1>
-            <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
+            {/* <p className='tf-lato-lite f3-m pa1 w-75-m w-50-l m-auto lh-5 lh-copy mv2'>
                 100% of your ticket donation goes toward funding teachers in our local area. You can
                 give knowing that your entire gift will help equip classrooms and help students.
             </p>
@@ -40,10 +40,10 @@ export default function Tickets () {
             </div>
             <p>Patron tickets cover the costs of our local educators in attendance.</p>
             <b> All ticket purchases and donations are a 501c3 tax deductible donation</b> and receipts
-              can be retrieved by logging in with the email used for ticket purchase.
+              can be retrieved by logging in with the email used for ticket purchase. */}
           </div>
           <div className='flex flex-column w-100 w-70-m w-30-l m-auto'>
-            <DonateTicketForm />
+            {/* <DonateTicketForm /> */}
           </div>
         </div>
       </React.Fragment>
