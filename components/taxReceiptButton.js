@@ -1,6 +1,12 @@
 /* global fetch */
 import React, { useState, useEffect } from 'react'
-import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
+import {
+  Button,
+  MenuContent,
+  MenuItem,
+  MenuRoot,
+  MenuTrigger
+} from '@chakra-ui/react'
 import { Toaster, toaster } from './ui/toaster'
 import {
   getCurrentYear,
@@ -18,18 +24,24 @@ const GetTaxReceiptsButton = ({
   isLoading = false
 }) =>
   taxYears && taxYears.length > 1 ? (
-    <Menu>
-      <MenuButton className='ttu btn-primary tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer'>
-        Get Tax Receipt
-      </MenuButton>
-      <MenuList>
+    <MenuRoot>
+      <MenuTrigger asChild>
+        <Button className='ttu btn-primary tf-lato b tc pa3 w-75 w-50-ns m-auto br-pill pointer'>
+          Get Tax Receipt
+        </Button>
+      </MenuTrigger>
+      <MenuContent>
         {taxYears.map((year) => (
-          <MenuItem onClick={() => handleSelectTaxYear(year)} key={year}>
+          <MenuItem
+            value={year.toString()}
+            onClick={() => handleSelectTaxYear(year)}
+            key={year}
+          >
             {year}
           </MenuItem>
         ))}
-      </MenuList>
-    </Menu>
+      </MenuContent>
+    </MenuRoot>
   ) : (
     <Button
       className='ttu btn-primary tf-lato b tc m-auto pointer'
