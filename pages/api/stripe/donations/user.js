@@ -21,11 +21,8 @@ export default async (req, res) => {
     if (!customer) {
       return res.json(customerTransactions)
     }
+
     const { id, metadata } = customer
-    const opts = {
-      customer: id,
-      limit: 100
-    }
     const { query } = req
     const { start, end } = query
     const startDate = start && getUnix(new Date(start))
@@ -36,17 +33,38 @@ export default async (req, res) => {
       customerTransactions.data.user = { firstName, lastName }
     }
 
-    if (startDate || endDate) {
-      opts.created = {}
-      if (startDate) {
-        opts.created.gte = startDate
+    let allCharges = []
+    let hasMore = true
+    let startingAfter = null
+
+    while (hasMore) {
+      const opts = {
+        customer: id,
+        limit: 100,
+        starting_after: startingAfter || undefined
       }
-      if (endDate) {
-        opts.created.lte = endDate
+
+      if (startDate || endDate) {
+        opts.created = {}
+        if (startDate) {
+          opts.created.gte = startDate
+        }
+        if (endDate) {
+          opts.created.lte = endDate
+        }
+      }
+
+      const chargesData = await stripe.charges.list(opts)
+
+      allCharges = allCharges.concat(chargesData.data)
+
+      hasMore = chargesData.has_more
+      if (hasMore) {
+        startingAfter = chargesData.data[chargesData.data.length - 1].id
       }
     }
-    const chargesData = await stripe.charges.list(opts)
-    customerTransactions.data.transactions = chargesData.data.map(charge => {
+
+    customerTransactions.data.transactions = allCharges.map((charge) => {
       const { amount, created } = charge
       return { amount, created }
     })
