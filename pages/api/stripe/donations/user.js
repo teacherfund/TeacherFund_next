@@ -22,7 +22,10 @@ export default async (req, res) => {
       return res.json(customerTransactions)
     }
     const { id, metadata } = customer
-    const opts = { customer: id }
+    const opts = {
+      customer: id,
+      limit: 100
+    }
     const { query } = req
     const { start, end } = query
     const startDate = start && getUnix(new Date(start))
