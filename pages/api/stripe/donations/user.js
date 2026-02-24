@@ -33,6 +33,7 @@ export default async (req, res) => {
       customerTransactions.data.user = { firstName, lastName }
     }
 
+    // used for stripe pagination, as stripe limits to 100 items per request
     let allCharges = []
     let hasMore = true
     let startingAfter = null
@@ -59,8 +60,11 @@ export default async (req, res) => {
       allCharges = allCharges.concat(chargesData.data)
 
       hasMore = chargesData.has_more
-      if (hasMore) {
+
+      if (hasMore && chargesData.data.length > 0) {
         startingAfter = chargesData.data[chargesData.data.length - 1].id
+      } else {
+        hasMore = false
       }
     }
 
