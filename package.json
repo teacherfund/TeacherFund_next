@@ -28,7 +28,7 @@
     "isomorphic-fetch": "^3.0.0",
     "magic-sdk": "^2.6.0",
     "next": "15.3.8",
-    "npm": "^11.3.0",
+    "npm": "^11.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.56.3",
