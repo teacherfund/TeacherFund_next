@@ -1,4 +1,3 @@
-import React from 'react'
 import App from 'next/app'
 import withContext from '../containers/withContext'
 import { ChakraProvider } from '@chakra-ui/react'

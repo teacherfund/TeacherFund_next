@@ -1,0 +1,184 @@
+@import './_variables';
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:500,300,400');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
+:root {
+  --pencil-yellow: #{$pencil-yellow};
+  --lead-gray: #{$lead-gray};
+  --eraser-pink: #{$eraser-pink};
+  --dark-teal: #{$dark-teal};
+  --light-gray: #{$light-gray};
+  --blue-600: #3182ce;
+  --gray-50: #f9fafb;
+  --gray-200: #e5e7eb;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+}
+
+/* Base Email Container Styles */
+.email-container {
+  background-color: var(--gray-50);
+  min-height: 100vh;
+  padding: 2rem 0;
+  font-family: "Oswald", Lato, Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.email-wrapper {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.email-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: $shadow-light;
+  overflow: hidden;
+  width: 100%;
+}
+
+.email-card-body {
+  padding: 2rem;
+  
+  @media (min-width: 48em) {
+    padding: 3.125rem;
+  }
+}
+
+/* Header Styles */
+.email-header {
+  margin-bottom: 1.5rem;
+}
+
+.email-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: var(--blue-600);
+  font-family: "Oswald", Lato, sans-serif;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.email-subtitle {
+  color: var(--gray-600);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.email-separator {
+  border-top: 2px solid var(--blue-600);
+  margin-top: 1rem;
+}
+
+/* Content Styles */
+.email-content {
+  margin-bottom: 1.5rem;
+}
+
+.email-content-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.email-content-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--blue-600);
+  font-family: "Oswald", Lato, sans-serif;
+  margin: 0;
+}
+
+.email-badge {
+  background-color: var(--blue-600);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Field Styles */
+.email-field {
+  margin-bottom: 1.25rem;
+}
+
+.email-field-label {
+  font-weight: bold;
+  color: var(--gray-700);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.email-field-content {
+  background-color: var(--gray-50);
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border-left: 4px solid var(--blue-600);
+}
+
+.email-field-text {
+  word-break: break-word;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.email-field-email {
+  color: var(--blue-600);
+  word-break: break-word;
+  margin: 0;
+}
+
+.email-field-subject {
+  font-weight: 500;
+  word-break: break-word;
+  margin: 0;
+}
+
+.email-field-message {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Footer Styles */
+.email-footer {
+  padding-top: 1.5rem;
+}
+
+.email-footer-separator {
+  border-top: 1px solid var(--gray-200);
+  margin-bottom: 1rem;
+}
+
+.email-footer-text {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  margin-bottom: 0.5rem;
+}
+
+.email-footer-email {
+  color: var(--blue-600);
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 30em) {
+  .email-card-body {
+    padding: 1.5rem;
+  }
+  
+  .email-title {
+    font-size: 1.5rem;
+  }
+  
+  .email-content-title {
+    font-size: 1.25rem;
+  }
+} 
