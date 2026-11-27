@@ -15,14 +15,15 @@ const deleteDonation = async ({ email, subscriptionId }) => {
 
       const subscriptions = await stripe.subscriptions.list({
         customer: customers.data[0].id,
-        status: 'active',
-        limit: 1
+        status: 'all',
+        limit: 10
       })
-      if (!subscriptions.data.length) {
+      const subscription = subscriptions.data.find(s => ['active', 'past_due'].includes(s.status))
+      if (!subscription) {
         throw new Error('No active subscription found for this customer')
       }
 
-      subscriptionId = subscriptions.data[0].id
+      subscriptionId = subscription.id
     }
 
     await stripe.subscriptions.cancel(subscriptionId, {
