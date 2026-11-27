@@ -14,6 +14,7 @@ const Account = () => {
   const [pageLoading, setPageLoading] = useState(true)
   const [hasValidated, setHasValidated] = useState(false)
   const [cancelLoading, setCancelLoading] = useState(false)
+  const [portalLoading, setPortalLoading] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -50,6 +51,26 @@ const Account = () => {
     }
   }
 
+  const updatePaymentMethod = async () => {
+    setPortalLoading(true)
+    try {
+      const response = await fetch('/api/stripe/billing-portal', { method: 'POST' })
+      const data = await response.json()
+      if (!response.ok || !data.url) {
+        throw new Error(data.error)
+      }
+      window.location.assign(data.url)
+    } catch (e) {
+      toaster.create({
+        title: 'There was an issue opening the payment page.',
+        description: e.message || 'Please try again later.',
+        closable: true,
+        type: 'error'
+      })
+      setPortalLoading(false)
+    }
+  }
+
   const tweet =
     'https://x.com/intent/tweet?url=https%3A%2F%2Ftheteacherfund.com%2f&text=Support%20teachers%20with%20The%20Teacher%20Fund,%20check%20it%20out%20at'
 
@@ -80,9 +101,19 @@ const Account = () => {
               <div className='tf-oswald ts-subtext pv2 tc'>
                 Current Monthly Donation
               </div>
-              <Text className='pa1' fontSize='2rem' padding={['1rem', '3rem']}>
+              <Text
+                className='pa1'
+                fontSize='2rem'
+                padding={['1rem', '3rem']}
+                paddingBottom={user?.paymentLast4 ? ['0.25rem', '0.5rem'] : undefined}
+              >
                 $ {user && user.donationAmount ? user.donationAmount / 100 : 0}
               </Text>
+              {user?.paymentLast4 && (
+                <Text color='gray.500' letterSpacing='0.1em' marginBottom={['1rem', '2rem']}>
+                  Payment Method: •••• •••• •••• {user.paymentLast4}
+                </Text>
+              )}
               <Text fontSize='1.3rem' marginBottom='2rem'>
                 Public school teachers appreciate your contribution more than
                 you know. Words do not do justice.
@@ -106,6 +137,27 @@ const Account = () => {
                   Spread the Word
                 </a>
               </div>
+              {user && user.subscriptionStatus === 'past_due' && (
+                <Text color='red.600' marginBottom='1rem'>
+                  Your last donation payment failed. Please update your payment method.
+                </Text>
+              )}
+              {user && user.customerId && (
+                <div className='mb3'>
+                  <Button
+                    color='white'
+                    loading={portalLoading}
+                    backgroundColor='gray.700'
+                    borderRadius='9999px'
+                    height='56px'
+                    width={['75%', '50%']}
+                    className='tf-lato ttu b tc pa2 m-auto'
+                    onClick={updatePaymentMethod}
+                  >
+                    <span>Update payment method</span>
+                  </Button>
+                </div>
+              )}
               {user && user.subscriptionId && (
                 <div className='mb3'>
                   <Button
