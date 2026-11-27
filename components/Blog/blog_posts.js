@@ -1,7 +1,24 @@
 import React from 'react'
 
-// Next id: 15
+// Next id: 16
 const staticBlogContent = [
+  {
+    title: 'Talbot Hill Elementary - September 2026',
+    images: ['/images/drops/talbot/talbot_hill_2.jpg', '/images/drops/talbot/talbot_hill_1.jpg'],
+    summary: `The Teacher Fund initiates support for Talbot Hill Elementary School in...`,
+    content: (
+      <div>
+        The Teacher Fund initiates support for Talbot Hill Elementary School in Renton Washington.
+        Through a child's introduction, we had the pleasure of being introduced to Talbot Hill Elementary administrators. We subsequently supported
+        two teachers with $1000 each in school supplies, hopefully outfitting classrooms well into the future
+        in order to provide the best learning environment possible.
+        <br /><br />
+        Talbot Hill ELementary School is in the Seattle Area, and we're excited to welcome yet another school in Seattle under the Teacher Fund support umbrella!
+      </div>
+    ),
+    school: 'Talbot Hill Elementary School',
+    blogId: 16
+  },
   {
     title: 'Emerson Elementary - February 2025',
     images: ['/images/drops/emerson/1.jpg', '/images/drops/emerson/2.jpg', '/images/drops/emerson/3.jpg', '/images/drops/emerson/4.jpg', '/images/drops/emerson/5.jpg', '/images/drops/emerson/6.jpg', '/images/drops/emerson/7.jpg'],
